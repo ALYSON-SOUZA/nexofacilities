@@ -1,0 +1,63 @@
+================================================================================
+          MAPA MENTAL TEXTUAL — CRIAÇÃO DO SISTEMA BP-COMPRAS & MÓDULO MEI
+================================================================================
+
+[NÓ CENTRAL] SISTEMA INTEGRADO BP-COMPRAS & GESTÃO DE FORNECEDORES MEI
+  │
+  ├─── [1] PLANEJAMENTO E CONCEPÇÃO (Mapeamento do Projeto)
+  │     ├─── Escopo Funcional: Cotações, Estoque de Materiais, Cadastro e Emissão MEI
+  │     ├─── Arquitetura Técnica: Single Page Application (SPA), serverless, offline-resilient
+  │     ├─── Ferramentas: Vite, React, Tailwind, Supabase (Banco de Dados), Gemini (IA)
+  │     └─── Identidade Visual: Temas (Light, Comfort, Ultradark) e Cores Corporativas (Azul e Dourado)
+  │
+  ├─── [2] INFRAESTRUTURA E CONFIGURAÇÃO
+  │     ├─── Ambiente Local: Configuração do projeto com TypeScript e bundler Vite
+  │     ├─── Configuração do Supabase: Criação das tabelas "mei_suppliers", "quotes" e "categories"
+  │     ├─── Políticas de Segurança: Regras de RLS no Banco de Dados
+  │     └─── Instalação de Bibliotecas:
+  │           ├─── exceljs (Geração de planilhas formatadas de alta fidelidade)
+  │           ├─── jspdf (Geração de documentos PDF oficiais)
+  │           └─── lucide-react (Pacote iconográfico moderno)
+  │
+  ├─── [3] ENGENHARIA DE ESTADO E SINCRO
+  │     ├─── Declaração de Tipos (src/types.ts): Estrutura de dados rígida para Cotação, Estoque e MEI
+  │     ├─── Sincronizador de Dados (src/supabaseClient.ts):
+  │     │     ├─── Salvamento, busca, atualização e deleção assíncrona
+  │     │     └─── Mecanismo Fallback: Sincronização automática com LocalStorage caso offline
+  │     └─── Gerenciamento de Temas: Hook de persistência do modo de cor preferido pelo usuário
+  │
+  ├─── [4] INTERFACES DE INTERAÇÃO (VIEWS)
+  │     ├─── Painel de Cotação de Compras:
+  │     │     ├─── Tabela comparativa dinâmica (3 fornecedores x N produtos)
+  │     │     ├─── Destaque visual automático do menor preço de cada item (Verde Suave)
+  │     │     └─── Painel de métricas (Percentual de economia, gasto total, recomendação automática)
+  │     ├─── Painel de Gestão de Estoque:
+  │     │     ├─── Lista de inventário por categorias de materiais
+  │     │     ├─── Indicador de nível crítico de segurança com alertas visuais
+  │     │     └─── Histórico auditável de registro de saídas
+  │     ├─── Assistente Inteligente IA (Gemini):
+  │     │     ├─── Integração com o modelo Gemini no backend (API Segura)
+  │     │     └─── Prompt enriquecido com o contexto ativo (Cotação, Economia e Estoque)
+  │     └─── Modal Ficha de Contratação MEI:
+  │           ├─── Menu Lateral Esquerdo: Pesquisa rápida por nome/CPF e lista de cadastros na nuvem
+  │           └─── Painel Direito: Formulário com abas organizadas (Dados Pessoais, Endereço, Documentos, Banco)
+  │
+  ├─── [5] ENGENHARIA DE EXPORTAÇÃO (ALTA FIDELIDADE)
+  │     ├─── Mapeamento de Layout: Criação do modelo visual baseado na ficha de contratação oficial
+  │     ├─── Exportador de PDF (jsPDF):
+  │     │     ├─── Coordenadas vetoriais exatas para uma única folha A4
+  │     │     ├─── Títulos de seção coloridos e moldura azul institucional de 1.5pt
+  │     │     └─── Linhas para assinatura manual na base da página
+  │     └─── Exportador de Excel (ExcelJS) — REPLICA EXATA DO PDF:
+  │           ├─── Configuração da Folha: showGridLines desativado (fundo limpo sem grades padrão)
+  │           ├─── Grid Estruturado: Grade de 16 colunas com larguras estritas pré-definidas
+  │           ├─── Altura de Linha: Alturas personalizadas para cada tipo de linha (título, label, input, assinatura)
+  │           ├─── Cores Sólidas: Coisas institucionais em ARGB (Azul: FF1A3A5C, Ouro: FFE8A020)
+  │           ├─── Inputs de Dados: Criação de campos com preenchimento cinza sutil e bordas finas completas
+  │           ├─── Representação de Checkbox: Conversão de booleanos em marcações de texto exatas (X) e ( )
+  │           └─── Moldura de Contorno: Loop de varredura para aplicar borda média azul ao redor da grade inteira
+  │
+  └─── [6] CONTROLE DE QUALIDADE E ENTREGA
+        ├─── Validação Estática: Execução do linter do TypeScript para garantia de zero erros de tipagem
+        ├─── Teste de Funcionalidades: Ciclo completo de CRUD (Criar, Ler, Atualizar, Deletar)
+        └─── Compilação de Produção: Build otimizado para deploy em contêiner Cloud Run

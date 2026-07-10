@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FACILITIES BP-COMPRAS</title>
+  <style>
+    :root {
+      --bg-dark: #252A34;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      --color-cyan: #08D9D6;
+      --color-fuchsia: #FF2E63;
+      --color-slate-50: #f8fafc;
+      --color-slate-100: #f1f5f9;
+      --color-slate-200: #e2e8f0;
+      --color-slate-300: #cbd5e1;
+      --color-slate-400: #94a3b8;
+      --color-slate-600: #475569;
+      --color-slate-800: #1e293b;
+      --color-slate-900: #0f172a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background-color: var(--color-slate-50); color: var(--color-slate-900); padding-bottom: 3rem; font-size: 13px; line-height: 1.4; }
+
+    /* Print styling rules */
+    @media print {
+      body { background-color: #fff !important; color: #000 !important; padding-bottom: 0 !important; }
+      .print\:hidden { display: none !important; }
+      .print\:block { display: block !important; }
+      .card { border: 1px solid var(--color-slate-300) !important; box-shadow: none !important; background: #fff !important; page-break-inside: avoid; }
+      table { page-break-inside: auto; }
+      tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .hidden { display: none !important; }
+    .uppercase { text-transform: uppercase; }
+    .font-mono { font-family: var(--font-mono); }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+
+    /* Connection Banner */
+    .connection-banner {
+      background-color: #fef3c7; border-bottom: 1px solid #fde68a; padding: 0.6rem 1rem; text-align: center; font-size: 0.8rem; font-weight: 750; color: #92400e; display: flex; align-items: center; justify-content: center; gap: 0.5rem; position: sticky; top: 0; z-index: 1000;
+    }
+    .connection-banner.connected { background-color: #d1fae5; border-bottom: 1px solid #a7f3d0; color: #065f46; }
+    .connection-btn { background-color: var(--color-slate-900); color: #fff; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; font-size: 0.75rem; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+    .connection-btn:hover { background-color: #020617; }
+
+    /* Login Area */
+    .login-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background-color: var(--color-slate-50); position: relative; }
+    .login-banner-bar { position: absolute; top: 0; left: 0; right: 0; height: 6px; background-color: var(--color-fuchsia); }
+    .login-card { background-color: #fff; border-radius: 20px; border: 1px solid var(--color-slate-200); padding: 2rem; width: 100%; max-width: 420px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); position: relative; }
+    .login-logo { font-size: 1.6rem; font-weight: 900; color: var(--color-slate-900); margin-bottom: 0.5rem; text-align: center; }
+    .login-logo span { color: var(--color-fuchsia); }
+    .login-divider { width: 4rem; height: 4px; background-color: var(--color-fuchsia); border-radius: 2px; margin: 0.5rem auto 1.5rem auto; }
+    .form-group { margin-bottom: 1rem; }
+    .form-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--color-slate-600); margin-bottom: 0.35rem; display: block; }
+    .form-input { width: 100%; background-color: var(--color-slate-100); border: 1px solid var(--color-slate-200); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; font-weight: 700; color: var(--color-slate-900); }
+    .form-input:focus { outline: none; border-color: var(--color-fuchsia); background-color: #fff; }
+    .login-btn { width: 100%; background-color: var(--color-fuchsia); color: #fff; border: none; border-radius: 9999px; padding: 0.8rem; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 1.5rem; box-shadow: 0 4px 10px rgba(255,46,99,0.2); transition: all 0.2s; }
+    .login-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .error-msg { font-size: 0.7rem; font-weight: 700; color: var(--color-fuchsia); margin-top: 0.25rem; }
+
+    /* Main Header */
+    .app-header { margin-bottom: 1rem; }
+    .header-top { display: flex; items-center: center; justify-content: space-between; align-items: center; padding-bottom: 0.5rem; }
+    .brand-title { font-size: 1.3rem; font-weight: 900; color: var(--color-slate-900); }
+    .brand-title span { color: var(--color-fuchsia); }
+    .cot-badge { font-family: var(--font-mono); font-size: 0.55rem; font-weight: 900; background-color: rgba(255,46,99,0.1); border: 1px solid rgba(255,46,99,0.2); color: var(--color-fuchsia); border-radius: 4px; padding: 2px 5px; margin-left: 0.5rem; vertical-align: middle; }
+    .editing-alert { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 900; background-color: #fffbeb; border: 1px solid #fef3c7; color: #d97706; border-radius: 6px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 8px; margin-left: 10px; }
+    .operator-pill { background-color: var(--color-slate-100); border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.7rem; font-weight: 700; color: var(--color-slate-600); display: flex; align-items: center; gap: 0.5rem; }
+    .operator-pill strong { color: var(--color-slate-900); font-weight: 900; }
+    .pink-line { height: 4px; background-color: var(--color-fuchsia); border-radius: 2px; width: 100%; margin-bottom: 0.75rem; }
+    .logout-btn { background: none; border: none; color: var(--color-slate-400); cursor: pointer; display: inline-flex; align-items: center; }
+    .logout-btn:hover { color: var(--color-fuchsia); }
+
+    /* Horizontal layout controls */
+    .action-bar { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+    @media (min-width: 768px) { .action-bar { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .section-title-wrap { border-left: 4px solid var(--color-fuchsia); padding-left: 0.65rem; }
+    .section-title { font-size: 0.85rem; font-weight: 900; tracking-spacing: 0.05em; color: var(--color-slate-900); display: flex; align-items: center; gap: 0.5rem; }
+    .category-active-btn { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 800; background-color: rgba(255, 46, 99, 0.08); border: 1px solid rgba(255, 46, 99, 0.2); color: var(--color-fuchsia); border-radius: 4px; padding: 3px 8px; cursor: pointer; }
+    .category-active-btn:hover { background-color: rgba(255, 46, 99, 0.15); }
+    .section-subtitle { font-size: 0.65rem; font-weight: 700; color: var(--color-slate-400); margin-top: 1px; }
+    .controls-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+
+    /* Inputs and Buttons */
+    .pill-input-box { background-color: #fff; border: 1px solid var(--color-slate-200); border-radius: 9999px; padding: 0.2rem 0.75rem; display: flex; align-items: center; gap: 0.3rem; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+    .pill-input-box label { font-size: 0.45rem; font-weight: 900; text-transform: uppercase; color: var(--color-slate-400); display: block; line-height: 1; }
+    .pill-input-box input { border: none; width: 3.5rem; font-size: 0.7rem; font-weight: 900; color: var(--color-slate-900); padding: 0; outline: none; margin-top: 11px; margin-top: 1px; }
+    .btn { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 9999px; padding: 0.4rem 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; border: 1px solid transparent; transition: all 0.15s; }
+    .btn-white { background-color: #fff; border-color: var(--color-slate-200); color: var(--color-slate-600); }
+    .btn-white:hover { border-color: var(--color-slate-300); color: var(--color-slate-900); }
+    .btn-fuchsia { background-color: var(--color-fuchsia); color: #fff; }
+    .btn-fuchsia:hover { filter: brightness(1.1); }
+    .btn-cyan { background-color: var(--color-cyan); color: var(--color-slate-900); }
+    .btn-cyan:hover { filter: brightness(1.05); }
+
+    /* Feedback message */
+    .toast-feedback { fixed: true; position: fixed; top: 1rem; right: 1rem; z-index: 1100; background-color: var(--color-fuchsia); color: #fff; font-weight: 800; font-size: 0.7rem; padding: 0.5rem 1rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: zoomIn 0.2s; }
+
+    /* Cards */
+    .card { background-color: #fff; border-radius: 16px; border: 1px solid var(--color-slate-200); padding: 1rem; margin-bottom: 1rem; }
+    .card-title-wrap { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid var(--color-slate-100); padding-bottom: 0.5rem; }
+    .card-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-slate-900); display: flex; align-items: center; gap: 0.35rem; }
+
+    /* Suppliers edit cards list */
+    .suppliers-edit-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1rem; }
+    @media (min-width: 640px) { .suppliers-edit-grid { grid-template-columns: repeat(3, 1fr); } }
+    .supplier-edit-pill { background-color: var(--color-slate-100); border: 1px solid var(--color-slate-200); border-radius: 10px; padding: 0.35rem 0.5rem; position: relative; }
+    .supplier-edit-pill .sup-num { font-family: var(--font-mono); font-size: 0.5rem; font-weight: 900; color: var(--color-slate-400); display: flex; justify-content: space-between; }
+    .supplier-edit-pill input { background: none; border: none; font-size: 0.7rem; font-weight: 800; color: var(--color-slate-900); width: 100%; padding: 0.15rem 0 0 0; outline: none; text-transform: uppercase; }
+    .delete-sup-badge { color: var(--color-slate-400); cursor: pointer; font-weight: 800; font-size: 0.75rem; }
+    .delete-sup-badge:hover { color: var(--color-fuchsia); }
+    .supplier-details-row { display: flex; gap: 8px; font-size: 0.55rem; color: var(--color-slate-400); margin-top: 2px; }
+    .supplier-details-row input { font-size: 0.55rem; color: var(--color-slate-600); font-weight: normal; width: 50%; border-bottom: 1px dashed var(--color-slate-200); }
+
+    /* Grid Table styling */
+    .table-container { overflow-x: auto; margin-bottom: 1rem; border-radius: 8px; border: 1px solid var(--color-slate-200); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.75rem; }
+    th { background-color: var(--color-slate-100); font-weight: 800; text-transform: uppercase; font-size: 0.65rem; color: var(--color-slate-400); padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--color-slate-200); }
+    td { padding: 0.45rem 0.65rem; border-bottom: 1px solid var(--color-slate-100); vertical-align: middle; }
+    .cheap-highlight { background-color: rgba(8, 217, 214, 0.08) !important; border: 2.5px solid var(--color-cyan) !important; font-weight: bold; }
+    .item-row:hover td { background-color: var(--color-slate-50); }
+    .price-input { border: 1px solid var(--color-slate-200); background-color: #fff; border-radius: 4px; padding: 0.25rem 0.4rem; font-size: 0.7rem; font-weight: 700; width: 4.5rem; font-family: var(--font-mono); text-align: right; }
+    .price-input:focus { outline: none; border-color: var(--color-cyan); }
+    .qty-input { border: 1px solid var(--color-slate-200); border-radius: 4px; padding: 0.25rem; font-size: 0.7rem; font-weight: bold; width: 2.75rem; text-align: center; }
+    .remove-row-btn { background: none; border: none; color: var(--color-slate-400); cursor: pointer; font-size: 0.85rem; padding: 2px; }
+    .remove-row-btn:hover { color: var(--color-fuchsia); }
+
+    /* Quick entry item tools */
+    .quick-entry-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.5rem; background-color: var(--color-slate-50); padding: 0.5rem; border-radius: 8px; }
+    .quick-entry-row input { background-color: #fff; border: 1px solid var(--color-slate-200); border-radius: 4px; padding: 0.35rem 0.5rem; font-size: 0.7rem; font-weight: 700; }
+    .quick-entry-row input.item-name { flex: 1; min-width: 140px; }
+    .quick-entry-row input.item-qty { width: 3.5rem; text-align: center; }
+
+    /* Clipboard Importer area */
+    .clipboard-importer-container { margin-top: 1rem; background-color: rgba(8, 217, 214, 0.02); border: 1px dashed var(--color-slate-300); border-radius: 8px; padding: 0.75rem; }
+    .importer-desc { font-size: 0.65rem; font-weight: 600; color: var(--color-slate-600); margin-bottom: 0.5rem; }
+    .importer-textarea { width: 100%; height: 4.5rem; background-color: #fff; border: 1px solid var(--color-slate-200); border-radius: 6px; padding: 0.5rem; font-family: var(--font-mono); font-size: 0.65rem; resize: vertical; color: var(--color-slate-900); }
+    .importer-textarea:focus { outline: none; border-color: var(--color-cyan); }
+    .importer-actions { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+
+    /* Summary grids charts styling */
+    .summary-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 768px) { .summary-grid { grid-template-columns: 1fr 1fr; } }
+    .composition-bar { height: 14px; background-color: #e2e8f0; border-radius: 9999px; overflow: hidden; display: flex; margin: 0.5rem 0 1rem 0; }
+    .composition-bar-segment { height: 100%; }
+    .composition-legend { display: flex; flex-direction: column; gap: 0.35rem; }
+    .composition-legend-item { display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; font-weight: 700; }
+    .legend-indicator { display: flex; align-items: center; gap: 0.35rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .decision-alert { background-color: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 10px; padding: 0.65rem; margin-bottom: 0.5rem; font-size: 0.7rem; }
+    .decision-alert strong { color: #065f46; text-decoration: underline decoration(var(--color-fuchsia)) 2px; }
+
+    /* Monthly comparative card layouts */
+    .history-cards-flex { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 0.75rem; padding-bottom: 4px; }
+    .hist-mini-card { flex: 1; min-width: 140px; background-color: #fff; border: 1px solid var(--color-slate-200); border-radius: 10px; padding: 0.5rem 0.65rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .hist-mini-card .month { font-size: 0.55rem; font-weight: 900; color: var(--color-slate-400); text-transform: uppercase; }
+    .hist-mini-card .price { font-size: 0.85rem; font-weight: 900; color: var(--color-slate-900); font-family: var(--font-mono); margin: 2px 0; }
+    .hist-mini-card .meta { font-size: 0.55rem; font-weight: 700; color: var(--color-slate-400); }
+    .trend-indicator { font-size: 0.6rem; font-weight: 800; padding: 1px 4px; border-radius: 4px; display: inline-block; margin-top: 3px; align-self: flex-start; }
+    .trend-dn { background-color: rgba(16,185,129,0.1); color: #059669; }
+    .trend-up { background-color: rgba(239,68,68,0.1); color: #dc2626; }
+    .trend-eq { background-color: var(--color-slate-100); color: var(--color-slate-600); }
+
+    /* SVG trends graph */
+    .svg-container { width: 100%; height: 160px; margin-top: 0.5rem; position: relative; }
+    .svg-axis-line { stroke: var(--color-slate-200); stroke-width: 1; }
+    .line-budget { stroke: var(--color-fuchsia); stroke-width: 3; fill: none; stroke-linecap: round; }
+    .line-capacity { stroke: #0284c7; stroke-dasharray: 4, 3; stroke-width: 2; fill: none; stroke-linecap: round; }
+
+    /* Category modal styling */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(37, 42, 52, 0.6); display: flex; align-items: center; justify-content: center; z-index: 1050; padding: 1rem; }
+    .modal-content { background-color: #fff; border-radius: 20px; border: 1px solid var(--color-slate-200); width: 100%; max-width: 480px; max-height: 85vh; overflow-y: auto; display: flex; flex-direction: column; box-shadow: 0 15px 30px -5px rgba(0,0,0,0.15); animation: zoomIn 0.15s; }
+    .modal-header { padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-slate-150); display: flex; align-items: center; justify-content: space-between; }
+    .modal-header h3 { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; color: var(--color-slate-900); }
+    .modal-close { background: none; border: none; font-size: 1.2rem; color: var(--color-slate-400); cursor: pointer; }
+    .modal-body { padding: 1rem 1.25rem; }
+    .category-scroll-box { max-height: 180px; overflow-y: auto; border: 1px solid var(--color-slate-250); border-radius: 10px; margin-bottom: 1rem; }
+    .category-modal-button { width: 100%; display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 0.55rem 0.75rem; border: none; border-bottom: 1px solid var(--color-slate-100); background: none; cursor: pointer; transition: all 0.1s; }
+    .category-modal-button:hover { background-color: rgba(255,46,99,0.03); }
+    .category-modal-button.selected { background-color: rgba(255,46,99,0.08); font-weight: bold; border-left: 4px solid var(--color-fuchsia); }
+    .category-modal-button .meta { font-size: 0.55rem; color: var(--color-slate-400); font-weight: bold; }
+
+    @keyframes zoomIn { from { transform: scale(0.97); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Toast Feedback Banner -->
+  <div id="toast-message" class="toast-feedback hidden"></div>
+
+  <!-- Connection Status Banner -->
+  <div id="file-sync-banner" class="connection-banner print:hidden">
+    <span>⚠️ Clique em conectar arquivo fonte para habilitar o salvamento automático diretamente em COMPRAS.html:</span>
+    <button id="connect-file-btn" class="connection-btn" onclick="requestFileHandle()">Conectar Arquivo</button>
+  </div>
+
+  <!-- Login Area -->
+  <div id="login-screen-view" class="login-container">
+    <div class="login-banner-bar"></div>
+    <div class="login-card">
+      <div class="login-logo">
+        FACILITIES <span>BP-COMPRAS</span>
+      </div>
+      <div class="login-divider"></div>
+      <div class="text-center" style="margin-bottom: 1.5rem;">
+        <span style="font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-slate-400);">
+          Controle de Auditoria e Custos
+        </span>
+        <p style="font-size: 0.65rem; color: var(--color-slate-600); margin-top: 0.25rem;">
+          Painel Inteligente para verificação e consolidação de orçamentos múltiplos.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="op-name">Nome Completo</label>
+        <input type="text" id="op-name" class="form-input" placeholder="Ex: ALYSON SOUZA" required minlength="3">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="op-cpf">CPF</label>
+        <input type="text" id="op-cpf" class="form-input" placeholder="000.000.000-00" required oninput="formatCpfInput(this)">
+        <div id="login-error-text" class="error-msg hidden"></div>
+      </div>
+
+      <button onclick="handleLoginSubmit(event)" class="login-btn">
+        Acessar Comparador &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- Main App Workspace -->
+  <div id="app-workspace-view" class="container hidden">
+    
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand-title">
+          FACILITIES <span>BP-COMPRAS</span>
+          <span id="active-cot-badge" class="cot-badge">COTAÇÃO ORIGINAL</span>
+          <span id="editing-alert-badge" class="editing-alert hidden">
+            <span>🖊️ EDITANDO COTAÇÃO</span>
+            <button class="btn btn-white" style="padding: 1px 6px; font-size: 0.55rem;" onclick="closeEditingSession()">Iniciar Nova</button>
+          </span>
+        </div>
+
+        <div class="operator-pill print:hidden">
+          <span>Operador: <strong id="header-operator-name">ALYSON</strong> (<span id="header-operator-cpf">000.000.000-00</span>)</span>
+          <button onclick="handleLogout()" class="logout-btn" title="Desconectar do painel" style="margin-left: 8px;">
+            <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pink-line"></div>
+
+      <!-- Action bar with reference input and state modifiers -->
+      <div class="action-bar print:hidden">
+        <div class="section-title-wrap">
+          <div class="section-title">
+            Painel Comparativo
+            <button id="category-trigger-btn" class="category-active-btn" onclick="openCategoryChangeModal()">
+              MATERIAL DE LIMPEZA ▾
+            </button>
+          </div>
+          <div class="section-subtitle">Otimização dinâmica de custos e cotações de insumos</div>
+        </div>
+
+        <div class="controls-row">
+          <div class="pill-input-box">
+            <svg style="width: 12px; height: 12px; color: var(--color-slate-400)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <div>
+              <label for="ref-month">Referência</label>
+              <input type="text" id="ref-month" value="jun/26" oninput="handleRefMonthChange(this.value)">
+            </div>
+          </div>
+
+          <button class="btn btn-white" onclick="openNewQuoteModal()" title="Iniciar nova rodada de cotação">
+            <strong>+ Nova Cotação</strong>
+          </button>
+
+          <button class="btn btn-white" onclick="resetActiveGrid()" title="Limpar todos os preços atuais">
+            Zerar Preços
+          </button>
+
+          <button class="btn btn-white" onclick="window.print()">
+            Imprimir
+          </button>
+
+          <button id="archive-quote-btn" class="btn btn-cyan" onclick="archiveCurrentQuote()">
+            Arquivar / Atualizar Comparativo
+          </button>
+
+          <button id="save-source-btn" class="btn btn-fuchsia" onclick="saveDirectlyToSource()">
+            Salvar Código-Fonte
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Suppliers names editing section -->
+    <section class="card print:hidden">
+      <div class="card-title-wrap">
+        <div class="card-title">
+          <svg style="width: 12px; height: 12px; color: var(--color-fuchsia)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          Cadastro de Fornecedores Ativos da Cotação
+        </div>
+        <button class="btn btn-white" style="font-size:0.55rem; padding: 2px 8px; border-radius: 4px;" onclick="addNewSupplier()">+ Adicionar Fornecedor</button>
+      </div>
+
+      <div class="suppliers-edit-grid" id="suppliers-panel-grid">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+
+    <!-- Main Table Card of Products -->
+    <section class="card">
+      <div class="card-title-wrap">
+        <div class="card-title">
+          <svg style="width: 12px; height: 12px; color: var(--color-cyan)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          Grelha de Preços Comparativos: <span id="active-category-title-label" style="text-transform: uppercase; font-weight: 950; color: var(--color-fuchsia); margin-left: 2px;">MATERIAL DE LIMPEZA</span>
+        </div>
+        <div class="controls-row">
+          <button class="btn btn-white print:hidden" style="padding: 0.2rem 0.5rem; font-size: 0.55rem; border-radius: 4px;" onclick="addBlankRowAtBottom()">
+            + Incluir Linha
+          </button>
+          <button class="btn btn-white print:hidden" style="padding: 0.2rem 0.5rem; font-size: 0.55rem; border-radius: 4px;" onclick="resetItemsToDefaultCategory()">
+            Restaurar Itens Padrão
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table id="prices-comparison-table">
+          <thead>
+            <!-- Filled dynamically -->
+          </thead>
+          <tbody id="quote-items-tbody">
+            <!-- Dynamic rows will inject here -->
+          </tbody>
+          <tfoot id="quote-items-tfoot">
+            <!-- Shared totals render here -->
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Quick Row Adders -->
+      <div class="quick-entry-row print:hidden">
+        <label class="form-label" style="margin: 0; width: 100%;">Adição Rápida de Insumo</label>
+        <input type="text" id="quick-add-name" class="item-name" placeholder="Ex: Rodo de Alumínio Reforçado" list="default-category-items-datalist">
+        <input type="number" id="quick-add-qty" class="item-qty" min="1" value="10">
+        <button class="btn btn-white" onclick="handleQuickAddItemSubmit()" style="border-radius: 4px;">+ Incluir</button>
+      </div>
+
+      <!-- Bulk Paste Clipboard Area -->
+      <div class="clipboard-importer-container print:hidden">
+        <div class="importer-desc">
+          <strong>📥 Importador em Lote (Excel):</strong> Cole colunas de planilhas Excel (Nome do Item [TAB] Quantidade) para substituir a grelha de insumos.
+        </div>
+        <textarea id="bulk-importer-textarea" class="importer-textarea" placeholder="Rastelo de metal	5&#10;Saco reforçado nylon	12&#10;Luva Amarela G	35"></textarea>
+        <div class="importer-actions">
+          <button class="btn btn-cyan" onclick="importBulkCopiedText(true)">Substituir Lista</button>
+          <button class="btn btn-white" onclick="importBulkCopiedText(false)">Adicionar ao Fim</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operational and Economics Summary Panel -->
+    <section class="summary-grid">
+      <!-- Optimal Mix scenario -->
+      <div class="card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg style="width: 12px; height: 12px; color: var(--color-cyan);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+            Composição da Compra Mista (Cenário de Melhor Preço)
+          </div>
+        </div>
+
+        <div class="composition-bar" id="mixed-comp-bar">
+          <!-- Filled dynamically -->
+        </div>
+
+        <div class="composition-legend" id="mixed-comp-legend">
+          <!-- Legend lines filled dynamically -->
+        </div>
+      </div>
+
+      <!-- Financial Audit Report -->
+      <div class="card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg style="width: 12px; height: 12px; color: var(--color-fuchsia);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Relatório de Economia & Gestão de Facilities
+          </div>
+        </div>
+
+        <div class="decision-alert">
+          <p style="font-weight: 800; margin-bottom: 2px; color: #111;">💡 Cenário de Menor Custo Fechado Único</p>
+          <div id="executive-decision-text">Insira preços para verificar o fechamento.</div>
+        </div>
+
+        <div style="background-color: var(--color-slate-50); padding: 0.5rem; border-radius: 8px; border: 1px solid var(--color-slate-200); font-family: var(--font-mono); font-size: 0.65rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
+            <span style="color: var(--color-slate-400);">Cenário Único Mais Caro:</span>
+            <span id="stat-worst-total">R$ 0,00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
+            <span style="color: var(--color-slate-400);">Cenário Compra Mista:</span>
+            <span id="stat-mixed-total" style="color: #059669; font-weight: 800;">R$ 0,00</span>
+          </div>
+          <div style="height: 1px; background-color: var(--color-slate-200); margin: 4px 0;"></div>
+          <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 0.7rem; color: var(--color-slate-900);">
+            <span>Economia Absoluta (Misto vs Caro):</span>
+            <span id="stat-max-savings" style="color: var(--color-fuchsia);">R$ 0,00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.55rem; color: var(--color-slate-400); margin-top: 1px;">
+            <span>Ganhos sobre Única Mais Barata:</span>
+            <span id="stat-incremental-savings" style="color: #059669;">R$ 0,00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monthly progress timeline summary CARDS -->
+    <section class="card" style="margin-top: 1rem;">
+      <div class="card-title-wrap">
+        <div class="card-title">
+          <svg style="width: 12px; height: 12px; color: #f97316;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Histórico e Evolução do Orçamento de Facilities
+        </div>
+        <span style="font-size:0.55rem; color: var(--color-slate-400); font-weight: bold; text-transform: uppercase;">Últimos 3 Meses Ativos</span>
+      </div>
+
+      <div class="history-cards-flex" id="history-mini-cards-box">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+
+    <!-- Row of Capacity editing + Trend Chart -->
+    <section class="summary-grid">
+      <!-- Capacity numbers table edit -->
+      <div class="card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg style="width: 12px; height: 12px; color: #0284c7;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Indicadores de Capacidade de Equipe / Colaboradores
+          </div>
+        </div>
+        
+        <table class="capacity-table">
+          <thead>
+            <tr>
+              <th>Referência</th>
+              <th style="width: 90px; text-align: center;">Colaboradores</th>
+              <th style="text-align: right;">Custo Relacionado</th>
+            </tr>
+          </thead>
+          <tbody id="capacity-rows-tbody">
+            <!-- Dynamic capacity elements -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dynamic Visual Trend Chart (3 Months) -->
+      <div class="card print:hidden">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg style="width: 12px; height: 12px; color: var(--color-fuchsia);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M7 12l3-3 3 3 4-4M8 21h12a2 2 0 002-2V7a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Auditoria de Custos e Tendência Dual (Twin-Axis)
+          </div>
+        </div>
+
+        <div class="svg-container" id="trend-chart-container">
+          <svg id="trend-svg" width="100%" height="100%" style="overflow: visible; font-family: var(--font-sans)">
+            <!-- Plotted elements -->
+          </svg>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.5rem; font-size: 0.6rem; font-weight: 800; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 3px;"><span class="dot" style="background-color: var(--color-fuchsia)"></span> Compra Consolidada</span>
+          <span style="display: flex; align-items: center; gap: 3px;"><span class="dot" style="background-color: #0284c7"></span> Dimensionamento (Colab)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Archivados quotes list -->
+    <section class="card print:hidden">
+      <div class="card-title-wrap">
+        <div class="card-title">
+          <svg style="width: 12px; height: 12px; color: var(--color-slate-600);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Histórico e Acervo de Cotações Fechadas (Auditório)
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cotação ID</th>
+              <th>Operador</th>
+              <th>Mês Ref.</th>
+              <th>Categoria</th>
+              <th style="text-align: right;">Total Misto</th>
+              <th style="width: 110px; text-align: center;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="archived-quotes-tbody">
+            <!-- Dynamic elements load -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Category Selection Modal popup -->
+  <div id="category-modal" class="modal-overlay hidden" onclick="closeCategoryModalOnBg(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="category-modal-headline">Nova Cotação</h3>
+        <button class="modal-close" onclick="closeCategoryModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.7rem; color: var(--color-slate-600); margin-bottom: 0.75rem; font-weight: bold;">
+          Selecione a categoria de suprimentos para carregar seus itens e configurações:
+        </p>
+
+        <!-- Dynamic Category box -->
+        <div class="category-scroll-box" id="category-modal-list">
+          <!-- Filled dynamically -->
+        </div>
+
+        <!-- Custom Category Creation -->
+        <div style="border-top: 1px solid var(--color-slate-150); padding-top: 0.75rem; margin-top: 0.5rem;">
+          <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--color-slate-400); mb: 4px; margin-bottom: 4px;">Criar nova categoria personalizada</p>
+          <div style="display: flex; gap: 6px;">
+            <input type="text" id="new-custom-category-name" class="form-input" placeholder="Ex: Higiene, Brindes..." style="padding: 0.4rem 0.6rem; font-size: 0.75rem;">
+            <button class="btn btn-fuchsia" style="padding: 0.4rem 0.85rem;" onclick="addCustomCategoryFromModal()">Criar</button>
+          </div>
+        </div>
+
+        <!-- Copy Old quotation optional fields -->
+        <div id="clone-quotation-wrapper" style="border-top: 1px solid var(--color-slate-150); padding-top: 0.75rem; margin-top: 0.75rem" class="hidden">
+          <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--color-slate-400); margin-bottom: 4px;">Importar dados de cotação anterior (Opcional)</p>
+          <select id="clone-quote-id-select" class="form-input" style="padding: 0.45rem; font-size: 0.75rem; cursor: pointer;">
+            <!-- Filled dynamically -->
+          </select>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 1.25rem;">
+          <button class="btn btn-white" onclick="closeCategoryModal()">Cancelar</button>
+          <button class="btn btn-fuchsia" onclick="applyCategoryModalChoice()">Confirmar Cotação</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Autocomplete suggestion lists -->
+  <datalist id="all-presets">
+    <option value="ELO DISTRIB"></option>
+    <option value="MUNDIAL"></option>
+    <option value="MAXLIMP S/A"></option>
+    <option value="FACILITIES CLEAN"></option>
+    <option value="DISTRIBUIDORA MASTER"></option>
+    <option value="CANTINHO DA LIMPEZA"></option>
+    <option value="MEGA HIGIENE"></option>
+    <option value="SÃO JOSÉ DESCARTÁVEIS"></option>
+    <option value="MERCADO LIVRE"></option>
+    <option value="KALUNGA SA"></option>
+  </datalist>
+
+  <datalist id="default-category-items-datalist">
+    <!-- Loaded dynamically on fly -->
+  </datalist>
+
+  <script id="database-script">
+    // === DATABASE START ===
+    const INITIAL_DB = {
+      "userName": "",
+      "userCpf": "",
+      "quoteDate": "jun/26",
+      "suppliers": [
+        { "id": "s1", "name": "ELO DISTRIB", "phone": "(11) 98765-4321", "vendedor": "Roberto" },
+        { "id": "s2", "name": "MUNDIAL", "phone": "(11) 97766-5544", "vendedor": "Alessandro" },
+        { "id": "s3", "name": "MAXLIMP S/A", "phone": "(11) 96123-4567", "vendedor": "Cristina" }
+      ],
+      "items": [],
+      "capacityRows": [
+        { "month": "jan/26", "capacity": 521, "value": 4214.28, "isEditablePrice": true },
+        { "month": "fev/26", "capacity": 535, "value": 3810.29, "isEditablePrice": true },
+        { "month": "mar/26", "capacity": 557, "value": 4249.14, "isEditablePrice": true },
+        { "month": "abr/26", "capacity": 534, "value": 3278.51, "isEditablePrice": true },
+        { "month": "mai/26", "capacity": 514, "value": 3176.85, "isEditablePrice": true },
+        { "month": "jun/26", "capacity": 538, "value": 0.00, "isEditablePrice": true },
+        { "month": "jul/26", "capacity": 545, "value": 0.00, "isEditablePrice": false }
+      ],
+      "archivedQuotes": [],
+      "activeCategoryId": "material_limpeza"
+    };
+    // === DATABASE END ===
+  </script>
+
+  <script id="preset-categories-script">
+    // Direct modular definition fallback of primary 6 categories
+    const FALLBACK_CATEGORIES_DATA = {
+      "material_limpeza": {
+        name: "MATERIAL DE LIMPEZA",
+        items: ["Água sanitária 5L", "Álcool em gel 70% refil", "Álcool líquido 70% 1L", "Balde espremedor duas águas", "Cera líquida pisos", "Desinfetante eucalipto galão", "Detergente líquido neutro", "Esponja dupla face multiuso", "Guardanapo papel interfolhado", "Limpa-vidros frasco", "Pano microfibra azul", "Pano microfibra verde", "Papel higiênico 300m rolo", "Papel toalha interfolhado", "Rodo alumínio 40cm", "Saco lixo 100L reforçado", "Saco lixo 15L", "Saco lixo 50L econômico", "Vassoura de pelo macio"]
+      },
+      "cadeiras": {
+        name: "CADEIRAS",
+        items: ["Cadeira de diálogo fixa", "Cadeira de tela mesh", "Cadeira ergonômica NR17", "Cadeira executiva giratória", "Cadeira presidente couro", "Cadeira para recepção", "Encosto em tela sobressalente", "Mecanismo back system", "Pistão a gás classe 4", "Rodízio de silicone (piso frio)"]
+      },
+      "doces": {
+        name: "DOCES",
+        items: ["Amendoim salgado pacote", "Bala de goma pacote", "Bala de hortelã quilo", "Bala de menta recepção", "Barra de cereal chocolate", "Bombom sortido caixa", "Chiclete menta caixa", "Doce de leite tablete", "Paçoca rolha", "Torrone com amendoim"]
+      },
+      "frete": {
+        name: "FRETE",
+        items: ["Advalorem / Seguro carga", "Coleta programada", "Frete caminhão baú toco", "Frete carga pesada prancha", "Frete carga seca", "Frete motoboy urbano", "Frete mudança corporativa", "Frete utilitário Fiorino", "Taxa de descarga"]
+      },
+      "licenca_programas": {
+        name: "LICENÇA DE PROGRAMAS",
+        items: ["Antivirus corporativo Endpoint", "Assinatura Canva Pro", "Assinatura GitHub Enterprise", "Assinatura Microsoft 365 Business", "Assinatura Slack Pro", "Backup em nuvem licença", "Licença Adobe Creative Cloud", "Licença Google Workspace", "Licença Salesforce CRM", "Licença Windows 11 Pro", "Licença Zoom Meetings Pro"]
+      },
+      "material_funcionamento": {
+        name: "MATERIAL DE FUNCIONAMENTO",
+        items: ["Apagador quadro branco", "Bateria CR2032 litio", "Bobina térmica cupom", "Fita adesiva amarela 50mm", "Fita dupla face Fixa Forte", "Lixeira de mesa inox", "Pilha alcalina AA", "Pilha alcalina AAA", "Tesoura multiuso inox", "Trena métrica 5 metros"]
+      },
+      "material_informatica": {
+        name: "MATERIAL DE INFORMATICA",
+        items: ["Abraçadeira nylon enforca-gato", "Adaptador USB-C para HDMI", "Cabo de rede CAT6 patch", "Cabo HDMI blindado 2m", "Filtro de linha 5 tomadas", "Mouse óptico USB básico", "SSD 480GB SATA Kingston", "Suporte articulado monitor", "Teclado USB padrão ABNT2"]
+      }
+    };
+  </script>
+
+  <script id="app-engine-script">
+    // Core states
+    let userName = "";
+    let userCpf = "";
+    let quoteDate = "jun/26";
+    let activeCategoryId = "material_limpeza";
+    let editingQuoteId = null;
+
+    let suppliers = [];
+    let items = [];
+    let capacityRows = [];
+    let archivedQuotes = [];
+    
+    // Loaded categories categories array
+    let categoriesList = [];
+
+    // File System global handle
+    let fileHandle = null;
+
+    // Toast Alert notifier helper
+    function triggerToast(text) {
+      const toast = document.getElementById("toast-message");
+      toast.innerText = text;
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 4000);
+    }
+
+    // CPF Formatter
+    function formatCPF(value) {
+      const digits = value.replace(/\D/g, "");
+      if (digits.length <= 3) return digits;
+      if (digits.length <= 6) return `${digits.slice(0, 3)}.${digits.slice(3)}`;
+      if (digits.length <= 9) return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
+      return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6, 9)}-${digits.slice(9, 11)}`;
+    }
+
+    function formatCpfInput(input) {
+      const formatted = formatCPF(input.value);
+      if (formatted.replace(/\D/g, "").length <= 11) {
+        input.value = formatted;
+      }
+    }
+
+    // Money output formatting
+    function formatBrl(value) {
+      if (value === null || value === undefined || isNaN(value)) return "R$ 0,00";
+      return new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      }).format(value);
+    }
+
+    // Startup initializer
+    window.addEventListener("load", () => {
+      // 1. Recover categories from shared React localStorage Key
+      const sharedCategories = localStorage.getItem("clean_quotes_categories");
+      if (sharedCategories) {
+        try {
+          categoriesList = JSON.parse(sharedCategories);
+        } catch(e) { console.warn("Failed parsing shared categories"); }
+      }
+      
+      // Fallback categories compilation if not present in localStorage
+      if (!categoriesList || categoriesList.length === 0) {
+        categoriesList = Object.keys(FALLBACK_CATEGORIES_DATA).map(key => ({
+          id: key,
+          name: FALLBACK_CATEGORIES_DATA[key].name,
+          items: FALLBACK_CATEGORIES_DATA[key].items
+        }));
+      }
+
+      // 2. Restore state elements from shared localStorage keys or fallback to INITIAL_DB inside this file
+      let sourceDb = INITIAL_DB;
+      
+      const cachedCpf = localStorage.getItem("clean_quotes_user_cpf") || localStorage.getItem("compras_cache_cpf");
+      const cachedUser = localStorage.getItem("clean_quotes_username") || localStorage.getItem("compras_cache_username");
+      
+      if (cachedUser && cachedCpf) {
+        sourceDb.userName = cachedUser;
+        sourceDb.userCpf = cachedCpf;
+      }
+
+      // Fallback to cached entries if source empty
+      const cacheSuppliers = localStorage.getItem("clean_quotes_suppliers");
+      const cacheItems = localStorage.getItem("clean_quotes_items");
+      const cacheCapacity = localStorage.getItem("clean_quotes_capacity");
+      const cacheArchived = localStorage.getItem("clean_quotes_archived");
+      const cacheCatActive = localStorage.getItem("clean_quotes_active_category_id");
+      const cacheEditing = localStorage.getItem("clean_quotes_editing_quote_id");
+
+      userName = sourceDb.userName || "";
+      userCpf = sourceDb.userCpf || "";
+      quoteDate = localStorage.getItem("clean_quotes_date") || sourceDb.quoteDate || "jun/26";
+      
+      suppliers = cacheSuppliers ? JSON.parse(cacheSuppliers) : sourceDb.suppliers;
+      items = cacheItems ? JSON.parse(cacheItems) : sourceDb.items;
+      capacityRows = cacheCapacity ? JSON.parse(cacheCapacity) : sourceDb.capacityRows;
+      archivedQuotes = cacheArchived ? JSON.parse(cacheArchived) : sourceDb.archivedQuotes;
+      activeCategoryId = cacheCatActive ? cacheCatActive : sourceDb.activeCategoryId;
+      editingQuoteId = cacheEditing ? cacheEditing : null;
+
+      updateFileSyncBanner();
+
+      if (userName && userCpf) {
+        showDashboardAndLoadData();
+      } else {
+        document.getElementById("login-screen-view").classList.remove("hidden");
+        document.getElementById("app-workspace-view").classList.add("hidden");
+      }
+    });
+
+    // File System Connection Manager
+    async function requestFileHandle() {
+      try {
+        const [handle] = await window.showOpenFilePicker({
+          types: [{
+            description: 'Código HTML de Compras',
+            accept: { 'text/html': ['.html'] }
+          }],
+          excludeAcceptAllOption: true,
+          multiple: false
+        });
+        if (handle) {
+          fileHandle = handle;
+          updateFileSyncBanner();
+          triggerToast("✅ Arquivo COMPRAS.html conectado!");
+        }
+      } catch(err) {
+        console.error(err);
+        triggerToast("⚠️ Arquivo não conectado. Alterações salvas em cache.");
+      }
+    }
+
+    function updateFileSyncBanner() {
+      const banner = document.getElementById("file-sync-banner");
+      if (fileHandle) {
+        banner.classList.add("connected");
+        banner.innerHTML = `<span>✅ Arquivo COMPRAS.html sincronizado diretamente com o disco local. Salvamento ativo!</span>`;
+      } else {
+        banner.classList.remove("connected");
+        banner.innerHTML = `<span>⚠️ Clique para conectar o arquivo COMPRAS.html e salvar alterações diretamente no seu computador:</span>
+        <button id="connect-file-btn" class="connection-btn" onclick="requestFileHandle()">Conectar Arquivo</button>`;
+      }
+    }
+
+    // Write state back to COMPRAS.html using File System Access
+    async function saveDirectlyToSource() {
+      saveToLocalStorageAll();
+
+      const currentDb = {
+        userName,
+        userCpf,
+        quoteDate,
+        suppliers,
+        items,
+        capacityRows,
+        archivedQuotes,
+        activeCategoryId
+      };
+
+      if (!fileHandle) {
+        triggerToast("Por favor, conecte o arquivo para salvar.");
+        await requestFileHandle();
+        if (!fileHandle) return;
+      }
+
+      try {
+        const options = { mode: 'readwrite' };
+        if (await fileHandle.queryPermission(options) !== 'granted') {
+          if (await fileHandle.requestPermission(options) !== 'granted') {
+            triggerToast('❌ Permissão de escrita negada!');
+            return;
+          }
+        }
+
+        const file = await fileHandle.getFile();
+        const originalText = await file.text();
+
+        const startMarker = "// === DATABASE START ===";
+        const endMarker = "// === DATABASE END ===";
+
+        const startIndex = originalText.indexOf(startMarker);
+        const endIndex = originalText.indexOf(endMarker);
+
+        if (startIndex !== -1 && endIndex !== -1) {
+          const serializedDb = JSON.stringify(currentDb, null, 2);
+          const updatedContent = 
+            originalText.substring(0, startIndex + startMarker.length) + 
+            "\n    const INITIAL_DB = " + serializedDb + ";\n    " + 
+            originalText.substring(endIndex);
+
+          const writable = await fileHandle.createWritable();
+          await writable.write(updatedContent);
+          await writable.close();
+
+          triggerToast("🎯 SUCESSO! Cotações, fornecedores e histórico gravados no arquivo COMPRAS.html.");
+        } else {
+          triggerToast("⚠️ Marcadores de banco de dados não localizados.");
+        }
+      } catch(err) {
+        console.error(err);
+        triggerToast("❌ Erro ao salvar arquivo: " + err.message);
+      }
+    }
+
+    // Save states to shared key list
+    function saveToLocalStorageAll() {
+      localStorage.setItem("clean_quotes_username", userName);
+      localStorage.setItem("clean_quotes_user_cpf", userCpf);
+      localStorage.setItem("clean_quotes_date", quoteDate);
+      localStorage.setItem("clean_quotes_suppliers", JSON.stringify(suppliers));
+      localStorage.setItem("clean_quotes_items", JSON.stringify(items));
+      localStorage.setItem("clean_quotes_capacity", JSON.stringify(capacityRows));
+      localStorage.setItem("clean_quotes_archived", JSON.stringify(archivedQuotes));
+      localStorage.setItem("clean_quotes_active_category_id", activeCategoryId);
+      localStorage.setItem("clean_quotes_categories", JSON.stringify(categoriesList));
+      if (editingQuoteId) {
+        localStorage.setItem("clean_quotes_editing_quote_id", editingQuoteId);
+      } else {
+        localStorage.removeItem("clean_quotes_editing_quote_id");
+      }
+    }
+
+    // Login Action
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const nameIn = document.getElementById("op-name").value.trim();
+      const cpfIn = document.getElementById("op-cpf").value.trim();
+
+      if (nameIn.length < 3) {
+        showLoginError("Por favor, digite seu nome (mínimo 3 caracteres).");
+        return;
+      }
+      if (cpfIn.replace(/\D/g, "").length !== 11) {
+        showLoginError("Informe um CPF válido contendo 11 números.");
+        return;
+      }
+
+      userName = nameIn;
+      userCpf = cpfIn;
+      
+      saveToLocalStorageAll();
+      showDashboardAndLoadData();
+    }
+
+    function showLoginError(msg) {
+      const el = document.getElementById("login-error-text");
+      el.innerText = msg;
+      el.classList.remove("hidden");
+    }
+
+    function handleLogout() {
+      if (confirm("Deseja realmente sair e trocar o operador atual?")) {
+        userName = "";
+        userCpf = "";
+        localStorage.removeItem("clean_quotes_username");
+        localStorage.removeItem("clean_quotes_user_cpf");
+        location.reload();
+      }
+    }
+
+    // Workspace presentation initializer
+    function showDashboardAndLoadData() {
+      document.getElementById("login-screen-view").classList.add("hidden");
+      document.getElementById("app-workspace-view").classList.remove("hidden");
+
+      document.getElementById("header-operator-name").innerText = userName.trim().split(" ")[0].toUpperCase();
+      document.getElementById("header-operator-cpf").innerText = userCpf;
+      document.getElementById("ref-month").value = quoteDate;
+
+      if (items.length === 0) {
+        loadItemsFromPresetCategory(activeCategoryId);
+      }
+
+      renderPageData();
+    }
+
+    function loadItemsFromPresetCategory(catId) {
+      const category = categoriesList.find(c => c.id === catId);
+      if (category) {
+        activeCategoryId = catId;
+        items = category.items.map((itemName, index) => {
+          const pricesMap = {};
+          suppliers.forEach(s => { pricesMap[s.id] = null; });
+          return {
+            id: `i_${Date.now()}_${index}_${Math.floor(Math.random() * 1000)}`,
+            name: itemName,
+            quantity: 10,
+            prices: pricesMap
+          };
+        });
+      }
+    }
+
+    function resetItemsToDefaultCategory() {
+      if (confirm("Isso apagará todos os itens e preços da grelha atual. Continuar?")) {
+        loadItemsFromPresetCategory(activeCategoryId);
+        triggerRealtimeSync();
+        renderPageData();
+        saveToLocalStorageAll();
+      }
+    }
+
+    // Dynamic Header Column suppliers and database management
+    function addNewSupplier() {
+      const count = suppliers.length + 1;
+      const newId = `s_${Date.now()}`;
+      
+      suppliers.push({
+        id: newId,
+        name: `FORNECEDOR ${count}`,
+        phone: "",
+        vendedor: ""
+      });
+
+      items.forEach(itm => {
+        itm.prices[newId] = null;
+      });
+
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+      triggerToast("➕ Fornecedor adicionado com sucesso!");
+    }
+
+    function removeSupplier(sId) {
+      if (suppliers.length <= 1) {
+        alert("A tabela precisa conter ao menos 1 fornecedor ativo.");
+        return;
+      }
+      const sObj = suppliers.find(s => s.id === sId);
+      if (confirm(`Remover o fornecedor "${sObj.name}" danificará seus dados inseridos. Prosseguir?`)) {
+        suppliers = suppliers.filter(s => s.id !== sId);
+        items.forEach(itm => {
+          delete itm.prices[sId];
+        });
+        
+        triggerRealtimeSync();
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast("🗑️ Fornecedor removido.");
+      }
+    }
+
+    // Triggers real-time sync with active historical comparative quote if session editing is active!
+    function triggerRealtimeSync() {
+      if (editingQuoteId) {
+        const results = computeRealtimeTotals();
+        archivedQuotes = archivedQuotes.map(q => {
+          if (q.id === editingQuoteId) {
+            return {
+              ...q,
+              suppliers: JSON.parse(JSON.stringify(suppliers)),
+              items: JSON.parse(JSON.stringify(items)),
+              capacityRows: JSON.parse(JSON.stringify(capacityRows)),
+              quoteDate: quoteDate,
+              userName: userName,
+              userCpf: userCpf,
+              categoryId: activeCategoryId,
+              categoryName: categoriesList.find(c => c.id === activeCategoryId)?.name || "Geral",
+              summary: {
+                mixedTotal: results.mixedTotal,
+                totalQuantity: results.totalQuantity,
+                supplierTotals: results.supplierTotals
+              }
+            };
+          }
+          return q;
+        });
+      }
+    }
+
+    // Grid rendering engine
+    function renderPageData() {
+      const activeCat = categoriesList.find(c => c.id === activeCategoryId) || { name: "GERAL", id: "" };
+      document.getElementById("category-trigger-btn").innerText = activeCat.name + " ▾";
+      document.getElementById("active-category-title-label").innerText = activeCat.name;
+
+      if (editingQuoteId) {
+        document.getElementById("editing-alert-badge").classList.remove("hidden");
+        document.getElementById("active-cot-badge").innerText = "COTAÇÃO: " + editingQuoteId;
+      } else {
+        document.getElementById("editing-alert-badge").classList.add("hidden");
+        document.getElementById("active-cot-badge").innerText = "COTAÇÃO ORIGINAL";
+      }
+
+      // Build suggestions list
+      const dList = document.getElementById("default-category-items-datalist");
+      dList.innerHTML = "";
+      if (activeCat && activeCat.items) {
+        activeCat.items.forEach(itm => {
+          const opt = document.createElement("option");
+          opt.value = itm;
+          dList.appendChild(opt);
+        });
+      }
+
+      const results = computeRealtimeTotals();
+
+      // Build Dynamic Headers
+      const thead = document.querySelector("#prices-comparison-table thead");
+      thead.innerHTML = "";
+      const headerTr = document.createElement("tr");
+      
+      const delTh = document.createElement("th");
+      delTh.style.width = "40px";
+      delTh.style.textAlign = "center";
+      delTh.className = "print:hidden";
+      delTh.innerText = "DEL";
+      headerTr.appendChild(delTh);
+
+      const descTh = document.createElement("th");
+      descTh.innerText = "DESCRIÇÃO DO ITEM / SERVIÇO BI-AUDITADO";
+      headerTr.appendChild(descTh);
+
+      const qtyTh = document.createElement("th");
+      qtyTh.style.width = "70px";
+      qtyTh.style.textAlign = "center";
+      qtyTh.innerText = "QTD";
+      headerTr.appendChild(qtyTh);
+
+      suppliers.forEach(sup => {
+        const th = document.createElement("th");
+        th.style.textAlign = "right";
+        th.style.minWidth = "120px";
+        th.innerText = sup.name.toUpperCase();
+        headerTr.appendChild(th);
+      });
+      thead.appendChild(headerTr);
+
+      // Build Dynamic Rows
+      const tbody = document.getElementById("quote-items-tbody");
+      tbody.innerHTML = "";
+
+      items.forEach((item, rIndex) => {
+        const tr = document.createElement("tr");
+        tr.className = "item-row";
+
+        const cheapestIds = results.itemBestSuppliers[item.id] || [];
+
+        // Del Button cell
+        const delTd = document.createElement("td");
+        delTd.className = "print:hidden";
+        delTd.style.textAlign = "center";
+        delTd.innerHTML = `<button class="remove-row-btn" onclick="removeItemRow('${item.id}')">&times;</button>`;
+        tr.appendChild(delTd);
+
+        // Name cell
+        const nameTd = document.createElement("td");
+        nameTd.innerHTML = `<input type="text" value="${item.name}" placeholder="Escreva o item..." style="width: 100%; border: none; font-weight: bold; font-size:0.75rem; background:none; outline:none;" onchange="updateItemName('${item.id}', this.value)">`;
+        tr.appendChild(nameTd);
+
+        // Qty cell
+        const qtyTd = document.createElement("td");
+        qtyTd.style.textAlign = "center";
+        qtyTd.innerHTML = `<input type="number" class="qty-input" value="${item.quantity}" min="1" onchange="updateItemQty('${item.id}', this.value)">`;
+        tr.appendChild(qtyTd);
+
+        // Suppliers cells
+        suppliers.forEach(sup => {
+          const td = document.createElement("td");
+          td.style.textAlign = "right";
+
+          const pVal = item.prices[sup.id];
+          const displayVal = pVal !== null && pVal !== undefined ? pVal : "";
+
+          const isCheapest = cheapestIds.includes(sup.id) && pVal > 0;
+          if (isCheapest) {
+            td.className = "cheap-highlight";
+          }
+
+          const inp = document.createElement("input");
+          inp.type = "number";
+          inp.step = "0.01";
+          inp.className = "price-input";
+          inp.value = displayVal;
+          inp.placeholder = "0,00";
+          inp.oninput = (e) => updateItemPrice(item.id, sup.id, e.target.value);
+          
+          // Downward spreadsheet pasting listener
+          inp.addEventListener("paste", (e) => handleCellPasteDownwards(e, sup.id, rIndex));
+
+          td.appendChild(inp);
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+      });
+
+      // Build Dynamic Footer totals
+      const tfoot = document.getElementById("quote-items-tfoot");
+      tfoot.innerHTML = "";
+      const footTr = document.createElement("tr");
+      footTr.style.fontWeight = "900";
+      footTr.style.backgroundColor = "var(--color-slate-100)";
+
+      const fDelTd = document.createElement("td");
+      fDelTd.className = "print:hidden";
+      footTr.appendChild(fDelTd);
+
+      const fDescTd = document.createElement("td");
+      fDescTd.innerText = "TOTAL CONSOLIDADO (PEDIDO FECHADO ÚNICO)";
+      footTr.appendChild(fDescTd);
+
+      const fQtyTd = document.createElement("td");
+      fQtyTd.style.textAlign = "center";
+      fQtyTd.className = "font-mono";
+      fQtyTd.innerText = results.totalQuantity;
+      footTr.appendChild(fQtyTd);
+
+      suppliers.forEach(sup => {
+        const td = document.createElement("td");
+        td.className = "font-mono";
+        td.style.textAlign = "right";
+        td.style.fontSize = "0.8rem";
+        td.innerText = formatBrl(results.supplierTotals[sup.id]);
+        footTr.appendChild(td);
+      });
+      tfoot.appendChild(footTr);
+
+      // Render other blocks
+      renderSuppliersPanelGrid();
+      renderCompositions(results);
+      renderDetailedMonthlyCards(results);
+      renderCapacityRows();
+      plotTrendChart();
+      renderArchivedQuotesList();
+    }
+
+    // Intercept downward excel/sheet pacing
+    function handleCellPasteDownwards(e, supplierId, startRowIdx) {
+      const text = (e.clipboardData || window.clipboardData).getData("text");
+      if (!text || !text.includes("\n")) return; // Only process multiline pacing
+
+      e.preventDefault();
+      const lines = text.split(/\r?\n/).map(line => line.trim());
+      
+      let indexOffset = 0;
+      for (let i = startRowIdx; i < items.length && indexOffset < lines.length; i++) {
+        const line = lines[indexOffset];
+        if (line !== "") {
+          const cleanVal = parseFloat(line.replace(/[^0-9.,-]/g, '').replace(',', '.'));
+          if (!isNaN(cleanVal)) {
+            items[i].prices[supplierId] = cleanVal;
+          }
+        }
+        indexOffset++;
+      }
+
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+      triggerToast(`📋 Colagem rápida de ${indexOffset} preços inserida.`);
+    }
+
+    // Render edit panel for suppliers Card
+    function renderSuppliersPanelGrid() {
+      const grid = document.getElementById("suppliers-panel-grid");
+      grid.innerHTML = "";
+
+      suppliers.forEach(sup => {
+        const card = document.createElement("div");
+        card.className = "supplier-edit-pill";
+        card.innerHTML = `
+          <div class="sup-num">
+            <span>FORNECEDOR ATIVO</span>
+            <span class="delete-sup-badge" onclick="removeSupplier('${sup.id}')" title="Remover fornecedor">&times; Remover</span>
+          </div>
+          <input type="text" value="${sup.name}" onchange="updateSupplierName('${sup.id}', this.value)" list="all-presets">
+          <div class="supplier-details-row">
+            <input type="text" placeholder="Tel/Cel..." value="${sup.phone || ''}" onchange="updateSupplierPhone('${sup.id}', this.value)">
+            <input type="text" placeholder="Representante..." value="${sup.vendedor || ''}" onchange="updateSupplierVendedor('${sup.id}', this.value)">
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function updateSupplierName(id, val) {
+      if (!val.trim()) return;
+      suppliers = suppliers.map(s => s.id === id ? { ...s, name: val.toUpperCase().trim() } : s);
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function updateSupplierPhone(id, val) {
+      suppliers = suppliers.map(s => s.id === id ? { ...s, phone: val } : s);
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function updateSupplierVendedor(id, val) {
+      suppliers = suppliers.map(s => s.id === id ? { ...s, vendedor: val } : s);
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function updateItemName(id, val) {
+      items = items.map(itm => itm.id === id ? { ...itm, name: val } : itm);
+      triggerRealtimeSync();
+      saveToLocalStorageAll();
+    }
+
+    function updateItemPrice(itemId, supplierId, val) {
+      const itm = items.find(i => i.id === itemId);
+      if (itm) {
+        itm.prices[supplierId] = val === "" ? null : parseFloat(val);
+        triggerRealtimeSync();
+        saveToLocalStorageAll();
+        
+        // Recalculate totals on-the-fly dynamically
+        const results = computeRealtimeTotals();
+        renderCompositions(results);
+        updateDynamicSumsFooters(results);
+      }
+    }
+
+    function updateDynamicSumsFooters(results) {
+      document.getElementById("table-total-qty").innerText = results.totalQuantity;
+      suppliers.forEach((sup, idx) => {
+        const tds = document.querySelectorAll("#quote-items-tfoot td");
+        if (tds && tds[idx + 2]) {
+          tds[idx + 2].innerText = formatBrl(results.supplierTotals[sup.id]);
+        }
+      });
+    }
+
+    function updateItemQty(id, val) {
+      items = items.map(itm => itm.id === id ? { ...itm, quantity: Math.max(1, parseInt(val) || 1) } : itm);
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function removeItemRow(id) {
+      items = items.filter(itm => itm.id !== id);
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function addBlankRowAtBottom() {
+      const pMap = {};
+      suppliers.forEach(s => { pMap[s.id] = null; });
+      items.push({
+        id: `i_blank_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+        name: "",
+        quantity: 1,
+        prices: pMap
+      });
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    // Calculations engine
+    function computeRealtimeTotals() {
+      const supplierTotals = {};
+      suppliers.forEach(s => { supplierTotals[s.id] = 0; });
+
+      const itemBestSuppliers = {};
+      let totalQuantity = 0;
+      let mixedTotal = 0;
+
+      items.forEach((item) => {
+        totalQuantity += parseInt(item.quantity) || 0;
+        let lowestCost = Infinity;
+        let bestIds = [];
+
+        suppliers.forEach((sup) => {
+          const unitPrice = parseFloat(item.prices[sup.id]) || 0;
+          const cost = (parseInt(item.quantity) || 0) * unitPrice;
+
+          supplierTotals[sup.id] += cost;
+
+          if (unitPrice > 0) {
+            if (cost < lowestCost) {
+              lowestCost = cost;
+              bestIds = [sup.id];
+            } else if (cost === lowestCost) {
+              bestIds.push(sup.id);
+            }
+          }
+        });
+
+        if (lowestCost === Infinity) lowestCost = 0;
+        mixedTotal += lowestCost;
+        itemBestSuppliers[item.id] = bestIds;
+      });
+
+      return { supplierTotals, mixedTotal, totalQuantity, itemBestSuppliers };
+    }
+
+    // Render compositions and financial executive decisions
+    function renderCompositions(results) {
+      const { supplierTotals, mixedTotal, itemBestSuppliers } = results;
+
+      const optimalSplit = {};
+      suppliers.forEach(s => { optimalSplit[s.id] = 0; });
+
+      items.forEach(itm => {
+        const targets = itemBestSuppliers[itm.id] || [];
+        if (targets.length > 0) {
+          const winner = targets[0]; // tie break
+          const p = parseFloat(itm.prices[winner]) || 0;
+          optimalSplit[winner] += (parseInt(itm.quantity) || 0) * p;
+        }
+      });
+
+      const bar = document.getElementById("mixed-comp-bar");
+      bar.innerHTML = "";
+
+      const colors = ["#08D9D6", "#00adb5", "#393e46", "#fbcfe8", "#c084fc", "#94a3b8"];
+
+      suppliers.forEach((sup, idx) => {
+        const val = optimalSplit[sup.id];
+        const pct = mixedTotal > 0 ? (val / mixedTotal) * 100 : 0;
+        if (pct > 0) {
+          const segment = document.createElement("div");
+          segment.className = "composition-bar-segment";
+          segment.style.width = pct + "%";
+          segment.style.backgroundColor = colors[idx % colors.length];
+          segment.title = `${sup.name}: ${formatBrl(val)} (${pct.toFixed(1)}%)`;
+          bar.appendChild(segment);
+        }
+      });
+
+      const legend = document.getElementById("mixed-comp-legend");
+      legend.innerHTML = "";
+
+      suppliers.forEach((sup, idx) => {
+        const val = optimalSplit[sup.id];
+        const pct = mixedTotal > 0 ? (val / mixedTotal) * 100 : 0;
+
+        legend.innerHTML += `
+          <div class="composition-legend-item">
+            <span class="legend-indicator">
+              <span class="dot" style="background-color: ${colors[idx % colors.length]}"></span>
+              <span style="color: var(--color-slate-600); text-transform: uppercase;">${sup.name}</span>
+            </span>
+            <span>
+              <strong style="color: var(--color-slate-900); font-family: var(--font-mono);">${formatBrl(val)}</strong>
+              <span style="color: var(--color-slate-400); font-size: 0.55rem; font-family: var(--font-mono); margin-left: 2px;">| ${pct.toFixed(1)}%</span>
+            </span>
+          </div>
+        `;
+      });
+
+      legend.innerHTML += `
+        <div style="border-top: 1px solid var(--color-slate-200); margin: 0.5rem 0; padding-top: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">PACOTE MISTO COMBINADO:</span>
+          <span style="font-weight: 950; font-family: var(--font-mono); color: var(--color-slate-900); font-size: 0.8rem; background-color: rgba(8, 217, 214, 0.08); padding: 2px 6px; border: 1px solid var(--color-cyan); border-radius: 4px;">
+            ${formatBrl(mixedTotal)}
+          </span>
+        </div>
+      `;
+
+      // Executive metrics
+      let bestSupName = "N/D";
+      let bestSupCost = Infinity;
+      let worstSupName = "N/D";
+      let worstSupCost = -Infinity;
+
+      suppliers.forEach(sup => {
+        const c = supplierTotals[sup.id];
+        if (c > 0) {
+          if (c < bestSupCost) {
+            bestSupCost = c;
+            bestSupName = sup.name;
+          }
+          if (c > worstSupCost) {
+            worstSupCost = c;
+            worstSupName = sup.name;
+          }
+        }
+      });
+
+      if (bestSupCost === Infinity) bestSupCost = 0;
+      if (worstSupCost === -Infinity) worstSupCost = 0;
+
+      const rawSavingsBest = bestSupCost - mixedTotal;
+      const rawSavingsWorst = worstSupCost - mixedTotal;
+
+      const decText = document.getElementById("executive-decision-text");
+      if (mixedTotal > 0) {
+        decText.innerHTML = `
+          Se optar por fechar o pedido integralmente com apenas um parceiro, sua melhor escolha é a 
+          <strong>${bestSupName}</strong> custando um total de <strong>${formatBrl(bestSupCost)}</strong>. 
+          Aprovando a <strong>Compra Mista</strong> economizamos uns adicionais de <span style="font-weight: 900; color: #059669;">${formatBrl(rawSavingsBest)}</span> sobre ela.
+        `;
+      } else {
+        decText.innerHTML = `Por favor, insira valores unitários para gerar a auditoria automatizada.`;
+      }
+
+      document.getElementById("stat-worst-total").innerText = formatBrl(worstSupCost);
+      document.getElementById("stat-mixed-total").innerText = formatBrl(mixedTotal);
+      document.getElementById("stat-max-savings").innerText = formatBrl(rawSavingsWorst > 0 ? rawSavingsWorst : 0);
+      document.getElementById("stat-incremental-savings").innerText = formatBrl(rawSavingsBest > 0 ? rawSavingsBest : 0);
+    }
+
+    // Render detailed monthly audit cards
+    function renderDetailedMonthlyCards(results) {
+      const parent = document.getElementById("history-mini-cards-box");
+      parent.innerHTML = "";
+
+      const activeRef = quoteDate.trim().toLowerCase();
+      
+      capacityRows.forEach((row, rIdx) => {
+        // Only render completed months or current active
+        const totalCostVal = row.month.trim().toLowerCase() === activeRef ? results.mixedTotal : row.value;
+        const colabCount = row.capacity;
+        
+        // Calculate dynamic trend versus previous month
+        let trendHtml = "";
+        if (rIdx > 0) {
+          const prevValue = capacityRows[rIdx - 1].value;
+          if (prevValue > 0 && totalCostVal > 0) {
+            const diff = totalCostVal - prevValue;
+            const diffPct = (diff / prevValue) * 100;
+            const absolutePct = Math.abs(diffPct).toFixed(1);
+            if (diff > 0) {
+              trendHtml = `<span class="trend-indicator trend-up">▲+${absolutePct}%</span>`;
+            } else if (diff < 0) {
+              trendHtml = `<span class="trend-indicator trend-dn">▼-${absolutePct}%</span>`;
+            } else {
+              trendHtml = `<span class="trend-indicator trend-eq">● 0%</span>`;
+            }
+          }
+        }
+        
+        const cardChild = document.createElement("div");
+        cardChild.className = "hist-mini-card";
+        if (row.month.trim().toLowerCase() === activeRef) {
+          cardChild.style.border = "1.5px solid var(--color-fuchsia)";
+        }
+        
+        cardChild.innerHTML = `
+          <div>
+            <div class="month">${row.month.toUpperCase()} ${row.month.trim().toLowerCase() === activeRef ? "• ATIVO" : ""}</div>
+            <div class="price">${formatBrl(totalCostVal)}</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="meta">${colabCount} colaboradores</div>
+            ${trendHtml}
+          </div>
+        `;
+        parent.appendChild(cardChild);
+      });
+    }
+
+    // Dimensioning capacity rows edits
+    function renderCapacityRows() {
+      const tbody = document.getElementById("capacity-rows-tbody");
+      tbody.innerHTML = "";
+
+      capacityRows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+
+        const mTd = document.createElement("td");
+        mTd.style.fontWeight = "bold";
+        mTd.innerText = row.month.toUpperCase();
+        tr.appendChild(mTd);
+
+        const cTd = document.createElement("td");
+        cTd.style.textAlign = "center";
+        cTd.innerHTML = `<input type="number" class="qty-input" value="${row.capacity}" style="width: 3.5rem;" onchange="updateCapacityCount(${idx}, this.value)">`;
+        tr.appendChild(cTd);
+
+        const vTd = document.createElement("td");
+        vTd.style.textAlign = "right";
+        if (row.isEditablePrice && row.month !== quoteDate) {
+          vTd.innerHTML = `<input type="number" step="0.01" class="price-input" value="${row.value || ''}" style="width: 6.5rem;" onchange="updateCapacityCost(${idx}, this.value)">`;
+        } else {
+          vTd.innerHTML = `<span class="font-mono" style="font-weight: 800; color: var(--color-slate-400);">${formatBrl(row.month === quoteDate ? computeRealtimeTotals().mixedTotal : row.value)}</span>`;
+        }
+        tr.appendChild(vTd);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function updateCapacityCount(idx, val) {
+      capacityRows[idx].capacity = parseInt(val) || 0;
+      triggerRealtimeSync();
+      saveToLocalStorageAll();
+      plotTrendChart();
+      renderDetailedMonthlyCards(computeRealtimeTotals());
+    }
+
+    function updateCapacityCost(idx, val) {
+      capacityRows[idx].value = parseFloat(val) || 0;
+      triggerRealtimeSync();
+      saveToLocalStorageAll();
+      plotTrendChart();
+      renderDetailedMonthlyCards(computeRealtimeTotals());
+    }
+
+    // Compact dynamic dual vector line graph generator
+    function plotTrendChart() {
+      const svg = document.getElementById("trend-svg");
+      svg.innerHTML = "";
+
+      const width = document.getElementById("trend-chart-container").clientWidth || 400;
+      const height = 160;
+      const padding = { top: 15, right: 30, bottom: 25, left: 45 };
+
+      const activeRef = quoteDate.trim().toLowerCase();
+      const results = computeRealtimeTotals();
+
+      const itemsList = capacityRows.map(row => {
+        const isCurrent = row.month.trim().toLowerCase() === activeRef;
+        return {
+          month: row.month,
+          capacity: row.capacity,
+          value: isCurrent ? results.mixedTotal : row.value
+        };
+      });
+
+      let maxC = 0, maxCap = 0;
+      itemsList.forEach(item => {
+        if (item.value > maxC) maxC = item.value;
+        if (item.capacity > maxCap) maxCap = item.capacity;
+      });
+
+      maxC = maxC > 0 ? maxC * 1.15 : 10000;
+      maxCap = maxCap > 0 ? maxCap * 1.15 : 1000;
+
+      const scaleX = (idx) => padding.left + (idx / (itemsList.length - 1)) * (width - padding.left - padding.right);
+      const scaleYValue = (val) => height - padding.bottom - (val / maxC) * (height - padding.top - padding.bottom);
+      const scaleYCap = (val) => height - padding.bottom - (val / maxCap) * (height - padding.top - padding.bottom);
+
+      // Grid lines and scales
+      for (let i = 0; i <= 3; i++) {
+        const yFrac = i / 3;
+        const tempY = padding.top + yFrac * (height - padding.top - padding.bottom);
+
+        // H Line
+        const gL = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        gL.setAttribute("x1", padding.left);
+        gL.setAttribute("y1", tempY);
+        gL.setAttribute("x2", width - padding.right);
+        gL.setAttribute("y2", tempY);
+        gL.setAttribute("stroke", "var(--color-slate-100)");
+        svg.appendChild(gL);
+
+        // Value Label
+        const currVal = maxC * (1 - yFrac);
+        const lTStr = "R$ " + Math.round(currVal / 100) * 100;
+        const lT = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        lT.setAttribute("x", padding.left - 5);
+        lT.setAttribute("y", tempY + 3);
+        lT.setAttribute("text-anchor", "end");
+        lT.setAttribute("fill", "var(--color-slate-400)");
+        lT.setAttribute("font-size", "7.5px");
+        lT.textContent = lTStr;
+        svg.appendChild(lT);
+
+        // Capacity Label
+        const currCap = maxCap * (1 - yFrac);
+        const rT = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        rT.setAttribute("x", width - padding.right + 5);
+        rT.setAttribute("y", tempY + 3);
+        rT.setAttribute("fill", "#0284c7");
+        rT.setAttribute("font-size", "7.5px");
+        rT.textContent = Math.round(currCap).toString();
+        svg.appendChild(rT);
+      }
+
+      // X Tick Mark labels
+      itemsList.forEach((item, index) => {
+        const cx = scaleX(index);
+        const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        txt.setAttribute("x", cx);
+        txt.setAttribute("y", height - 5);
+        txt.setAttribute("text-anchor", "middle");
+        txt.setAttribute("fill", "var(--color-slate-600)");
+        txt.setAttribute("font-size", "8.5px");
+        txt.setAttribute("font-weight", "900");
+        txt.textContent = item.month.toUpperCase();
+        svg.appendChild(txt);
+      });
+
+      // budget vectors path
+      let costPath = "", capPath = "";
+      itemsList.forEach((item, idx) => {
+        const cx = scaleX(idx);
+        const cyVal = scaleYValue(item.value);
+        const cyCap = scaleYCap(item.capacity);
+
+        if (idx === 0) {
+          costPath += `M ${cx} ${cyVal}`;
+          capPath += `M ${cx} ${cyCap}`;
+        } else {
+          costPath += ` L ${cx} ${cyVal}`;
+          capPath += ` L ${cx} ${cyCap}`;
+        }
+      });
+
+      const bPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      bPath.setAttribute("d", costPath);
+      bPath.setAttribute("class", "line-budget");
+      svg.appendChild(bPath);
+
+      const cPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      cPath.setAttribute("d", capPath);
+      cPath.setAttribute("class", "line-capacity");
+      svg.appendChild(cPath);
+
+      // Node circles markers
+      itemsList.forEach((item, idx) => {
+        const cx = scaleX(idx);
+        const cyVal = scaleYValue(item.value);
+        const cyCap = scaleYCap(item.capacity);
+
+        if (item.value > 0) {
+          const circleVal = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circleVal.setAttribute("cx", cx);
+          circleVal.setAttribute("cy", cyVal);
+          circleVal.setAttribute("r", "4.5");
+          circleVal.setAttribute("fill", "var(--color-fuchsia)");
+          circleVal.setAttribute("stroke", "#fff");
+          circleVal.setAttribute("stroke-width", "1.5");
+          circleVal.innerHTML = `<title>Mês: ${item.month.toUpperCase()}\nCusto: ${formatBrl(item.value)}</title>`;
+          svg.appendChild(circleVal);
+        }
+
+        const circleCap = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circleCap.setAttribute("cx", cx);
+        circleCap.setAttribute("cy", cyCap);
+        circleCap.setAttribute("r", "3.5");
+        circleCap.setAttribute("fill", "#0284c7");
+        circleCap.setAttribute("stroke", "#fff");
+        circleCap.setAttribute("stroke-width", "1");
+        circleCap.innerHTML = `<title>Mês: ${item.month.toUpperCase()}\nDimensionado: ${item.capacity} colabs.</title>`;
+        svg.appendChild(circleCap);
+      });
+    }
+
+    // Reference Month input changes
+    function handleRefMonthChange(val) {
+      if (!val) return;
+      quoteDate = val;
+      triggerRealtimeSync();
+      // Match automatic evaluation capacity month values
+      renderCapacityRows();
+      renderDetailedMonthlyCards(computeRealtimeTotals());
+      plotTrendChart();
+      saveToLocalStorageAll();
+    }
+
+    // Excel clipboard importer parse
+    function importBulkCopiedText(replaceCurrent) {
+      const textarea = document.getElementById("bulk-importer-textarea");
+      const text = textarea.value.trim();
+      if (!text) {
+        alert("Cole o conteúdo contendo nomes e quantidades.");
+        return;
+      }
+
+      const lines = text.split("\n");
+      const parsedList = [];
+
+      lines.forEach(line => {
+        let parts = line.split("\t");
+        if (parts.length < 2) parts = line.split(";");
+        if (parts.length < 2) parts = line.split(",");
+
+        const name = parts[0]?.trim() || "";
+        let qty = 10;
+        
+        if (parts.length >= 2) {
+          qty = parseInt(parts[1]?.replace(/\D/g, "")) || 10;
+        }
+
+        const initialPrices = {};
+        suppliers.forEach(s => { initialPrices[s.id] = null; });
+
+        if (name !== "") {
+          parsedList.push({
+            id: `i_bulk_${Math.floor(Math.random() * 1000000)}`,
+            name,
+            quantity: qty,
+            prices: initialPrices
+          });
+        }
+      });
+
+      if (parsedList.length === 0) {
+        alert("Nenhum item válido identificado no texto colado.");
+        return;
+      }
+
+      if (replaceCurrent) {
+        if (confirm(`Substituir totalmente os ${items.length} itens atuais pelos ${parsedList.length} colados?`)) {
+          items = parsedList;
+        } else return;
+      } else {
+        items = items.concat(parsedList);
+      }
+
+      textarea.value = "";
+      triggerRealtimeSync();
+      renderPageData();
+      saveToLocalStorageAll();
+      triggerToast(`📋 Excel: ${parsedList.length} itens mapeados com sucesso.`);
+    }
+
+    // Modal Manager variables
+    let isModalScopeNewQuote = true;
+    let selectedModalCategoryId = "material_limpeza";
+
+    // Open Category selection modal for Nova Cotação - sets up cloning
+    function openNewQuoteModal() {
+      isModalScopeNewQuote = true;
+      selectedModalCategoryId = activeCategoryId;
+      
+      document.getElementById("category-modal-headline").innerText = "Iniciar Nova Cotação";
+      
+      // Load Cloner select dropdown options
+      const cloneWrapper = document.getElementById("clone-quotation-wrapper");
+      const selector = document.getElementById("clone-quote-id-select");
+      selector.innerHTML = `<option value="">-- Começar do Zero (Limpa) --</option>`;
+      
+      if (archivedQuotes.length > 0) {
+        cloneWrapper.classList.remove("hidden");
+        archivedQuotes.forEach(q => {
+          const detail = `${q.id} - ${q.categoryName || 'Geral'} (${q.quoteDate})`;
+          const opt = document.createElement("option");
+          opt.value = q.id;
+          opt.innerText = detail;
+          selector.appendChild(opt);
+        });
+      } else {
+        cloneWrapper.classList.add("hidden");
+      }
+
+      openModalCore();
+    }
+
+    // Open category modal for merely changing the current Category of an existing simulation
+    function openCategoryChangeModal() {
+      isModalScopeNewQuote = false;
+      selectedModalCategoryId = activeCategoryId;
+      
+      document.getElementById("category-modal-headline").innerText = "Alterar Categoria Ativa";
+      document.getElementById("clone-quotation-wrapper").classList.add("hidden");
+
+      openModalCore();
+    }
+
+    function openModalCore() {
+      renderCategoryListInModal();
+      document.getElementById("category-modal").classList.remove("hidden");
+    }
+
+    function closeCategoryModal() {
+      document.getElementById("category-modal").classList.add("hidden");
+    }
+
+    function closeCategoryModalOnBg(e) {
+      if (e.target.id === "category-modal") closeCategoryModal();
+    }
+
+    function renderCategoryListInModal() {
+      const modalListDiv = document.getElementById("category-modal-list");
+      modalListDiv.innerHTML = "";
+
+      categoriesList.forEach((cat) => {
+        const isSelected = selectedModalCategoryId === cat.id;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "category-modal-button" + (isSelected ? " selected" : "");
+        btn.onclick = () => {
+          selectedModalCategoryId = cat.id;
+          renderCategoryListInModal();
+          
+          // Auto fill clone selector category if we have matches!
+          if (isModalScopeNewQuote) {
+            const selector = document.getElementById("clone-quote-id-select");
+            const matchingQuote = archivedQuotes.find(q => q.categoryId === cat.id);
+            if (matchingQuote) {
+              selector.value = matchingQuote.id;
+            }
+          }
+        };
+
+        btn.innerHTML = `
+          <div>
+            <div style="font-size: 0.72rem; uppercase">${cat.name}</div>
+            <div class="meta">${cat.items ? cat.items.slice(0, 3).join(", ") : "Nenhum cadastrado"}</div>
+          </div>
+          <span style="font-size:0.6rem; color: var(--color-slate-400); font-weight:800">${cat.items ? cat.items.length : 0} ITENS</span>
+        `;
+        modalListDiv.appendChild(btn);
+      });
+    }
+
+    // Creating customized category on modal input
+    function addCustomCategoryFromModal() {
+      const input = document.getElementById("new-custom-category-name");
+      const name = input.value.trim();
+      if (!name) return;
+
+      const newId = `cat_custom_${Date.now()}`;
+      categoriesList.push({
+        id: newId,
+        name: name.toUpperCase(),
+        items: []
+      });
+
+      selectedModalCategoryId = newId;
+      input.value = "";
+      renderCategoryListInModal();
+      saveToLocalStorageAll();
+      triggerToast(`📁 Categoria "${name.toUpperCase()}" criada.`);
+    }
+
+    // Confirm Modal trigger
+    function applyCategoryModalChoice() {
+      activeCategoryId = selectedModalCategoryId;
+      closeCategoryModal();
+
+      if (isModalScopeNewQuote) {
+        const clonerSelect = document.getElementById("clone-quote-id-select");
+        const chosenCloneId = clonerSelect ? clonerSelect.value : "";
+        
+        let clonedQuoteObj = null;
+        if (chosenCloneId) {
+          clonedQuoteObj = archivedQuotes.find(q => q.id === chosenCloneId);
+        }
+
+        if (clonedQuoteObj) {
+          // CLONE HISTORIC QUOTE INTO A NEW SIMULATION
+          suppliers = JSON.parse(JSON.stringify(clonedQuoteObj.suppliers));
+          items = JSON.parse(JSON.stringify(clonedQuoteObj.items));
+          if (clonedQuoteObj.capacityRows) {
+            capacityRows = JSON.parse(JSON.stringify(clonedQuoteObj.capacityRows));
+          }
+          quoteDate = clonedQuoteObj.quoteDate;
+          activeCategoryId = clonedQuoteObj.categoryId || activeCategoryId;
+          editingQuoteId = null;
+
+          triggerToast(`📋 Nova cotação iniciada! Dados clonados de ${clonedQuoteObj.id}.`);
+        } else {
+          // CLEAN COLD START OF A PRESET CATEGORY
+          editingQuoteId = null;
+          loadItemsFromPresetCategory(activeCategoryId);
+          triggerToast(`✨ Iniciada nova cotação em branco para a categoria selecionada.`);
+        }
+      } else {
+        // MERELY CONVERT CURRENT BOARD TO SELECTED CATEGORY PRESETS
+        if (confirm("Modificar a categoria atual carregará os insumos padrões correspondentes na grelha ativa. Continuar?")) {
+          editingQuoteId = null; // Exit editing session to prevent damaging previous save
+          loadItemsFromPresetCategory(activeCategoryId);
+          triggerToast("🔄 Categoria modificada.");
+        }
+      }
+
+      renderPageData();
+      saveToLocalStorageAll();
+    }
+
+    function resetActiveGrid() {
+      if (confirm("Deseja realmente zerar todos os preços unitários preenchidos nas colunas de fornecedores?")) {
+        items.forEach(itm => {
+          suppliers.forEach(s => {
+            itm.prices[s.id] = null;
+          });
+        });
+        
+        triggerRealtimeSync();
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast("🧹 Preços zerados.");
+      }
+    }
+
+    // Archive simulation to chronological comparative index list
+    function archiveCurrentQuote() {
+      const results = computeRealtimeTotals();
+      if (results.mixedTotal === 0) {
+        alert("Por favor, preencha preços antes de arquivar o comparativo.");
+        return;
+      }
+
+      const activeCat = categoriesList.find(c => c.id === activeCategoryId) || { name: "GERAL" };
+      const now = new Date();
+      const timestamp = now.toLocaleDateString("pt-BR") + " " + now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute:"2-digit" });
+
+      if (editingQuoteId) {
+        // MODE: UPDATING EXISTING LOADED COTAÇÃO
+        archivedQuotes = archivedQuotes.map(q => {
+          if (q.id === editingQuoteId) {
+            return {
+              ...q,
+              quoteDate,
+              savedAt: timestamp,
+              suppliers: JSON.parse(JSON.stringify(suppliers)),
+              items: JSON.parse(JSON.stringify(items)),
+              capacityRows: JSON.parse(JSON.stringify(capacityRows)),
+              summary: {
+                mixedTotal: results.mixedTotal,
+                totalQuantity: results.totalQuantity,
+                supplierTotals: results.supplierTotals
+              }
+            };
+          }
+          return q;
+        });
+
+        // Set matching capacityRow month cost
+        const targetIdx = capacityRows.findIndex(row => row.month.trim().toLowerCase() === quoteDate.trim().toLowerCase());
+        if (targetIdx !== -1) {
+          capacityRows[targetIdx].value = results.mixedTotal;
+        }
+
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast(`💾 Cotação ${editingQuoteId} atualizada no arquivo.`);
+      } else {
+        // MODE: SAVING BRAND NEW RECOVERY RECORD
+        const listNumbers = archivedQuotes.map(q => {
+          const num = parseInt(q.id.replace("COT-", ""), 10);
+          return isNaN(num) ? 0 : num;
+        });
+        const highestNum = listNumbers.length > 0 ? Math.max(...listNumbers) : 0;
+        const nextId = "COT-" + String(highestNum + 1).padStart(3, "0");
+
+        const record = {
+          id: nextId,
+          quoteDate,
+          userName,
+          userCpf,
+          savedAt: timestamp,
+          categoryId: activeCategoryId,
+          categoryName: activeCat.name,
+          suppliers: JSON.parse(JSON.stringify(suppliers)),
+          items: JSON.parse(JSON.stringify(items)),
+          capacityRows: JSON.parse(JSON.stringify(capacityRows)),
+          summary: {
+            mixedTotal: results.mixedTotal,
+            totalQuantity: results.totalQuantity,
+            supplierTotals: results.supplierTotals
+          }
+        };
+
+        archivedQuotes.push(record);
+
+        // Set matching capacityRow month cost
+        const targetIdx = capacityRows.findIndex(row => row.month.trim().toLowerCase() === quoteDate.trim().toLowerCase());
+        if (targetIdx !== -1) {
+          capacityRows[targetIdx].value = results.mixedTotal;
+        }
+
+        editingQuoteId = nextId; // Automatically promote current session to Edit Node of this new record!
+
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast(`💾 Orçamento arquivado com o ID: ${nextId}`);
+      }
+    }
+
+    // Load comparison back into simulators grid
+    function loadOldComparison(idx) {
+      const target = archivedQuotes[idx];
+      if (!target) return;
+
+      if (confirm(`Deseja carregar a cotação ${target.id} para cômputos e alterações? Itens não salvos serão perdidos.`)) {
+        userName = target.userName || userName;
+        userCpf = target.userCpf || userCpf;
+        quoteDate = target.quoteDate;
+        suppliers = JSON.parse(JSON.stringify(target.suppliers));
+        items = JSON.parse(JSON.stringify(target.items));
+        if (target.capacityRows) {
+          capacityRows = JSON.parse(JSON.stringify(target.capacityRows));
+        }
+        activeCategoryId = target.categoryId || activeCategoryId;
+        editingQuoteId = target.id;
+
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast(`📂 Cotação ${target.id} carregada na planilha!`);
+      }
+    }
+
+    function removeOldComparison(idx, e) {
+      e.stopPropagation();
+      const target = archivedQuotes[idx];
+      if (confirm(`Excluir permanentemente o registro de arquivos ${target.id}?`)) {
+        if (editingQuoteId === target.id) {
+          editingQuoteId = null;
+        }
+        archivedQuotes.splice(idx, 1);
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast(`🗑️ Registro ${target.id} excluído.`);
+      }
+    }
+
+    function renderArchivedQuotesList() {
+      const tbody = document.getElementById("archived-quotes-tbody");
+      tbody.innerHTML = "";
+
+      if (archivedQuotes.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center" style="color: var(--color-slate-450); font-weight: bold; padding: 1.5rem;">Nenhuma cotação consolidada arquivada no histórico.</td></tr>`;
+        return;
+      }
+
+      archivedQuotes.forEach((q, index) => {
+        const tr = document.createElement("tr");
+        tr.style.cursor = "pointer";
+        tr.onclick = () => loadOldComparison(index);
+
+        if (editingQuoteId === q.id) {
+          tr.style.backgroundColor = "rgba(255,46,99,0.03)";
+        }
+
+        tr.innerHTML = `
+          <td>
+            <strong style="color: var(--color-fuchsia); font-family: var(--font-mono);">${q.id}</strong>
+            ${editingQuoteId === q.id ? '<span style="font-size:0.55rem; background-color: var(--color-fuchsia); color: #fff; padding:1px 4px; border-radius:3px; margin-left:3px;">EDITANDO</span>' : ''}
+          </td>
+          <td><strong style="color: var(--color-slate-800);">${q.userName ? q.userName.trim().split(" ")[0].toUpperCase() : 'AUDITOR'}</strong></td>
+          <td><span class="font-mono uppercase" style="font-weight: 800;">${q.quoteDate}</span></td>
+          <td><span style="font-size: 0.65rem; font-weight: 700; color: var(--color-slate-500);">${q.categoryName || 'GERAL'}</span></td>
+          <td style="text-align: right;"><strong style="font-family: var(--font-mono); color: #059669;">${formatBrl(q.summary ? q.summary.mixedTotal : q.mixedTotal)}</strong></td>
+          <td style="text-align: center;">
+            <button class="remove-row-btn" style="padding: 2px 8px; font-weight: 800; font-size: 0.8rem;" onclick="removeOldComparison(${index}, event)">&times;</button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Stop editing loaded session cotação
+    function closeEditingSession() {
+      if (confirm("Deseja fechar a edição da cotação ativa? Isso não limpará seus itens, mas permitirá criar/arquivar novos orçamentos separadamente.")) {
+        editingQuoteId = null;
+        renderPageData();
+        saveToLocalStorageAll();
+        triggerToast("👋 Sessão de edição finalizada.");
+      }
+    }
+
+    // Watcher resizing plotter helper
+    window.addEventListener("resize", () => {
+      if (userName && userCpf) {
+        plotTrendChart();
+      }
+    });
+
+  </script>
+</body>
+</html>

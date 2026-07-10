@@ -1,0 +1,590 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Baloo Tamma 2", cursive, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Custom slate shades frequently utilized in the code but absent from default specs */
+  --color-slate-55: #f8fafc;
+  --color-slate-105: #f1f5f9;
+  --color-slate-150: #e2e8f0;
+  --color-slate-205: #cbd5e1;
+  --color-slate-250: #cbd5e1;
+  --color-slate-350: #94a3b8;
+  --color-slate-450: #64748b;
+  --color-slate-550: #475569;
+  --color-slate-650: #334155;
+  --color-slate-850: #1e293b;
+  --color-slate-905: #0f172a;
+  --color-slate-955: #020617;
+
+  /* Custom emerald shades utilized inside layout nodes */
+  --color-emerald-105: #d1fae5;
+  --color-emerald-250: #34d399;
+  --color-emerald-705: #047857;
+
+  /* Custom sky shades */
+  --color-sky-105: #e0f2fe;
+  --color-sky-250: #38bdf8;
+
+  /* Custom amber shades */
+  --color-amber-350: #fbbf24;
+}
+
+body, button, input, select, textarea {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, th, .font-display {
+  font-family: var(--font-display) !important;
+}
+
+/* Custom yellow color for highest-highlighting */
+.bg-yellow-250 {
+  background-color: rgba(254, 240, 138, 0.95);
+}
+.border-yellow-350 {
+  border-color: rgba(234, 179, 8, 0.45);
+}
+
+/* Dedicated Printing styles for clean Facilities Reports */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0.5cm !important;
+  }
+
+  html, body, #root, #root > div {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    position: static !important;
+    display: block !important;
+    font-size: 8.5px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    background-image: none !important;
+  }
+
+  /* Force display grid/columns side-by-side in landscape */
+  .print\:grid-cols-12 {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  .print\:col-span-8 {
+    grid-column: span 8 / span 8 !important;
+  }
+
+  .print\:col-span-4 {
+    grid-column: span 4 / span 4 !important;
+  }
+
+  /* Force side-by-side inside decision summary block */
+  .print\:grid-cols-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  .print\:gap-4 {
+    gap: 0.75rem !important;
+  }
+
+  .print\:mb-4 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:inline {
+    display: inline !important;
+  }
+
+  /* Make sure scrolling wrapper doesn't crop contents */
+  .overflow-x-auto {
+    overflow: visible !important;
+    overflow-x: visible !important;
+  }
+
+  input, select, textarea {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color-adjust: exact !important;
+  }
+
+  /* Tighten paddings and spaces */
+  .p-5, .p-6, .p-8 {
+    padding: 0.5rem !important;
+  }
+
+  .mb-8 {
+    margin-bottom: 0.4rem !important;
+  }
+
+  .mb-6 {
+    margin-bottom: 0.4rem !important;
+  }
+
+  .mt-12 {
+    margin-top: 0.5rem !important;
+  }
+
+  .py-8 {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+
+  /* Keep cells compact during printing */
+  th, td {
+    padding: 3px 5px !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Prevent elements from breaking mid-content */
+  .print\:break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Ensure background colors aren't stripped by browsers in PDF prints */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* ==========================================
+   VISUAL THEMES: COMFORT AND ULTRA DARK MODES
+   ========================================== */
+
+@media screen {
+  /* --- 1. EYE COMFORT / READING MODE (SEPIA TONES) --- */
+  .theme-comfort {
+    background-color: #FAF4E5 !important;
+    color: #4A3A28 !important;
+  }
+  
+  .theme-comfort .min-h-screen {
+    background-color: #FAF4E5 !important;
+    color: #4A3A28 !important;
+  }
+
+  /* Cards, containers & modals */
+  .theme-comfort .bg-white,
+  .theme-comfort .bg-slate-50,
+  .theme-comfort [class*="bg-white"],
+  .theme-comfort #facilities-summary-container,
+  .theme-comfort .bg-slate-50\/80 {
+    background-color: #F4EBD7 !important;
+    color: #3D2D1E !important;
+  }
+
+  /* Subtle card structures, helper containers */
+  .theme-comfort .bg-slate-50,
+  .theme-comfort .bg-slate-105,
+  .theme-comfort .bg-slate-100,
+  .theme-comfort .bg-slate-100\/50,
+  .theme-comfort .bg-slate-150,
+  .theme-comfort .bg-slate-200,
+  .theme-comfort .bg-slate-200\/80,
+  .theme-comfort .bg-slate-250 {
+    background-color: #EFE4CC !important;
+    border-color: #DFD0B8 !important;
+  }
+
+  /* Text overrides */
+  .theme-comfort .text-slate-900,
+  .theme-comfort .text-slate-905,
+  .theme-comfort .text-slate-950,
+  .theme-comfort .text-slate-800,
+  .theme-comfort .text-slate-850,
+  .theme-comfort .text-slate-955 {
+    color: #352A1C !important;
+  }
+
+  .theme-comfort .text-slate-700,
+  .theme-comfort .text-slate-650,
+  .theme-comfort .text-slate-600 {
+    color: #514433 !important;
+  }
+
+  .theme-comfort .text-slate-550,
+  .theme-comfort .text-slate-500,
+  .theme-comfort .text-slate-450,
+  .theme-comfort .text-slate-400 {
+    color: #6E5E49 !important;
+  }
+
+  /* Overrides for hardcoded slate colors like #252A34 */
+  .theme-comfort .text-\[\#252A34\] {
+    color: #352A1C !important;
+  }
+
+  /* Overrides for crimson colors like #FF2E63 and rose targets */
+  .theme-comfort .text-rose-800,
+  .theme-comfort .text-rose-700,
+  .theme-comfort .text-\[\#FF2E63\],
+  .theme-comfort .text-rose-600 {
+    color: #9C1334 !important;
+  }
+
+  /* Success box targets (MELHOR UNICO FORNECEDOR / highlights) in comfort mode */
+  .theme-comfort .bg-emerald-50\/40,
+  .theme-comfort .bg-emerald-50,
+  .theme-comfort .bg-emerald-100,
+  .theme-comfort .bg-emerald-50\/20 {
+    background-color: #E2ECD5 !important;
+    border-color: #BCD3A0 !important;
+  }
+  .theme-comfort .text-emerald-950,
+  .theme-comfort .text-emerald-955,
+  .theme-comfort .text-emerald-800,
+  .theme-comfort .text-emerald-700 {
+    color: #2F611F !important;
+  }
+
+  /* Blue / Indigo Projections box targets in comfort mode */
+  .theme-comfort .bg-indigo-50\/30,
+  .theme-comfort .bg-indigo-50\/5 {
+    background-color: #DEE7F0 !important;
+    border-color: #B4C6D8 !important;
+  }
+  .theme-comfort .text-indigo-800 {
+    color: #1E3A8A !important;
+  }
+  .theme-comfort .text-indigo-400 {
+    color: #2563EB !important;
+  }
+  .theme-comfort .border-indigo-150 {
+    border-color: #CADAEC !important;
+  }
+
+  /* Amber Isolated elements in comfort mode */
+  .theme-comfort .bg-amber-100\/40 {
+    background-color: rgba(217, 119, 6, 0.15) !important;
+    border-color: #D97706 !important;
+  }
+  .theme-comfort .text-amber-955,
+  .theme-comfort .text-amber-950 {
+    color: #78350F !important;
+  }
+  .theme-comfort .bg-amber-100 {
+    background-color: #FEF3C7 !important;
+    border-color: #F59E0B !important;
+  }
+  .theme-comfort .text-amber-600 {
+    color: #B45309 !important;
+  }
+
+  /* Specific borders */
+  .theme-comfort .border-slate-100,
+  .theme-comfort .border-slate-150,
+  .theme-comfort .border-slate-200,
+  .theme-comfort .border-slate-205,
+  .theme-comfort .border-slate-300 {
+    border-color: #DFD0B8 !important;
+  }
+
+  /* Table-specific styles */
+  .theme-comfort tr:nth-child(even) {
+    background-color: rgba(239, 228, 204, 0.35) !important;
+  }
+  .theme-comfort tr:hover, 
+  .theme-comfort tr:hover td {
+    background-color: #E9DCBE !important;
+  }
+  .theme-comfort th {
+    background-color: #E6DABA !important;
+    color: #352A1C !important;
+    border-color: #D5C7AB !important;
+  }
+
+  /* Inputs, Select, Autocomplete bars, Textareas */
+  .theme-comfort input,
+  .theme-comfort select,
+  .theme-comfort textarea,
+  .theme-comfort .bg-white\/80 {
+    background-color: #FAF5E8 !important;
+    color: #352A1C !important;
+    border-color: #DFD0B8 !important;
+  }
+
+  .theme-comfort input:focus,
+  .theme-comfort select:focus {
+    background-color: #FFFDF5 !important;
+    border-color: #BF9C60 !important;
+    outline: none !important;
+  }
+
+  /* Badge tints and highlights */
+  .theme-comfort .bg-slate-100 {
+    background-color: #EADCB8 !important;
+  }
+
+
+  /* --- 2. PREMIUM VERSÃO DARK / CONTRAST PETROLEUM BLUE MODE --- */
+  .theme-ultradark {
+    background-color: #252A34 !important; /* Azul Petroleo page background */
+    color: #FFFFFF !important; /* White as primary font color for high contrast */
+  }
+
+  .theme-ultradark .min-h-screen {
+    background-color: #252A34 !important; /* Deep Petroleum Blue background */
+    color: #FFFFFF !important;
+  }
+
+  /* All cards, modals, dropdown summaries, and panels under the theme MUST have a pure white background */
+  .theme-ultradark .bg-white,
+  .theme-ultradark [class*="bg-white"],
+  .theme-ultradark .bg-slate-50\/80,
+  .theme-ultradark #facilities-summary-container {
+    background-color: #FFFFFF !important;
+    color: #252A34 !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  /* Secondary subtle elements take white background to ease visibility */
+  .theme-ultradark .bg-slate-50,
+  .theme-ultradark .bg-slate-105,
+  .theme-ultradark .bg-[#f1f5f9],
+  .theme-ultradark .bg-slate-100,
+  .theme-ultradark .bg-slate-100\/50,
+  .theme-ultradark .bg-slate-150,
+  .theme-ultradark .bg-slate-205,
+  .theme-ultradark .bg-slate-200,
+  .theme-ultradark .bg-slate-200\/80,
+  .theme-ultradark .bg-slate-250,
+  .theme-ultradark .bg-slate-50\/50,
+  .theme-ultradark .bg-slate-50\/20 {
+    background-color: #FFFFFF !important;
+    color: #252A34 !important;
+    border-color: #E2E8F0 !important;
+  }
+
+  /* Convert slate or dark text classes to High Contrast Light colors outside cards */
+  .theme-ultradark .text-slate-900,
+  .theme-ultradark .text-slate-905,
+  .theme-ultradark .text-slate-950,
+  .theme-ultradark .text-slate-800,
+  .theme-ultradark .text-slate-850,
+  .theme-ultradark .text-slate-955,
+  .theme-ultradark .text-slate-700,
+  .theme-ultradark .text-slate-650,
+  .theme-ultradark .text-slate-600 {
+    color: #FFFFFF !important; /* High contrast White on Petroleum Blue background */
+  }
+
+  .theme-ultradark .text-slate-550,
+  .theme-ultradark .text-slate-500,
+  .theme-ultradark .text-slate-450,
+  .theme-ultradark .text-slate-400 {
+    color: #E2E8F0 !important; /* Soft Ice Gray on Petroleum Blue background */
+  }
+
+  /* Target elements INSIDE cards, tables, panels, lists to keep the legible Petroleum Blue text color */
+  .theme-ultradark .bg-white .text-slate-900,
+  .theme-ultradark .bg-white .text-slate-905,
+  .theme-ultradark .bg-white .text-slate-950,
+  .theme-ultradark .bg-white .text-slate-800,
+  .theme-ultradark .bg-white .text-slate-850,
+  .theme-ultradark .bg-white .text-slate-955,
+  .theme-ultradark .bg-white .text-slate-700,
+  .theme-ultradark .bg-white .text-slate-650,
+  .theme-ultradark .bg-white .text-slate-600,
+  .theme-ultradark .bg-white .text-slate-550,
+  .theme-ultradark .bg-white .text-slate-500,
+  .theme-ultradark .bg-white .text-slate-450,
+  .theme-ultradark .bg-white .text-slate-400,
+  .theme-ultradark [class*="bg-white"] .text-slate-900,
+  .theme-ultradark [class*="bg-white"] .text-slate-800,
+  .theme-ultradark [class*="bg-white"] .text-slate-700,
+  .theme-ultradark [class*="bg-white"] .text-slate-600,
+  .theme-ultradark [class*="bg-white"] .text-slate-500,
+  .theme-ultradark [class*="bg-white"] .text-slate-400,
+  .theme-ultradark table .text-slate-900,
+  .theme-ultradark table .text-slate-800,
+  .theme-ultradark table .text-slate-700,
+  .theme-ultradark table .text-slate-600,
+  .theme-ultradark table .text-slate-500,
+  .theme-ultradark table .text-slate-400,
+  .theme-ultradark #facilities-summary-container .text-slate-900,
+  .theme-ultradark #facilities-summary-container .text-slate-800,
+  .theme-ultradark #facilities-summary-container .text-slate-700,
+  .theme-ultradark #facilities-summary-container .text-slate-600,
+  .theme-ultradark #facilities-summary-container .text-slate-500,
+  .theme-ultradark #facilities-summary-container .text-slate-400 {
+    color: #252A34 !important;
+  }
+
+  /* Ensure the header logo has high contrast (white word FACILITIES) on the dark background */
+  .theme-ultradark header .text-\[\#252A34\],
+  .theme-ultradark .text-xl.font-extrabold.text-\[\#252A34\] {
+    color: #FFFFFF !important;
+  }
+
+  /* Hardcoded text targets inside white-backed modules keep their dark color */
+  .theme-ultradark .bg-white .text-\[\#252A34\],
+  .theme-ultradark .bg-white [class*="text-[#252A34]"],
+  .theme-ultradark table .text-\[\#252A34\],
+  .theme-ultradark table [class*="text-[#252A34]"] {
+    color: #252A34 !important;
+  }
+
+  /* Pink (#FF2E63) Call-to-action details, badges, alerts */
+  .theme-ultradark .text-\[\#FF2E63\],
+  .theme-ultradark [class*="text-[#FF2E63]"],
+  .theme-ultradark .text-rose-600,
+  .theme-ultradark .text-rose-700,
+  .theme-ultradark .text-rose-800 {
+    color: #FF2E63 !important;
+  }
+  .theme-ultradark .bg-\[\#FF2E63\],
+  .theme-ultradark [class*="bg-[#FF2E63]"],
+  .theme-ultradark .bg-pink-100,
+  .theme-ultradark .bg-pink-50 {
+    background-color: #FF2E63 !important;
+    color: #FFFFFF !important;
+  }
+  .theme-ultradark .border-\[\#FF2E63\] {
+    border-color: #FF2E63 !important;
+  }
+
+  /* Magenta (#A82047) - Secondary highlights & error states */
+  .theme-ultradark .text-red-500,
+  .theme-ultradark .text-rose-500,
+  .theme-ultradark .text-[#A82047] {
+    color: #A82047 !important;
+  }
+  .theme-ultradark .bg-[#A82047],
+  .theme-ultradark .bg-[#A82047]/10 {
+    background-color: #A82047 !important;
+    color: #FFFFFF !important;
+  }
+  .theme-ultradark .border-[#A82047] {
+    border-color: #A82047 !important;
+  }
+
+  /* Cyan (#08D9D6) - Interactive elements, successes, hover effects */
+  .theme-ultradark .text-[#08D9D6],
+  .theme-ultradark .text-emerald-500,
+  .theme-ultradark .text-emerald-600,
+  .theme-ultradark .text-emerald-700,
+  .theme-ultradark .text-cyan-600 {
+    color: #05A8A6 !important; /* High contrast cyan for legible text on white bg */
+  }
+  .theme-ultradark .bg-[#08D9D6],
+  .theme-ultradark .bg-[#08D9D6]/10,
+  .theme-ultradark .bg-emerald-50,
+  .theme-ultradark .bg-emerald-100 {
+    background-color: #08D9D6 !important;
+    color: #252A34 !important;
+    border-color: #08D9D6 !important;
+  }
+  .theme-ultradark .hover\:bg-\[rgba\(8\,217\,214\,0\.2\)\]:hover,
+  .theme-ultradark .hover\:border-\[\#08D9D6\]:hover {
+    background-color: rgba(8, 217, 214, 0.15) !important;
+    border-color: #08D9D6 !important;
+  }
+
+  /* Specific borders for tables and dividers */
+  .theme-ultradark .border-slate-100,
+  .theme-ultradark .border-slate-150,
+  .theme-ultradark .border-slate-200,
+  .theme-ultradark .border-slate-205,
+  .theme-ultradark .border-slate-300 {
+    border-color: #E2E8F0 !important;
+  }
+
+  /* Table styling */
+  .theme-ultradark tr:nth-child(even) {
+    background-color: #F8FAFC !important;
+  }
+  .theme-ultradark tr:hover,
+  .theme-ultradark tr:hover td {
+    background-color: rgba(8, 217, 214, 0.05) !important; /* Gentle interactive Cyan glow hover */
+  }
+  .theme-ultradark th {
+    background-color: #FFFFFF !important; /* Pure White background for all tables and cards */
+    color: #252A34 !important; /* Petroleum Blue font color */
+    border-color: #CBD5E1 !important;
+  }
+  .theme-ultradark th * {
+    color: #252A34 !important; /* All text and buttons inside table headers are Petroleum Blue */
+  }
+
+  /* Inputs, Textareas, and Dropdown select boxes */
+  .theme-ultradark input,
+  .theme-ultradark select,
+  .theme-ultradark textarea,
+  .theme-ultradark .bg-white\/80 {
+    background-color: #FFFFFF !important;
+    color: #252A34 !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  .theme-ultradark input:focus,
+  .theme-ultradark select:focus,
+  .theme-ultradark textarea:focus {
+    background-color: #FFFFFF !important;
+    border-color: #08D9D6 !important; /* Cyan active interactive focus */
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(8, 217, 214, 0.25) !important;
+  }
+
+  /* Highlight segments (like Total Misto Combinado) */
+  .theme-ultradark .bg-\[\#08D9D6\]\/5,
+  .theme-ultradark [class*="bg-[#08D9D6]/5"] {
+    background-color: rgba(8, 217, 214, 0.08) !important;
+    border-color: #08D9D6 !important;
+    color: #252A34 !important;
+  }
+}
+
+/* Background elegant dot-grid pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(37, 42, 52, 0.06) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.theme-ultradark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* Custom Corporate Header */
+#bp-compras-header {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-ultradark #bp-compras-header {
+  background-color: #1a2f3b !important; /* Premium Petroleum Blue background */
+  background-image: radial-gradient(circle at bottom right, rgba(8, 217, 214, 0.15), transparent 45%) !important;
+  border-color: rgba(255, 46, 99, 0.35) !important;
+  box-shadow: 0 10px 25px -5px rgba(11, 23, 31, 0.5), 0 8px 10px -6px rgba(11, 23, 31, 0.5) !important;
+}
+
+/* Ensure child brand texts inside the petroleum blue header have perfect contrast in ultradark mode */
+.theme-ultradark #bp-compras-header .text-slate-850,
+.theme-ultradark #bp-compras-header .text-slate-100 {
+  color: #FFFFFF !important;
+}
+
+.theme-ultradark #bp-compras-header .text-slate-500,
+.theme-ultradark #bp-compras-header .text-slate-400 {
+  color: #94A3B8 !important; /* Elegant slate grey so "COMPRAS" subtitle stands out beautifully */
+}
+

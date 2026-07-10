@@ -1,0 +1,92 @@
+================================================================================
+          DOCUMENTAÇÃO DO APLICATIVO — SISTEMA BP-COMPRAS & CONTROLE DE MEI
+================================================================================
+
+1. OBJETIVO DO APLICATIVO
+   O BP-Compras é um sistema integrado de gestão empresarial de alta performance
+   desenvolvido para automatizar o controle de cotações, estoque de materiais
+   (limpeza, copa e escritório), planejamento de capacidade e a gestão de
+   fichas cadastrais para contratação de Prestadores de Serviço Autônomos e MEI.
+   O objetivo central é consolidar em uma única plataforma as decisões de compras
+   da empresa, otimizar custos com inteligência de análise e formalizar os 
+   cadastros de fornecedores com emissão digital instantânea.
+
+2. PÚBLICO-ALVO
+   - Gestores de compras e suprimentos.
+   - Setor de Recursos Humanos e Departamento Pessoal (para contratação de MEI).
+   - Administradores de facilities e estoque.
+
+3. MÓDULOS PRINCIPAIS & PRINCIPAIS FUNCIONALIDADES
+
+   A) COTAÇÕES DE COMPRAS (MÓDULO DE COTAÇÃO)
+      - Lançamento de Preços: Permite inserir preços para diversos fornecedores
+        e comparar automaticamente qual deles possui a melhor oferta por item.
+      - Resumo Analítico: Exibe o valor total gasto por fornecedor, economia
+        gerada e destaca o fornecedor vencedor (com menor preço total).
+      - Histórico de Cotações: Permite arquivar cotações passadas com data e
+        carregar novamente para visualização ou edição rápida.
+      - Comparativo Histórico: Painel que compara a cotação ativa com um histórico
+        de referência, identificando inflação ou deflação percentual nos custos.
+
+   B) GESTÃO DE ESTOQUE (MÓDULO DE ESTOQUE)
+      - Inventário Ativo: Controle quantitativo de itens por categoria (como
+        papelaria, copa, material de limpeza).
+      - Alertas de Reposição: Exibe avisos visuais claros quando os itens atingem
+        o estoque mínimo de segurança.
+      - Registro de Consumo: Histórico detalhado de saídas para auditoria de uso.
+
+   C) PLANEJAMENTO DE CAPACIDADE
+      - Dimensionamento automático baseado em regras e fatores específicos para
+        evitar faltas ou desperdício de insumos essenciais de longo prazo.
+
+   D) CONSULTOR DE COMPRAS COM IA (INTEGRAÇÃO GEMINI)
+      - Chat lateral com um assistente virtual inteligente alimentado por IA,
+        capaz de analisar a cotação atual, sugerir otimizações de orçamento,
+        estimar demandas futuras e tirar dúvidas sobre contratos.
+
+   E) GESTÃO & FICHA DE CONTRATAÇÃO DE AUTÔNOMO / MEI (MÓDULO MEI)
+      Este é um módulo avançado acessível via menu, permitindo preencher um 
+      cadastro detalhado de prestadores de serviço e emitir documentos oficiais:
+      - Formulário Inteligente de Preenchimento:
+        * Identificação: Nome Completo.
+        * Endereço: Rua, Número, Complemento, Bairro, CEP, Cidade e UF.
+        * Nascimento & Sexo: Data, Naturalidade, UF de Nascimento e Sexo.
+        * Grau de Instrução: Caixa de seleção dinâmica para os níveis escolares.
+        * Estado Civil: Situação civil, data de casamento e nome do cônjuge.
+        * Raça / Cor: Seleção padronizada de raça e cor para eSocial.
+        * Função/Atividade: Detalhamento do serviço exercido.
+        * Documentação & Banco: CPF, PIS/NIT, CNPJ (MEI), Banco, Agência, Conta e Chave PIX.
+      - Sincronização em Nuvem (Supabase):
+        * Botão "Salvar Fornecedor": Registra ou atualiza os dados na nuvem com
+          persistência durável e indestrutível.
+        * Lista Lateral de Pesquisa: Permite buscar por nome ou CPF, carregar dados
+          instantaneamente no formulário e excluir cadastros antigos.
+        * LocalStorage Fallback: Em caso de ausência de rede, o sistema mantém os
+          dados locais salvos sem interrupções.
+      - Emissão de PDF de Alta Fidelidade:
+        * Gera uma folha de estilo oficial A4 com margens simétricas, cabeçalho
+          institucional azul-marinho e amarelo, divisões de campos delimitadas por
+          linhas cinzas finas e espaço para assinaturas manuais.
+      - Emissão de Excel (.xlsx) Idêntico ao PDF:
+        * O grande diferencial é o exportador baseado na biblioteca ExcelJS, que
+          recria exatamente o visual físico do PDF com células mescladas em uma
+          grade de 16 colunas, cores de preenchimento idênticas (azul, cinza, amarelo),
+          fontes Arial proporcionais, marcas de seleção cruzada (X) para campos de
+          opção e bordas externas de tamanho médio que emolduram o formulário impresso.
+
+4. COMO NAVEGAR E UTILIZAR O APLICATIVO
+   - Cabeçalho Superior: Apresenta o título BP-Compras, o status de conexão em nuvem
+     (Sincronizado/Sincronizando) e as abas para alternar entre "Cotação" e "Estoque".
+   - Botão "Ficha MEI / Autônomo" (Ícone de Prancheta/Ficha): Localizado no topo, abre
+     o painel modal flutuante de preenchimento e exportação da Ficha de Contratação.
+   - Painel de Cotação: Possui campos para adicionar itens, inserir valores e
+     visualizar em tempo real as tabelas comparativas coloridas.
+   - Assistente IA: Pode ser aberto clicando no ícone do chat flutuante no canto
+     inferior direito da tela.
+   - Para Exportar Documentos MEI:
+     1. Clique em "Ficha MEI / Autônomo".
+     2. Preencha todos os campos obrigatórios sinalizados com asterisco (*).
+     3. Clique em "Salvar Cadastro" para salvar na nuvem Supabase.
+     4. Clique em "Exportar PDF" para fazer o download do documento pronto para impressão.
+     5. Clique em "Exportar Excel (.xlsx)" para baixar a planilha perfeitamente
+        diagramada e com aparência idêntica ao documento impresso.

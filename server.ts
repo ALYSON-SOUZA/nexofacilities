@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import dotenv from "dotenv";
 import { GoogleGenAI, Type } from "@google/genai";
@@ -12,6 +12,40 @@ dotenv.config();
 
 const app = express();
 const PORT = 3000;
+
+// --- Rate Limiting (in-memory, per IP) ---
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 30;
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
+
+function rateLimiter(req: Request, res: Response, next: NextFunction) {
+  const ip = req.ip || req.socket.remoteAddress || "unknown";
+  const now = Date.now();
+  const entry = rateLimitStore.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return next();
+  }
+
+  entry.count++;
+  if (entry.count > RATE_LIMIT_MAX) {
+    res.setHeader("Retry-After", String(Math.ceil((entry.resetAt - now) / 1000)));
+    return res.status(429).json({ error: "Too many requests. Please try again later." });
+  }
+  next();
+}
+
+// Periodically clean up stale entries to prevent memory leak
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitStore) {
+    if (now > entry.resetAt) rateLimitStore.delete(ip);
+  }
+}, RATE_LIMIT_WINDOW_MS * 2);
+
+// Apply rate limiter to all AI endpoints
+app.use("/api/gemini", rateLimiter);
 
 app.use(express.json({ limit: "50mb" })); // Ensure large base64 uploads are accepted
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -478,7 +512,7 @@ ${extractedTextContent}
 ---`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: isMultimodal 
         ? { parts: [multimodalPart, { text: promptString }] }
         : promptString,
@@ -756,7 +790,7 @@ ${extractedTextContent}
 ---`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: isMultimodal 
         ? { parts: [multimodalPart, { text: promptString }] }
         : promptString,
@@ -880,7 +914,7 @@ app.post("/api/docs/upload", async (req, res) => {
         
         try {
           const ocrResponse = await ai.models.generateContent({
-            model: "gemini-3.5-flash",
+            model: "gemini-2.5-flash",
             contents: { parts: [ocrPart, { text: ocrPrompt }] }
           });
           extractedText = ocrResponse.text || "";
@@ -917,7 +951,7 @@ ${extractedText.slice(0, 45000)}
 
       try {
         const summaryResponse = await ai.models.generateContent({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.5-flash",
           contents: summaryPrompt
         });
         summary = summaryResponse.text || "Falha ao gerar o resumo.";
@@ -1210,7 +1244,7 @@ Responda à dúvida de forma precisa baseando-se unicamente nas fontes acima:`;
 
       try {
         const chatResponse = await ai.models.generateContent({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.5-flash",
           contents: prompt,
           config: {
             systemInstruction
@@ -1282,7 +1316,7 @@ Crie a estrutura dos slides em Markdown:`;
 
       try {
         const slidesRes = await ai.models.generateContent({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.5-flash",
           contents: prompt
         });
         presentationMarkdown = slidesRes.text || "Falha ao gerar os slides.";
@@ -2249,7 +2283,7 @@ RETORNE EXCLUSIVAMENTE UM OBJETO JSON VÁLIDO obedecendo exatamente a seguinte e
 
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: { parts },
         config: {
           responseMimeType: "application/json",
@@ -2309,7 +2343,7 @@ Instruções importantes:
 5. Retorne o resultado estritamente no formato do JSON Schema solicitado abaixo. Não realize o preenchimento de dados de colaborador ou dos próprios objetos, pois isso será feito futuramente.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -2558,127 +2592,6 @@ Responda diretamente com a solução técnica apropriada para a dúvida em quest
   } catch (error: any) {
     console.error("Normativa Tutor Gemini Error:", error);
     res.status(500).json({ error: error?.message || "Erro interno ao consultar o Tutor de IA da Normativa." });
-  }
-});
-
-// Route to extract apprentice contract details using server-side Gemini 2.5 Flash
-app.post("/api/gemini/extract-aprendiz-contract", async (req, res) => {
-  try {
-    const { rawText } = req.body;
-    if (!rawText) {
-      return res.status(400).json({ error: "Texto bruto não fornecido." });
-    }
-
-    if (!ai) {
-      // Fallback response with empty fields matching requirement
-      return res.json({
-        nomeCompleto: "",
-        dataNascimento: "",
-        idade: "",
-        cpf: "",
-        rg: "",
-        nomeMae: "",
-        nomePai: "",
-        telefone: "",
-        email: "",
-        endereco: "",
-        numero: "",
-        complemento: "",
-        bairro: "",
-        cep: "",
-        cidade: "",
-        uf: "",
-        nomeResponsavel: "",
-        cpfResponsavel: "",
-        rgResponsavel: "",
-        parentescoResponsavel: "",
-        telefoneResponsavel: "",
-        instituicaoEnsino: "",
-        cursoGrau: "",
-        turnoEscolar: "",
-        serieAno: "",
-        dataAdmissao: "",
-        dataTermino: "",
-        entidadeQualificadora: "",
-        cursoAprendizagem: "",
-        tutorSupervisor: "",
-        setorAlocacao: "",
-        horarioTrabalho: "",
-        banco: "",
-        agencia: "",
-        conta: "",
-        pix: "",
-        diaTeorica: "",
-        tipoAprendiz: "Administrativo"
-      });
-    }
-
-    const systemPrompt = `Você é um robô de IA especialista em extrair dados cadastrais para fichas de jovens aprendizes da Bellinati Perez.
-Analise minuciosamente o seguinte texto informal fornecido pelo usuário e preencha todos os campos possíveis do objeto JSON.
-Retorne APENAS um objeto JSON válido, sem markdown, sem explicações adicionais, e com as chaves exatas descritas abaixo.
-
-CRÍTICO: Não preencha automaticamente nenhum campo da ficha com dados fictícios, placeholders ou de exemplo. Caso alguma informação não tenha sido informada no texto fornecido, o campo correspondente deve permanecer estritamente em branco ("").
-
-Campos requeridos no JSON:
-{
-  "nomeCompleto": "nome completo do aprendiz em maiúsculas",
-  "dataNascimento": "data de nascimento formatada como DD/MM/YYYY",
-  "idade": "idade (número como string)",
-  "cpf": "CPF formatado como 000.000.000-00",
-  "rg": "RG formatado",
-  "nomeMae": "nome da mãe completo em maiúsculas",
-  "nomePai": "nome do pai completo em maiúsculas",
-  "telefone": "telefone de contato formatado como (85) 9XXXX-XXXX",
-  "email": "e-mail de contato",
-  "endereco": "logradouro (rua, avenida)",
-  "numero": "número da residência",
-  "complemento": "apartamento, bloco, etc",
-  "bairro": "bairro",
-  "cep": "CEP formatado como 00000-000",
-  "cidade": "Fortaleza",
-  "uf": "CE",
-  "nomeResponsavel": "nome do responsável legal se menor de 18 anos",
-  "cpfResponsavel": "CPF do responsável",
-  "rgResponsavel": "RG do responsável",
-  "parentescoResponsavel": "grau de parentesco do responsável (ex: MÃE, PAI)",
-  "telefoneResponsavel": "telefone do responsável",
-  "instituicaoEnsino": "nome da escola ou colégio",
-  "cursoGrau": "Ensino Médio ou Ensino Fundamental",
-  "turnoEscolar": "Manhã, Tarde ou Noite",
-  "serieAno": "série ou ano letivo (ex: 2º Ano, 3º Ano)",
-  "dataAdmissao": "data de admissão formatada como DD/MM/YYYY",
-  "dataTermino": "data de término formatada como DD/MM/YYYY",
-  "entidadeQualificadora": "entidade de aprendizagem (ex: CIEE Ceará, CIEE, SENAC, etc)",
-  "cursoAprendizagem": "nome do curso de aprendizagem",
-  "tutorSupervisor": "nome do supervisor ou tutor",
-  "setorAlocacao": "setor de alocação (ex: Arco Administrativo, Facilities, etc)",
-  "horarioTrabalho": "horário de trabalho (ex: 13h – 17h ou 08h – 12h)",
-  "banco": "nome do banco",
-  "agencia": "número da agência",
-  "conta": "número da conta",
-  "pix": "chave pix",
-  "diaTeorica": "Dia da semana da aula teórica: Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira ou Sexta-feira",
-  "tipoAprendiz": "Tipo: Administrativo ou Serviço"
-}
-
-Texto bruto fornecido:
----
-${rawText}
----`;
-
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: systemPrompt,
-      config: {
-        responseMimeType: "application/json"
-      }
-    });
-
-    const cleanedText = response.text?.trim() || "{}";
-    res.json(JSON.parse(cleanedText));
-  } catch (error: any) {
-    console.error("Gemini Extract Error:", error);
-    res.status(500).json({ error: "Erro interno na extração de dados com Gemini." });
   }
 });
 

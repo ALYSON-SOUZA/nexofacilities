@@ -171,7 +171,9 @@ export default function TermsResponsibilityModal({ isOpen, onClose, visualTheme 
     } catch (err) {
       console.error("Erro ao carregar colaboradores:", err);
       const local = localStorage.getItem("bp_saved_mei_suppliers");
-      if (local) setSavedSuppliers(JSON.parse(local));
+      if (local) {
+        try { setSavedSuppliers(JSON.parse(local)); } catch (e) { /* ignore */ }
+      }
     }
   };
 

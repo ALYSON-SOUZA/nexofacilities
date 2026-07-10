@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import ExcelJS from "exceljs";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
@@ -23,48 +23,27 @@ import { INITIAL_STATE, INITIAL_CAPACITY, INITIAL_SAVED_COMPARISON, DEFAULT_CATE
 import { EmojiButton } from "./components/EmojiButton";
 import { calculateComparison, getPosteriorMonthLabel, getPreviousMonths } from "./utils";
 import { Supplier, QuoteItem, CapacityRow, SavedComparison, SavedItemInfo, ArchivedQuote, Category } from "./types";
-import { HelpCircle, RefreshCw, AlertCircle, ShoppingCart, Info, Check, ExternalLink, Printer, X, ChevronDown, Database, CloudLightning, CheckCircle, WifiOff, Calendar, RotateCcw, Sparkles, Save, LogOut, Menu, Sun, Moon, Eye, FileSpreadsheet, Plus, Building2, Settings, BookOpen, FileText } from "lucide-react";
-import { supabase, dbFetchQuotes, dbFetchCategories } from "./supabaseClient";
-
-function migrateCategories(cats: Category[]): Category[] {
-  const defaultLimpeza = DEFAULT_CATEGORIES.find(c => c.id === "material_limpeza");
-  if (!defaultLimpeza) return cats;
-
-  let hasLimpeza = false;
-  const migrated = cats.map(cat => {
-    if (cat.id === "material_limpeza") {
-      hasLimpeza = true;
-      const isOutdated = !cat.items.includes("Álcool em gel 70% - 5L - Pedido SESMET") || cat.items.length < 30;
-      if (isOutdated) {
-        return {
-          ...cat,
-          name: "MATERIAL DE LIMPEZA",
-          items: [...defaultLimpeza.items]
-        };
-      }
-    }
-    return cat;
-  });
-
-  if (!hasLimpeza) {
-    migrated.push({
-      id: "material_limpeza",
-      name: "MATERIAL DE LIMPEZA",
-      items: [...defaultLimpeza.items]
-    });
-  }
-
-  return migrated;
-}
+import { HelpCircle, RefreshCw, AlertCircle, ShoppingCart, Info, Check, ExternalLink, Printer, X, ChevronDown, Database, CloudLightning, CheckCircle, WifiOff, Calendar, RotateCcw, Sparkles, Save, LogOut, Menu, Sun, Moon, Eye, FileSpreadsheet, Plus, Building2, Settings, BookOpen, FileText, Search } from "lucide-react";
+import { migrateCategories } from "./categoryMigration";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useSupabaseSync } from "./hooks/useSupabaseSync";
+import { useToast } from "./components/Toast";
+import ConfirmDialog from "./components/ConfirmDialog";
 
 export default function App() {
-  // Supabase sync states
-  const [syncStatus, setSyncStatus] = useState<"synced" | "syncing" | "error" | "offline">("syncing");
-  const isLoadedFromCloudRef = useRef(false);
-
   // AI Drawer state
   const [isAiDrawerOpen, setIsAiDrawerOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const { showToast } = useToast();
+
+  // Confirm dialog state
+  const [confirmDialog, setConfirmDialog] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    variant: "danger" | "warning" | "info";
+    onConfirm: () => void;
+  }>({ isOpen: false, title: "", message: "", variant: "warning", onConfirm: () => {} });
 
   // Load initial states from localStorage with default fallbacks
   const [userName, setUserName] = useState<string>(() => {
@@ -269,9 +248,6 @@ export default function App() {
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [showPrintModal, setShowPrintModal] = useState<boolean>(false);
 
-  // State for confirmable reset (iframe-safe alternative to window.confirm)
-  const [showResetConfirm, setShowResetConfirm] = useState(false);
-
   // Sync state modifications to localStorage
   useEffect(() => {
     localStorage.setItem("clean_quotes_username", userName);
@@ -348,136 +324,13 @@ export default function App() {
     }
   }, [editingQuoteId]);
 
-  // Supabase Fetch - Load quotes and categories from Supabase on launch
-  useEffect(() => {
-    async function loadInitialData() {
-      try {
-        setSyncStatus("syncing");
-        const [cloudQuotes, cloudCategories] = await Promise.all([
-          dbFetchQuotes(),
-          dbFetchCategories()
-        ]);
-
-        if (cloudQuotes && cloudQuotes.length > 0) {
-          setArchivedQuotes(cloudQuotes);
-        }
-
-        if (cloudCategories && cloudCategories.length > 0) {
-          setCategories(migrateCategories(cloudCategories));
-        } else {
-          setCategories(prev => migrateCategories(prev));
-        }
-
-        isLoadedFromCloudRef.current = true;
-        setSyncStatus("synced");
-      } catch (err) {
-        console.error("Failed to load initial Supabase data:", err);
-        setSyncStatus("offline");
-      }
-    }
-    loadInitialData();
-  }, []);
-
-  // Supabase Sync - Background autosave/sync when archivedQuotes array changes (debounced)
-  useEffect(() => {
-    if (!isLoadedFromCloudRef.current) return;
-
-    setSyncStatus("syncing");
-    const syncTimeout = setTimeout(async () => {
-      try {
-        // 1. Delete quotes on database that are no longer locally present
-        const { data: remoteData, error: fetchErr } = await supabase
-          .from("quotes")
-          .select("id");
-
-        if (!fetchErr && remoteData) {
-          const remoteIds = remoteData.map((r: any) => r.id);
-          const localIds = archivedQuotes.map((q) => q.id);
-          const deletedIds = remoteIds.filter((id) => !localIds.includes(id));
-
-          if (deletedIds.length > 0) {
-            await supabase.from("quotes").delete().in("id", deletedIds);
-          }
-        }
-
-        // 2. Upsert all currently archived quotes
-        if (archivedQuotes.length > 0) {
-          const payloads = archivedQuotes.map((q) => ({
-            id: q.id,
-            title: q.title || "",
-            quote_date: q.quoteDate,
-            user_name: q.userName,
-            user_cpf: q.userCpf,
-            saved_at: q.savedAt,
-            suppliers: q.suppliers,
-            items: q.items,
-            capacity_rows: q.capacityRows,
-            summary: q.summary,
-            category_id: q.categoryId,
-            category_name: q.categoryName,
-            chamado_number: q.chamadoNumber || "",
-          }));
-
-          let { error: upsertErr } = await supabase
-            .from("quotes")
-            .upsert(payloads, { onConflict: "id" });
-
-          if (upsertErr && (upsertErr.message?.includes("chamado_number") || upsertErr.message?.includes("title") || upsertErr.code === "PGRST204")) {
-            console.warn("⚠️ Supabase 'quotes' table is missing modern columns (title, chamado_number). Retrying with legacy payload.");
-            const legacyPayloads = archivedQuotes.map((q) => ({
-              id: q.id,
-              quote_date: q.quoteDate,
-              user_name: q.userName,
-              user_cpf: q.userCpf,
-              saved_at: q.savedAt,
-              suppliers: q.suppliers,
-              items: q.items,
-              capacity_rows: q.capacityRows,
-              summary: q.summary,
-              category_id: q.categoryId,
-              category_name: q.categoryName,
-            }));
-            const { error: retryErr } = await supabase
-              .from("quotes")
-              .upsert(legacyPayloads, { onConflict: "id" });
-            upsertErr = retryErr;
-          }
-
-          if (upsertErr) throw upsertErr;
-        }
-
-        setSyncStatus("synced");
-      } catch (err) {
-        console.error("Autosync with Supabase failed:", err);
-        setSyncStatus("error");
-      }
-    }, 1200);
-
-    return () => clearTimeout(syncTimeout);
-  }, [archivedQuotes]);
-
-  // Supabase Sync - Background autosave for categories (debounced)
-  useEffect(() => {
-    if (!isLoadedFromCloudRef.current) return;
-
-    const syncTimeout = setTimeout(async () => {
-      try {
-        if (categories.length > 0) {
-          const payloads = categories.map((cat) => ({
-            id: cat.id,
-            name: cat.name,
-            items: cat.items,
-          }));
-
-          await supabase.from("categories").upsert(payloads, { onConflict: "id" });
-        }
-      } catch (err) {
-        console.error("Failed to sync categories to Supabase:", err);
-      }
-    }, 2000);
-
-    return () => clearTimeout(syncTimeout);
-  }, [categories]);
+  // Supabase sync hook — handles bidirectional sync of quotes and categories
+  const { syncStatus } = useSupabaseSync(
+    archivedQuotes,
+    setArchivedQuotes,
+    categories,
+    setCategories
+  );
 
   // Find the exact archived quote that we are comparing against (or take the newest if none selected)
   const currentCompareQuoteInfo = useMemo(() => {
@@ -1519,24 +1372,37 @@ export default function App() {
   };
 
   const handleClearComparison = () => {
-    setArchivedQuotes([]);
-    setSelectedCompareQuoteId("");
-    setSuccessMessage("Histórico de cotações arquivadas limpo!");
-    setTimeout(() => setSuccessMessage(""), 4000);
+    setConfirmDialog({
+      isOpen: true,
+      title: "Limpar Histórico?",
+      message: "Isso irá apagar permanentemente todas as cotações arquivadas. Esta ação não pode ser desfeita.",
+      variant: "danger",
+      onConfirm: () => {
+        setArchivedQuotes([]);
+        setSelectedCompareQuoteId("");
+        showToast("Histórico de cotações arquivadas limpo!", "success");
+      },
+    });
   };
 
   const handleDeleteQuote = (id: string) => {
     const quoteToDelete = archivedQuotes.find((q) => q.id === id);
     const nameOfQuote = quoteToDelete ? `${quoteToDelete.id} (${quoteToDelete.categoryName || "Geral"})` : id;
     
-    setArchivedQuotes((prev) => prev.filter((q) => q.id !== id));
-    if (selectedCompareQuoteId === id) {
-      setSelectedCompareQuoteId("");
-    }
-    
-    registerChangeLog(`Exclusão da Cotação #${nameOfQuote}`);
-    setSuccessMessage(`Cotação #${id} excluída permanentemente.`);
-    setTimeout(() => setSuccessMessage(""), 4050);
+    setConfirmDialog({
+      isOpen: true,
+      title: `Excluir Cotação #${nameOfQuote}?`,
+      message: "Esta cotação será removida permanentemente do histórico.",
+      variant: "danger",
+      onConfirm: () => {
+        setArchivedQuotes((prev) => prev.filter((q) => q.id !== id));
+        if (selectedCompareQuoteId === id) {
+          setSelectedCompareQuoteId("");
+        }
+        registerChangeLog(`Exclusão da Cotação #${nameOfQuote}`);
+        showToast(`Cotação #${id} excluída permanentemente.`, "success");
+      },
+    });
   };
 
   const handleLoadQuoteForEdit = (quote: ArchivedQuote) => {
@@ -1569,7 +1435,6 @@ export default function App() {
     setEditingQuoteId(null);
     setChamadoNumber("");
     setQuoteTitle("");
-    setShowResetConfirm(false);
   };
 
   const handleExportQuoteExcel = async () => {
@@ -2310,36 +2175,6 @@ export default function App() {
       )}
 
       <div className="flex-1 mx-auto w-full max-w-full px-3 py-3 sm:px-4 lg:px-5 print:p-0 print:max-w-none print:w-full min-w-0">
-        {/* Reset Confirmation Banner (Iframe-safe modal alternate) */}
-        {showResetConfirm && (
-          <div className="mb-3 rounded-2xl border border-rose-200 bg-rose-50 p-4 shadow-xs print:hidden animate-fade-in animate-duration-100">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between font-sans">
-              <div className="flex items-center gap-3">
-                <AlertCircle className="h-5 w-5 text-rose-600 shrink-0" />
-                <div>
-                  <h4 className="font-bold text-rose-950 text-xs">Reiniciar Planilha?</h4>
-                  <p className="text-[10px] text-rose-800 font-medium">
-                    Isso substituirá suas alterações atuais e restaurará a cotação padrão de 15/06/2026.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 self-end sm:self-auto">
-                <EmojiButton
-                  iconKey="cancelar"
-                  onClick={() => setShowResetConfirm(false)}
-                  size="sm"
-                  variant="neutral"
-                />
-                <EmojiButton
-                  iconKey="limpar"
-                  onClick={handleResetToDefaults}
-                  size="sm"
-                  variant="danger"
-                />
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Corporate Header */}
         <Header
@@ -2350,7 +2185,13 @@ export default function App() {
           chamadoNumber={chamadoNumber}
           quoteTitle={quoteTitle}
           onDateChange={setQuoteDate}
-          onReset={() => setShowResetConfirm(true)}
+          onReset={() => setConfirmDialog({
+            isOpen: true,
+            title: "Reiniciar Planilha?",
+            message: "Isso substituirá suas alterações atuais e restaurará a cotação padrão de 15/06/2026.",
+            variant: "danger",
+            onConfirm: handleResetToDefaults,
+          })}
           onPrint={handlePrint}
           onLogout={handleLogout}
           onSaveComparison={handleSaveComparison}
@@ -2489,7 +2330,13 @@ export default function App() {
               </button>
 
               <button
-                onClick={() => setShowResetConfirm(true)}
+                onClick={() => setConfirmDialog({
+                  isOpen: true,
+                  title: "Reiniciar Planilha?",
+                  message: "Isso substituirá suas alterações atuais e restaurará a cotação padrão de 15/06/2026.",
+                  variant: "danger",
+                  onConfirm: handleResetToDefaults,
+                })}
                 className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-amber-500 dark:hover:border-amber-600 text-amber-500 shadow-2xs transition-all cursor-pointer flex items-center justify-center"
                 title="Reiniciar Cotação"
               >
@@ -2779,6 +2626,15 @@ export default function App() {
           items={items}
           capacityRows={capacityRows}
           onRestoreBackup={handleRestoreBackup}
+        />
+
+        <ConfirmDialog
+          isOpen={confirmDialog.isOpen}
+          onCancel={() => setConfirmDialog((prev) => ({ ...prev, isOpen: false }))}
+          onConfirm={() => { confirmDialog.onConfirm(); setConfirmDialog((prev) => ({ ...prev, isOpen: false })); }}
+          title={confirmDialog.title}
+          message={confirmDialog.message}
+          variant={confirmDialog.variant}
         />
       </div>
     </div>

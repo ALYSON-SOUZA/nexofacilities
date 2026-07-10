@@ -128,10 +128,7 @@ export async function dbClearAllQuotes(): Promise<boolean> {
     const { error } = await supabase
       .from("quotes")
       .delete()
-      .neq("id", "PROBABLY_NOT_EXISTING_ID_SO_CLEAR_ALL_BUT_BE_SAFE_OR_USING_TRUE_QUERY"); // Triggers table-wide delete under permissible tables
-
-    // Alternative: Delete everything
-    const { error: err2 } = await supabase.rpc("clear_all_quotes_helper"); // Just in case, fall back to safe queries
+      .neq("id", "PROBABLY_NOT_EXISTING_ID_SO_CLEAR_ALL_BUT_BE_SAFE_OR_USING_TRUE_QUERY");
 
     return !error;
   } catch (err) {

@@ -196,7 +196,6 @@ export default function Table({
 
   // Default known suppliers list for autocomplete recommendation in the popup
   const [knownSuppliers, setKnownSuppliers] = useState<{ name: string; phone?: string; vendedor?: string }[]>(() => {
-    const saved = localStorage.getItem("clean_quotes_known_suppliers");
     const defaultData = [
       { name: "ELO DISTRIB", phone: "(11) 98765-4321", vendedor: "Roberto" },
       { name: "MUNDIAL", phone: "(11) 97766-5544", vendedor: "Alessandro" },
@@ -207,7 +206,13 @@ export default function Table({
       { name: "MEGA HIGIENE", phone: "(11) 94002-8922", vendedor: "Priscila" },
       { name: "SÃO JOSÉ DESCARTÁVEIS", phone: "(11) 3300-8888", vendedor: "Ricardo" }
     ];
-    return saved ? JSON.parse(saved) : defaultData;
+    try {
+      const saved = localStorage.getItem("clean_quotes_known_suppliers");
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error("Error loading known suppliers:", e);
+    }
+    return defaultData;
   });
 
   // Pull known suppliers from Supabase on mount

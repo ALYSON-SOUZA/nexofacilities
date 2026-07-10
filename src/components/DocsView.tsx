@@ -12,7 +12,7 @@ import {
   Download, 
   ChevronLeft, 
   ChevronRight, 
-  File, 
+  File as FileIcon, 
   ArrowRight, 
   AlertCircle,
   Clock,
@@ -1328,7 +1328,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   Data Upload: <strong className="text-slate-850">{new Date(selectedDoc.uploaded_at).toLocaleDateString("pt-BR")}</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <File className="h-3.5 w-3.5 text-slate-400" />
+                  <FileIcon className="h-3.5 w-3.5 text-slate-400" />
                   Tamanho: <strong className="text-slate-850 font-mono">{formatSize(selectedDoc.file_size)}</strong>
                 </span>
               </div>

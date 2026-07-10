@@ -1,7 +1,7 @@
 import React from "react";
 import { CapacityRow, SavedComparison, QuoteItem, ArchivedQuote } from "../types";
 import { formatCurrency, getPosteriorMonthLabel } from "../utils";
-import { Save, AlertCircle, TrendingUp, TrendingDown, BarChart3, Users, ArrowUpRight, ArrowDownRight, Minus, Sparkles, BookOpen, Trash2, FolderOpen, Check, Filter, X, Calendar } from "lucide-react";
+import { Save, AlertCircle, TrendingUp, TrendingDown, BarChart3, Users, ArrowUpRight, ArrowDownRight, Minus, Sparkles, BookOpen, Trash2, FolderOpen, Check, Filter, X, Calendar, Search } from "lucide-react";
 
 interface CapacityPanelProps {
   capacityRows: CapacityRow[];
@@ -58,6 +58,7 @@ export default function CapacityPanel({
   const [filterStartDate, setFilterStartDate] = React.useState<string>("");
   const [filterEndDate, setFilterEndDate] = React.useState<string>("");
   const [filterCategory, setFilterCategory] = React.useState<string>("all");
+  const [filterSearch, setFilterSearch] = React.useState<string>("");
 
   const parseToComparableDate = (dateStr: string): Date | null => {
     if (!dateStr) return null;
@@ -136,6 +137,19 @@ export default function CapacityPanel({
         if (qCat.toLowerCase() !== filterCategory.toLowerCase()) return false;
       }
 
+      // 3. Text Search Filter
+      if (filterSearch.trim()) {
+        const search = filterSearch.trim().toLowerCase();
+        const searchable = [
+          quote.id,
+          quote.title || "",
+          quote.userName || "",
+          quote.chamadoNumber || "",
+          quote.categoryName || "",
+        ].join(" ").toLowerCase();
+        if (!searchable.includes(search)) return false;
+      }
+
       return true;
     });
 
@@ -149,7 +163,7 @@ export default function CapacityPanel({
       // Fallback: higher quote ID comes first
       return b.id.localeCompare(a.id, undefined, { numeric: true, sensitivity: "base" });
     });
-  }, [archivedQuotes, filterStartDate, filterEndDate, filterCategory]);
+  }, [archivedQuotes, filterStartDate, filterEndDate, filterCategory, filterSearch]);
 
   const activePosteriorMonth = quoteDate ? getPosteriorMonthLabel(quoteDate) : "jul/26";
   
@@ -508,7 +522,7 @@ export default function CapacityPanel({
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center gap-1 px-2 py-0.5 text-[8.5px] font-black uppercase rounded-md border transition-all cursor-pointer ${
-                showFilters || filterStartDate || filterEndDate || filterCategory !== "all"
+                showFilters || filterStartDate || filterEndDate || filterCategory !== "all" || filterSearch.trim()
                   ? "bg-[#FF2E63] text-white border-[#FF2E63]"
                   : "bg-white border-slate-200 text-slate-600 hover:border-[#FF2E63]"
               }`}
@@ -516,7 +530,7 @@ export default function CapacityPanel({
             >
               <Filter className="h-2.5 w-2.5" />
               <span>Filtrar</span>
-              {(filterStartDate || filterEndDate || filterCategory !== "all") && (
+              {(filterStartDate || filterEndDate || filterCategory !== "all" || filterSearch.trim()) && (
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               )}
             </button>
@@ -529,6 +543,21 @@ export default function CapacityPanel({
         {/* Expandable Filter Box */}
         {showFilters && (
           <div className="mb-3 p-2 rounded-xl border border-slate-150 bg-slate-50/50 text-[10px] space-y-1.5 animate-fade-in">
+            <div>
+              <label className="block text-[8px] font-black uppercase text-slate-450 mb-0.5">
+                Buscar por ID, título, responsável ou chamado
+              </label>
+              <div className="relative">
+                <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 h-3 w-3 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Ex: COT-003, Recepção, João..."
+                  value={filterSearch}
+                  onChange={(e) => setFilterSearch(e.target.value)}
+                  className="w-full text-[9.5px] pl-5 pr-1.5 py-0.5 bg-white border border-slate-200 rounded-md font-bold text-slate-700 focus:outline-hidden"
+                />
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="block text-[8px] font-black uppercase text-slate-450 mb-0.5 flex items-center gap-0.5">
@@ -579,6 +608,7 @@ export default function CapacityPanel({
                     setFilterStartDate("");
                     setFilterEndDate("");
                     setFilterCategory("all");
+                    setFilterSearch("");
                   }}
                   className="w-full py-1 text-center bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-rose-50 text-slate-550 hover:text-[#FF2E63] font-black tracking-wide uppercase rounded-md transition-all cursor-pointer text-[8px]"
                   title="Limpar todos os filtros ativos"

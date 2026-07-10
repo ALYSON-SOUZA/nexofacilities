@@ -93,14 +93,22 @@ interface RondaViewProps {
 export default function RondaView({ onBack, userName = "Alyson de Moura Souza", visualTheme = "light" }: RondaViewProps) {
   // --- Persistent Storage (localStorage fast-init + Supabase async sync) ---
   const [rondas, setRondas] = useState<Ronda[]>(() => {
-    const saved = localStorage.getItem("bellinati_rondas_v1");
-    if (saved) return JSON.parse(saved);
+    try {
+      const saved = localStorage.getItem("bellinati_rondas_v1");
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error("Error loading rondas from localStorage:", e);
+    }
     return [];
   });
 
   const [chamados, setChamados] = useState<RondaChamado[]>(() => {
-    const saved = localStorage.getItem("bellinati_rondas_chamados_v1");
-    if (saved) return JSON.parse(saved);
+    try {
+      const saved = localStorage.getItem("bellinati_rondas_chamados_v1");
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error("Error loading chamados from localStorage:", e);
+    }
     return [];
   });
 
@@ -1632,7 +1640,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     {/* Voice Recognition Dictation Button */}
                     <EmojiButton
                       iconKey="ditarVoz"
-                      onClick={handleStartVoiceRecording}
+                      onClick={() => handleStartVoiceRecording(setCurrentOccDesc)}
                       variant={isRecording ? "danger" : "neutral"}
                       size="sm"
                       className={isRecording ? "animate-pulse" : ""}

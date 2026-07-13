@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import { Supplier, QuoteItem } from "../types";
 import { 
   Upload, 
@@ -700,16 +700,16 @@ export default function FileImporter({
       <div className="bg-white rounded-[24px] border border-slate-200 shadow-2xl w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
         
         {/* Header bar styled precisely like Header.tsx fuchsia highlights */}
-        <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#FF2E63] shrink-0">
+        <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#ff2a6d] shrink-0">
           <div className="flex items-center gap-2">
-            <span className="bg-[#FF2E63] text-white font-black text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm flex items-center gap-1 animate-pulse">
+            <span className="bg-[#ff2a6d] text-white font-black text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm flex items-center gap-1 animate-pulse">
               <Sparkles className="h-3 w-3 shrink-0" /> IMPORTAÇÃO INTELIGENTE VIA IA
             </span>
             <h3 className="text-sm font-black tracking-tight uppercase">Smart Import de Propostas Comerciais</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full bg-slate-800 hover:bg-[#FF2E63] text-slate-300 hover:text-white transition-all cursor-pointer text-xs font-black font-mono px-2.5"
+            className="p-1 rounded-full bg-slate-800 hover:bg-[#ff2a6d] text-slate-300 hover:text-white transition-all cursor-pointer text-xs font-black font-mono px-2.5"
           >
             FECHAR ✕
           </button>
@@ -730,7 +730,7 @@ export default function FileImporter({
                   importMode === "file" ? "bg-[#1E222B] text-white shadow-xs" : "text-slate-500 hover:text-slate-950"
                 }`}
               >
-                <Upload className="h-3.5 w-3.5 text-[#FF2E63]" />
+                <Upload className="h-3.5 w-3.5 text-[#ff2a6d]" />
                 Anexar Proposta
               </button>
               <button
@@ -740,7 +740,7 @@ export default function FileImporter({
                   importMode === "paste" ? "bg-[#1E222B] text-white shadow-xs" : "text-slate-500 hover:text-slate-950"
                 }`}
               >
-                <FileText className="h-3.5 w-3.5 text-[#FF2E63]" />
+                <FileText className="h-3.5 w-3.5 text-[#ff2a6d]" />
                 Copiar e Colar
               </button>
             </div>
@@ -756,7 +756,7 @@ export default function FileImporter({
             {/* LOADING STATE DISPLAY */}
             {isLoading && (
               <div className="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col items-center justify-center text-center space-y-3">
-                <Loader2 className="h-8 w-8 text-[#FF2E63] animate-spin" />
+                <Loader2 className="h-8 w-8 text-[#ff2a6d] animate-spin" />
                 <div className="space-y-1">
                   <p className="text-xs font-black text-slate-800 uppercase tracking-tight">Leitura Inteligente por IA</p>
                   <p className="text-[10px] text-slate-500 font-medium leading-relaxed max-w-[240px]">{loadingStep}</p>
@@ -775,11 +775,11 @@ export default function FileImporter({
                   onClick={fileFileInputClick}
                   className={`border-2 border-dashed rounded-[20px] p-6 text-center flex flex-col items-center justify-center space-y-2.5 cursor-pointer select-none transition-all h-[230px] ${
                     dragActive 
-                      ? "border-[#FF2E63] bg-pink-50/10" 
-                      : "border-slate-200 hover:border-[#FF2E63] hover:bg-slate-50/30"
+                      ? "border-[#ff2a6d] bg-pink-50/10" 
+                      : "border-slate-200 hover:border-[#ff2a6d] hover:bg-slate-50/30"
                   }`}
                 >
-                  <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-[#FF2E63]">
+                  <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-[#ff2a6d]">
                     <Upload className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
@@ -807,7 +807,7 @@ export default function FileImporter({
                   <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest block leading-none">
                     Área de Colagem (Imagem ou Texto)
                   </label>
-                  <p className="text-[9.5px] text-slate-400 leading-normal">
+                  <p className="text-[9.5px] text-slate-500 leading-normal">
                     Selecione a tabela da proposta comercial e dê <strong>Ctrl+C</strong>, depois clique no campo abaixo e dê <strong>Ctrl+V</strong> para a IA processar!
                   </p>
                   <textarea
@@ -819,7 +819,7 @@ CNPJ: 12.345.678/0001-90
 
 Item 1: Papel Toalha 2 Dobras, 3 pacotes, R$ 35,00
 Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
-                    className="w-full h-[150px] p-3 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-[11px] font-mono focus:ring-0 focus:outline-[#FF2E63] resize-none"
+                    className="w-full h-[150px] p-3 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-[11px] font-mono focus:ring-0 focus:outline-[#ff2a6d] resize-none"
                   />
                   <button
                     type="button"
@@ -827,7 +827,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                     disabled={!pasteText.trim()}
                     className={`w-full py-2.5 rounded-xl font-black text-[10px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-2xs transition-all ${
                       pasteText.trim()
-                        ? "bg-[#1E222B] text-white hover:bg-[#FF2E63] hover:text-white cursor-pointer"
+                        ? "bg-[#1E222B] text-white hover:bg-[#ff2a6d] hover:text-white cursor-pointer"
                         : "bg-slate-200 text-slate-450 cursor-not-allowed"
                     }`}
                   >
@@ -841,7 +841,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
             {/* Guide Info */}
             <div className="p-3 bg-slate-50 rounded-[14px] text-[10px]/relaxed border border-slate-150 font-semibold text-slate-650 leading-relaxed">
               <span className="font-bold flex items-center gap-1 text-slate-950 border-b border-slate-200 pb-1 mb-1.5 text-[9px] uppercase">
-                <HelpCircle className="h-3.5 w-3.5 text-[#FF2E63]" /> Regras Integradas (RN01-RN09)
+                <HelpCircle className="h-3.5 w-3.5 text-[#ff2a6d]" /> Regras Integradas (RN01-RN09)
               </span>
               <ul className="list-disc pl-3.5 space-y-1 text-[9px]/relaxed text-slate-500 font-medium">
                 <li><strong>Identificação automática</strong> do Fornecedor por similaridade (CNPJ/Nome).</li>
@@ -868,7 +868,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   <button
                     type="button"
                     onClick={() => setIsTableReviewOpen(true)}
-                    className="text-[9.5px] font-black text-[#FF2E63] hover:text-[#E3227E] hover:underline cursor-pointer uppercase flex items-center gap-1"
+                    className="text-[9.5px] font-black text-[#ff2a6d] hover:text-[#c21e54] hover:underline cursor-pointer uppercase flex items-center gap-1"
                   >
                     <Table className="h-3.5 w-3.5" /> Abrir Tabela de Revisão
                   </button>
@@ -897,17 +897,17 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                           type="checkbox"
                           checked={audSup.selectedToApply}
                           onChange={() => handleToggleSupplierSelection(audSup.id)}
-                          className="h-4 w-4 rounded-sm text-[#FF2E63] focus:ring-[#FF2E63] cursor-pointer"
+                          className="h-4 w-4 rounded-sm text-[#ff2a6d] focus:ring-[#ff2a6d] cursor-pointer"
                           title="Marcar para importar esta proposta"
                         />
                         <div className="flex flex-col">
                           <div className="flex items-center gap-1.5">
-                            <span className="text-slate-400"><Building2 className="h-4 w-4" /></span>
+                            <span className="text-slate-500"><Building2 className="h-4 w-4" /></span>
                             <input
                               type="text"
                               value={audSup.name}
                               onChange={(e) => handleSupplierFieldUpdate(audSup.id, "name", e.target.value)}
-                              className="text-xs font-black text-slate-900 uppercase focus:outline-hidden border-b border-transparent hover:border-slate-300 focus:border-[#FF2E63] bg-transparent leading-none p-0.5 max-w-[250px]"
+                              className="text-xs font-black text-slate-900 uppercase focus:outline-hidden border-b border-transparent hover:border-slate-300 focus:border-[#ff2a6d] bg-transparent leading-none p-0.5 max-w-[250px]"
                               placeholder="NOME DO FORNECEDOR"
                             />
                             {audSup.isNew ? (
@@ -932,7 +932,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                 type="text"
                                 value={audSup.phone || ""}
                                 onChange={(e) => handleSupplierFieldUpdate(audSup.id, "phone", e.target.value)}
-                                className="bg-transparent border-b border-transparent hover:border-slate-300 focus:border-[#FF2E63] outline-hidden p-0 font-bold max-w-[100px] text-slate-700"
+                                className="bg-transparent border-b border-transparent hover:border-slate-300 focus:border-[#ff2a6d] outline-hidden p-0 font-bold max-w-[100px] text-slate-700"
                                 placeholder="Não informado"
                               />
                             </div>
@@ -942,7 +942,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                 type="text"
                                 value={audSup.vendedor || ""}
                                 onChange={(e) => handleSupplierFieldUpdate(audSup.id, "vendedor", e.target.value)}
-                                className="bg-transparent border-b border-transparent hover:border-slate-300 focus:border-[#FF2E63] outline-hidden p-0 font-bold max-w-[100px] text-slate-700"
+                                className="bg-transparent border-b border-transparent hover:border-slate-300 focus:border-[#ff2a6d] outline-hidden p-0 font-bold max-w-[100px] text-slate-700"
                                 placeholder="Não informado"
                               />
                             </div>
@@ -992,7 +992,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                   type="checkbox"
                                   checked={applyChecked}
                                   onChange={() => handleToggleItemSelection(audSup.id, audItem.id)}
-                                  className="h-3.5 w-3.5 rounded-sm text-[#FF2E63] focus:ring-[#FF2E63] cursor-pointer shrink-0"
+                                  className="h-3.5 w-3.5 rounded-sm text-[#ff2a6d] focus:ring-[#ff2a6d] cursor-pointer shrink-0"
                                   title="Selecionar para importar este item"
                                 />
                                 
@@ -1002,7 +1002,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                       type="text"
                                       value={audItem.name}
                                       onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "name", e.target.value)}
-                                      className="font-bold text-slate-800 text-[11px] p-0.5 border-b border-transparent hover:border-slate-300 focus:border-[#FF2E63] outline-hidden bg-transparent flex-1 min-w-[150px]"
+                                      className="font-bold text-slate-800 text-[11px] p-0.5 border-b border-transparent hover:border-slate-300 focus:border-[#ff2a6d] outline-hidden bg-transparent flex-1 min-w-[150px]"
                                     />
                                     
                                     {/* Status Label Tag */}
@@ -1025,7 +1025,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
 
                                   {audItem.status === "divergent" && audItem.oldPrice !== null && (
                                     <p className="text-[9.5px] text-slate-500 font-bold mt-1">
-                                      Divergência detectada: <span className="line-through text-slate-400">{formatCurrency(audItem.oldPrice)}</span> ➔ <span className="text-[#FF2E63] font-black">{formatCurrency(audItem.unitPrice)}</span> (Valor da Proposta)
+                                      Divergência detectada: <span className="line-through text-slate-500">{formatCurrency(audItem.oldPrice)}</span> ➔ <span className="text-[#ff2a6d] font-black">{formatCurrency(audItem.unitPrice)}</span> (Valor da Proposta)
                                     </p>
                                   )}
                                 </div>
@@ -1034,24 +1034,24 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                               {/* Qty and Price Inputs */}
                               <div className="flex items-center gap-3 shrink-0 self-end md:self-auto pl-6 md:pl-0">
                                 <div className="flex items-center gap-1 text-[10.5px]">
-                                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider">QTD:</span>
+                                  <span className="text-[8px] font-black text-slate-500 uppercase tracking-wider">QTD:</span>
                                   <input
                                     type="number"
                                     min={1}
                                     value={audItem.quantity}
                                     onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "quantity", e.target.value)}
-                                    className="w-10 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-[#FF2E63] focus:outline-[#FF2E63]"
+                                    className="w-10 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-[#ff2a6d] focus:outline-[#ff2a6d]"
                                   />
                                 </div>
 
                                 <div className="flex items-center gap-1 text-[10.5px]">
-                                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider">R$ Unit:</span>
+                                  <span className="text-[8px] font-black text-slate-500 uppercase tracking-wider">R$ Unit:</span>
                                   <input
                                     type="number"
                                     step="0.01"
                                     value={audItem.unitPrice || ""}
                                     onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "unitPrice", e.target.value)}
-                                    className="w-16 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-slate-900 focus:outline-[#FF2E63]"
+                                    className="w-16 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-slate-900 focus:outline-[#ff2a6d]"
                                     placeholder="R$ 0,00"
                                   />
                                 </div>
@@ -1078,10 +1078,10 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   </div>
                 ))
               ) : (
-                <div className="h-full flex flex-col items-center justify-center text-center p-12 text-slate-400 my-auto">
-                  <Sparkles className="h-10 w-10 text-[#FF2E63] mb-2 animate-bounce" />
+                <div className="h-full flex flex-col items-center justify-center text-center p-12 text-slate-500 my-auto">
+                  <Sparkles className="h-10 w-10 text-[#ff2a6d] mb-2 animate-bounce" />
                   <p className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">Aguardando Proposta para Análise...</p>
-                  <p className="text-[9.5px] max-w-[320px] text-slate-400 leading-relaxed mt-1 font-medium">
+                  <p className="text-[9.5px] max-w-[320px] text-slate-500 leading-relaxed mt-1 font-medium">
                     Arraste ou anexe uma proposta comercial (imagem/PDF/Excel) ou copie e cole o texto do orçamento do fornecedor na caixa de texto. O Gemini fará a leitura e auditoria instantaneamente!
                   </p>
                 </div>
@@ -1114,7 +1114,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                     onClick={() => setIsTableReviewOpen(true)}
                     className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 px-5 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-850"
                   >
-                    <Table className="h-3.5 w-3.5 text-[#FF2E63]" />
+                    <Table className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     Visualizar em Tabela
                   </button>
                 )}
@@ -1125,8 +1125,8 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   disabled={auditedSuppliers.length === 0 || !auditedSuppliers.some(s => s.selectedToApply)}
                   className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
                     auditedSuppliers.length > 0 && auditedSuppliers.some(s => s.selectedToApply)
-                      ? "bg-[#FF2E63] hover:bg-[#E3227E] text-white cursor-pointer"
-                      : "bg-slate-200 text-slate-400 cursor-not-allowed"
+                      ? "bg-[#ff2a6d] hover:bg-[#c21e54] text-white cursor-pointer"
+                      : "bg-slate-200 text-slate-500 cursor-not-allowed"
                   }`}
                 >
                   <ClipboardCheck className="h-3.5 w-3.5" />
@@ -1144,20 +1144,20 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
         {/* MODAL POPUP PARA REVISÃO EM FORMATO DE TABELA ESTILO PLANILHA */}
         {isTableReviewOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-xs p-2 sm:p-4 print:hidden">
-            <div className="bg-white rounded-[24px] border-2 border-[#FF2E63] shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-scale-up text-slate-800">
+            <div className="bg-white rounded-[24px] border-2 border-[#ff2a6d] shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-scale-up text-slate-800">
               
               {/* Modal Header */}
-              <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#FF2E63] shrink-0">
+              <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#ff2a6d] shrink-0">
                 <div className="flex items-center gap-2">
-                  <Table className="h-5 w-5 text-[#FF2E63] shrink-0" />
+                  <Table className="h-5 w-5 text-[#ff2a6d] shrink-0" />
                   <div>
                     <h3 className="text-sm font-black tracking-tight uppercase">Revisar Itens Extraídos pela IA</h3>
-                    <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Edite as informações na tabela antes de confirmar a inclusão na cotação</p>
+                    <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Edite as informações na tabela antes de confirmar a inclusão na cotação</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setIsTableReviewOpen(false)}
-                  className="p-1 rounded-full bg-slate-800 hover:bg-[#FF2E63] text-slate-300 hover:text-white transition-all cursor-pointer text-xs font-black font-mono px-2.5"
+                  className="p-1 rounded-full bg-slate-800 hover:bg-[#ff2a6d] text-slate-300 hover:text-white transition-all cursor-pointer text-xs font-black font-mono px-2.5"
                 >
                   FECHAR ✕
                 </button>
@@ -1208,7 +1208,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                     type="checkbox"
                                     checked={audItem.selectedToApply}
                                     onChange={() => handleToggleItemSelection(audSup.id, audItem.id)}
-                                    className="h-4 w-4 rounded-sm text-[#FF2E63] focus:ring-[#FF2E63] cursor-pointer mx-auto"
+                                    className="h-4 w-4 rounded-sm text-[#ff2a6d] focus:ring-[#ff2a6d] cursor-pointer mx-auto"
                                   />
                                 </td>
 
@@ -1219,9 +1219,9 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                       type="text"
                                       value={audSup.name}
                                       onChange={(e) => handleSupplierFieldUpdate(audSup.id, "name", e.target.value)}
-                                      className="font-black text-slate-900 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#FF2E63] uppercase text-[11px] w-full"
+                                      className="font-black text-slate-900 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#ff2a6d] uppercase text-[11px] w-full"
                                     />
-                                    <span className="text-[8.5px] text-slate-400 font-semibold pl-1">
+                                    <span className="text-[8.5px] text-slate-500 font-semibold pl-1">
                                       {audSup.isNew ? "✨ NOVO FORNECEDOR" : "🏢 CADASTRADO"}
                                     </span>
                                   </div>
@@ -1234,7 +1234,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                       type="text"
                                       value={audItem.name}
                                       onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "name", e.target.value)}
-                                      className="font-bold text-slate-800 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#FF2E63] text-[11px] w-full"
+                                      className="font-bold text-slate-800 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#ff2a6d] text-[11px] w-full"
                                     />
                                     {audItem.status === "pending" && audItem.reviewReason && (
                                       <span className="text-[8.5px] text-rose-600 font-semibold pl-1 flex items-center gap-1">
@@ -1256,20 +1256,20 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                     min={1}
                                     value={audItem.quantity}
                                     onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "quantity", e.target.value)}
-                                    className="w-16 text-center rounded-md border border-slate-200 py-1 text-[11px] font-extrabold text-[#FF2E63] focus:outline-[#FF2E63] bg-white mx-auto"
+                                    className="w-16 text-center rounded-md border border-slate-200 py-1 text-[11px] font-extrabold text-[#ff2a6d] focus:outline-[#ff2a6d] bg-white mx-auto"
                                   />
                                 </td>
 
                                 {/* Valor Unitário */}
                                 <td className="py-2 px-3 text-center">
                                   <div className="relative inline-block w-28">
-                                    <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-slate-400">R$</span>
+                                    <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-slate-500">R$</span>
                                     <input
                                       type="number"
                                       step="0.01"
                                       value={audItem.unitPrice || ""}
                                       onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "unitPrice", e.target.value)}
-                                      className="w-full text-center pl-5 pr-1 rounded-md border border-slate-200 py-1 text-[11px] font-extrabold text-slate-900 focus:outline-[#FF2E63] bg-white"
+                                      className="w-full text-center pl-5 pr-1 rounded-md border border-slate-200 py-1 text-[11px] font-extrabold text-slate-900 focus:outline-[#ff2a6d] bg-white"
                                       placeholder="0,00"
                                     />
                                   </div>
@@ -1287,7 +1287,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                   <button
                                     type="button"
                                     onClick={() => handleRemoveItem(audSup.id, audItem.id)}
-                                    className="text-slate-400 hover:text-rose-600 hover:bg-rose-50 p-1.5 rounded transition-colors"
+                                    className="text-slate-500 hover:text-rose-600 hover:bg-rose-50 p-1.5 rounded transition-colors"
                                     title="Excluir item da lista"
                                   >
                                     <Trash2 className="h-4 w-4 mx-auto" />
@@ -1299,7 +1299,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                         )
                       ) : (
                         <tr>
-                          <td colSpan={7} className="p-8 text-center text-slate-400 font-extrabold text-xs uppercase">
+                          <td colSpan={7} className="p-8 text-center text-slate-500 font-extrabold text-xs uppercase">
                             Nenhum fornecedor ou item extraído na tabela.
                           </td>
                         </tr>
@@ -1355,8 +1355,8 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                       disabled={auditedSuppliers.length === 0 || !auditedSuppliers.some(s => s.selectedToApply && s.items.some(i => i.selectedToApply))}
                       className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
                         auditedSuppliers.length > 0 && auditedSuppliers.some(s => s.selectedToApply && s.items.some(i => i.selectedToApply))
-                          ? "bg-[#FF2E63] hover:bg-[#E3227E] text-white cursor-pointer"
-                          : "bg-slate-200 text-slate-400 cursor-not-allowed"
+                          ? "bg-[#ff2a6d] hover:bg-[#c21e54] text-white cursor-pointer"
+                          : "bg-slate-200 text-slate-500 cursor-not-allowed"
                       }`}
                     >
                       <ClipboardCheck className="h-3.5 w-3.5" />

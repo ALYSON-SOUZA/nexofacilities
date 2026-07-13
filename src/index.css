@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -30,6 +30,15 @@
 
   /* Custom amber shades */
   --color-amber-350: #fbbf24;
+
+  /* ==========================================
+     FACILITIES BP DESIGN SYSTEM TOKENS
+     ========================================== */
+  --color-bp-navy: #111c2e;
+  --color-bp-pink: #ff2a6d;
+  --color-bp-pink-dark: #c21e54;
+  --color-bp-gray-bg: #f5f5f5;
+  --color-bp-text-secondary: #6b7280;
 }
 
 body, button, input, select, textarea {
@@ -229,15 +238,15 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #6E5E49 !important;
   }
 
-  /* Overrides for hardcoded slate colors like #252A34 */
-  .theme-comfort .text-\[\#252A34\] {
+  /* Overrides for hardcoded slate colors like #111c2e */
+  .theme-comfort .text-\[\#111c2e\] {
     color: #352A1C !important;
   }
 
-  /* Overrides for crimson colors like #FF2E63 and rose targets */
+  /* Overrides for crimson colors like #ff2a6d and rose targets */
   .theme-comfort .text-rose-800,
   .theme-comfort .text-rose-700,
-  .theme-comfort .text-\[\#FF2E63\],
+  .theme-comfort .text-\[\#ff2a6d\],
   .theme-comfort .text-rose-600 {
     color: #9C1334 !important;
   }
@@ -338,12 +347,12 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 
   /* --- 2. PREMIUM VERSÃO DARK / CONTRAST PETROLEUM BLUE MODE --- */
   .theme-ultradark {
-    background-color: #252A34 !important; /* Azul Petroleo page background */
+    background-color: #111c2e !important; /* Azul Petroleo page background */
     color: #FFFFFF !important; /* White as primary font color for high contrast */
   }
 
   .theme-ultradark .min-h-screen {
-    background-color: #252A34 !important; /* Deep Petroleum Blue background */
+    background-color: #111c2e !important; /* Deep Petroleum Blue background */
     color: #FFFFFF !important;
   }
 
@@ -353,7 +362,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark .bg-slate-50\/80,
   .theme-ultradark #facilities-summary-container {
     background-color: #FFFFFF !important;
-    color: #252A34 !important;
+    color: #111c2e !important;
     border-color: #CBD5E1 !important;
   }
 
@@ -371,7 +380,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark .bg-slate-50\/50,
   .theme-ultradark .bg-slate-50\/20 {
     background-color: #FFFFFF !important;
-    color: #252A34 !important;
+    color: #111c2e !important;
     border-color: #E2E8F0 !important;
   }
 
@@ -427,77 +436,77 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark #facilities-summary-container .text-slate-600,
   .theme-ultradark #facilities-summary-container .text-slate-500,
   .theme-ultradark #facilities-summary-container .text-slate-400 {
-    color: #252A34 !important;
+    color: #111c2e !important;
   }
 
   /* Ensure the header logo has high contrast (white word FACILITIES) on the dark background */
-  .theme-ultradark header .text-\[\#252A34\],
-  .theme-ultradark .text-xl.font-extrabold.text-\[\#252A34\] {
+  .theme-ultradark header .text-\[\#111c2e\],
+  .theme-ultradark .text-xl.font-extrabold.text-\[\#111c2e\] {
     color: #FFFFFF !important;
   }
 
   /* Hardcoded text targets inside white-backed modules keep their dark color */
-  .theme-ultradark .bg-white .text-\[\#252A34\],
-  .theme-ultradark .bg-white [class*="text-[#252A34]"],
-  .theme-ultradark table .text-\[\#252A34\],
-  .theme-ultradark table [class*="text-[#252A34]"] {
-    color: #252A34 !important;
+  .theme-ultradark .bg-white .text-\[\#111c2e\],
+  .theme-ultradark .bg-white [class*="text-[#111c2e]"],
+  .theme-ultradark table .text-\[\#111c2e\],
+  .theme-ultradark table [class*="text-[#111c2e]"] {
+    color: #111c2e !important;
   }
 
-  /* Pink (#FF2E63) Call-to-action details, badges, alerts */
-  .theme-ultradark .text-\[\#FF2E63\],
-  .theme-ultradark [class*="text-[#FF2E63]"],
+  /* Pink (#ff2a6d) Call-to-action details, badges, alerts */
+  .theme-ultradark .text-\[\#ff2a6d\],
+  .theme-ultradark [class*="text-[#ff2a6d]"],
   .theme-ultradark .text-rose-600,
   .theme-ultradark .text-rose-700,
   .theme-ultradark .text-rose-800 {
-    color: #FF2E63 !important;
+    color: #ff2a6d !important;
   }
-  .theme-ultradark .bg-\[\#FF2E63\],
-  .theme-ultradark [class*="bg-[#FF2E63]"],
+  .theme-ultradark .bg-\[\#ff2a6d\],
+  .theme-ultradark [class*="bg-[#ff2a6d]"],
   .theme-ultradark .bg-pink-100,
   .theme-ultradark .bg-pink-50 {
-    background-color: #FF2E63 !important;
+    background-color: #ff2a6d !important;
     color: #FFFFFF !important;
   }
-  .theme-ultradark .border-\[\#FF2E63\] {
-    border-color: #FF2E63 !important;
+  .theme-ultradark .border-\[\#ff2a6d\] {
+    border-color: #ff2a6d !important;
   }
 
-  /* Magenta (#A82047) - Secondary highlights & error states */
+  /* Magenta (#c21e54) - Secondary highlights & error states */
   .theme-ultradark .text-red-500,
   .theme-ultradark .text-rose-500,
-  .theme-ultradark .text-[#A82047] {
-    color: #A82047 !important;
+  .theme-ultradark .text-[#c21e54] {
+    color: #c21e54 !important;
   }
-  .theme-ultradark .bg-[#A82047],
-  .theme-ultradark .bg-[#A82047]/10 {
-    background-color: #A82047 !important;
+  .theme-ultradark .bg-[#c21e54],
+  .theme-ultradark .bg-[#c21e54]/10 {
+    background-color: #c21e54 !important;
     color: #FFFFFF !important;
   }
-  .theme-ultradark .border-[#A82047] {
-    border-color: #A82047 !important;
+  .theme-ultradark .border-[#c21e54] {
+    border-color: #c21e54 !important;
   }
 
-  /* Cyan (#08D9D6) - Interactive elements, successes, hover effects */
-  .theme-ultradark .text-[#08D9D6],
+  /* Pink (#ff2a6d) - Interactive elements, highlights */
+  .theme-ultradark .text-[#ff2a6d],
   .theme-ultradark .text-emerald-500,
   .theme-ultradark .text-emerald-600,
   .theme-ultradark .text-emerald-700,
   .theme-ultradark .text-cyan-600 {
-    color: #05A8A6 !important; /* High contrast cyan for legible text on white bg */
+    color: #ff2a6d !important;
   }
-  .theme-ultradark .bg-[#08D9D6],
-  .theme-ultradark .bg-[#08D9D6]/10,
+  .theme-ultradark .bg-[#ff2a6d],
+  .theme-ultradark .bg-[#ff2a6d]/10,
   .theme-ultradark .bg-emerald-50,
   .theme-ultradark .bg-emerald-100 {
-    background-color: #08D9D6 !important;
-    color: #252A34 !important;
-    border-color: #08D9D6 !important;
+    background-color: #ff2a6d !important;
+    color: #ffffff !important;
+    border-color: #ff2a6d !important;
   }
   .theme-ultradark .hover\:bg-\[rgba\(8\,217\,214\,0\.2\)\]:hover,
-  .theme-ultradark .hover\:border-\[\#08D9D6\]:hover {
-    background-color: rgba(8, 217, 214, 0.15) !important;
-    border-color: #08D9D6 !important;
+  .theme-ultradark .hover\:border-\[\#ff2a6d\]:hover {
+    background-color: rgba(255, 42, 109, 0.15) !important;
+    border-color: #ff2a6d !important;
   }
 
   /* Specific borders for tables and dividers */
@@ -515,15 +524,15 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   }
   .theme-ultradark tr:hover,
   .theme-ultradark tr:hover td {
-    background-color: rgba(8, 217, 214, 0.05) !important; /* Gentle interactive Cyan glow hover */
+    background-color: rgba(255, 42, 109, 0.05) !important;
   }
   .theme-ultradark th {
     background-color: #FFFFFF !important; /* Pure White background for all tables and cards */
-    color: #252A34 !important; /* Petroleum Blue font color */
+    color: #111c2e !important; /* Petroleum Blue font color */
     border-color: #CBD5E1 !important;
   }
   .theme-ultradark th * {
-    color: #252A34 !important; /* All text and buttons inside table headers are Petroleum Blue */
+    color: #111c2e !important; /* All text and buttons inside table headers are Petroleum Blue */
   }
 
   /* Inputs, Textareas, and Dropdown select boxes */
@@ -532,7 +541,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark textarea,
   .theme-ultradark .bg-white\/80 {
     background-color: #FFFFFF !important;
-    color: #252A34 !important;
+    color: #111c2e !important;
     border-color: #CBD5E1 !important;
   }
 
@@ -540,17 +549,17 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark select:focus,
   .theme-ultradark textarea:focus {
     background-color: #FFFFFF !important;
-    border-color: #08D9D6 !important; /* Cyan active interactive focus */
+    border-color: #ff2a6d !important;
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(8, 217, 214, 0.25) !important;
+    box-shadow: 0 0 0 2px rgba(255, 42, 109, 0.25) !important;
   }
 
   /* Highlight segments (like Total Misto Combinado) */
-  .theme-ultradark .bg-\[\#08D9D6\]\/5,
-  .theme-ultradark [class*="bg-[#08D9D6]/5"] {
-    background-color: rgba(8, 217, 214, 0.08) !important;
-    border-color: #08D9D6 !important;
-    color: #252A34 !important;
+  .theme-ultradark .bg-\[\#ff2a6d\]\/5,
+  .theme-ultradark [class*="bg-[#ff2a6d]/5"] {
+    background-color: rgba(255, 42, 109, 0.08) !important;
+    border-color: #ff2a6d !important;
+    color: #111c2e !important;
   }
 }
 
@@ -571,9 +580,9 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 }
 
 .theme-ultradark #bp-compras-header {
-  background-color: #1a2f3b !important; /* Premium Petroleum Blue background */
-  background-image: radial-gradient(circle at bottom right, rgba(8, 217, 214, 0.15), transparent 45%) !important;
-  border-color: rgba(255, 46, 99, 0.35) !important;
+  background-color: #1a2f3b !important;
+  background-image: radial-gradient(circle at bottom right, rgba(255, 42, 109, 0.12), transparent 45%) !important;
+  border-color: rgba(255, 42, 109, 0.35) !important;
   box-shadow: 0 10px 25px -5px rgba(11, 23, 31, 0.5), 0 8px 10px -6px rgba(11, 23, 31, 0.5) !important;
 }
 
@@ -586,5 +595,224 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 .theme-ultradark #bp-compras-header .text-slate-500,
 .theme-ultradark #bp-compras-header .text-slate-400 {
   color: #94A3B8 !important; /* Elegant slate grey so "COMPRAS" subtitle stands out beautifully */
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR STYLING
+   ========================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.55);
+}
+
+.theme-ultradark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-ultradark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.theme-comfort ::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 115, 85, 0.3);
+}
+
+.theme-comfort ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(139, 115, 85, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.theme-ultradark * {
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+.theme-comfort * {
+  scrollbar-color: rgba(139, 115, 85, 0.3) transparent;
+}
+
+/* ==========================================
+   VIEW TRANSITION & PAGE ANIMATIONS
+   ========================================== */
+
+/* Fade-in animation for view content */
+@keyframes viewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view-content-enter {
+  animation: viewFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slow pulse for accent dots */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth card hover elevation */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.card-reveal {
+  animation: cardReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ==========================================
+   FOCUS RING IMPROVEMENTS
+   ========================================== */
+
+/* Global accessible focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid rgba(255, 42, 109, 0.5);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.theme-ultradark :focus-visible {
+  outline-color: rgba(8, 217, 214, 0.5);
+}
+
+.theme-comfort :focus-visible {
+  outline-color: rgba(180, 156, 96, 0.5);
+}
+
+/* ==========================================
+   SYNC STATUS ANIMATIONS
+   ========================================== */
+
+@keyframes syncPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0);
+  }
+}
+
+.sync-dot-syncing {
+  animation: syncPulse 1.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   IMPROVED TABLE ROW TRANSITIONS
+   ========================================== */
+
+.table-row-transition {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.table-row-transition:hover {
+  background-color: rgba(255, 42, 109, 0.02);
+}
+
+.theme-ultradark .table-row-transition:hover {
+  background-color: rgba(8, 217, 214, 0.03);
+}
+
+/* ==========================================
+   SMOOTH INPUT TRANSITIONS
+   ========================================== */
+
+input, select, textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* ==========================================
+   MODAL BACKDROP IMPROVEMENT
+   ========================================== */
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+.modal-backdrop {
+  animation: backdropFadeIn 0.2s ease forwards;
+}
+
+/* ==========================================
+   MOBILE TOUCH IMPROVEMENTS
+   ========================================== */
+
+@media (hover: none) {
+  .hover\:-translate-y-0\.5:hover {
+    transform: none;
+  }
+
+  .hover\:shadow-lg:hover {
+    box-shadow: none;
+  }
+}
+
+/* ==========================================
+   SMOOTH PAGE SCROLL
+   ========================================== */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   SELECTION COLORS
+   ========================================== */
+
+::selection {
+  background-color: rgba(255, 42, 109, 0.15);
+  color: inherit;
+}
+
+.theme-ultradark ::selection {
+  background-color: rgba(8, 217, 214, 0.2);
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Supplier, ComparisonSummary } from "../types";
 import { formatCurrency } from "../utils";
 import { CheckCircle, Building, TrendingDown, Percent } from "lucide-react";
@@ -6,6 +6,25 @@ import { CheckCircle, Building, TrendingDown, Percent } from "lucide-react";
 interface DashboardProps {
   suppliers: Supplier[];
   summary: ComparisonSummary;
+}
+
+function AnimatedNumber({ value, prefix = "" }: { value: string; prefix?: string }) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <span
+      className="transition-all duration-700 ease-out"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(8px)",
+      }}
+    >
+      {prefix}{value}
+    </span>
+  );
 }
 
 export default function Dashboard({ suppliers, summary }: DashboardProps) {
@@ -18,105 +37,110 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
     savingsVersusBestUnique,
   } = summary;
 
-  // Find Best Supplier Details
   const bestSupplier = suppliers.find((s) => s.id === bestSupplierId);
   const bestSupplierTotal = bestSupplierId ? (supplierTotals[bestSupplierId] ?? 0) : 0;
 
-  // Calculate dynamic optimization percentage: difference between best supplier and mixed total relative to best supplier
-  const optimizationPercent = bestSupplierTotal > 0 
-    ? ((bestSupplierTotal - mixedTotal) / bestSupplierTotal) * 100 
+  const optimizationPercent = bestSupplierTotal > 0
+    ? ((bestSupplierTotal - mixedTotal) / bestSupplierTotal) * 100
     : 0;
 
+  const cards = [
+    {
+      id: "card-mixed-best",
+      label: "MELHOR COMPRA MISTA",
+      value: formatCurrency(mixedTotal),
+      detail: "RECOMENDADO",
+      detailStyle: "bg-[#ff2a6d]/8 text-[#c21e54] border-[#ff2a6d]/15",
+      icon: <CheckCircle className="h-4.5 w-4.5 text-[#ff2a6d] shrink-0" />,
+      borderColor: "border-l-[#111c2e]",
+      valueColor: "text-[#111c2e]",
+      iconBg: "bg-[#ff2a6d]",
+      glowColor: "rgba(8,217,214,0.06)",
+    },
+    {
+      id: "card-store-best",
+      label: "MELHOR LOJA ÚNICA",
+      value: bestSupplier ? formatCurrency(bestSupplierTotal) : "R$ 0,00",
+      detail: bestSupplier ? `FORNECEDOR: ${bestSupplier.name}` : "Total fornecedor único",
+      detailStyle: "",
+      icon: <Building className="h-4.5 w-4.5 text-slate-500 shrink-0" />,
+      borderColor: "border-l-slate-700",
+      valueColor: "text-[#111c2e]",
+      iconBg: "bg-slate-700",
+      glowColor: "rgba(37,42,52,0.04)",
+    },
+    {
+      id: "card-savings-audit",
+      label: "ECONOMIA AUDITADA",
+      value: formatCurrency(savingsVersusWorst),
+      detail: "Poupado vs mais caro",
+      detailStyle: "",
+      icon: <TrendingDown className="h-4.5 w-4.5 text-[#10B981] shrink-0" />,
+      borderColor: "border-l-[#10B981]",
+      valueColor: "text-[#10B981]",
+      iconBg: "bg-[#10B981]",
+      glowColor: "rgba(16,185,129,0.06)",
+    },
+    {
+      id: "card-optimization-real",
+      label: "OTIMIZAÇÃO REAL",
+      value: optimizationPercent > 0 ? `${optimizationPercent.toFixed(1)}%` : "0.0%",
+      detail: "Eficiência mista alcançada",
+      detailStyle: "",
+      icon: <Percent className="h-4.5 w-4.5 text-[#ff2a6d] shrink-0" />,
+      borderColor: "border-l-[#ff2a6d]",
+      valueColor: "text-[#ff2a6d]",
+      iconBg: "bg-[#ff2a6d]",
+      glowColor: "rgba(255,46,99,0.06)",
+    },
+  ];
+
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-5 print:mb-3 print:grid-cols-4 print:gap-3">
-      
-      {/* CARD 1: MELHOR COMPRA MISTA */}
-      <div id="card-mixed-best" className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 border-l-[#08D9D6] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden print:border-slate-300">
-        <div className="flex items-start justify-between gap-1">
-          <div className="space-y-1">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block leading-none font-sans">
-              MELHOR COMPRA MISTA
-            </span>
-          </div>
-          <CheckCircle className="h-4.5 w-4.5 text-[#08D9D6] shrink-0" />
-        </div>
-        <div className="mt-3">
-          <span className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black text-[#252A34] leading-none tracking-tight block">
-            {formatCurrency(mixedTotal)}
-          </span>
-          <div className="mt-2.5">
-            <span className="inline-flex items-center rounded-full bg-[#08D9D6]/10 px-2.5 py-0.5 text-[9px] font-black text-[#05A8A6] uppercase tracking-wider border border-[#08D9D6]/20">
-              RECOMENDADO
-            </span>
-          </div>
-        </div>
-        <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-[#08D9D6]/5 blur-xs pointer-events-none" />
-      </div>
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-5 print:mb-3 print:grid-cols-4 print:gap-3">
+      {cards.map((card) => (
+        <div
+          key={card.id}
+          id={card.id}
+          className={`group relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 ${card.borderColor} transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.04] hover:-translate-y-0.5 flex flex-col justify-between overflow-hidden print:border-slate-300`}
+        >
+          {/* Subtle top-right glow on hover */}
+          <div
+            className="absolute -top-8 -right-8 w-20 h-20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            style={{ background: card.glowColor }}
+          />
 
-      {/* CARD 2: MELHOR LOJA ÚNICA */}
-      <div id="card-store-best" className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 border-l-[#252A34] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden print:border-slate-300">
-        <div className="flex items-start justify-between gap-1">
-          <div className="space-y-1">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block leading-none font-sans">
-              MELHOR LOJA ÚNICA
-            </span>
+          <div className="flex items-start justify-between gap-1 relative z-10">
+            <div className="space-y-1">
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block leading-none font-sans">
+                {card.label}
+              </span>
+            </div>
+            <div className="p-1 rounded-lg transition-all duration-300 group-hover:scale-110" style={{ background: card.glowColor }}>
+              {card.icon}
+            </div>
           </div>
-          <Building className="h-4.5 w-4.5 text-[#252A34]/60 shrink-0" />
-        </div>
-        <div className="mt-3">
-          <span className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black text-[#252A34] leading-none tracking-tight block">
-            {bestSupplier ? formatCurrency(bestSupplierTotal) : "R$ 0,00"}
-          </span>
-          <p className="mt-2 text-[10px] text-slate-400 font-extrabold uppercase tracking-wide leading-normal">
-            {bestSupplier ? `FORNECEDOR: ${bestSupplier.name}` : "Total fornecedor único"}
-          </p>
-        </div>
-        <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-[#252A34]/5 blur-xs pointer-events-none" />
-      </div>
 
-      {/* CARD 3: ECONOMIA AUDITADA */}
-      <div id="card-savings-audit" className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 border-l-[#10B981] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden print:border-slate-300">
-        <div className="flex items-start justify-between gap-1">
-          <div className="space-y-1">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block leading-none font-sans">
-              ECONOMIA AUDITADA
+          <div className="mt-3 relative z-10">
+            <span className={`text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black ${card.valueColor} leading-none tracking-tight block`}>
+              <AnimatedNumber value={card.value} />
             </span>
+            <div className="mt-2.5">
+              {card.detailStyle ? (
+                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider border ${card.detailStyle}`}>
+                  {card.detail}
+                </span>
+              ) : (
+                <p className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wide leading-normal">
+                  {card.detail}
+                </p>
+              )}
+            </div>
           </div>
-          <TrendingDown className="h-4.5 w-4.5 text-[#10B981] shrink-0 animate-bounce" />
-        </div>
-        <div className="mt-3">
-          <span className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black text-[#10B981] leading-none tracking-tight block">
-            {formatCurrency(savingsVersusWorst)}
-          </span>
-          <p className="mt-2 text-[10px] text-slate-400 font-extrabold uppercase tracking-wide leading-normal">
-            Poupado vs mais caro
-          </p>
-        </div>
-        <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-[#10B981]/5 blur-xs pointer-events-none" />
-      </div>
 
-      {/* CARD 4: OTIMIZAÇÃO REAL */}
-      <div id="card-optimization-real" className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 border-l-[#FF2E63] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden print:border-slate-300">
-        <div className="flex items-start justify-between gap-1">
-          <div className="space-y-1">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block leading-none font-sans">
-              OTIMIZAÇÃO REAL
-            </span>
-          </div>
-          <Percent className="h-4.5 w-4.5 text-[#FF2E63] shrink-0" />
+          {/* Bottom-right decorative dot */}
+          <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full blur-xs pointer-events-none transition-all duration-500 group-hover:scale-150" style={{ background: card.glowColor }} />
         </div>
-        <div className="mt-3">
-          <span className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black text-[#FF2E63] leading-none tracking-tight block">
-            {optimizationPercent > 0 ? `${optimizationPercent.toFixed(1)}%` : "0.0%"}
-          </span>
-          <p className="mt-2 text-[10px] text-slate-400 font-extrabold uppercase tracking-wide leading-normal">
-            Eficiência mista alcançada
-          </p>
-        </div>
-        <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full bg-[#FF2E63]/5 blur-xs pointer-events-none" />
-      </div>
-
+      ))}
     </div>
   );
 }
-

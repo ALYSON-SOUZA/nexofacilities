@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import ExcelJS from "exceljs";
 import { Sparkles, X, Printer, RefreshCw, Trash2, Check, Download, FileText, FileSpreadsheet, Key, Laptop, Car, CreditCard, ChevronDown, CheckSquare, Square, Plus } from "lucide-react";
@@ -747,7 +747,7 @@ Assinatura da Administração: _________________________________________________
             
             {/* Checklist of Terms Selection Bar */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2.5">
+              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2.5">
                 Barra de Seleção de Termos (Checklist)
               </h3>
               <div className="flex flex-col gap-2 max-h-[220px] overflow-y-auto pr-1">
@@ -761,7 +761,7 @@ Assinatura da Administração: _________________________________________________
                         onClick={() => setActiveTerm(term.id)}
                         className={`w-full flex items-center justify-between p-2.5 rounded-lg border text-left cursor-pointer transition-all ${
                           isSelected 
-                            ? "border-[#08D9D6] bg-slate-100/60 dark:bg-slate-800/30" 
+                            ? "border-[#ff2a6d] bg-slate-100/60 dark:bg-slate-800/30" 
                             : "border-slate-200 dark:border-slate-800 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-900/60"
                         } ${isCustom ? "pr-10" : "pr-8"}`}
                       >
@@ -775,7 +775,7 @@ Assinatura da Administração: _________________________________________________
                         </div>
                         <div className="shrink-0 flex items-center gap-1">
                           {isSelected ? (
-                            <CheckSquare className="h-4 w-4 text-[#08D9D6]" />
+                            <CheckSquare className="h-4 w-4 text-[#ff2a6d]" />
                           ) : (
                             <Square className="h-4 w-4 text-slate-300 dark:text-slate-700" />
                           )}
@@ -788,7 +788,7 @@ Assinatura da Administração: _________________________________________________
                           onClick={(e) => handleDeleteCustomTerm(term.id, e)}
                           size="sm"
                           variant="custom"
-                          className="absolute right-8 text-slate-400 hover:text-red-500 transition-all p-1 min-h-0 min-w-0 h-6 w-6 text-xs"
+                          className="absolute right-8 text-slate-500 hover:text-red-500 transition-all p-1 min-h-0 min-w-0 h-6 w-6 text-xs"
                         />
                       )}
                     </div>
@@ -801,13 +801,13 @@ Assinatura da Administração: _________________________________________________
                 onClick={() => setIsNewTermModalOpen(true)}
                 size="md"
                 variant="primary"
-                className="w-full mt-3 bg-slate-50 dark:bg-[#13151b] border border-dashed border-[#08D9D6]/35 hover:border-[#08D9D6] hover:bg-[#08D9D6]/5 text-[#08D9D6]"
+                className="w-full mt-3 bg-slate-50 dark:bg-[#13151b] border border-dashed border-[#ff2a6d]/35 hover:border-[#ff2a6d] hover:bg-[#ff2a6d]/5 text-[#ff2a6d]"
               />
             </div>
 
             {/* Pre-fill Collaborator Panel */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs relative">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">
+              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2">
                 Vincular à Ficha de Colaborador Salvo
               </h3>
               <div className="relative">
@@ -816,7 +816,7 @@ Assinatura da Administração: _________________________________________________
                   className="w-full p-2 bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg text-left text-[11px] text-slate-700 dark:text-slate-300 font-bold flex items-center justify-between cursor-pointer"
                 >
                   <span>Importar Dados do Colaborador...</span>
-                  <ChevronDown className="h-4 w-4 text-slate-400" />
+                  <ChevronDown className="h-4 w-4 text-slate-500" />
                 </button>
 
                 {showSupplierDropdown && (
@@ -833,7 +833,7 @@ Assinatura da Administração: _________________________________________________
                           className="w-full px-3 py-2 text-left text-[10.5px] hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-200 font-medium border-b border-slate-100 dark:border-slate-800 flex flex-col cursor-pointer"
                         >
                           <span className="font-bold uppercase">{colab.nomeCompleto}</span>
-                          <span className="text-[9px] text-slate-400">CPF: {colab.cpf || "Sem CPF"}</span>
+                          <span className="text-[9px] text-slate-500">CPF: {colab.cpf || "Sem CPF"}</span>
                         </button>
                       ))
                     )}
@@ -844,14 +844,14 @@ Assinatura da Administração: _________________________________________________
 
             {/* AI Text Extractor */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">
+              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2">
                 Preencher com IA Gemini 🤖
               </h3>
               <textarea
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 placeholder="Cole dados brutos do colaborador e do objeto (ex: 'João da Silva CPF 123 recebeu a chave da sala de TI ontem')"
-                className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#08D9D6] resize-none text-slate-700 dark:text-slate-200 font-medium"
+                className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#ff2a6d] resize-none text-slate-700 dark:text-slate-200 font-medium"
               />
 
               <div className="mt-3 flex gap-1.5">
@@ -861,7 +861,7 @@ Assinatura da Administração: _________________________________________________
                   disabled={isExtracting}
                   size="md"
                   variant="primary"
-                  className="flex-1 bg-[#08D9D6] hover:bg-teal-500 border-[#08D9D6]"
+                  className="flex-1 bg-[#ff2a6d] hover:bg-teal-500 border-[#ff2a6d]"
                 />
 
                 <EmojiButton
@@ -887,7 +887,7 @@ Assinatura da Administração: _________________________________________________
             {/* Action Bar */}
             <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
               <h2 className="text-sm font-black text-slate-800 dark:text-white uppercase tracking-tight flex items-center gap-2">
-                <FileText className="h-4 w-4 text-[#FF2E63]" />
+                <FileText className="h-4 w-4 text-[#ff2a6d]" />
                 Visualização do Termo em Tempo Real
               </h2>
               
@@ -897,7 +897,7 @@ Assinatura da Administração: _________________________________________________
                   onClick={handleExportPDF}
                   size="sm"
                   variant="custom"
-                  className="bg-[#FF2E63] hover:bg-pink-600 text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#FF2E63]"
+                  className="bg-[#ff2a6d] hover:bg-pink-600 text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#ff2a6d]"
                 />
 
                 <EmojiButton
@@ -924,13 +924,13 @@ Assinatura da Administração: _________________________________________________
                 
                 {/* Header Strip */}
                 <div className="bg-[#1A3A5A] text-white flex flex-col items-center justify-center py-4 px-4 text-center">
-                  <div className="font-black text-xs uppercase tracking-widest text-[#08D9D6] mb-1">
+                  <div className="font-black text-xs uppercase tracking-widest text-[#ff2a6d] mb-1">
                     ADV BELLINATI PEREZ
                   </div>
                   <div className="text-[9px] font-bold text-slate-300 tracking-wider mb-1">
                     CNPJ: 03.404.018/0051-06
                   </div>
-                  <div className="text-[8px] text-slate-400 font-medium max-w-xl leading-relaxed">
+                  <div className="text-[8px] text-slate-500 font-medium max-w-xl leading-relaxed">
                     Av. Santos Dumont, 5335 — Salas 101 a 120 e 201 a 220 — CEP 60175-047 — Papicu — Fortaleza/CE
                   </div>
                 </div>
@@ -948,7 +948,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400">
+                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Nome Completo:
                     </div>
                     <input
@@ -963,7 +963,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       CPF:
                     </div>
                     <input
@@ -975,7 +975,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       RG:
                     </div>
                     <input
@@ -990,7 +990,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Cargo:
                     </div>
                     <input
@@ -1002,7 +1002,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Setor:
                     </div>
                     <input
@@ -1036,7 +1036,7 @@ Assinatura da Administração: _________________________________________________
                         const borderClass = (fIdx === 0 && !isLastSingle) ? "border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800" : "";
                         return (
                           <div key={field.key} className={`flex flex-col sm:flex-row ${colSpanClass} ${borderClass}`}>
-                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-400 shrink-0">
+                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500 shrink-0">
                               {field.label}:
                             </div>
                             <input
@@ -1076,13 +1076,13 @@ Assinatura da Administração: _________________________________________________
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-50/50 dark:bg-[#121419] min-h-[100px]">
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-400 text-center">
+                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 text-center">
                       ASSINATURA DO COLABORADOR
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-400 text-center">
+                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 text-center">
                       ADMINISTRAÇÃO / RECURSOS HUMANOS
                     </span>
                   </div>
@@ -1103,14 +1103,14 @@ Assinatura da Administração: _________________________________________________
             {/* Header */}
             <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#13151b]">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-4.5 w-4.5 text-[#08D9D6]" />
+                <Sparkles className="h-4.5 w-4.5 text-[#ff2a6d]" />
                 <h4 className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100">
                   Criar Novo Modelo de Termo
                 </h4>
               </div>
               <button 
                 onClick={() => setIsNewTermModalOpen(false)}
-                className="text-slate-400 hover:text-slate-650 dark:hover:text-slate-200 transition-colors p-1"
+                className="text-slate-500 hover:text-slate-650 dark:hover:text-slate-200 transition-colors p-1"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -1119,7 +1119,7 @@ Assinatura da Administração: _________________________________________________
             {/* Content */}
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1.5">
                   Nome do Termo / Objeto
                 </label>
                 <input
@@ -1127,20 +1127,20 @@ Assinatura da Administração: _________________________________________________
                   placeholder="EX: Termo de Chaves, Entrega de Notebook, etc."
                   value={newTermName}
                   onChange={(e) => setNewTermName(e.target.value)}
-                  className="w-full p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#08D9D6] text-slate-700 dark:text-slate-200 font-bold placeholder-slate-400"
+                  className="w-full p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#ff2a6d] text-slate-700 dark:text-slate-200 font-bold placeholder-slate-400"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5 flex items-center justify-between">
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
                   <span>Dados ou Texto de Referência</span>
-                  <span className="text-[9px] text-[#08D9D6] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
+                  <span className="text-[9px] text-[#ff2a6d] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
                 </label>
                 <textarea
                   placeholder="Exemplo de conteúdo que você quer que exista nesse termo. A IA do Gemini analisará este texto para identificar automaticamente quais campos (marca, modelo, chaves, placa, etc.) e cláusulas de responsabilidade o seu termo precisa, gerando uma ficha limpa e elegante estruturada!"
                   value={newTermRawText}
                   onChange={(e) => setNewTermRawText(e.target.value)}
-                  className="w-full min-h-[140px] p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#08D9D6] text-slate-700 dark:text-slate-200 font-medium placeholder-slate-400 resize-none leading-relaxed"
+                  className="w-full min-h-[140px] p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#ff2a6d] text-slate-700 dark:text-slate-200 font-medium placeholder-slate-400 resize-none leading-relaxed"
                 />
               </div>
             </div>
@@ -1159,7 +1159,7 @@ Assinatura da Administração: _________________________________________________
                 type="button"
                 onClick={handleCreateCustomTerm}
                 disabled={isGeneratingStructure || !newTermName.trim()}
-                className="px-4 py-2 bg-[#08D9D6] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-[10.5px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
+                className="px-4 py-2 bg-[#ff2a6d] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-[10.5px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
                 {isGeneratingStructure ? (
                   <>

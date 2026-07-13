@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useRef } from "react";
+﻿import React, { createContext, useContext, useState, useCallback, useRef } from "react";
 import { Check, AlertCircle, Info, X } from "lucide-react";
 
 type ToastType = "success" | "error" | "info";
@@ -44,7 +44,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   };
 
   const colorMap: Record<ToastType, string> = {
-    success: "bg-[#FF2E63] text-white",
+    success: "bg-[#ff2a6d] text-white",
     error: "bg-rose-600 text-white",
     info: "bg-slate-800 text-white",
   };

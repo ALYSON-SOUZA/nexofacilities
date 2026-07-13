@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Supplier, ComparisonSummary } from "../types";
 import { formatCurrency } from "../utils";
 import { CheckCircle2, PiggyBank, Briefcase } from "lucide-react";
@@ -102,7 +102,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             return (
               <div key={s.id} className="flex items-center justify-between text-[11px] leading-tight">
                 <div className="flex items-center gap-1.5">
-                  <div className="h-2 w-2 rounded-full bg-[#08D9D6] shrink-0" />
+                  <div className="h-2 w-2 rounded-full bg-[#ff2a6d] shrink-0" />
                   <span className="font-black text-slate-900 uppercase text-[12.5px] md:text-[13.5px]">{s.name || `FORNECEDOR ${idx + 1}`}</span>
                 </div>
                 <div className="text-right">
@@ -115,7 +115,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             );
           })}
 
-          <div className="border-t border-slate-200/60 pt-2 flex items-center justify-between bg-[#08D9D6]/5 p-2.5 rounded-xl border border-[#08D9D6]/35 text-slate-900">
+          <div className="border-t border-slate-200/60 pt-2 flex items-center justify-between bg-[#ff2a6d]/5 p-2.5 rounded-xl border border-[#ff2a6d]/35 text-slate-900">
             <span className="text-[10px] font-black uppercase">TOTAL MISTO COMBINADO:</span>
             <span className="text-sm font-black font-mono text-slate-950">{formatCurrency(mixedTotal)}</span>
           </div>
@@ -125,7 +125,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
       {/* Relatório de Decisão Executiva (Facilities Report) */}
       <div className="rounded-2xl border border-slate-205 bg-white p-4 shadow-3xs print:border-slate-300 print:shadow-none">
         <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-2.5 uppercase tracking-wide">
-          <PiggyBank className="h-4 w-4 text-[#FF2E63] print:text-black animate-pulse" />
+          <PiggyBank className="h-4 w-4 text-[#ff2a6d] print:text-black animate-pulse" />
           Relatório de Economia & Gestão de Facilities
         </h3>
 
@@ -137,7 +137,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             </p>
             <p className="text-slate-700 leading-normal text-[11px] font-semibold">
               Se fechar o pedido inteiro com apenas 1 fornecedor, a melhor opção é a{" "}
-              <strong className="text-slate-905 text-[13px] md:text-[14px] font-black uppercase underline decoration-[#FF2E63] decoration-2">
+              <strong className="text-slate-905 text-[13px] md:text-[14px] font-black uppercase underline decoration-[#ff2a6d] decoration-2">
                 {cheapestSupplierName}
               </strong>{" "}
               com o valor total de{" "}
@@ -210,7 +210,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             <div className="border-t border-slate-200/60 my-1 pb-0.5" />
             <div className="flex items-center justify-between text-slate-950 font-black leading-tight text-[11.5px]">
               <span className="uppercase tracking-tight">Economia Absoluta (Mista vs Mais Cara):</span>
-              <span className="text-[#FF2E63] font-black font-mono text-[13.5px]">{formatCurrency(maxSavings)}</span>
+              <span className="text-[#ff2a6d] font-black font-mono text-[13.5px]">{formatCurrency(maxSavings)}</span>
             </div>
             <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[10.5px]">
               <span className="uppercase tracking-tight text-slate-450">Economia Incremental (Mista vs Única Cheaper):</span>

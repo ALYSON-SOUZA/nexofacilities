@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+﻿import React, { useState, useEffect, useMemo, useRef } from "react";
 import { 
   Eye, Plus, Trash2, Calendar, MapPin, User, Check, X, ShieldAlert, 
   Sparkles, ChevronRight, CheckCircle, Volume2, Mic, MicOff, Search, FileText, 
@@ -1001,7 +1001,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div>
-            <span className="bg-gradient-to-r from-[#E4002B] to-[#FF2E63] text-white font-black text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+            <span className="bg-gradient-to-r from-[#E4002B] to-[#ff2a6d] text-white font-black text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
               MÓDULO DE RONDA
             </span>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1.5 leading-tight">
@@ -1012,7 +1012,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
         <div className="flex items-center gap-2">
           <div className="bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200 text-xs font-black text-slate-700 flex items-center gap-1.5">
-            <User className="h-3.5 w-3.5 text-slate-400" />
+            <User className="h-3.5 w-3.5 text-slate-500" />
             <span>{userName}</span>
           </div>
 
@@ -1042,19 +1042,19 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               onClick={() => setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas })}
               className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider group-hover:text-[#E4002B] transition-colors">Total de Rondas</span>
+              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Total de Rondas</span>
               <div className="flex items-baseline gap-1.5 mt-2">
                 <span className="text-3xl font-black text-slate-800">{stats.totalRondas}</span>
                 <span className="text-[10px] font-bold text-slate-500">vistorias</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 flex items-center gap-1">Sendo {stats.rondasThisMonth} no mês corrente <span className="text-[#E4002B]">🔍 ver</span></span>
+              <span className="text-[10px] text-slate-500 mt-1 flex items-center gap-1">Sendo {stats.rondasThisMonth} no mês corrente <span className="text-[#E4002B]">🔍 ver</span></span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Ocorrências Registradas", type: "occurrences", items: flatOccurrences })}
               className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider group-hover:text-[#E4002B] transition-colors">Ocorrências por Tipo</span>
+              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Ocorrências por Tipo</span>
               <div className="grid grid-cols-3 gap-1 mt-2 text-center text-[10px] font-black">
                 <div 
                   onClick={(e) => {
@@ -1087,7 +1087,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   <span className="block text-sm">{stats.manutencaoCount}</span> Manut
                 </div>
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 flex items-center justify-between">
+              <span className="text-[10px] text-slate-500 mt-1 flex items-center justify-between">
                 <span>Total: {stats.totalOccurrences} problemas</span>
                 <span className="text-[#E4002B] font-bold">Ver tudo</span>
               </span>
@@ -1097,12 +1097,12 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               onClick={() => setDrillDownConfig({ title: "Todos os Chamados Técnicos", type: "chamados", items: chamados })}
               className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider group-hover:text-[#E4002B] transition-colors">Chamados Técnicos</span>
+              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Chamados Técnicos</span>
               <div className="flex items-baseline gap-1.5 mt-2">
                 <span className="text-3xl font-black text-slate-800">{stats.totalChamados}</span>
                 <span className="text-[10px] text-[#E4002B] font-extrabold">{stats.chamadosAbertos} abertos</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 flex items-center justify-between">
+              <span className="text-[10px] text-slate-500 mt-1 flex items-center justify-between">
                 <span>Concluídos: {stats.chamadosConcluidos}</span>
                 <span className="text-[#E4002B] font-bold">🔍 ver listagem</span>
               </span>
@@ -1119,14 +1119,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               }}
               className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider group-hover:text-[#E4002B] transition-colors">Último Registro</span>
+              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Último Registro</span>
               {stats.lastRonda ? (
                 <div className="mt-2 text-xs">
                   <p className="font-extrabold text-slate-800 leading-tight truncate">{stats.lastRonda.filial}</p>
-                  <p className="text-[10px] text-slate-400 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")} — {stats.lastRonda.id}</p>
+                  <p className="text-[10px] text-slate-500 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")} — {stats.lastRonda.id}</p>
                 </div>
               ) : (
-                <p className="text-[10px] text-slate-400 mt-2">Nenhum registro ainda.</p>
+                <p className="text-[10px] text-slate-500 mt-2">Nenhum registro ainda.</p>
               )}
               <span className="text-[10px] text-[#E4002B] font-bold mt-1 flex items-center justify-between">
                 <span>Para Bellinati Perez</span>
@@ -1143,7 +1143,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-xs font-black uppercase tracking-wider text-slate-800 flex items-center gap-1">
-                  <Clock className="h-4 w-4 text-slate-400" /> Rondas de Vistoria Recentes
+                  <Clock className="h-4 w-4 text-slate-500" /> Rondas de Vistoria Recentes
                 </h2>
 
                 <button
@@ -1157,7 +1157,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* SEARCH FILTER BAR */}
               <div className="flex flex-col sm:flex-row gap-2 bg-white p-2 border border-slate-200 rounded-xl">
                 <div className="flex-1 flex items-center gap-2 px-2.5">
-                  <Search className="h-4 w-4 text-slate-400 shrink-0" />
+                  <Search className="h-4 w-4 text-slate-500 shrink-0" />
                   <input 
                     type="text" 
                     value={searchTerm}
@@ -1182,7 +1182,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* ROUNDS LIST CARD */}
               <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-100">
                 {filteredRondas.length === 0 ? (
-                  <div className="p-8 text-center text-slate-400 font-semibold text-xs">
+                  <div className="p-8 text-center text-slate-500 font-semibold text-xs">
                     Nenhuma ronda encontrada para o filtro selecionado.
                   </div>
                 ) : (
@@ -1200,7 +1200,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                               {r.filial}
                             </span>
                           </div>
-                          <p className="text-[10px] text-slate-400 font-bold">
+                          <p className="text-[10px] text-slate-500 font-bold">
                             Vistoriado por {r.user} em {new Date(r.date).toLocaleDateString("pt-BR")}
                           </p>
                           <div className="flex items-center gap-3 text-[10px] text-slate-500 font-semibold">
@@ -1238,7 +1238,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-xs font-black uppercase tracking-wider text-slate-800 flex items-center gap-1">
-                  <ShieldAlert className="h-4 w-4 text-slate-400" /> Chamados de Manutenção
+                  <ShieldAlert className="h-4 w-4 text-slate-500" /> Chamados de Manutenção
                 </h2>
                 
                 <EmojiButton
@@ -1252,7 +1252,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* TICKETS LIST */}
               <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3.5 shadow-3xs">
                 {chamados.length === 0 ? (
-                  <p className="text-[10px] text-slate-400 font-bold text-center py-4">Nenhum chamado de manutenção em aberto.</p>
+                  <p className="text-[10px] text-slate-500 font-bold text-center py-4">Nenhum chamado de manutenção em aberto.</p>
                 ) : (
                   chamados.slice(0, 4).map(c => {
                     return (
@@ -1279,7 +1279,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                         <p className="font-semibold text-slate-700 leading-normal line-clamp-2">{c.description}</p>
                         
-                        <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold pt-1 border-t border-slate-100">
+                        <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold pt-1 border-t border-slate-100">
                           <span>Ref: {c.rondaId}</span>
                           <span>Resp: {c.responsible.split(" ")[0]}</span>
                         </div>
@@ -1291,10 +1291,10 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               {/* GRAPHICS / RATIO SVG PIE CHART */}
               <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-3xs space-y-3">
-                <span className="block text-[10px] font-black uppercase text-slate-400 tracking-wider leading-none">Distribuição de Ocorrências</span>
+                <span className="block text-[10px] font-black uppercase text-slate-500 tracking-wider leading-none">Distribuição de Ocorrências</span>
                 
                 {stats.totalOccurrences === 0 ? (
-                  <p className="text-[10px] text-slate-400 font-bold text-center py-6">Registros insuficientes para gráfico.</p>
+                  <p className="text-[10px] text-slate-500 font-bold text-center py-6">Registros insuficientes para gráfico.</p>
                 ) : (
                   <div className="flex items-center gap-4">
                     {/* Tiny visual chart bar stack */}
@@ -1374,7 +1374,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       {r.filial}
                     </span>
                   </div>
-                  <p className="text-[10px] text-slate-400 font-bold">
+                  <p className="text-[10px] text-slate-500 font-bold">
                     Registrado em {new Date(r.date).toLocaleString("pt-BR")} por {r.user}
                   </p>
                   <p className="text-[11px] font-semibold text-slate-500">
@@ -1410,9 +1410,9 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
         <div className="max-w-2xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-xl print:hidden">
           
           {/* Header Wizard indicator */}
-          <div className="bg-[#252A34] text-white p-5 flex items-center justify-between">
+          <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
             <div className="space-y-0.5">
-              <span className="text-[9px] font-black tracking-widest uppercase text-slate-400">Ronda em Andamento</span>
+              <span className="text-[9px] font-black tracking-widest uppercase text-slate-500">Ronda em Andamento</span>
               <h2 className="text-sm font-black uppercase tracking-wider text-white">
                 {currentRondaId || "Nova Ronda"}
               </h2>
@@ -1423,7 +1423,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setRondaActiveSubView("dashboard");
                 }
               }}
-              className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-white/10"
+              className="p-1 rounded-full text-slate-500 hover:text-white hover:bg-white/10"
             >
               <X className="h-5 w-5" />
             </button>
@@ -1459,17 +1459,17 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   {/* Metadata cards showing operator & date */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div className="bg-slate-50 border border-slate-150 p-3 rounded-xl flex items-center gap-2.5">
-                      <User className="h-4 w-4 text-slate-400 shrink-0" />
+                      <User className="h-4 w-4 text-slate-500 shrink-0" />
                       <div className="space-y-0.5">
-                        <span className="block text-[8px] font-black text-slate-400 uppercase tracking-wider">Operador Responsável</span>
+                        <span className="block text-[8px] font-black text-slate-500 uppercase tracking-wider">Operador Responsável</span>
                         <span className="block text-xs font-bold text-slate-700">{userName}</span>
                       </div>
                     </div>
 
                     <div className="bg-slate-50 border border-slate-150 p-3 rounded-xl flex items-center gap-2.5">
-                      <Calendar className="h-4 w-4 text-slate-400 shrink-0" />
+                      <Calendar className="h-4 w-4 text-slate-500 shrink-0" />
                       <div className="space-y-0.5">
-                        <span className="block text-[8px] font-black text-slate-400 uppercase tracking-wider">Data de Início</span>
+                        <span className="block text-[8px] font-black text-slate-500 uppercase tracking-wider">Data de Início</span>
                         <span className="block text-xs font-bold text-slate-700">{new Date().toLocaleDateString("pt-BR")}</span>
                       </div>
                     </div>
@@ -1540,7 +1540,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                               className="w-full text-left p-2.5 hover:bg-slate-50 text-[11px] font-bold text-slate-700 block"
                             >
                               <span className="block">{col.nome}</span>
-                              <span className="block text-[9px] text-slate-400 font-semibold">{col.funcao} — {col.filial}</span>
+                              <span className="block text-[9px] text-slate-500 font-semibold">{col.funcao} — {col.filial}</span>
                             </button>
                           ))}
                         </div>
@@ -1671,7 +1671,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <label className="border border-dashed border-slate-300 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-slate-50 cursor-pointer text-center">
                       <span className="text-lg">📷</span>
                       <span className="text-[10px] font-black text-slate-600 uppercase">Tirar Foto / Anexar</span>
-                      <span className="text-[8px] text-slate-400 font-bold">Use a câmera do celular/tablet</span>
+                      <span className="text-[8px] text-slate-500 font-bold">Use a câmera do celular/tablet</span>
                       <input 
                         type="file" 
                         multiple 
@@ -1685,7 +1685,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <div className="border border-slate-200 rounded-xl p-3 flex flex-col justify-center items-center text-center bg-slate-55">
                       <span className="text-lg">📋</span>
                       <span className="text-[10px] font-black text-slate-600 uppercase">Colar Clipboard (Ctrl+V)</span>
-                      <span className="text-[8px] text-slate-400 font-bold">Basta colar com a área de texto focada</span>
+                      <span className="text-[8px] text-slate-500 font-bold">Basta colar com a área de texto focada</span>
                     </div>
 
                   </div>
@@ -1787,7 +1787,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 </div>
 
                 <div className="bg-slate-50/50 rounded-2xl p-4 border border-slate-100 text-left max-w-md mx-auto">
-                  <p className="text-[10px] text-slate-400 uppercase font-black tracking-wider text-center">O que deseja fazer agora?</p>
+                  <p className="text-[10px] text-slate-500 uppercase font-black tracking-wider text-center">O que deseja fazer agora?</p>
                 </div>
 
                 <div className="flex gap-4 justify-center pt-2">
@@ -1817,13 +1817,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {rondaActiveSubView === "create_chamado" && (
         <div className="max-w-xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-xl print:hidden">
           
-          <div className="bg-[#252A34] text-white p-5 flex items-center justify-between">
+          <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
             <h2 className="text-sm font-black uppercase tracking-wider flex items-center gap-1">
               <ShieldAlert className="h-5 w-5 text-[#E4002B]" /> Abertura de Chamado de Manutenção
             </h2>
             <button
               onClick={() => setRondaActiveSubView("dashboard")}
-              className="p-1 rounded-full text-slate-400 hover:text-white"
+              className="p-1 rounded-full text-slate-500 hover:text-white"
             >
               <X className="h-5 w-5" />
             </button>
@@ -2025,25 +2025,25 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* Row 2: Metadata grid table */}
               <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-slate-400 text-[10px] font-semibold text-slate-700 bg-slate-50/50">
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-400 uppercase">Data da Vistoria:</span>
+                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Data da Vistoria:</span>
                   <span className="font-extrabold text-slate-800">
                     {new Date(selectedRondaDetail.date).toLocaleDateString("pt-BR")}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-400 uppercase">Hora de Início:</span>
+                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Hora de Início:</span>
                   <span className="font-extrabold text-slate-800">
                     {new Date(selectedRondaDetail.date).toLocaleTimeString("pt-BR")}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-400 uppercase">Filial Responsável:</span>
+                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Filial Responsável:</span>
                   <span className="font-extrabold text-slate-[#E4002B] uppercase">
                     {selectedRondaDetail.filial}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-400 uppercase">Responsável Operacional:</span>
+                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Responsável Operacional:</span>
                   <span className="font-extrabold text-slate-800 uppercase">
                     {selectedRondaDetail.user}
                   </span>
@@ -2111,7 +2111,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <div key={s.id} className="border border-slate-200 rounded-xl p-4 bg-white space-y-3">
                       <div className="border-b pb-2 flex justify-between items-center bg-slate-50 -mx-4 -mt-4 p-3 rounded-t-xl border-slate-200">
                         <span className="font-black text-xs text-slate-800 uppercase">🏢 {s.sala}</span>
-                        <span className="text-[10px] text-slate-400 font-bold">Gestor: {s.gestorSala}</span>
+                        <span className="text-[10px] text-slate-500 font-bold">Gestor: {s.gestorSala}</span>
                       </div>
 
                       <div className="divide-y divide-slate-100 space-y-3 pt-1">
@@ -2132,7 +2132,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                                   <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
                                     {o.type}
                                   </span>
-                                  <span className="text-[9px] text-slate-400 font-semibold font-mono">
+                                  <span className="text-[9px] text-slate-500 font-semibold font-mono">
                                     🕒 {new Date(o.createdAt).toLocaleTimeString("pt-BR")}
                                   </span>
                                 </div>
@@ -2286,7 +2286,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               
               {drillDownConfig.items.length === 0 ? (
                 <div className="text-center py-12 space-y-2">
-                  <AlertTriangle className="h-8 w-8 text-slate-400 mx-auto" />
+                  <AlertTriangle className="h-8 w-8 text-slate-500 mx-auto" />
                   <p className="text-sm font-bold text-slate-500">Nenhum registro encontrado nesta categoria.</p>
                 </div>
               ) : (
@@ -2358,7 +2358,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                             <span className="bg-slate-100 text-slate-600 font-bold text-[10px] px-2 py-0.5 rounded-full uppercase">
                               {item.rondaFilial}
                             </span>
-                            <span className="text-slate-400">/</span>
+                            <span className="text-slate-500">/</span>
                             <span className="font-bold text-xs text-slate-700 uppercase">Ambiente: {item.salaName}</span>
                           </div>
                           <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
@@ -2380,7 +2380,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                           </div>
                         )}
 
-                        <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold border-t border-slate-100 pt-2.5">
+                        <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
                           <span>Registrado por {item.rondaUser} em {new Date(o.createdAt).toLocaleString("pt-BR")}</span>
                           <div className="flex items-center gap-2">
                             <button 
@@ -2421,7 +2421,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-2">
                           <span className="font-mono font-black text-slate-800 text-sm">{c.id}</span>
-                          <span className="text-[10px] text-slate-400 font-bold">Ronda vinculada: {c.rondaId}</span>
+                          <span className="text-[10px] text-slate-500 font-bold">Ronda vinculada: {c.rondaId}</span>
                         </div>
                         
                         <div className="flex items-center gap-1">
@@ -2441,7 +2441,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         {c.description}
                       </p>
 
-                      <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold border-t border-slate-100 pt-2.5">
+                      <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
                         <span>Responsável: <strong className="text-slate-600 uppercase">{c.responsible}</strong> — Criado em {new Date(c.createdAt).toLocaleDateString("pt-BR")}</span>
                         <div className="flex items-center gap-2">
                           <button 
@@ -2494,11 +2494,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">ID da Ronda</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">ID da Ronda</label>
                 <input type="text" disabled value={editingRonda.id} className="w-full bg-slate-100 border border-slate-200 rounded-lg p-2.5 text-xs font-mono font-bold text-slate-600" />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Filial</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Filial</label>
                 <select 
                   value={editingRonda.filial}
                   onChange={(e) => setEditingRonda({ ...editingRonda, filial: e.target.value })}
@@ -2508,7 +2508,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Data/Hora</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Data/Hora</label>
                 <input 
                   type="datetime-local" 
                   value={new Date(editingRonda.date).toISOString().slice(0, 16)} 
@@ -2537,7 +2537,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Nome do Ambiente / Sala</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.sala} 
@@ -2546,7 +2546,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Gestor do Ambiente</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.gestorSala} 
@@ -2555,7 +2555,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Gerente de Carteira</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.gerenteCarteira} 
@@ -2594,15 +2594,15 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               </div>
               <div className="p-5 space-y-4">
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Nome do Ambiente / Sala</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
                   <input type="text" name="sala" required placeholder="Ex: Recepção principal, Sala de Reunião 2" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Gestor do Ambiente</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
                   <input type="text" name="gestor" placeholder="Ex: Maria Rodrigues" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Gerente de Carteira</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
                   <input type="text" name="gerente" placeholder="Ex: Diego Machado" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
                 </div>
               </div>
@@ -2630,7 +2630,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             
             <div className="p-5 space-y-4 overflow-y-auto max-h-[60vh]">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Tipo de Ocorrência</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(["autuacao", "limpeza", "manutencao"] as const).map(t => (
                     <button
@@ -2658,7 +2658,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-[10px] font-black uppercase text-slate-400">Descrição Detalhada</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500">Descrição Detalhada</label>
                   <button
                     type="button"
                     onClick={() => handleStartVoiceRecording((newVal) => {
@@ -2703,11 +2703,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   placeholder="Descreva o problem observado ou use o botão de ditado por voz. Cole imagens diretamente com Ctrl+V ou colar."
                   className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#E4002B] outline-none"
                 />
-                <span className="block text-[9px] text-slate-400 font-semibold mt-1">Dica: Cole um arquivo de imagem direto na caixa acima para anexar.</span>
+                <span className="block text-[9px] text-slate-500 font-semibold mt-1">Dica: Cole um arquivo de imagem direto na caixa acima para anexar.</span>
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Fotos Anexadas ({editingOccurrence.occurrence.images.length})</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({editingOccurrence.occurrence.images.length})</label>
                 
                 {editingOccurrence.occurrence.images.length > 0 && (
                   <div className="grid grid-cols-4 gap-2 border border-slate-100 bg-slate-50/50 p-2.5 rounded-xl">
@@ -2736,7 +2736,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 <div className="mt-2.5">
                   <label className="relative flex items-center justify-center border border-dashed border-slate-300 rounded-xl p-4 cursor-pointer hover:bg-slate-50 transition-colors">
                     <span className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
-                      <Image className="h-4 w-4 text-slate-400" /> Anexar novas fotos (Upload local)
+                      <Image className="h-4 w-4 text-slate-500" /> Anexar novas fotos (Upload local)
                     </span>
                     <input
                       type="file"
@@ -2807,7 +2807,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               
               <div className="p-5 space-y-4 overflow-y-auto max-h-[60vh]">
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Tipo de Ocorrência</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
                   <div className="grid grid-cols-3 gap-2">
                     {(["autuacao", "limpeza", "manutencao"] as const).map(t => (
                       <button
@@ -2832,7 +2832,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <label className="block text-[10px] font-black uppercase text-slate-400">Descrição Detalhada</label>
+                    <label className="block text-[10px] font-black uppercase text-slate-500">Descrição Detalhada</label>
                     <button
                       type="button"
                       onClick={() => handleStartVoiceRecording(setOccDesc)}
@@ -2859,7 +2859,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Fotos Anexadas ({occImages.length})</label>
+                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({occImages.length})</label>
                   
                   {occImages.length > 0 && (
                     <div className="grid grid-cols-4 gap-2 border border-slate-100 bg-slate-50/50 p-2.5 rounded-xl">
@@ -2881,7 +2881,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   <div className="mt-2.5">
                     <label className="relative flex items-center justify-center border border-dashed border-slate-300 rounded-xl p-4 cursor-pointer hover:bg-slate-50 transition-colors">
                       <span className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
-                        <Image className="h-4 w-4 text-slate-400" /> Upload de Imagem local
+                        <Image className="h-4 w-4 text-slate-500" /> Upload de Imagem local
                       </span>
                       <input
                         type="file"
@@ -2928,7 +2928,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Ação Corretiva Proposta</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Ação Corretiva Proposta</label>
                 <textarea 
                   value={editingChamado.description} 
                   onChange={(e) => setEditingChamado({ ...editingChamado, description: e.target.value })}
@@ -2937,7 +2937,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Responsável pela Resolução</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Responsável pela Resolução</label>
                 <input 
                   type="text" 
                   value={editingChamado.responsible} 
@@ -2946,7 +2946,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-400 mb-1">Status</label>
+                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Status</label>
                 <select 
                   value={editingChamado.status}
                   onChange={(e) => setEditingChamado({ ...editingChamado, status: e.target.value as any })}
@@ -2972,7 +2972,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-2 border-[#E4002B] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
             <button 
               onClick={() => setShowPrintModal(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition-colors cursor-pointer"
               title="Fechar ajuda de impressão"
             >
               <X className="h-4 w-4" />

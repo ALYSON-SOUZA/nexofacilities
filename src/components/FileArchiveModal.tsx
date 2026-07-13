@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+﻿import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, 
   Upload, 
@@ -425,7 +425,7 @@ export default function FileArchiveModal({
       <span>
         {parts.map((part, i) => 
           regex.test(part) ? (
-            <mark key={i} className="bg-[#08D9D6]/35 text-[#01a2a0] dark:bg-[#08D9D6]/20 dark:text-[#08D9D6] font-bold rounded-xs px-0.5">
+            <mark key={i} className="bg-[#ff2a6d]/35 text-[#c21e54] dark:bg-[#ff2a6d]/20 dark:text-[#ff2a6d] font-bold rounded-xs px-0.5">
               {part}
             </mark>
           ) : (
@@ -533,7 +533,7 @@ export default function FileArchiveModal({
         {/* Header */}
         <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-150 dark:border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <span className="p-2 bg-[#08D9D6]/10 text-[#08D9D6] rounded-xl">
+            <span className="p-2 bg-[#ff2a6d]/10 text-[#ff2a6d] rounded-xl">
               <FileArchive className="h-5 w-5" />
             </span>
             <div>
@@ -636,7 +636,7 @@ export default function FileArchiveModal({
               <div className="flex flex-col sm:flex-row gap-2.5 shrink-0">
                 {/* Search Input */}
                 <div className="relative flex-1">
-                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500">
                     <Search className="h-4 w-4" />
                   </span>
                   <input
@@ -644,7 +644,7 @@ export default function FileArchiveModal({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Buscar por nome ou descrição do documento..."
-                    className="w-full pl-9.5 pr-4 py-2 bg-white dark:bg-slate-900 text-[11px] text-slate-800 dark:text-white placeholder-slate-400 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#08D9D6] dark:focus:ring-[#08D9D6] transition-all font-medium"
+                    className="w-full pl-9.5 pr-4 py-2 bg-white dark:bg-slate-900 text-[11px] text-slate-800 dark:text-white placeholder-slate-400 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] dark:focus:ring-[#ff2a6d] transition-all font-medium"
                   />
                   {searchQuery && (
                     <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -701,7 +701,7 @@ export default function FileArchiveModal({
                       className="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 cursor-pointer"
                     >
                       {filteredFiles.every(f => selectedFileIds.has(f.id)) ? (
-                        <CheckSquare className="h-4.5 w-4.5 text-[#08D9D6]" />
+                        <CheckSquare className="h-4.5 w-4.5 text-[#ff2a6d]" />
                       ) : (
                         <Square className="h-4.5 w-4.5" />
                       )}
@@ -736,7 +736,7 @@ export default function FileArchiveModal({
               {/* Files list or empty state */}
               {loading ? (
                 <div className="flex-1 flex flex-col items-center justify-center p-12">
-                  <div className="w-10 h-10 border-4 border-slate-200 border-t-[#08D9D6] rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-slate-200 border-t-[#111c2e] rounded-full animate-spin"></div>
                   <p className="text-[10px] font-black text-slate-450 uppercase tracking-widest mt-4 animate-pulse">Sincronizando com Supabase Cloud...</p>
                 </div>
               ) : filteredFiles.length === 0 ? (
@@ -747,7 +747,7 @@ export default function FileArchiveModal({
                   <h3 className="text-[12px] font-black uppercase text-slate-800 dark:text-white tracking-wide">
                     Nenhum arquivo encontrado
                   </h3>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight max-w-sm mt-1">
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight max-w-sm mt-1">
                     {searchQuery || selectedCategory !== "All"
                       ? "Experimente mudar os filtros ou limpar a pesquisa ativa."
                       : "A pasta de arquivos digitais compartilhados está vazia. Comece salvando novos documentos!"}
@@ -783,7 +783,7 @@ export default function FileArchiveModal({
                           className="absolute top-4 left-4 z-10 p-0.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                         >
                           {isSelected ? (
-                            <CheckSquare className="h-4.5 w-4.5 text-[#08D9D6]" />
+                            <CheckSquare className="h-4.5 w-4.5 text-[#ff2a6d]" />
                           ) : (
                             <Square className="h-4.5 w-4.5 text-slate-300 dark:text-slate-600 hover:text-slate-400" />
                           )}
@@ -801,7 +801,7 @@ export default function FileArchiveModal({
                               file.category === "Contratos" 
                                 ? "bg-rose-50 dark:bg-rose-950/30 text-rose-600 border-rose-100 dark:border-rose-900/30"
                                 : file.category === "Cotações"
-                                ? "bg-[#FF2E63]/5 text-[#FF2E63] border-[#FF2E63]/10"
+                                ? "bg-[#ff2a6d]/5 text-[#ff2a6d] border-[#ff2a6d]/10"
                                 : file.category === "Recibos"
                                 ? "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 border-indigo-100 dark:border-indigo-900/30"
                                 : file.category === "Notas Fiscais"
@@ -812,7 +812,7 @@ export default function FileArchiveModal({
                             </span>
 
                             {/* Cloud Badge Indicator */}
-                            <span className="flex items-center gap-1 text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight">
+                            <span className="flex items-center gap-1 text-[8px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight">
                               {supabaseConnected ? (
                                 <span className="flex items-center gap-0.5 text-emerald-600 dark:text-emerald-400">
                                   <Cloud className="h-2.5 w-2.5" />
@@ -826,12 +826,12 @@ export default function FileArchiveModal({
                               )}
                             </span>
 
-                            <span className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight ml-auto">
+                            <span className="text-[8px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight ml-auto">
                               {new Date(file.createdAt).toLocaleDateString("pt-BR")}
                             </span>
                           </div>
 
-                          <h4 className="text-[11.5px] font-black text-slate-800 dark:text-white uppercase truncate tracking-tight pr-12 group-hover:text-[#08D9D6] transition-colors" title={file.name}>
+                          <h4 className="text-[11.5px] font-black text-slate-800 dark:text-white uppercase truncate tracking-tight pr-12 group-hover:text-[#ff2a6d] transition-colors" title={file.name}>
                             {highlightText(file.name, searchQuery)}
                           </h4>
 
@@ -845,7 +845,7 @@ export default function FileArchiveModal({
                             </p>
                           )}
 
-                          <div className="pt-1.5 flex items-center justify-between text-[8.5px] font-bold text-slate-400 uppercase tracking-wider">
+                          <div className="pt-1.5 flex items-center justify-between text-[8.5px] font-bold text-slate-500 uppercase tracking-wider">
                             <span>{formatFileSize(file.size)}</span>
                             <span className="font-mono text-slate-300 dark:text-slate-650">#{file.id.split("_")[2]}</span>
                           </div>
@@ -880,7 +880,7 @@ export default function FileArchiveModal({
 
               {/* Data space / Quota indicator progress bar */}
               <div className="mt-auto pt-4 border-t border-slate-150 dark:border-slate-800 shrink-0">
-                <div className="flex justify-between items-center text-[9px] font-black uppercase text-slate-400 dark:text-slate-500 tracking-wider mb-1">
+                <div className="flex justify-between items-center text-[9px] font-black uppercase text-slate-500 dark:text-slate-500 tracking-wider mb-1">
                   <span className="flex items-center gap-1">
                     <Layers className="h-3 w-3" />
                     <span>Uso Recomendado da Tabela Base64</span>
@@ -894,7 +894,7 @@ export default function FileArchiveModal({
                         ? "bg-rose-500" 
                         : quotaPercentage > 60 
                         ? "bg-amber-500" 
-                        : "bg-[#08D9D6]"
+                        : "bg-[#ff2a6d]"
                     }`}
                     style={{ width: `${quotaPercentage}%` }}
                   />
@@ -917,18 +917,18 @@ export default function FileArchiveModal({
               <div 
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
-                className="border-2 border-dashed border-slate-200 dark:border-slate-800/85 hover:border-[#08D9D6] dark:hover:border-[#08D9D6] rounded-xl p-6 text-center bg-slate-50/50 dark:bg-slate-950/10 transition-all cursor-pointer"
+                className="border-2 border-dashed border-slate-200 dark:border-slate-800/85 hover:border-[#ff2a6d] dark:hover:border-[#ff2a6d] rounded-xl p-6 text-center bg-slate-50/50 dark:bg-slate-950/10 transition-all cursor-pointer"
                 onClick={() => fileInputRef.current?.click()}
               >
                 {!uploadedFile ? (
                   <div className="space-y-2 flex flex-col items-center">
-                    <span className="p-3 bg-white dark:bg-slate-800 text-[#08D9D6] rounded-xl shadow-xs border border-slate-100 dark:border-slate-750">
+                    <span className="p-3 bg-white dark:bg-slate-800 text-[#ff2a6d] rounded-xl shadow-xs border border-slate-100 dark:border-slate-750">
                       <Upload className="h-5 w-5 animate-pulse" />
                     </span>
                     <p className="text-[11px] font-black text-slate-700 dark:text-slate-250 uppercase tracking-tight">
                       Arraste seu arquivo aqui ou clique para procurar
                     </p>
-                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wide leading-tight">
+                    <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wide leading-tight">
                       Suporta PDFs, planilhas Excel, imagens de recibos ou TXTs de até 25MB
                     </p>
                   </div>
@@ -942,7 +942,7 @@ export default function FileArchiveModal({
                         <span className="text-[10px] font-black text-slate-700 dark:text-white truncate block uppercase tracking-tight" title={uploadedFile.name}>
                           {uploadedFile.name}
                         </span>
-                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
                           {formatFileSize(uploadedFile.size)}
                         </span>
                       </div>
@@ -975,7 +975,7 @@ export default function FileArchiveModal({
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="Ex: Ficha Jovem Aprendiz João Silva"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#08D9D6] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
                   />
                 </div>
 
@@ -986,7 +986,7 @@ export default function FileArchiveModal({
                   <select
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#08D9D6] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
                   >
                     {categories.map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -1004,7 +1004,7 @@ export default function FileArchiveModal({
                   onChange={(e) => setFormDescription(e.target.value)}
                   placeholder="Informações adicionais para facilitar buscas futuras, como datas importantes, CPF, valor ou números de chamados..."
                   rows={2}
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#08D9D6] transition-all resize-none"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all resize-none"
                 />
               </div>
 
@@ -1045,7 +1045,7 @@ export default function FileArchiveModal({
                   <h3 className="text-xs font-black text-slate-900 dark:text-white uppercase truncate max-w-[400px]" title={previewFile.name}>
                     {previewFile.name}
                   </h3>
-                  <span className="text-[8.5px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wide">
+                  <span className="text-[8.5px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-wide">
                     {previewFile.category} • {formatFileSize(previewFile.size)} • {new Date(previewFile.createdAt).toLocaleString("pt-BR")}
                   </span>
                 </div>
@@ -1084,7 +1084,7 @@ export default function FileArchiveModal({
                   <p className="text-[10px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-tight">
                     Visualização direta não disponível para este formato ({previewFile.type})
                   </p>
-                  <p className="text-[9px] text-slate-400 dark:text-slate-550 font-bold uppercase tracking-wide">
+                  <p className="text-[9px] text-slate-500 dark:text-slate-550 font-bold uppercase tracking-wide">
                     Faça o download físico do arquivo utilizando o botão abaixo para visualizá-lo em seu leitor nativo.
                   </p>
                 </div>
@@ -1106,7 +1106,7 @@ export default function FileArchiveModal({
 
             {/* Bottom Controls */}
             <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3">
-              <span className="text-[8.5px] font-bold text-slate-400 uppercase tracking-wide font-mono">ID: {previewFile.id}</span>
+              <span className="text-[8.5px] font-bold text-slate-500 uppercase tracking-wide font-mono">ID: {previewFile.id}</span>
               <div className="flex gap-2">
                 <EmojiButton
                   iconKey="imprimir"

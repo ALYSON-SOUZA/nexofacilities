@@ -1,4 +1,4 @@
-export interface NormativaSubSection {
+﻿export interface NormativaSubSection {
   title: string;
   number?: string;
   content: string; // html or text content
@@ -31,7 +31,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
       <p class="mb-3 text-slate-750 dark:text-slate-300 leading-relaxed">
         Este documento único reúne a <strong>Normativa Facilities 2026</strong> e o <strong>Manual de Treinamento dos Processos Administrativos e de Facilities</strong>, consolidando diretrizes, governança, rotinas operacionais, sistemas, fluxos de atendimento e boas práticas em um único material de consulta.
       </p>
-      <h4 class="text-xs font-black uppercase tracking-wider text-[#FF2E63] mt-4 mb-2">Objetivo do material unificado</h4>
+      <h4 class="text-xs font-black uppercase tracking-wider text-[#ff2a6d] mt-4 mb-2">Objetivo do material unificado</h4>
       <ul class="list-disc pl-5 space-y-1.5 text-slate-750 dark:text-slate-300 text-xs">
         <li>Padronizar a execução das rotinas administrativas e de Facilities.</li>
         <li>Facilitar o treinamento de novos colaboradores e a consulta diária da equipe.</li>
@@ -39,8 +39,8 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
         <li>Garantir rastreabilidade dos processos por meio de chamados, aprovações, anexos, IDs, notas fiscais e evidências.</li>
         <li>Fortalecer a governança, o compliance e a qualidade dos serviços prestados em todas as unidades.</li>
       </ul>
-      <div class="mt-4 p-3 bg-[#FF2E63]/5 border-l-4 border-[#FF2E63] rounded-r-xl">
-        <p class="text-[11px] font-bold text-[#FF2E63] flex items-center gap-1.5 leading-tight">
+      <div class="mt-4 p-3 bg-[#ff2a6d]/5 border-l-4 border-[#ff2a6d] rounded-r-xl">
+        <p class="text-[11px] font-bold text-[#ff2a6d] flex items-center gap-1.5 leading-tight">
           📌 <strong>Orientação de uso:</strong> O índice lateral deve ser utilizado para navegação rápida. O glossário foi mantido no final para consulta rápida das siglas, termos e sistemas.
         </p>
       </div>
@@ -108,15 +108,15 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
       </p>
       
       <div class="bg-slate-50 dark:bg-slate-900 border-2 border-slate-150 dark:border-slate-800 rounded-2xl p-4 mb-5 text-center flex flex-col items-center">
-        <div class="bg-[#FF2E63] text-white font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider">
+        <div class="bg-[#ff2a6d] text-white font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider">
           Superintendência Administrativa
         </div>
         <div class="h-6 w-0.5 bg-slate-300 dark:bg-slate-700"></div>
-        <div class="bg-slate-800 dark:bg-slate-750 text-[#08D9D6] font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider border border-[#08D9D6]/20">
+        <div class="bg-slate-800 dark:bg-slate-750 text-[#ff2a6d] font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider border border-[#ff2a6d]/20">
           Departamento de Facilities e Infraestrutura
         </div>
         <div class="h-6 w-0.5 bg-slate-300 dark:bg-slate-700"></div>
-        <div class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider border-2 border-[#FF2E63]">
+        <div class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-black text-xs px-4 py-2 rounded-xl shadow-xs uppercase tracking-wider border-2 border-[#ff2a6d]">
           Carteira (Setor) de Facilities
         </div>
         
@@ -317,7 +317,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-750 dark:text-slate-300 leading-relaxed mb-4">
             <div class="bg-slate-50 dark:bg-slate-900 border border-slate-150 dark:border-slate-800 rounded-xl p-3">
-              <h5 class="font-black text-[#FF2E63] uppercase tracking-wide mb-1.5">6.2.1 Organização das PAs</h5>
+              <h5 class="font-black text-[#ff2a6d] uppercase tracking-wide mb-1.5">6.2.1 Organização das PAs</h5>
               <ul class="list-disc pl-4 space-y-1">
                 <li>Alimentos, copos abertos, garrafas vazias ou resíduos nas mesas → solicitar recolhimento imediato e orientar. Reincidências geram Termo de Orientação.</li>
                 <li>Celulares particulares em PAs → solicitar imediata guarda em armário próprio, anotar CPF do colaborador e reportar à liderança para aplicação de advertência formal.</li>
@@ -387,7 +387,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
             Procedimento padrão de auditoria diária do status físico e de comunicação dos equipamentos de controle de acesso biométrico e facial:
           </p>
           <ol class="list-decimal pl-5 space-y-2 text-xs text-slate-750 dark:text-slate-300 leading-relaxed mb-3">
-            <li>Acesse o endereço eletrônico oficial: <a href="https://dmp.bellinatiperez.com.br/logon.aspx" target="_blank" class="text-[#FF2E63] font-bold hover:underline">dmp.bellinatiperez.com.br</a>.</li>
+            <li>Acesse o endereço eletrônico oficial: <a href="https://dmp.bellinatiperez.com.br/logon.aspx" target="_blank" class="text-[#ff2a6d] font-bold hover:underline">dmp.bellinatiperez.com.br</a>.</li>
             <li>Efetue o logon com os dados de acesso corporativo autorizados.</li>
             <li>Selecione a aba superior <strong>Monitoração</strong> e clique em <strong>Dashboard de Equipamento</strong>.</li>
             <li>Verifique a legenda de cores indicativa: se o dispositivo constar em <strong class="text-emerald-500">Verde</strong>, está operando e comunicando normalmente; se constar em <strong class="text-amber-500">Amarelo ou Vermelho</strong>, apresenta inconsistência física ou falha de conexão na rede interna.</li>
@@ -476,7 +476,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
       <div class="p-3 bg-amber-50/45 dark:bg-amber-955/20 border-l-4 border-amber-500 rounded-r-xl mb-4 text-xs text-amber-900 dark:text-amber-100 font-bold leading-relaxed">
         ⚠️ Atenção: Solicitações de facilities realizadas por canais informais, verbais, bilhetes ou mensagens de aplicativo sem número de chamado registrado serão terminantemente desconsideradas.
       </div>
-      <h4 class="text-xs font-black uppercase tracking-wider text-[#FF2E63] mt-4 mb-2">Plano Anual de Manutenção Preventiva (PAMP)</h4>
+      <h4 class="text-xs font-black uppercase tracking-wider text-[#ff2a6d] mt-4 mb-2">Plano Anual de Manutenção Preventiva (PAMP)</h4>
       <p class="text-slate-750 dark:text-slate-300 text-xs leading-relaxed mb-3">
         O setor de Facilities deve manter atualizado e gerenciar anualmente o PAMP, mapeando e agendando preventivas para: sistemas de climatização predial (limpeza de filtros de ar e PMOC), grupos geradores de energia elétrica, subestações, bombas de incêndio, laudos de para-raios (SPDA), renovação de Alvará e Auto de Vistoria do Corpo de Bombeiros (AVCB).
       </p>
@@ -556,7 +556,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
             <strong>9.1.2 Passo a Passo da Pré-Postagem no Portal SGPWeb:</strong>
           </p>
           <ol class="list-decimal pl-5 space-y-1.5 text-xs text-slate-750 dark:text-slate-300 leading-relaxed mb-4">
-            <li>Acesse o portal eletrônico: <a href="https://novo.sgpweb.com.br" target="_blank" class="text-[#FF2E63] font-bold hover:underline">novo.sgpweb.com.br</a>.</li>
+            <li>Acesse o portal eletrônico: <a href="https://novo.sgpweb.com.br" target="_blank" class="text-[#ff2a6d] font-bold hover:underline">novo.sgpweb.com.br</a>.</li>
             <li>Efetue o login com as credenciais de e-mail administrativas oficiais: <code class="bg-slate-100 p-0.5 rounded font-mono text-[10.5px]">adm.toronto@bellinatiperez.com.br</code> e senha padrão autorizada.</li>
             <li>Navegue até o menu <strong>Gestão Pré-postagem</strong> e clique em <strong>Pré-postagem</strong>.</li>
             <li>Verifique o número do cartão ativo dos Correios e clique em Pesquisar.</li>
@@ -582,7 +582,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
             <strong>9.1.4 Cadastro no Módulo 326 (Arquivo Digital):</strong>
           </p>
           <ol class="list-decimal pl-5 space-y-1.5 text-xs text-slate-750 dark:text-slate-300 leading-relaxed">
-            <li>Acesse o portal eletrônico: <a href="https://arquivodigital.bellinatiperez.com.br" target="_blank" class="text-[#FF2E63] font-bold hover:underline">arquivodigital.bellinatiperez.com.br</a>.</li>
+            <li>Acesse o portal eletrônico: <a href="https://arquivodigital.bellinatiperez.com.br" target="_blank" class="text-[#ff2a6d] font-bold hover:underline">arquivodigital.bellinatiperez.com.br</a>.</li>
             <li>Pesquise pela ID financeira da despesa cadastrada no passo anterior (Módulo 353).</li>
             <li>Renomeie o comprovante PDF ou foto do recibo físico exatamente com o número da ID gerada (Ex: <code class="bg-slate-100 p-0.5 rounded font-mono text-[10.5px]">ID_12345.pdf</code>).</li>
             <li>Anexe o recibo e anexe o documento D.A. de autorização como tipo "RECIBO" e "AUTORIZAÇÃO", garantindo compliance fiscal em auditoria.</li>
@@ -876,7 +876,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
         <div>
           <h5 class="font-black text-slate-800 dark:text-white uppercase tracking-wide mb-1">11.1 Acesso e Autenticação de Usuário</h5>
           <ol class="list-decimal pl-5 space-y-1">
-            <li>Abra o navegador e acesse o endereço eletrônico: <a href="https://servicedesk.bellinatiperez.com.br" target="_blank" class="text-[#FF2E63] font-bold hover:underline">servicedesk.bellinatiperez.com.br</a>.</li>
+            <li>Abra o navegador e acesse o endereço eletrônico: <a href="https://servicedesk.bellinatiperez.com.br" target="_blank" class="text-[#ff2a6d] font-bold hover:underline">servicedesk.bellinatiperez.com.br</a>.</li>
             <li>No campo usuário, insira o número do seu <strong>CPF</strong> de colaborador.</li>
             <li>Insira sua senha de rede integrada e clique em <strong>Entrar</strong>.</li>
           </ol>
@@ -985,7 +985,7 @@ export const NORMATIVA_SECTIONS: NormativaSection[] = [
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-750 dark:text-slate-300 mb-4">
         <div class="bg-slate-50 dark:bg-slate-900 border border-slate-150 dark:border-slate-800 rounded-xl p-3">
-          <h5 class="font-black text-[#FF2E63] uppercase tracking-wide mb-1.5">13.1 Como Abrir Chamado na Operadora</h5>
+          <h5 class="font-black text-[#ff2a6d] uppercase tracking-wide mb-1.5">13.1 Como Abrir Chamado na Operadora</h5>
           <p class="mb-2 leading-relaxed">Em caso de problemas técnicos com linhas móveis, necessidade de novo chip físico, e-SIM ou bloqueio de linhas, o Administrativo deve abrir chamado de Telecom no GLPI e enviar e-mail de requisição direcionado a:</p>
           <ul class="space-y-0.5 font-bold text-slate-800 dark:text-white">
             <li>• Para: <code class="bg-slate-100 dark:bg-slate-950 px-1 py-0.5 rounded font-normal text-[10px]">kelly.huzar@bellinatiperez.com.br</code></li>

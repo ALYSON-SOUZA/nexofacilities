@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, X, AlertTriangle, HelpCircle, TrendingDown, Check, 
@@ -160,12 +160,12 @@ export default function AiConsultantDrawer({
             {/* Header */}
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between select-none">
               <div className="flex items-center gap-2">
-                <div className="p-1 px-1.5 rounded-lg bg-[#FF2E63]/25 border border-[#FF2E63]/40 flex items-center justify-center animate-pulse">
-                  <Sparkles className="h-4 w-4 text-[#FF2E63]" />
+                <div className="p-1 px-1.5 rounded-lg bg-[#ff2a6d]/25 border border-[#ff2a6d]/40 flex items-center justify-center animate-pulse">
+                  <Sparkles className="h-4 w-4 text-[#ff2a6d]" />
                 </div>
                 <div>
                   <h3 className="text-sm font-black tracking-tight uppercase">Assistente de IA</h3>
-                  <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Consultoria em Facilities</p>
+                  <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Consultoria em Facilities</p>
                 </div>
               </div>
 
@@ -173,14 +173,14 @@ export default function AiConsultantDrawer({
                 <button
                   onClick={handleAnalyze}
                   disabled={loading}
-                  className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                  className="p-1 rounded-md text-slate-500 hover:text-white hover:bg-slate-800 transition-colors"
                   title="Recarregar análise da IA"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
                 </button>
                 <button
                   onClick={onClose}
-                  className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                  className="p-1 rounded-md text-slate-500 hover:text-white hover:bg-slate-800 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -193,9 +193,9 @@ export default function AiConsultantDrawer({
                 /* Dynamic Loading Screen with Cycle Messages */
                 <div className="h-full flex flex-col items-center justify-center py-12 px-6 space-y-4">
                   <div className="relative flex items-center justify-center h-16 w-16">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#FF2E63]/20 animate-ping" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#ff2a6d]/20 animate-ping" />
                     <div className="rounded-full bg-slate-900 border border-slate-700/50 h-10 w-10 flex items-center justify-center text-white">
-                      <Sparkles className="h-5 w-5 text-[#FF2E63] animate-spin" />
+                      <Sparkles className="h-5 w-5 text-[#ff2a6d] animate-spin" />
                     </div>
                   </div>
                   <div className="text-center space-y-1">
@@ -309,7 +309,7 @@ export default function AiConsultantDrawer({
                             </p>
 
                             <div className="pt-2 border-t border-slate-50 bg-slate-50/50 rounded-lg p-2.5">
-                              <span className="text-[8.5px] font-black uppercase text-slate-400 tracking-wider block mb-1">
+                              <span className="text-[8.5px] font-black uppercase text-slate-500 tracking-wider block mb-1">
                                 Ajuste Recomendado:
                               </span>
                               <p className="text-[10px] text-cyan-950 font-semibold leading-relaxed">
@@ -338,7 +338,7 @@ export default function AiConsultantDrawer({
                                   {sug.title}
                                 </h5>
                               </div>
-                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#FF2E63]/10 border border-[#FF2E63]/20 px-2 py-0.5 text-[9px] font-black text-[#FF2E63] uppercase">
+                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 text-[9px] font-black text-[#ff2a6d] uppercase">
                                 economize {sug.estimatedSavings}
                               </span>
                             </div>
@@ -351,7 +351,7 @@ export default function AiConsultantDrawer({
                               <div className="flex flex-wrap gap-1.5 pt-1">
                                 {sug.alternatives.map((alt, aIdx) => (
                                   <span key={aIdx} className="text-[9px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-[4px] flex items-center gap-1">
-                                    <ShoppingBag className="h-3 w-3 text-slate-400" />
+                                    <ShoppingBag className="h-3 w-3 text-slate-500" />
                                     {alt}
                                   </span>
                                 ))}
@@ -398,7 +398,7 @@ export default function AiConsultantDrawer({
               ) : (
                 /* Static view if there is items but no output has loaded */
                 <div className="h-full flex flex-col items-center justify-center p-6 text-center space-y-3.5 py-12">
-                  <div className="p-3.5 rounded-full bg-slate-100 border border-slate-200 text-slate-400">
+                  <div className="p-3.5 rounded-full bg-slate-100 border border-slate-200 text-slate-500">
                     <Sparkles className="h-6 w-6" />
                   </div>
                   <div>
@@ -409,7 +409,7 @@ export default function AiConsultantDrawer({
                   </div>
                   <button
                     onClick={handleAnalyze}
-                    className="bg-[#FF2E63] hover:bg-[#E21F50] text-white px-4 py-2 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-colors w-full"
+                    className="bg-[#ff2a6d] hover:bg-[#c21e54] text-white px-4 py-2 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-colors w-full"
                   >
                     Analisar Cotação com IA
                   </button>
@@ -418,7 +418,7 @@ export default function AiConsultantDrawer({
             </div>
 
             {/* Footer containing help text */}
-            <div className="border-t border-slate-100 p-3.5 bg-slate-50 text-center text-[9px] text-slate-400 font-bold uppercase tracking-wider select-none">
+            <div className="border-t border-slate-100 p-3.5 bg-slate-50 text-center text-[9px] text-slate-500 font-bold uppercase tracking-wider select-none">
               FACILITIES BP-COMPRAS INTEL · GEMINI PRO POWERED
             </div>
           </motion.div>

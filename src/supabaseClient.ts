@@ -15,11 +15,58 @@ export const supabase = createClient(
   supabaseAnonKey || "",
   {
     auth: {
-      persistSession: false,
-      autoRefreshToken: false,
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: false,
     },
   }
 );
+
+/**
+ * Ensures a Supabase Auth session exists for the given CPF.
+ * Uses email format {cpf}@facilities.local with a shared app password.
+ * This provides auth.uid() for RLS policies.
+ */
+export async function ensureAuthSession(cpf: string): Promise<boolean> {
+  if (!cpf) return false;
+  try {
+    const email = `${cpf.replace(/\D/g, "")}@facilities.local`;
+    const password = "bp-facilities-2026";
+
+    // Try to sign in first
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
+      // If user doesn't exist, create it
+      const { error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { cpf: cpf.replace(/\D/g, "") } },
+      });
+      if (signUpError) {
+        console.warn("Auth signup failed:", signUpError.message);
+        return false;
+      }
+      // After signup, sign in
+      const { error: retryError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (retryError) {
+        console.warn("Auth retry sign-in failed:", retryError.message);
+        return false;
+      }
+    }
+
+    return true;
+  } catch (err) {
+    console.warn("Auth session error:", err);
+    return false;
+  }
+}
 
 /**
  * Robust database sync helpers for the clean-quotes app.
@@ -125,13 +172,23 @@ export async function dbDeleteQuote(id: string): Promise<boolean> {
 
 export async function dbClearAllQuotes(): Promise<boolean> {
   try {
+    // Fetch all quote IDs and delete them in batch
+    const { data, error: fetchError } = await supabase
+      .from("quotes")
+      .select("id");
+
+    if (fetchError) return false;
+    if (!data || data.length === 0) return true;
+
+    const ids = data.map((q: { id: string }) => q.id);
     const { error } = await supabase
       .from("quotes")
       .delete()
-      .neq("id", "PROBABLY_NOT_EXISTING_ID_SO_CLEAR_ALL_BUT_BE_SAFE_OR_USING_TRUE_QUERY");
+      .in("id", ids);
 
     return !error;
   } catch (err) {
+    console.error("Failed to clear quotes:", err);
     return false;
   }
 }
@@ -459,21 +516,6 @@ export async function dbDeleteArchivedFile(id: string): Promise<boolean> {
 // ============================================================
 // 7. Ronda CRUD — inspection rounds, salas, occurrences, chamados
 // ============================================================
-
-// 7a. Collaborators (reference data)
-export async function dbFetchRondaCollaborators(): Promise<any[]> {
-  try {
-    const { data, error } = await supabase
-      .from("ronda_collaborators")
-      .select("*")
-      .order("nome", { ascending: true });
-    if (error) throw error;
-    return data || [];
-  } catch (err) {
-    console.warn("Could not fetch ronda_collaborators:", err);
-    return [];
-  }
-}
 
 // 7b. Rondas (main round records)
 export interface DBRonda {

@@ -369,7 +369,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   /* Secondary subtle elements take white background to ease visibility */
   .theme-ultradark .bg-slate-50,
   .theme-ultradark .bg-slate-105,
-  .theme-ultradark .bg-[#f1f5f9],
+  .theme-ultradark [class*="bg-[#f1f5f9]"],
   .theme-ultradark .bg-slate-100,
   .theme-ultradark .bg-slate-100\/50,
   .theme-ultradark .bg-slate-150,
@@ -468,35 +468,35 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     background-color: #ff2a6d !important;
     color: #FFFFFF !important;
   }
-  .theme-ultradark .border-\[\#ff2a6d\] {
+  .theme-ultradark [class*="border-[#ff2a6d]"] {
     border-color: #ff2a6d !important;
   }
 
   /* Magenta (#c21e54) - Secondary highlights & error states */
   .theme-ultradark .text-red-500,
   .theme-ultradark .text-rose-500,
-  .theme-ultradark .text-[#c21e54] {
+  .theme-ultradark [class*="text-[#c21e54]"] {
     color: #c21e54 !important;
   }
-  .theme-ultradark .bg-[#c21e54],
-  .theme-ultradark .bg-[#c21e54]/10 {
+  .theme-ultradark [class*="bg-[#c21e54]"],
+  .theme-ultradark [class*="bg-[#c21e54]/10"] {
     background-color: #c21e54 !important;
     color: #FFFFFF !important;
   }
-  .theme-ultradark .border-[#c21e54] {
+  .theme-ultradark [class*="border-[#c21e54]"] {
     border-color: #c21e54 !important;
   }
 
   /* Pink (#ff2a6d) - Interactive elements, highlights */
-  .theme-ultradark .text-[#ff2a6d],
+  .theme-ultradark [class*="text-[#ff2a6d]"],
   .theme-ultradark .text-emerald-500,
   .theme-ultradark .text-emerald-600,
   .theme-ultradark .text-emerald-700,
   .theme-ultradark .text-cyan-600 {
     color: #ff2a6d !important;
   }
-  .theme-ultradark .bg-[#ff2a6d],
-  .theme-ultradark .bg-[#ff2a6d]/10,
+  .theme-ultradark [class*="bg-[#ff2a6d]"],
+  .theme-ultradark [class*="bg-[#ff2a6d]/10"],
   .theme-ultradark .bg-emerald-50,
   .theme-ultradark .bg-emerald-100 {
     background-color: #ff2a6d !important;

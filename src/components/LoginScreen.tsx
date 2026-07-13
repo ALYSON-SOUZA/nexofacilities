@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from "react";
 import { User, FileText, ArrowRight } from "lucide-react";
+import { ensureAuthSession } from "../supabaseClient";
 
 interface LoginScreenProps {
   onLogin: (fullName: string, cpf: string) => void;
@@ -34,7 +35,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const cleanName = nameInput.trim();
     const cleanCpf = cpfInput.replace(/\D/g, "");
@@ -50,6 +51,14 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
 
     setError("");
     setIsSubmitting(true);
+
+    // Establish Supabase Auth session for RLS policies
+    try {
+      await ensureAuthSession(cleanCpf);
+    } catch {
+      // Proceed even if auth fails (localStorage fallback)
+    }
+
     setTimeout(() => onLogin(cleanName, cpfInput), 400);
   };
 

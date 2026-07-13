@@ -7,11 +7,18 @@ import * as XLSX from "xlsx";
 import mammoth from "mammoth";
 import { createClient } from "@supabase/supabase-js";
 import fs from "fs";
+import helmet from "helmet";
 
 dotenv.config();
 
 const app = express();
 const PORT = 3000;
+
+// --- Security Headers (Helmet) ---
+app.use(helmet({
+  contentSecurityPolicy: false, // Disabled for Vite inline scripts compatibility
+  crossOriginEmbedderPolicy: false,
+}));
 
 // --- Rate Limiting (in-memory, per IP) ---
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -44,21 +51,23 @@ setInterval(() => {
   }
 }, RATE_LIMIT_WINDOW_MS * 2);
 
-// Apply rate limiter to all AI endpoints
-app.use("/api/gemini", rateLimiter);
+// Apply rate limiter to ALL API endpoints
+app.use("/api", rateLimiter);
 
-app.use(express.json({ limit: "50mb" })); // Ensure large base64 uploads are accepted
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
-// Initialize Supabase server-side safely from environment variables
+// Initialize Supabase server-side with service role key for elevated privileges
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-  console.error("[server] Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY in .env");
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.warn("[server] Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in .env. Falling back to anon key.");
 }
 
-const supabase = createClient(supabaseUrl || "", supabaseKey || "");
+// Use service role key server-side to bypass RLS for admin operations
+const supabase = createClient(supabaseUrl || "", supabaseServiceKey || supabaseAnonKey || "");
 
 // Initialize Gemini client server-side safely
 let ai: GoogleGenAI | null = null;
@@ -319,7 +328,8 @@ RETORNE EXCLUSIVAMENTE UM OBJETO JSON VÁLIDO obedecendo exatamente a seguinte e
     res.json(JSON.parse(text || "{}"));
   } catch (error: any) {
     console.error("Gemini API Error:", error);
-    res.status(500).json({ error: error?.message || "Erro ao consultar o assistente de IA da BP-COMPRAS." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -543,7 +553,8 @@ ${extractedTextContent}
     res.json(JSON.parse(responseText));
   } catch (error: any) {
     console.error("Error in AI Quote Document parsing endpoint:", error);
-    res.status(500).json({ error: error?.message || "Ocorreu um erro ao processar o documento do orçamento por IA." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -837,7 +848,8 @@ ${extractedTextContent}
     res.json(JSON.parse(responseText));
   } catch (error: any) {
     console.error("Error in AI Supplier Proposal parsing endpoint:", error);
-    res.status(500).json({ error: error?.message || "Ocorreu um erro ao extrair os dados da proposta por IA." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -972,7 +984,7 @@ ${extractedText.slice(0, 45000)}
       // Try to list buckets & create documents bucket if not present
       const { data: buckets } = await supabase.storage.listBuckets();
       if (!buckets?.some(b => b.name === "documents")) {
-        await supabase.storage.createBucket("documents", { public: true });
+        await supabase.storage.createBucket("documents", { public: false });
       }
 
       // Upload original file
@@ -1013,7 +1025,7 @@ ${extractedText.slice(0, 45000)}
 
     if (dbError) {
       console.error("DB insertion error:", dbError);
-      return res.status(500).json({ error: `Erro ao registrar documento no banco: ${dbError.message}` });
+      return res.status(500).json({ error: "Erro interno do servidor." });
     }
 
     const docId = insertedDoc.id;
@@ -1055,7 +1067,8 @@ ${extractedText.slice(0, 45000)}
     });
   } catch (error: any) {
     console.error("Error in /api/docs/upload:", error);
-    res.status(500).json({ error: error?.message || "Erro no servidor ao processar o documento." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1074,7 +1087,8 @@ app.get("/api/docs/list", async (req, res) => {
     res.json(data || []);
   } catch (error: any) {
     console.error("Error listing documents:", error);
-    res.status(500).json({ error: error?.message || "Erro ao listar documentos arquivados." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1110,7 +1124,8 @@ app.delete("/api/docs/delete/:id", async (req, res) => {
     res.json({ success: true, message: "Documento excluído com sucesso." });
   } catch (error: any) {
     console.error("Error deleting document:", error);
-    res.status(500).json({ error: error?.message || "Erro ao excluir documento." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1272,7 +1287,8 @@ _Habilite a chave de API do Gemini para respostas e resumos completos._`;
     });
   } catch (error: any) {
     console.error("Error in NotebookLM chat:", error);
-    res.status(500).json({ error: error?.message || "Erro no servidor ao responder à dúvida." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1334,7 +1350,8 @@ Crie a estrutura dos slides em Markdown:`;
     res.json({ presentation: presentationMarkdown });
   } catch (error: any) {
     console.error("Error generating presentation:", error);
-    res.status(500).json({ error: error?.message || "Erro ao processar a apresentação corporativa." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1722,7 +1739,8 @@ Instruções importantes:
     }
   } catch (error: any) {
     console.error("Gemini MEI Extraction Error:", error);
-    res.status(500).json({ error: error?.message || "Erro ao processar e extrair os dados do autônomo." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -1818,7 +1836,8 @@ Instruções importantes:
     }
   } catch (error: any) {
     console.error("Gemini Aprendiz Extraction Error:", error);
-    res.status(500).json({ error: error?.message || "Erro ao processar e extrair os dados do aprendiz." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -2202,7 +2221,8 @@ Instruções importantes:
     }
   } catch (error: any) {
     console.error("Gemini Terms Extraction Error:", error);
-    res.status(500).json({ error: error?.message || "Erro ao processar e extrair os dados do termo de responsabilidade." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 
@@ -2555,7 +2575,12 @@ Posso esclarecer todas as suas dúvidas sobre os seguintes temas:
       return res.json({ answer: runFallbackSimulation() });
     }
 
-    // Prepare conversational prompt with complete manual integrated in context
+    // Sanitize normativaContext to prevent prompt injection
+    const rawContext = JSON.stringify(req.body.normativaContext || "");
+    const sanitizedContext = rawContext
+      .replace(/\b(ignore|disregard|override|forget|new instructions|system prompt)\b/gi, "[REDACTED]")
+      .slice(0, 50000); // Limit context size
+
     const chatContext = chatHistory && Array.isArray(chatHistory)
       ? chatHistory.map((h: any) => `${h.role === "user" ? "Usuário" : "Tutor"}: ${h.text}`).join("\n")
       : "";
@@ -2564,7 +2589,7 @@ Posso esclarecer todas as suas dúvidas sobre os seguintes temas:
 
 MANUAL E NORMATIVA COMPLETA DA EMPRESA (CONTEXTO DE VERDADE):
 ---
-${JSON.stringify(req.body.normativaContext || "")}
+${sanitizedContext}
 ---
 
 INSTRUÇÕES IMPORTANTES DE CONDUTA:
@@ -2591,7 +2616,8 @@ Responda diretamente com a solução técnica apropriada para a dúvida em quest
     res.json({ answer: response.text || "Desculpe, não consegui obter uma resposta adequada." });
   } catch (error: any) {
     console.error("Normativa Tutor Gemini Error:", error);
-    res.status(500).json({ error: error?.message || "Erro interno ao consultar o Tutor de IA da Normativa." });
+    console.error("API error:", error);
+    res.status(500).json({ error: "Erro interno do servidor." });
   }
 });
 

@@ -83,8 +83,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
     <div className="grid gap-4 md:grid-cols-2 mt-2 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-xs">
       
       {/* Composição Compra Mista Detail */}
-      <div className="double-bezel print:bg-white print:border-slate-300 print:shadow-none">
-        <div className="double-bezel-inner p-4">
+      <div className="bp-card p-4 print:bg-white print:border-slate-300 print:shadow-none">
           <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-3 uppercase tracking-wide">
             <div className="p-1 rounded-lg bg-slate-100">
               <Briefcase className="h-3.5 w-3.5 text-slate-700 print:text-black" />
@@ -92,7 +91,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             Composição da Compra Mista
           </h3>
           
-          <p className="text-[11px] text-slate-450 font-medium mb-3 -mt-1">
+          <p className="text-[11px] text-slate-500 font-medium mb-3 -mt-1">
             Cenário de Melhor Preço por Item
           </p>
           
@@ -109,7 +108,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                   </div>
                   <div className="text-right">
                     <span className="font-extrabold text-slate-900 text-[12.5px] md:text-[13.5px] font-mono">{formatCurrency(sum)}</span>
-                    <span className="text-[11px] text-slate-450 font-semibold block">
+                    <span className="text-[11px] text-slate-500 font-semibold block">
                       {percentage.toFixed(1)}% do total ótimo
                     </span>
                   </div>
@@ -117,19 +116,17 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               );
             })}
 
-            <div className="divider-premium my-2" />
+            <div className="border-t border-slate-200 my-2" />
 
-            <div className="flex items-center justify-between bg-[#ff2a6d]/5 p-3 rounded-xl border border-[#ff2a6d]/20 text-slate-900 hover-glow-pink transition-all duration-300">
+            <div className="flex items-center justify-between bg-[#ff2a6d]/5 p-3 rounded-xl border border-[#ff2a6d]/20 text-slate-900 transition-all duration-300">
               <span className="text-[11px] font-black uppercase tracking-wide">TOTAL MISTO COMBINADO:</span>
-              <span className="text-sm font-black font-mono text-slate-950 kpi-number">{formatCurrency(mixedTotal)}</span>
+              <span className="text-sm font-black font-mono text-slate-900">{formatCurrency(mixedTotal)}</span>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Relatório de Decisão Executiva */}
-      <div className="double-bezel print:border-slate-300 print:shadow-none">
-        <div className="double-bezel-inner p-4">
+      <div className="bp-card p-4 print:border-slate-300 print:shadow-none">
           <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-3 uppercase tracking-wide">
             <div className="p-1 rounded-lg bg-[#ff2a6d]/8">
               <PiggyBank className="h-3.5 w-3.5 text-[#ff2a6d] print:text-black" />
@@ -145,11 +142,11 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               </p>
               <p className="text-slate-700 leading-normal text-[11px] font-semibold">
                 Se fechar o pedido inteiro com apenas 1 fornecedor, a melhor opção é a{" "}
-                <strong className="text-slate-905 text-[13px] md:text-[14px] font-black uppercase decoration-[#ff2a6d] decoration-2 underline-offset-2">
+                <strong className="text-slate-900 text-[13px] md:text-[14px] font-black uppercase decoration-[#ff2a6d] decoration-2 underline-offset-2">
                   {cheapestSupplierName}
                 </strong>{" "}
                 com o valor total de{" "}
-                <strong className="text-slate-905 text-[13px] font-black font-mono">{formatCurrency(cheapestSupplierTotal)}</strong>.
+                <strong className="text-slate-900 text-[13px] font-black font-mono">{formatCurrency(cheapestSupplierTotal)}</strong>.
               </p>
 
               {cheapestSupplierTotal > 0 && (
@@ -197,7 +194,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                       
                       window.open(url, "_blank");
                     }}
-                    className="pill-btn pill-btn-primary"
+                    className="bp-btn-primary"
                     title="Enviar pedido consolidado inteiro para este fornecedor via WhatsApp"
                   >
                     <span className="text-xs">💬</span> Enviar Pedido Fechado
@@ -206,7 +203,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               )}
             </div>
 
-            <div className="space-y-2 bg-slate-50/30 p-3 rounded-xl border border-slate-150 print:bg-white print:border-slate-250">
+            <div className="space-y-2 bg-slate-50/30 p-3 rounded-xl border border-slate-200 print:bg-white print:border-slate-250">
               <div className="flex items-center justify-between text-[11px] text-slate-600 font-bold leading-tight">
                 <span>Cenário Fechado Mais Caro ({mostExpensiveSupplierName}):</span>
                 <span className="font-extrabold text-slate-800 font-mono text-[12px]">{formatCurrency(mostExpensiveSupplierTotal)}</span>
@@ -216,19 +213,18 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                 <span className="font-extrabold text-emerald-800 font-mono text-[12px]">{formatCurrency(mixedTotal)}</span>
               </div>
               
-              <div className="divider-premium my-1.5" />
+              <div className="border-t border-slate-200 my-1.5" />
               
               <div className="flex items-center justify-between text-slate-950 font-black leading-tight text-[11.5px]">
                 <span className="uppercase tracking-tight">Economia Absoluta (Mista vs Mais Cara):</span>
-                <span className="text-[#ff2a6d] font-black font-mono text-[13.5px] kpi-number">{formatCurrency(maxSavings)}</span>
+                <span className="font-mono text-[#ff2a6d] font-black text-[13.5px]">{formatCurrency(maxSavings)}</span>
               </div>
               <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[11px]">
-                <span className="uppercase tracking-tight text-slate-450">Economia Incremental (Mista vs Única Cheaper):</span>
-                <span className="font-mono text-emerald-800 font-black text-[12.5px] kpi-number">{formatCurrency(smartSavings)}</span>
+                <span className="uppercase tracking-tight text-slate-500">Economia Incremental (Mista vs Única Cheaper):</span>
+                <span className="font-mono text-emerald-800 font-black text-[12.5px]">{formatCurrency(smartSavings)}</span>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

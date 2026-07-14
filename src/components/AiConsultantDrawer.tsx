@@ -159,28 +159,28 @@ export default function AiConsultantDrawer({
           >
             {/* Header */}
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between select-none">
-              <div className="flex items-center gap-2">
-                <div className="p-1 px-1.5 rounded-lg bg-[#ff2a6d]/25 border border-[#ff2a6d]/40 flex items-center justify-center animate-pulse">
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 rounded-lg bg-[#ff2a6d]/20 flex items-center justify-center">
                   <Sparkles className="h-4 w-4 text-[#ff2a6d]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black tracking-tight uppercase">Assistente de IA</h3>
-                  <p className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">Consultoria em Facilities</p>
+                  <h3 className="text-sm font-bold tracking-tight">Assistente de IA</h3>
+                  <p className="text-[11px] text-slate-400 font-medium">Consultoria em Facilities</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 <button
                   onClick={handleAnalyze}
                   disabled={loading}
-                  className="p-1 rounded-md text-slate-500 hover:text-white hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
                   title="Recarregar análise da IA"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
                 </button>
                 <button
                   onClick={onClose}
-                  className="p-1 rounded-md text-slate-500 hover:text-white hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -231,7 +231,7 @@ export default function AiConsultantDrawer({
                   <div className="bg-white rounded-xl border border-slate-100 p-3 shadow-xs">
                     <div className="flex items-center justify-between text-[11px] font-bold text-slate-500">
                       <span>Análise Atualizada</span>
-                      <span className="text-emerald-600 uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded-[5px] border border-emerald-100 flex items-center gap-1">
+                      <span className="bp-badge bp-badge-emerald flex items-center gap-1">
                         <Check className="h-3 w-3" /> Concluído
                       </span>
                     </div>
@@ -409,7 +409,7 @@ export default function AiConsultantDrawer({
                   </div>
                   <button
                     onClick={handleAnalyze}
-                    className="bg-[#ff2a6d] hover:bg-[#c21e54] text-white px-4 py-2 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-colors w-full"
+                    className="bp-btn-primary w-full"
                   >
                     Analisar Cotação com IA
                   </button>
@@ -418,7 +418,7 @@ export default function AiConsultantDrawer({
             </div>
 
             {/* Footer containing help text */}
-            <div className="border-t border-slate-100 p-3.5 bg-slate-50 text-center text-[11px] text-slate-500 font-bold uppercase tracking-wider select-none">
+            <div className="border-t border-slate-200 p-3 bg-white text-center text-[11px] text-slate-400 font-semibold uppercase tracking-widest select-none">
               FACILITIES BP-COMPRAS INTEL · GEMINI PRO POWERED
             </div>
           </motion.div>

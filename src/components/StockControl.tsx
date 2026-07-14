@@ -1180,11 +1180,11 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
     <div className="bg-slate-50 min-h-screen text-slate-800 animate-fade-in leading-normal">
       
       {/* Upper Navigation & Compact Brand Bar */}
-      <div className="bg-slate-900 text-white p-4 px-6 flex justify-between items-center rounded-2xl shadow-md mb-6 print:hidden">
+      <div className="bg-white/80 backdrop-blur-md border border-slate-200 p-4 px-6 flex justify-between items-center rounded-xl shadow-sm mb-6 print:hidden">
         <div className="flex items-center gap-3">
           <button 
             onClick={onBack}
-            className="p-2 bg-slate-800 hover:bg-slate-700/80 rounded-full transition-transform active:scale-95 text-pink-500 hover:text-pink-400 cursor-pointer"
+            className="p-2 bg-slate-100 hover:bg-slate-200 rounded-full transition-transform active:scale-95 text-[#ff2a6d] hover:text-[#ff2a6d]/80 cursor-pointer"
             title="Voltar para a Cotação"
             type="button"
           >
@@ -1192,11 +1192,11 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           </button>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-pink-500 font-extrabold text-[11px] uppercase tracking-widest bg-pink-950/40 border border-pink-905 px-2 py-0.5 rounded-sm">
+              <span className="text-[#ff2a6d] font-extrabold text-[11px] uppercase tracking-widest bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 rounded-sm">
                 Acompanhamento & Evolução
               </span>
             </div>
-            <h1 className="text-[17px] font-black uppercase text-white mt-0.5 flex items-center gap-2">
+            <h1 className="text-[17px] font-black uppercase text-slate-900 mt-0.5 flex items-center gap-2">
               📊 Controle de Estoque de Consumíveis
             </h1>
           </div>
@@ -1214,7 +1214,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           <button
             type="button"
             onClick={() => window.print()}
-            className="inline-flex items-center gap-1.5 rounded-full bg-slate-800 hover:bg-slate-705 px-4 py-2 text-[11px] font-black uppercase text-slate-200 border border-slate-700 transition-all active:scale-95 cursor-pointer leading-none"
+            className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 px-4 py-2 text-[11px] font-black uppercase text-slate-600 border border-slate-200 transition-all active:scale-95 cursor-pointer leading-none"
           >
             <Printer className="h-3.5 w-3.5" />
             Imprimir Relatório
@@ -1243,7 +1243,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6 print:hidden">
         
         {/* Card 1: Last Measurement info -> Pink (#ff2a6d) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 border-t-4 border-t-[#ff2a6d] border-l-4 border-l-[#ff2a6d] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-pink transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-pink-50 text-[#ff2a6d] shrink-0 border border-pink-100">
@@ -1266,7 +1266,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 2: Consumer Capacity -> Petroleum Blue (#111c2e) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 border-t-4 border-t-[#111c2e] border-l-4 border-l-[#111c2e] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-navy transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#111c2e]/5 text-[#111c2e] shrink-0 border border-[#111c2e]/15">
@@ -1292,7 +1292,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 3: Stock Volume */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 border-t-4 border-t-[#111c2e] border-l-4 border-l-[#111c2e] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-navy transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#ff2a6d]/10 text-[#ff2a6d] shrink-0 border border-[#ff2a6d]/20">
@@ -1315,7 +1315,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 4: Consumption per Capita -> Magenta (#c21e54) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 border-t-4 border-t-[#c21e54] border-l-4 border-l-[#c21e54] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-pink transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#c21e54]/10 text-[#c21e54] shrink-0 border border-[#c21e54]/20">

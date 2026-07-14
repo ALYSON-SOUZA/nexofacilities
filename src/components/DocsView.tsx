@@ -537,7 +537,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
   const uniqueTags = ["TODOS", ...Array.from(new Set(documents.map(d => d.theme_tag).filter(Boolean)))];
 
   return (
-    <div className="bg-slate-50 min-h-[calc(100vh-130px)] rounded-[32px] p-4 lg:p-6 border border-slate-200/80 shadow-md flex flex-col animate-fade-in relative overflow-hidden">
+    <div className="bg-slate-50 min-h-[calc(100vh-130px)] rounded-xl p-4 lg:p-6 border border-slate-200 shadow-sm flex flex-col animate-fade-in relative overflow-hidden">
       
       {/* Background decoration elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -585,7 +585,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
         <div className="xl:col-span-5 flex flex-col gap-4 min-h-[500px] xl:min-h-0">
           
           {/* UPLOAD & TAG PANEL */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-2xs flex flex-col gap-3">
+          <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                 <Upload className="h-4 w-4 text-[#ff2a6d]" />
@@ -678,7 +678,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         onChange={(e) => setPastedTextContent(e.target.value)}
                         onPaste={handleTextareaPaste}
                         placeholder="Cole aqui o texto copiado de um e-mail, PDF ou site, ou pressione Ctrl+V para colar um arquivo de imagem..."
-                        className="w-full h-24 text-[11px] font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-[#ff2a6d] focus:bg-white transition-all resize-none placeholder:text-slate-450 leading-relaxed"
+                        className="w-full h-24 text-[11px] font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-[#ff2a6d] focus:bg-white transition-all resize-none placeholder:text-slate-500 leading-relaxed"
                       />
                     </div>
 
@@ -695,7 +695,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         type="button"
                         onClick={handleProcessPastedText}
                         disabled={!pastedTextContent.trim()}
-                        className="flex-1 py-2 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-450 text-white font-black text-[11px] uppercase tracking-wider rounded-lg shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                        className="flex-1 py-2 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-500 text-white font-black text-[11px] uppercase tracking-wider rounded-lg shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
                       >
                         <Sparkles className="h-3.5 w-3.5" />
                         <span>Analisar e Criar com IA</span>
@@ -769,7 +769,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
           </div>
 
           {/* DOCUMENTS LIST */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-2xs flex-1 flex flex-col min-h-0">
+          <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex-1 flex flex-col min-h-0">
             <div className="flex items-center justify-between mb-2.5 shrink-0">
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                 <FileText className="h-4 w-4 text-[#ff2a6d]" />
@@ -924,7 +924,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
         </div>
 
         {/* RIGHT COLUMN: NOTEBOOKLM CHAT & SLIDE BUILDER (7 Columns out of 12) */}
-        <div className="xl:col-span-7 flex flex-col bg-white rounded-2xl border border-slate-200 shadow-2xs overflow-hidden min-h-[550px] xl:min-h-0">
+        <div className="xl:col-span-7 flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden min-h-[550px] xl:min-h-0">
           
           {/* Tabs header */}
           <div className="flex border-b border-slate-100 bg-slate-50 shrink-0">
@@ -985,7 +985,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-[20px] p-4 text-xs font-semibold leading-relaxed shadow-3xs relative group/msg ${
+                      className={`max-w-[85%] rounded-2xl p-4 text-xs font-semibold leading-relaxed shadow-sm relative group/msg ${
                         msg.sender === "user"
                           ? "bg-slate-900 text-white rounded-br-none"
                           : "bg-slate-100/80 text-slate-800 rounded-bl-none border border-slate-200/50"
@@ -998,7 +998,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                           setCopiedMsgId(msg.id);
                           setTimeout(() => setCopiedMsgId(null), 2000);
                         }}
-                        className={`absolute right-2.5 top-2.5 p-1 rounded-md opacity-0 group-hover/msg:opacity-100 transition-opacity border shadow-2xs cursor-pointer ${
+                        className={`absolute right-2.5 top-2.5 p-1 rounded-md opacity-0 group-hover/msg:opacity-100 transition-opacity border shadow-sm cursor-pointer ${
                           msg.sender === "user" 
                             ? "bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700" 
                             : "bg-white text-slate-500 border-slate-200 hover:bg-slate-50"
@@ -1257,7 +1257,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         <button
                           disabled={currentSlideIndex === 0}
                           onClick={() => setCurrentSlideIndex(prev => prev - 1)}
-                          className="p-1 rounded-md bg-slate-900 border border-slate-800 hover:border-[#ff2a6d] disabled:opacity-35 transition-all text-slate-450 cursor-pointer"
+                           className="p-1 rounded-md bg-slate-900 border border-slate-800 hover:border-[#ff2a6d] disabled:opacity-35 transition-all text-slate-500 cursor-pointer"
                         >
                           <ChevronLeft className="h-3.5 w-3.5" />
                         </button>
@@ -1267,7 +1267,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         <button
                           disabled={currentSlideIndex === slides.length - 1}
                           onClick={() => setCurrentSlideIndex(prev => prev + 1)}
-                          className="p-1 rounded-md bg-slate-900 border border-slate-800 hover:border-[#ff2a6d] disabled:opacity-35 transition-all text-slate-450 cursor-pointer"
+                           className="p-1 rounded-md bg-slate-900 border border-slate-800 hover:border-[#ff2a6d] disabled:opacity-35 transition-all text-slate-500 cursor-pointer"
                         >
                           <ChevronRight className="h-3.5 w-3.5" />
                         </button>
@@ -1300,7 +1300,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                 setIsDocModalOpen(false);
                 setSelectedDoc(null);
               }}
-              className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-450 hover:text-slate-600 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition-colors cursor-pointer"
             >
               <X className="h-4.5 w-4.5" />
             </button>
@@ -1345,7 +1345,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     Transcrição OCR do Documento Original
                   </span>
                 </div>
-                <div className="flex-1 overflow-y-auto p-4 text-xs font-mono font-medium text-slate-650 leading-relaxed whitespace-pre-wrap select-text selection:bg-[#ff2a6d]/20">
+                <div className="flex-1 overflow-y-auto p-4 text-xs font-mono font-medium text-slate-600 leading-relaxed whitespace-pre-wrap select-text selection:bg-[#ff2a6d]/20">
                   {selectedDoc.extracted_text || "Nenhum texto transcrito."}
                 </div>
               </div>

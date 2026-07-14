@@ -410,7 +410,7 @@ export default function Table({
   }, [suppliers, items, itemBestSuppliers]);
 
   return (
-    <div className="rounded-2xl border border-slate-205 bg-white shadow-3xs overflow-visible mb-3 print:border-slate-350 print:shadow-none text-[11px] relative">
+    <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-visible mb-3 print:border-slate-350 print:shadow-none text-[11px] relative">
       
       {/* File Importer overlay overlay */}
       {isImportOpen && (
@@ -432,7 +432,7 @@ export default function Table({
       )}
 
       {/* NEW Upper Workbench Tool Bar for rapid search-to-insert dropdown & importing */}
-      <div className="border-b border-slate-150 bg-slate-50/50 p-3 flex flex-wrap gap-3 items-center justify-between print:hidden rounded-t-2xl">
+      <div className="border-b border-slate-200 bg-slate-50 p-3 flex flex-wrap gap-3 items-center justify-between print:hidden rounded-t-2xl">
         
         {/* Quick Add Autocomplete widget */}
         <form
@@ -451,7 +451,7 @@ export default function Table({
               onChange={setQuickName}
               placeholder="🔍 Busque material pelo nome para adicionar..."
               suggestions={suggestionItems}
-              className="w-full rounded-lg border border-slate-220 bg-white px-2.5 py-1.5 font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#ff2a6d] text-[11px]"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#ff2a6d] text-[11px]"
             />
           </div>
           
@@ -462,17 +462,17 @@ export default function Table({
               min={1}
               value={quickQty}
               onChange={(e) => setQuickQty(Math.max(1, parseInt(e.target.value, 10)))}
-              className="w-10 text-center rounded-lg border border-slate-220 bg-white py-1.5 font-extrabold text-[#ff2a6d] text-[11px] focus:outline-[#ff2a6d]"
+              className="w-10 text-center rounded-lg border border-slate-200 bg-white py-1.5 font-extrabold text-[#ff2a6d] text-[11px] focus:outline-[#ff2a6d]"
             />
           </div>
 
           <button
             type="submit"
             disabled={!quickName.trim()}
-            className={`inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 font-black text-[11px] uppercase shadow-2xs transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 font-black text-[11px] uppercase shadow-sm transition-all cursor-pointer ${
               quickName.trim()
                 ? "bg-[#111c2e] hover:bg-slate-800 text-white"
-                : "bg-slate-200 text-slate-450 cursor-not-allowed"
+                : "bg-slate-200 text-slate-500 cursor-not-allowed"
             }`}
           >
             <Plus className="h-3 w-3 text-[#ff2a6d]" />
@@ -485,7 +485,7 @@ export default function Table({
           <button
             type="button"
             onClick={() => setShowStockPlanning(!showStockPlanning)}
-            className={`inline-flex items-center gap-1.5 text-xs font-black rounded-full px-3.5 py-1.5 shadow-2xs hover:scale-[1.02] active:scale-[0.98] cursor-pointer transition-all shrink-0 leading-none ${
+            className={`inline-flex items-center gap-1.5 text-xs font-black rounded-full px-3.5 py-1.5 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer transition-all shrink-0 leading-none ${
               showStockPlanning
                 ? "bg-emerald-600 border border-emerald-700 text-white hover:bg-emerald-700"
                 : "bg-white border border-slate-200 text-emerald-800 hover:bg-emerald-50 hover:border-emerald-300"
@@ -500,10 +500,10 @@ export default function Table({
         <button
           type="button"
           onClick={() => setShowQuickGuide(!showQuickGuide)}
-          className={`inline-flex items-center gap-1.5 text-xs font-black rounded-full px-3.5 py-1.5 shadow-2xs hover:scale-[1.02] active:scale-[0.98] cursor-pointer transition-all shrink-0 leading-none ${
+          className={`inline-flex items-center gap-1.5 text-xs font-black rounded-full px-3.5 py-1.5 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer transition-all shrink-0 leading-none ${
             showQuickGuide
               ? "bg-[#111c2e] text-white hover:bg-slate-850"
-              : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-55"
+              : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
           }`}
           title="💡 Dicas e truques de produtividade"
         >
@@ -518,7 +518,7 @@ export default function Table({
             setWhatsAppTargetSupplierId(suppliers[0]?.id || "");
             setIsWhatsAppModalOpen(true);
           }}
-          className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-pink-50 hover:bg-[#ff2a6d] hover:text-white text-[#ff2a6d] px-3.5 py-1.5 font-black shadow-3xs transition-all cursor-pointer text-[11px] uppercase shrink-0"
+          className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-pink-50 hover:bg-[#ff2a6d] hover:text-white text-[#ff2a6d] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-[11px] uppercase shrink-0"
           title="💬 Gerar solicitação ou pedido de compra para WhatsApp"
         >
           <MessageSquare className="h-3.5 w-3.5" />
@@ -527,7 +527,7 @@ export default function Table({
 
         <button
           onClick={() => setIsImportOpen(true)}
-          className="inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 text-white hover:bg-[#ff2a6d] hover:border-[#ff2a6d] px-3.5 py-1.5 font-black shadow-3xs transition-all cursor-pointer text-[11px] uppercase group"
+          className="inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 text-white hover:bg-[#ff2a6d] hover:border-[#ff2a6d] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-[11px] uppercase group"
         >
           <Sparkles className="h-3.5 w-3.5 text-[#ff2a6d] group-hover:text-white transition-all shrink-0 animate-pulse" />
           Import IA
@@ -545,25 +545,25 @@ export default function Table({
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4 pt-1 text-[11px]">
-            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-3xs hover:border-[#ff2a6d]/30 transition-all">
+            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#ff2a6d]/30 transition-all">
               <span className="block font-black text-[#ff2a6d] uppercase text-[11px] tracking-wider mb-1">📋 Preenchimento em Lote</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Copie uma coluna de preços do Excel, clique na primeira célula de preço de um fornecedor e cole (<kbd className="font-mono text-[11px] bg-slate-100 border px-1 rounded-xs">Ctrl+V</kbd>). Todo o lote será preenchido automaticamente!
               </p>
             </div>
-            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-3xs hover:border-[#ff2a6d]/30 transition-all">
+            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#ff2a6d]/30 transition-all">
               <span className="block font-black text-[#ff2a6d] uppercase text-[11px] tracking-wider mb-1">📂 Importar com Excel</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Basta clicar em <strong>Import IA</strong> ou arrastar sua planilha (.xlsx) de cotação para qualquer lugar desta tela para importar produtos, quantidades e preços de uma só vez!
               </p>
             </div>
-            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-3xs hover:border-[#ff2a6d]/30 transition-all">
+            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#ff2a6d]/30 transition-all">
               <span className="block font-black text-[#ff2a6d] uppercase text-[11px] tracking-wider mb-1">🔍 Cadastro & Autocomplete</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Ao adicionar ou renomear produtos e fornecedores, use as recomendações inteligentes do nosso banco integrado para garantir a padronização das descrições.
               </p>
             </div>
-            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-3xs hover:border-[#ff2a6d]/30 transition-all">
+            <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#ff2a6d]/30 transition-all">
               <span className="block font-black text-[#ff2a6d] uppercase text-[11px] tracking-wider mb-1">💬 Integração WhatsApp</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Clique no botão <strong>WhatsApp / Msg</strong> para formatar automaticamente solicitações de cotação ou ordens de pedido prontas para enviar aos vendedores!
@@ -578,7 +578,7 @@ export default function Table({
         <table className="w-full border-collapse text-left text-[13px] text-slate-700 print:text-[11px]/tight">
           <thead>
             {/* Primary Headers Group */}
-            <tr className="border-b border-slate-200 bg-slate-50/60 print:bg-slate-100 print:border-b-2">
+            <tr className="border-b border-slate-200 bg-slate-50 print:bg-slate-100 print:border-b-2">
               <th className="px-3 py-1 font-extrabold text-slate-700 min-w-[200px] uppercase tracking-wider text-[13px] md:text-[14px] print:text-[11px]/tight" rowSpan={2}>
                 Itens a Cotar
               </th>
@@ -614,7 +614,7 @@ export default function Table({
                         <button
                           type="button"
                           onClick={() => setSelectedSupplierToEdit(s)}
-                          className="flex-1 text-center font-black text-slate-905 hover:text-[#ff2a6d] hover:border-[#ff2a6d]/40 border-b border-dashed border-slate-400 focus:outline-[#ff2a6d]/40 transition-all uppercase py-0.5 whitespace-normal break-words cursor-pointer text-[14px] md:text-[14.5px] print:text-[12px] leading-tight"
+                          className="flex-1 text-center font-black text-slate-900 hover:text-[#ff2a6d] hover:border-[#ff2a6d]/40 border-b border-dashed border-slate-400 focus:outline-[#ff2a6d]/40 transition-all uppercase py-0.5 whitespace-normal break-words cursor-pointer text-[14px] md:text-[14.5px] print:text-[12px] leading-tight"
                           title="Clique para detalhar ou preencher este fornecedor"
                         >
                           {s.name || `FORNECEDOR ${idx + 1}`}
@@ -633,7 +633,7 @@ export default function Table({
                       </div>
 
                       {/* Informações de contato do fornecedor - Sem bordas, com fontes aumentadas e na mesma linha! */}
-                      <div className="mt-1.5 text-[11px] md:text-[11.5px] print:text-[11px] font-black uppercase text-slate-650 flex flex-wrap gap-x-1.5 gap-y-0.5 items-center justify-center leading-none">
+                      <div className="mt-1.5 text-[11px] md:text-[11.5px] print:text-[11px] font-black uppercase text-slate-600 flex flex-wrap gap-x-1.5 gap-y-0.5 items-center justify-center leading-none">
                         {s.phone && (
                           <span className="text-slate-700 flex items-center gap-0.5 shrink-0" title={`Telefone: ${s.phone}`}>
                             📞 {s.phone}
@@ -669,10 +669,10 @@ export default function Table({
             <tr className="border-b border-slate-200 bg-slate-50/30 print:bg-slate-50">
               {suppliers.map((s, idx) => (
                 <React.Fragment key={s.id}>
-                  <th className="px-2 py-1 text-right font-semibold text-slate-450 border-l border-slate-150 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[11px] print:text-[11px]">
+                  <th className="px-2 py-1 text-right font-semibold text-slate-500 border-l border-slate-100 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[11px] print:text-[11px]">
                     Unit (R$)
                   </th>
-                  <th className="px-2 py-1 text-right font-bold text-slate-650 w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[11px] print:text-[11px]">
+                  <th className="px-2 py-1 text-right font-bold text-slate-600 w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[11px] print:text-[11px]">
                     Total (R$)
                   </th>
                 </React.Fragment>
@@ -689,7 +689,7 @@ export default function Table({
               return (
                 <tr
                   key={item.id}
-                  className={`hover:bg-slate-55/40 transition-colors group print:hover:bg-transparent ${isPrintHidden ? "print:hidden" : ""}`}
+                  className={`hover:bg-slate-50/40 transition-colors group print:hover:bg-transparent ${isPrintHidden ? "print:hidden" : ""}`}
                 >
                   {/* Item name input built around Autocomplete directly */}
                   <td className="p-0.5 px-3 focus-within:bg-slate-50/50">
@@ -773,14 +773,14 @@ export default function Table({
                           
                           return (
                             <div className="flex items-center justify-between gap-1 w-full px-0.5">
-                              <span className={`font-mono text-[11.5px] font-black ${sugestao > 0 ? "text-emerald-700" : "text-slate-450"}`}>
+                              <span className={`font-mono text-[11.5px] font-black ${sugestao > 0 ? "text-emerald-700" : "text-slate-500"}`}>
                                 {sugestao} und
                               </span>
                               {sugestao > 0 && item.quantity !== sugestao && (
                                 <button
                                   type="button"
                                   onClick={() => onUpdateItemQty(item.id, sugestao)}
-                                  className="px-1.5 py-1 bg-emerald-600 hover:bg-emerald-700 hover:shadow-2xs active:scale-95 text-white rounded-md text-[11px] font-black uppercase tracking-tight flex items-center justify-center leading-none cursor-pointer transition-all shrink-0"
+                                  className="px-1.5 py-1 bg-emerald-600 hover:bg-emerald-700 hover:shadow-sm active:scale-95 text-white rounded-md text-[11px] font-black uppercase tracking-tight flex items-center justify-center leading-none cursor-pointer transition-all shrink-0"
                                   title="Aplicar sugestão como Quantidade de Compra"
                                 >
                                   ⚡ Usar
@@ -819,10 +819,10 @@ export default function Table({
                       <React.Fragment key={s.id}>
                         {/* Unit price input */}
                         <td
-                          className={`p-0.5 px-1 border-l border-slate-150 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
+                          className={`p-0.5 px-1 border-l border-slate-100 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
                         >
                           <div
-                            className={`flex items-center justify-end rounded-md px-1 py-0.5 transition-all focus-within:bg-white focus-within:ring-2 focus-within:shadow-3xs focus-within:border-slate-350 border border-transparent ${palette.inputBorder}`}
+                            className={`flex items-center justify-end rounded-md px-1 py-0.5 transition-all focus-within:bg-white focus-within:ring-2 focus-within:shadow-sm focus-within:border-slate-350 border border-transparent ${palette.inputBorder}`}
                           >
                             <span className="text-[11px] text-slate-300 mr-0.5 font-bold print:hidden">R$</span>
                             <PriceInput
@@ -941,7 +941,7 @@ export default function Table({
                         <p className="text-slate-800 text-[11px] font-bold mt-1.5 leading-normal normal-case">
                           Cole (Ctrl+V) uma lista de materiais com quantidades aqui mesmo!
                         </p>
-                        <p className="text-slate-450 text-[11px] font-semibold leading-normal mt-1 normal-case">
+                        <p className="text-slate-500 text-[11px] font-semibold leading-normal mt-1 normal-case">
                           Ou simplesmente <span className="text-[#ff2a6d] font-bold">arraste e solte</span> sua planilha Excel (.xlsx), CSV ou TXT nesta área de novos itens.
                         </p>
                       </div>
@@ -999,7 +999,7 @@ export default function Table({
                         </span>
                       </td>
                       <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[115px] min-w-[115px] max-w-[115px]">
-                        <span className="font-mono text-[11px] font-black text-slate-650">
+                        <span className="font-mono text-[11px] font-black text-slate-600">
                           {Math.max(0, (item.minStock || 0) - (item.currentStock || 0))} und
                         </span>
                       </td>
@@ -1025,7 +1025,7 @@ export default function Table({
                       <React.Fragment key={`print-price-${s.id}`}>
                         {/* Unit price */}
                         <td
-                          className={`p-1 px-1 border-l border-slate-150 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
+                          className={`p-1 px-1 border-l border-slate-100 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
                         >
                           <span className="text-[11px] text-slate-800 font-extrabold font-mono">
                             {price !== null && price > 0 ? formatCurrency(price) : "-"}
@@ -1077,7 +1077,7 @@ export default function Table({
                 const total = supplierTotals[s.id] || 0;
                 return (
                   <React.Fragment key={s.id}>
-                    <td className="border-l border-slate-205 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
+                    <td className="border-l border-slate-200 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
                     <td className="px-2 py-1.5 text-right font-black text-slate-950 font-mono text-[11px] print:text-[11px]/none w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px]">
                       {formatCurrency(total)}
                     </td>
@@ -1123,10 +1123,10 @@ export default function Table({
       </div>
 
       {/* Spreadsheet Control bar at bottom of table (compact padding) */}
-      <div className="border-t border-slate-150 bg-slate-50/30 p-2.5 flex flex-wrap gap-2 items-center justify-between print:hidden">
+      <div className="border-t border-slate-100 bg-slate-50/30 p-2.5 flex flex-wrap gap-2 items-center justify-between print:hidden">
         <button
           onClick={onAddItem}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-black text-[#ff2a6d] hover:bg-[#ff2a6d]/5 hover:border-[#ff2a6d] shadow-3xs transition-all cursor-pointer leading-none"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-black text-[#ff2a6d] hover:bg-[#ff2a6d]/5 hover:border-[#ff2a6d] shadow-sm transition-all cursor-pointer leading-none"
         >
           <Plus className="h-3.5 w-3.5" />
           ITEM
@@ -1134,7 +1134,7 @@ export default function Table({
 
         <button
           onClick={onAddSupplier}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-205 bg-[#111c2e] hover:bg-slate-800 px-4 py-1.5 font-bold text-white shadow-3xs transition-all cursor-pointer leading-none"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-[#111c2e] hover:bg-slate-800 px-4 py-1.5 font-bold text-white shadow-sm transition-all cursor-pointer leading-none"
         >
           <Plus className="h-3.5 w-3.5" />
           ADICIONAR FORNECEDOR
@@ -1142,7 +1142,7 @@ export default function Table({
       </div>
 
       {/* Dynamic Purchase Control Info Bar - Visible on screen and nicely styled for print */}
-      <div className="border-t border-slate-150 bg-slate-100/60 p-3 px-4 flex items-center gap-2 font-black text-[11px] text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-[11px] print:rounded-none">
+      <div className="border-t border-slate-100 bg-slate-100/60 p-3 px-4 flex items-center gap-2 font-black text-[11px] text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-[11px] print:rounded-none">
         <span className="text-base print:text-[11px]">🛍️</span>
         {totalToBuy > 0 ? (
           <span>
@@ -1166,7 +1166,7 @@ export default function Table({
                 className="bg-slate-50/70 border border-slate-200 rounded-xl p-3.5 flex flex-col justify-between hover:bg-slate-50 transition-colors print:bg-white print:border-slate-300 print:rounded-none print:p-2 print:border-b"
               >
                 <div>
-                  <div className="flex flex-col gap-1.5 mb-2.5 border-b border-slate-150 pb-2">
+                  <div className="flex flex-col gap-1.5 mb-2.5 border-b border-slate-100 pb-2">
                     <div className="flex items-center justify-between gap-2">
                       <span className="font-mono text-[11px]/tight font-black uppercase bg-slate-200 text-slate-800 px-2 py-0.5 rounded-sm print:bg-slate-100 print:border shrink-0">
                         {obs.id}
@@ -1304,7 +1304,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
           <span className="text-[11px] font-black uppercase text-[#ff2a6d] block mb-1">
             Referência do Item:
           </span>
-          <div className="bg-slate-50 border border-slate-150 rounded-lg p-2.5 text-[11.5px] font-bold text-slate-800">
+          <div className="bg-slate-50 border border-slate-100 rounded-lg p-2.5 text-[11.5px] font-bold text-slate-800">
             {item.name} {item.quantity > 0 ? `(${item.quantity} un)` : ""}
           </div>
         </div>
@@ -1317,7 +1317,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full h-32 text-[11.5px] font-medium text-slate-800 bg-slate-55 border border-slate-200 rounded-xl p-3 focus:outline-hidden focus:ring-2 focus:ring-pink-400/20 focus:border-[#ff2a6d] placeholder-slate-400/70"
+            className="w-full h-32 text-[11.5px] font-medium text-slate-800 bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-hidden focus:ring-2 focus:ring-pink-400/20 focus:border-[#ff2a6d] placeholder-slate-400/70"
             placeholder="Digite aqui os detalhes extras, requisitos de entrega ou condições especiais para este item..."
             autoFocus
           />
@@ -1496,7 +1496,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
               onClick={() => setMsgType("request")}
               className={`flex-1 text-center py-2 text-[11px] font-black uppercase rounded-lg transition-all cursor-pointer ${
                 msgType === "request"
-                  ? "bg-white text-slate-900 shadow-xs"
+                  ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -1507,7 +1507,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
               onClick={() => setMsgType("order")}
               className={`flex-1 text-center py-2 text-[11px] font-black uppercase rounded-lg transition-all cursor-pointer ${
                 msgType === "order"
-                  ? "bg-white text-slate-900 shadow-xs"
+                  ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -1524,7 +1524,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
               <select
                 value={selectedSupplierId}
                 onChange={(e) => setSelectedSupplierId(e.target.value)}
-                className="w-full rounded-lg border border-slate-220 bg-slate-50/50 p-2 font-bold text-slate-800 focus:outline-[#ff2a6d] text-[11px]"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 p-2 font-bold text-slate-800 focus:outline-[#ff2a6d] text-[11px]"
               >
                 {suppliers.map((s, idx) => (
                   <option key={s.id} value={s.id}>
@@ -1536,7 +1536,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           )}
 
           {/* Contact Details Display */}
-          <div className="bg-slate-55 p-3 rounded-xl text-[11px] font-semibold text-slate-600 flex flex-wrap gap-4 items-center border border-slate-150">
+          <div className="bg-slate-50 p-3 rounded-xl text-[11px] font-semibold text-slate-600 flex flex-wrap gap-4 items-center border border-slate-100">
             <div>
               <span className="font-bold text-slate-500 block uppercase text-[11px] tracking-tight leading-none mb-1">Destinatário:</span>
               <span className="font-extrabold text-slate-805 uppercase">
@@ -1575,11 +1575,11 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="bg-slate-50 border-t border-slate-150 p-4 flex gap-2">
+        <div className="bg-slate-50 border-t border-slate-100 p-4 flex gap-2">
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-100 py-2.5 text-[11px] font-black text-slate-650 transition-colors uppercase cursor-pointer"
+            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-100 py-2.5 text-[11px] font-black text-slate-600 transition-colors uppercase cursor-pointer"
           >
             Fechar
           </button>
@@ -1588,7 +1588,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           <button
             type="button"
             onClick={handleCopy}
-            className="flex-1 rounded-full border border-slate-350 bg-white hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-800 transition-colors uppercase cursor-pointer flex items-center justify-center gap-1 shadow-2xs"
+            className="flex-1 rounded-full border border-slate-350 bg-white hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-800 transition-colors uppercase cursor-pointer flex items-center justify-center gap-1 shadow-sm"
           >
             {copied ? (
               <>
@@ -1715,7 +1715,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
 
   return (
     <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden leading-normal">
-      <div className="bg-white rounded-2xl border border-slate-205 shadow-md max-w-md w-full overflow-hidden flex flex-col">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-md max-w-md w-full overflow-hidden flex flex-col">
         
         {/* Modal Top title bar */}
         <div className="bg-[#111c2e] text-white p-4 flex items-center justify-between">
@@ -1752,7 +1752,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 }}
                 onFocus={() => setIsAutocompleteOpen(true)}
                 placeholder="🔍 Comece a digitar o nome do fornecedor..."
-                className="w-full rounded-lg border border-slate-220 bg-slate-50/50 hover:bg-slate-50 focus:bg-white px-3 py-1.5 font-bold text-slate-800 placeholder:text-slate-400 focus:outline-[#ff2a6d] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white px-3 py-1.5 font-bold text-slate-800 placeholder:text-slate-400 focus:outline-[#ff2a6d] text-[11px] transition-all"
               />
 
               {isAutocompleteOpen && (
@@ -1816,7 +1816,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ex. CANTINHO DA LIMPEZA E FACILITIES"
-                className="w-full rounded-lg border border-slate-220 bg-white px-3 py-1.5 font-black text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] uppercase text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-black text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] uppercase text-[11px] transition-all"
               />
             </div>
 
@@ -1830,7 +1830,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Ex. (11) 98765-4321 ou (11) 3222-1000"
-                className="w-full rounded-lg border border-slate-220 bg-white px-3 py-1.5 font-extrabold text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-extrabold text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] text-[11px] transition-all"
               />
             </div>
 
@@ -1844,7 +1844,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={vendedor}
                 onChange={(e) => setVendedor(e.target.value)}
                 placeholder="Ex. Roberto comercial"
-                className="w-full rounded-lg border border-slate-220 bg-white px-3 py-1.5 font-bold text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-bold text-slate-900 placeholder:text-slate-300 focus:outline-[#ff2a6d] text-[11px] transition-all"
               />
             </div>
           </div>
@@ -1854,14 +1854,14 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-650 transition-colors uppercase cursor-pointer"
+              className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-600 transition-colors uppercase cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={!name.trim()}
-              className={`flex-1 rounded-full py-2.5 text-[11px] font-black text-white uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1 ${
+              className={`flex-1 rounded-full py-2.5 text-[11px] font-black text-white uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-1 ${
                 name.trim()
                   ? "bg-[#ff2a6d] hover:bg-[#c21e54] cursor-pointer"
                   : "bg-slate-300 text-slate-500 cursor-not-allowed"

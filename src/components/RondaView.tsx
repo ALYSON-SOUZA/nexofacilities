@@ -1001,7 +1001,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div>
-            <span className="bg-gradient-to-r from-[#ff2a6d] to-[#ff2a6d] text-white font-black text-[11px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+            <span className="bp-badge bp-badge-pink">
               MÓDULO DE RONDA
             </span>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1.5 leading-tight">
@@ -1011,7 +1011,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200 text-xs font-black text-slate-700 flex items-center gap-1.5">
+          <div className="bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
             <User className="h-3.5 w-3.5 text-slate-500" />
             <span>{userName}</span>
           </div>
@@ -1040,7 +1040,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Total de Rondas</span>
               <div className="flex items-baseline gap-1.5 mt-2">
@@ -1052,7 +1052,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Ocorrências Registradas", type: "occurrences", items: flatOccurrences })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Ocorrências por Tipo</span>
               <div className="grid grid-cols-3 gap-1 mt-2 text-center text-[11px] font-black">
@@ -1095,7 +1095,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todos os Chamados Técnicos", type: "chamados", items: chamados })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Chamados Técnicos</span>
               <div className="flex items-baseline gap-1.5 mt-2">
@@ -1117,7 +1117,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas });
                 }
               }}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Último Registro</span>
               {stats.lastRonda ? (
@@ -1180,7 +1180,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               </div>
 
               {/* ROUNDS LIST CARD */}
-              <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-100">
+              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden divide-y divide-slate-100">
                 {filteredRondas.length === 0 ? (
                   <div className="p-8 text-center text-slate-500 font-semibold text-xs">
                     Nenhuma ronda encontrada para o filtro selecionado.
@@ -1192,7 +1192,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     r.salas.forEach(s => { occTotal += s.occurrences.length; });
 
                     return (
-                      <div key={r.id} className="p-4 hover:bg-slate-55 transition-colors flex items-center justify-between">
+                      <div key={r.id} className="p-4 hover:bg-slate-50 transition-colors flex items-center justify-between">
                         <div className="space-y-1 pr-4 truncate">
                           <div className="flex items-center gap-2">
                             <span className="font-mono text-xs font-black text-slate-800">{r.id}</span>
@@ -1250,7 +1250,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               </div>
 
               {/* TICKETS LIST */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3.5 shadow-3xs">
+              <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3.5 shadow-sm">
                 {chamados.length === 0 ? (
                   <p className="text-[11px] text-slate-500 font-bold text-center py-4">Nenhum chamado de manutenção em aberto.</p>
                 ) : (
@@ -1290,7 +1290,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               </div>
 
               {/* GRAPHICS / RATIO SVG PIE CHART */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-3xs space-y-3">
+              <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
                 <span className="block text-[11px] font-black uppercase text-slate-500 tracking-wider leading-none">Distribuição de Ocorrências</span>
                 
                 {stats.totalOccurrences === 0 ? (
@@ -1364,9 +1364,9 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             />
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-100">
+          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden divide-y divide-slate-100">
             {filteredRondas.map((r) => (
-              <div key={r.id} className="p-4 hover:bg-slate-55 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div key={r.id} className="p-4 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="space-y-1 pr-4 truncate">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-black text-slate-800">{r.id}</span>
@@ -1682,7 +1682,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       />
                     </label>
 
-                    <div className="border border-slate-200 rounded-xl p-3 flex flex-col justify-center items-center text-center bg-slate-55">
+                    <div className="border border-slate-200 rounded-xl p-3 flex flex-col justify-center items-center text-center bg-slate-50">
                       <span className="text-lg">📋</span>
                       <span className="text-[11px] font-black text-slate-600 uppercase">Colar Clipboard (Ctrl+V)</span>
                       <span className="text-[11px] text-slate-500 font-bold">Basta colar com a área de texto focada</span>
@@ -2057,7 +2057,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                 1. Objetivo e Parecer Técnico
               </h3>
-              <p className="text-xs font-semibold text-slate-650 leading-relaxed text-justify">
+              <p className="text-xs font-semibold text-slate-600 leading-relaxed text-justify">
                 Este documento oficial registra as conformidades e inconformidades físicas constatadas durante a ronda rotineira do profissional de Facilities no ambiente de trabalho. Visando a melhoria contínua da estrutura predial da Bellinati Perez, a prevenção de acidentes de trabalho e a conservação do patrimônio predial.
               </p>
             </div>

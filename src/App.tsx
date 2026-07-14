@@ -1708,21 +1708,21 @@ export default function App() {
   const displayCpf = userCpf ? userCpf : "000.000.000-00";
 
   return (
-    <div className={`min-h-screen bg-slate-50 text-slate-900 selection:bg-slate-200 font-sans leading-none theme-${visualTheme} flex flex-col md:flex-row bg-dot-pattern`}>
+    <div className={`min-h-screen text-slate-900 selection:bg-slate-200 font-sans leading-none theme-${visualTheme} bg-dot-pattern`}>
       
-      {/* MOBILE HEADER (only visible when sidebar is collapsed/mobile, print:hidden) */}
-      <div className="md:hidden flex items-center justify-between bg-[#1E222B] text-white px-4 py-3 print:hidden shrink-0 border-b border-slate-800">
+      {/* MOBILE HEADER (only visible on mobile) */}
+      <div className="md:hidden flex items-center justify-between bg-white text-slate-900 px-4 py-3 print:hidden shrink-0 border-b border-slate-200">
         <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white font-black text-xs shadow-sm">
-            {userName ? userName.trim().charAt(0).toUpperCase() : "A"}
+          <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white shadow-sm">
+            <span className="material-symbols-outlined text-[16px] text-white" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
-          <span className="text-xs font-black tracking-wider uppercase text-white">
+          <span className="text-xs font-display font-extrabold tracking-wider uppercase text-slate-900">
             FACILITIES <span className="text-[#ff2a6d]">BP-COMPRAS</span>
           </span>
         </div>
         <button
           onClick={() => setIsMobileSidebarOpen(true)}
-          className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors cursor-pointer"
+          className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors cursor-pointer"
           title="Abrir Menu"
         >
           <Menu className="h-4 w-4" />
@@ -1733,190 +1733,109 @@ export default function App() {
       {isMobileSidebarOpen && (
         <div 
           onClick={() => setIsMobileSidebarOpen(false)}
-          className="fixed inset-0 bg-slate-950/65 backdrop-blur-xs z-30 md:hidden print:hidden"
+          className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-30 md:hidden print:hidden"
         />
       )}
 
-      {/* LEFT SIDEBAR FOR DESKTOP & MOBILE DRAWER (ULTRA NARROW / SLATE FRAME DESIGN) */}
-      <aside className={`
-        fixed inset-y-0 left-0 z-40 w-[185px] bg-[#1E222B] text-slate-300 flex flex-col border-r border-slate-800 transition-transform duration-300 ease-in-out print:hidden
-        md:translate-x-0 md:static md:h-screen md:sticky md:top-0 md:shadow-lg shrink-0
-        ${isMobileSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-      `}>
-        {/* Sidebar Brand Header - Building Icon and Facilities Branding */}
-        <div className="p-3 border-b border-slate-800/60 flex flex-col items-center justify-between shrink-0 relative">
-          <div className="flex flex-col items-center text-center w-full mt-1">
-            <div className="h-9 w-9 rounded-xl bg-[#ff2a6d] flex items-center justify-center text-[#1E222B] shadow-lg mb-1.5">
-              <Building2 className="h-5.5 w-5.5 text-slate-900" />
-            </div>
-            <span className="text-[11px] font-black tracking-tighter text-white uppercase leading-none">
-              FACILITIES <span className="text-[#ff2a6d]">BP-COMPRAS</span>
-            </span>
+      {/* LEFT SIDEBAR (code.html style: 80px white, icon navigation) */}
+      <aside className={`bp-sidebar ${isMobileSidebarOpen ? "bp-sidebar-open" : ""} print:hidden`}>
+        {/* Brand Logo */}
+        <div className="bp-sidebar-brand">
+          <div className="bp-sidebar-brand-icon">
+            <span className="material-symbols-outlined text-white text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
-          
-          <button
-            onClick={() => setIsMobileSidebarOpen(false)}
-            className="absolute top-3 right-3 md:hidden p-1 rounded-md text-slate-500 hover:bg-slate-850 hover:text-white transition-all cursor-pointer"
-            title="Fechar Menu"
-          >
-            <X className="h-4 w-4" />
-          </button>
+          <span className="bp-sidebar-brand-label">PCentral</span>
         </div>
 
-        {/* Navigation Menu */}
-        <div className="flex-1 px-2 py-3 flex flex-col gap-1 overflow-y-auto select-none">
-          
-          {/* COTAÇÃO Link */}
-          <div className="flex justify-center py-1">
-            <EmojiButton
-              iconKey="cotacao"
-              onClick={() => {
-                setActiveView("cotacao");
-                setIsMobileSidebarOpen(false);
-              }}
-              size="md"
-              variant={activeView === "cotacao" ? "primary" : "neutral"}
-              className="w-full"
-            />
-          </div>
+        {/* Navigation */}
+        <nav className="bp-sidebar-nav">
+          <button
+            onClick={() => { setActiveView("cotacao"); setIsMobileSidebarOpen(false); }}
+            className={`bp-sidebar-nav-item ${activeView === "cotacao" ? "bp-sidebar-nav-item-active" : ""}`}
+            title="Cotação"
+          >
+            <span className="material-symbols-outlined">dashboard</span>
+            <span className="bp-sidebar-nav-label">Cotação</span>
+          </button>
 
-          {/* ESTOQUE Link */}
-          <div className="flex justify-center py-1">
-            <EmojiButton
-              iconKey="estoque"
-              onClick={() => {
-                setActiveView("estoque");
-                setIsMobileSidebarOpen(false);
-              }}
-              size="md"
-              variant={activeView === "estoque" ? "primary" : "neutral"}
-              className="w-full"
-            />
-          </div>
+          <button
+            onClick={() => { setActiveView("estoque"); setIsMobileSidebarOpen(false); }}
+            className={`bp-sidebar-nav-item ${activeView === "estoque" ? "bp-sidebar-nav-item-active" : ""}`}
+            title="Estoque"
+          >
+            <span className="material-symbols-outlined">inventory_2</span>
+            <span className="bp-sidebar-nav-label">Estoque</span>
+          </button>
 
-          {/* NORMATIVA Link */}
-          <div className="flex justify-center py-1">
-            <EmojiButton
-              iconKey="normativa"
-              onClick={() => {
-                setActiveView("normativa");
-                setIsMobileSidebarOpen(false);
-              }}
-              size="md"
-              variant={activeView === "normativa" ? "primary" : "neutral"}
-              className="w-full"
-            />
-          </div>
+          <button
+            onClick={() => { setActiveView("normativa"); setIsMobileSidebarOpen(false); }}
+            className={`bp-sidebar-nav-item ${activeView === "normativa" ? "bp-sidebar-nav-item-active" : ""}`}
+            title="Normativa"
+          >
+            <span className="material-symbols-outlined">analytics</span>
+            <span className="bp-sidebar-nav-label">Normativa</span>
+          </button>
 
-          {/* RONDA Link */}
-          <div className="flex justify-center py-1">
-            <EmojiButton
-              iconKey="ronda"
-              onClick={() => {
-                setActiveView("ronda");
-                setIsMobileSidebarOpen(false);
-              }}
-              size="md"
-              variant={activeView === "ronda" ? "primary" : "neutral"}
-              className="w-full"
-            />
-          </div>
+          <button
+            onClick={() => { setActiveView("ronda"); setIsMobileSidebarOpen(false); }}
+            className={`bp-sidebar-nav-item ${activeView === "ronda" ? "bp-sidebar-nav-item-active" : ""}`}
+            title="Ronda"
+          >
+            <span className="material-symbols-outlined">business_center</span>
+            <span className="bp-sidebar-nav-label">Ronda</span>
+          </button>
 
-          <div className="h-[1px] bg-slate-800/60 my-1.5" />
+          <button
+            onClick={() => { setActiveView("docs"); setIsMobileSidebarOpen(false); }}
+            className={`bp-sidebar-nav-item ${activeView === "docs" ? "bp-sidebar-nav-item-active" : ""}`}
+            title="Documentos"
+          >
+            <span className="material-symbols-outlined">request_quote</span>
+            <span className="bp-sidebar-nav-label">Docs</span>
+          </button>
 
-          {/* DOCS Collapsible Menu Accordion */}
-          <div className="flex flex-col items-center py-1">
-            <EmojiButton
-              iconKey="docs"
+          {/* Docs sub-items */}
+          <div className="w-full flex flex-col items-center gap-1 pl-0">
+            <button
               onClick={() => setIsDocsMenuOpen(!isDocsMenuOpen)}
-              size="md"
-              variant="neutral"
-              className={`w-full ${isDocsMenuOpen ? "border-amber-500" : ""}`}
-            />
-
-            {/* Dropdown Items list */}
+              className="bp-sidebar-nav-item"
+              title="Mais Documentos"
+              style={{ fontSize: "16px", padding: "4px 0" }}
+            >
+              <span className="material-symbols-outlined text-[18px]">folder_open</span>
+            </button>
             {isDocsMenuOpen && (
-              <div className="flex flex-col gap-2 mt-2 w-full items-center p-2 bg-slate-800/40 rounded-xl">
-                {/* FICHA AUTÔNOMO */}
-                <EmojiButton
-                  iconKey="fichaAutonomo"
-                  onClick={() => {
-                    setIsMeiModalOpen(true);
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  size="sm"
-                  variant="neutral"
-                  className="w-full"
-                />
-
-                {/* IMPORTAR */}
-                <EmojiButton
-                  iconKey="docs"
-                  onClick={() => {
-                    setActiveView("docs");
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  size="sm"
-                  variant={activeView === "docs" ? "primary" : "neutral"}
-                  className="w-full"
-                />
-
-                {/* TERMOS DE RESPONSABILIDADE */}
-                <EmojiButton
-                  iconKey="termosResponsabilidade"
-                  onClick={() => {
-                    setIsTermsModalOpen(true);
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  size="sm"
-                  variant="neutral"
-                  className="w-full"
-                />
-
-                {/* APRENDIZES */}
-                <EmojiButton
-                  iconKey="aprendizes"
-                  onClick={() => {
-                    setIsAprendizModalOpen(true);
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  size="sm"
-                  variant="neutral"
-                  className="w-full"
-                />
-
-                {/* RECIBO SIMPLIFICADO */}
-                <EmojiButton
-                  iconKey="recibo"
-                  onClick={() => {
-                    setIsReceiptModalOpen(true);
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  size="sm"
-                  variant="neutral"
-                  className="w-full"
-                />
+              <div className="flex flex-col gap-1 w-full items-center">
+                <button onClick={() => { setIsMeiModalOpen(true); setIsMobileSidebarOpen(false); }} className="bp-sidebar-nav-item text-[9px]" title="Ficha Autônomo">
+                  <span className="material-symbols-outlined text-[16px]">description</span>
+                </button>
+                <button onClick={() => { setIsTermsModalOpen(true); setIsMobileSidebarOpen(false); }} className="bp-sidebar-nav-item text-[9px]" title="Termos">
+                  <span className="material-symbols-outlined text-[16px]">gavel</span>
+                </button>
+                <button onClick={() => { setIsAprendizModalOpen(true); setIsMobileSidebarOpen(false); }} className="bp-sidebar-nav-item text-[9px]" title="Aprendizes">
+                  <span className="material-symbols-outlined text-[16px]">school</span>
+                </button>
+                <button onClick={() => { setIsReceiptModalOpen(true); setIsMobileSidebarOpen(false); }} className="bp-sidebar-nav-item text-[9px]" title="Recibo">
+                  <span className="material-symbols-outlined text-[16px]">receipt_long</span>
+                </button>
               </div>
             )}
           </div>
+        </nav>
 
-        </div>
-
-        {/* Sidebar Footer with Buttons */}
-        <div className="p-2.5 pb-4.5 border-t border-slate-800/60 bg-[#161920]/40 flex flex-col gap-1.5 shrink-0">
-          
-          {/* NOVA COTAÇÃO Button */}
-          <EmojiButton
-            iconKey="novaCotacao"
-            onClick={() => {
-              handleNewQuote();
-              setIsMobileSidebarOpen(false);
-            }}
-            size="md"
-            variant="primary"
-            className="w-full"
-          />
-
+        {/* Footer */}
+        <div className="bp-sidebar-footer">
+          <button
+            onClick={() => { handleNewQuote(); setIsMobileSidebarOpen(false); }}
+            className="bp-sidebar-nav-item"
+            title="Nova Cotação"
+          >
+            <span className="material-symbols-outlined" style={{ color: "#ff2a6d" }}>add_circle</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#ff2a6d" }}>Nova</span>
+          </button>
+          <button className="bp-sidebar-nav-item" title="Configurações">
+            <span className="material-symbols-outlined">settings</span>
+          </button>
         </div>
       </aside>
       
@@ -2174,7 +2093,7 @@ export default function App() {
         </div>
       )}
 
-      <div className="flex-1 mx-auto w-full max-w-full px-3 py-3 sm:px-4 lg:px-5 print:p-0 print:max-w-none print:w-full min-w-0">
+      <div className="bp-main w-full px-3 py-3 sm:px-4 lg:px-5 print:p-0 print:max-w-none print:w-full min-w-0">
 
         {/* Corporate Header */}
         <Header
@@ -2212,37 +2131,35 @@ export default function App() {
           onThemeChange={setVisualTheme}
         />
 
-        {/* Complete Top Header: Brand Logo on Left, Ticket Input on Right (Removed dark background/border card) */}
-        <div id="bp-compras-header" className="mb-6 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-4 relative">
-          {/* Left Side: Brand Logo (Reduced & Compact) */}
+        {/* Brand Header */}
+        <div id="bp-compras-header" className="mb-5 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-4 relative">
+          {/* Left Side: Brand Logo */}
           <div className="flex items-center gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
-              <span className="text-[7.5px] font-sans font-black tracking-[0.3em] text-[#ff2a6d] uppercase leading-none">FACILITIES</span>
-              <div className="text-lg font-sans font-black tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
-                <span className="text-slate-850 dark:text-slate-100">B</span>
+              <span className="text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#ff2a6d] uppercase leading-none">FACILITIES</span>
+              <div className="text-lg font-display font-extrabold tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
+                <span className="text-slate-900">B</span>
                 <span className="text-[#ff2a6d]">P</span>
               </div>
-              <span className="text-[8.5px] font-sans font-semibold tracking-[0.35em] text-slate-500 dark:text-slate-400 uppercase leading-none">COMPRAS</span>
+              <span className="text-[8.5px] font-sans font-medium tracking-[0.35em] text-slate-400 uppercase leading-none">COMPRAS</span>
             </div>
           </div>
 
-          {/* Right Side: Título do Orçamento & Número do Chamado */}
+          {/* Right Side: Title & Chamado Inputs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto flex-1 justify-end">
-            {/* Título do Orçamento Input */}
-            <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2 shadow-2xs focus-within:border-[#ff2a6d] dark:focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-100 dark:focus-within:ring-pink-950/20 transition-all flex-1 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
-              <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-500 tracking-wider font-sans whitespace-nowrap">Título:</span>
+            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all flex-1 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+              <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
                 value={quoteTitle}
                 onChange={(e) => setQuoteTitle(e.target.value)}
                 placeholder="Ex: Refeitório, Recepção"
-                className="w-full bg-transparent text-sm font-bold text-slate-850 dark:text-white placeholder-slate-350 dark:placeholder-slate-700 tracking-tight focus:outline-none focus:ring-0 leading-none p-0 border-0 outline-none"
+                className="w-full bg-transparent text-sm font-medium text-slate-900 placeholder-slate-300 tracking-tight focus:outline-none leading-none p-0 border-0"
               />
             </div>
 
-            {/* Número do Chamado with "00000000" mask */}
-            <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2 shadow-2xs focus-within:border-[#ff2a6d] dark:focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-100 dark:focus-within:ring-pink-950/20 transition-all max-w-[200px] shrink-0">
-              <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-500 tracking-wider font-mono">Chamado:</span>
+            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all max-w-[200px] shrink-0">
+              <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono">Chamado:</span>
               <input
                 type="text"
                 value={chamadoNumber}
@@ -2251,7 +2168,7 @@ export default function App() {
                   setChamadoNumber(val);
                 }}
                 placeholder="00000000"
-                className="w-22 bg-transparent text-sm font-black text-slate-850 dark:text-white placeholder-slate-350 dark:placeholder-slate-700 tracking-widest text-center focus:outline-none focus:ring-0 leading-none p-0 border-0 outline-none"
+                className="w-22 bg-transparent text-sm font-mono font-bold text-slate-900 placeholder-slate-300 tracking-widest text-center focus:outline-none leading-none p-0 border-0"
                 maxLength={8}
               />
             </div>
@@ -2303,30 +2220,33 @@ export default function App() {
               </div>
             )}
 
-            {/* Action Buttons Toolbar immediately above the Dashboard */}
-            <div className="mb-3.5 flex flex-wrap items-center justify-end gap-2 pr-1 print:hidden">
+            {/* Action Buttons Toolbar */}
+            <div className="mb-4 flex flex-wrap items-center justify-end gap-2 print:hidden">
               <button
                 onClick={handleSaveComparison}
-                className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-400 dark:hover:border-sky-500 text-sky-500 shadow-2xs transition-all cursor-pointer flex items-center justify-center"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-sky-400 text-sky-600 text-[11px] font-bold transition-all cursor-pointer"
                 title="Salvar Cotação Atual"
               >
-                <Save className="h-4 w-4 shrink-0" />
+                <Save className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Salvar</span>
               </button>
 
               <button
                 onClick={handleExportQuoteExcel}
-                className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-green-500 dark:hover:border-green-600 text-green-600 shadow-2xs transition-all cursor-pointer flex items-center justify-center"
-                title="Exportar Cotação Ativa para Excel (.xlsx)"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-green-500 text-green-600 text-[11px] font-bold transition-all cursor-pointer"
+                title="Exportar para Excel"
               >
-                <FileSpreadsheet className="h-4 w-4 shrink-0" />
+                <FileSpreadsheet className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Excel</span>
               </button>
 
               <button
                 onClick={handlePrint}
-                className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-purple-400 dark:hover:border-purple-500 text-purple-500 shadow-2xs transition-all cursor-pointer flex items-center justify-center"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-purple-400 text-purple-600 text-[11px] font-bold transition-all cursor-pointer"
                 title="Imprimir Relatório"
               >
-                <Printer className="h-4 w-4 shrink-0" />
+                <Printer className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Imprimir</span>
               </button>
 
               <button
@@ -2337,10 +2257,11 @@ export default function App() {
                   variant: "danger",
                   onConfirm: handleResetToDefaults,
                 })}
-                className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-amber-500 dark:hover:border-amber-600 text-amber-500 shadow-2xs transition-all cursor-pointer flex items-center justify-center"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-amber-500 text-amber-600 text-[11px] font-bold transition-all cursor-pointer"
                 title="Reiniciar Cotação"
               >
-                <RotateCcw className="h-4 w-4 shrink-0" />
+                <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                <span className="hidden sm:inline">Reiniciar</span>
               </button>
             </div>
 
@@ -2446,10 +2367,10 @@ export default function App() {
           </div>
         )}
 
-        {/* Informative corporate footnotes/disclaimer */}
-        <footer className="mt-8 border-t border-slate-200 pt-4 text-center text-[10px] text-slate-500 print:hidden">
-          <p className="flex items-center justify-center gap-1 font-medium">
-            <ShoppingCart className="h-3.5 w-3.5" />
+        {/* Corporate Footer */}
+        <footer className="mt-8 border-t border-slate-200 pt-4 text-center text-[11px] text-slate-400 print:hidden">
+          <p className="flex items-center justify-center gap-1.5 font-medium">
+            <span className="material-symbols-outlined text-[14px]">shopping_cart</span>
             FACILITIES BP-COMPRAS • Planilha Comparativa de Cotações para Facilities • Dados persistidos com segurança local.
           </p>
         </footer>

@@ -1,11 +1,29 @@
 ﻿@import "tailwindcss";
 
 @theme {
-  --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Baloo Tamma 2", cursive, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Hanken Grotesk", cursive, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Custom slate shades frequently utilized in the code but absent from default specs */
+  /* BP Design System Tokens (Material Design 3 adapted) */
+  --color-bp-navy: #111c2e;
+  --color-bp-pink: #ff2a6d;
+  --color-bp-pink-dark: #c21e54;
+  --color-bp-gray-bg: #F4F7F9;
+  --color-bp-text-secondary: #6b7280;
+
+  /* MD3 Surface System */
+  --color-surface: #f7fafc;
+  --color-surface-container: #ebeef0;
+  --color-surface-container-low: #f1f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-highest: #e0e3e5;
+  --color-on-surface: #111c2e;
+  --color-on-surface-variant: #5d3f3e;
+  --color-outline: #926e6d;
+  --color-outline-variant: #e7bdbb;
+
+  /* Custom slate shades */
   --color-slate-55: #f8fafc;
   --color-slate-105: #f1f5f9;
   --color-slate-150: #e2e8f0;
@@ -19,7 +37,7 @@
   --color-slate-905: #0f172a;
   --color-slate-955: #020617;
 
-  /* Custom emerald shades utilized inside layout nodes */
+  /* Custom emerald shades */
   --color-emerald-105: #d1fae5;
   --color-emerald-250: #34d399;
   --color-emerald-705: #047857;
@@ -30,34 +48,42 @@
 
   /* Custom amber shades */
   --color-amber-350: #fbbf24;
+}
 
-  /* ==========================================
-     FACILITIES BP DESIGN SYSTEM TOKENS
-     ========================================== */
-  --color-bp-navy: #111c2e;
-  --color-bp-pink: #ff2a6d;
-  --color-bp-pink-dark: #c21e54;
-  --color-bp-gray-bg: #f5f5f5;
-  --color-bp-text-secondary: #6b7280;
+/* ==========================================
+   GLOBAL BASE STYLES
+   ========================================== */
+
+body {
+  background-color: #F4F7F9;
+  background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body, button, input, select, textarea {
   font-family: var(--font-sans);
 }
 
-h1, h2, h3, h4, h5, h6, th, .font-display {
-  font-family: var(--font-display) !important;
+h1, h2, h3, h4, h5, h6, th {
+  font-family: var(--font-display);
 }
 
-/* Custom yellow color for highest-highlighting */
-.bg-yellow-250 {
-  background-color: rgba(254, 240, 138, 0.95);
-}
-.border-yellow-350 {
-  border-color: rgba(234, 179, 8, 0.45);
+html {
+  scroll-behavior: smooth;
 }
 
-/* Dedicated Printing styles for clean Facilities Reports */
+::selection {
+  background-color: rgba(255, 42, 109, 0.15);
+  color: inherit;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
 @media print {
   @page {
     size: A4 landscape;
@@ -81,7 +107,11 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     background-image: none !important;
   }
 
-  /* Force display grid/columns side-by-side in landscape */
+  body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
   .print\:grid-cols-12 {
     display: grid !important;
     grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
@@ -96,7 +126,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     grid-column: span 4 / span 4 !important;
   }
 
-  /* Force side-by-side inside decision summary block */
   .print\:grid-cols-2 {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -119,7 +148,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     display: inline !important;
   }
 
-  /* Make sure scrolling wrapper doesn't crop contents */
   .overflow-x-auto {
     overflow: visible !important;
     overflow-x: visible !important;
@@ -134,41 +162,25 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color-adjust: exact !important;
   }
 
-  /* Tighten paddings and spaces */
   .p-5, .p-6, .p-8 {
     padding: 0.5rem !important;
   }
 
-  .mb-8 {
-    margin-bottom: 0.4rem !important;
-  }
+  .mb-8 { margin-bottom: 0.4rem !important; }
+  .mb-6 { margin-bottom: 0.4rem !important; }
+  .mt-12 { margin-top: 0.5rem !important; }
+  .py-8 { padding-top: 0.4rem !important; padding-bottom: 0.4rem !important; }
 
-  .mb-6 {
-    margin-bottom: 0.4rem !important;
-  }
-
-  .mt-12 {
-    margin-top: 0.5rem !important;
-  }
-
-  .py-8 {
-    padding-top: 0.4rem !important;
-    padding-bottom: 0.4rem !important;
-  }
-
-  /* Keep cells compact during printing */
   th, td {
     padding: 3px 5px !important;
     border-color: #cbd5e1 !important;
   }
 
-  /* Prevent elements from breaking mid-content */
   .print\:break-inside-avoid {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  /* Ensure background colors aren't stripped by browsers in PDF prints */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -186,13 +198,12 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     background-color: #FAF4E5 !important;
     color: #4A3A28 !important;
   }
-  
+
   .theme-comfort .min-h-screen {
     background-color: #FAF4E5 !important;
     color: #4A3A28 !important;
   }
 
-  /* Cards, containers & modals */
   .theme-comfort .bg-white,
   .theme-comfort .bg-slate-50,
   .theme-comfort [class*="bg-white"],
@@ -202,7 +213,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #3D2D1E !important;
   }
 
-  /* Subtle card structures, helper containers */
   .theme-comfort .bg-slate-50,
   .theme-comfort .bg-slate-105,
   .theme-comfort .bg-slate-100,
@@ -215,7 +225,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #DFD0B8 !important;
   }
 
-  /* Text overrides */
   .theme-comfort .text-slate-900,
   .theme-comfort .text-slate-905,
   .theme-comfort .text-slate-950,
@@ -238,12 +247,10 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #6E5E49 !important;
   }
 
-  /* Overrides for hardcoded slate colors like #111c2e */
   .theme-comfort .text-\[\#111c2e\] {
     color: #352A1C !important;
   }
 
-  /* Overrides for crimson colors like #ff2a6d and rose targets */
   .theme-comfort .text-rose-800,
   .theme-comfort .text-rose-700,
   .theme-comfort .text-\[\#ff2a6d\],
@@ -251,7 +258,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #9C1334 !important;
   }
 
-  /* Success box targets (MELHOR UNICO FORNECEDOR / highlights) in comfort mode */
   .theme-comfort .bg-emerald-50\/40,
   .theme-comfort .bg-emerald-50,
   .theme-comfort .bg-emerald-100,
@@ -259,6 +265,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     background-color: #E2ECD5 !important;
     border-color: #BCD3A0 !important;
   }
+
   .theme-comfort .text-emerald-950,
   .theme-comfort .text-emerald-955,
   .theme-comfort .text-emerald-800,
@@ -266,40 +273,43 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #2F611F !important;
   }
 
-  /* Blue / Indigo Projections box targets in comfort mode */
   .theme-comfort .bg-indigo-50\/30,
   .theme-comfort .bg-indigo-50\/5 {
     background-color: #DEE7F0 !important;
     border-color: #B4C6D8 !important;
   }
+
   .theme-comfort .text-indigo-800 {
     color: #1E3A8A !important;
   }
+
   .theme-comfort .text-indigo-400 {
     color: #2563EB !important;
   }
+
   .theme-comfort .border-indigo-150 {
     border-color: #CADAEC !important;
   }
 
-  /* Amber Isolated elements in comfort mode */
   .theme-comfort .bg-amber-100\/40 {
     background-color: rgba(217, 119, 6, 0.15) !important;
     border-color: #D97706 !important;
   }
+
   .theme-comfort .text-amber-955,
   .theme-comfort .text-amber-950 {
     color: #78350F !important;
   }
+
   .theme-comfort .bg-amber-100 {
     background-color: #FEF3C7 !important;
     border-color: #F59E0B !important;
   }
+
   .theme-comfort .text-amber-600 {
     color: #B45309 !important;
   }
 
-  /* Specific borders */
   .theme-comfort .border-slate-100,
   .theme-comfort .border-slate-150,
   .theme-comfort .border-slate-200,
@@ -308,11 +318,10 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #DFD0B8 !important;
   }
 
-  /* Table-specific styles */
   .theme-comfort tr:nth-child(even) {
     background-color: rgba(239, 228, 204, 0.35) !important;
   }
-  .theme-comfort tr:hover, 
+  .theme-comfort tr:hover,
   .theme-comfort tr:hover td {
     background-color: #E9DCBE !important;
   }
@@ -322,7 +331,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #D5C7AB !important;
   }
 
-  /* Inputs, Select, Autocomplete bars, Textareas */
   .theme-comfort input,
   .theme-comfort select,
   .theme-comfort textarea,
@@ -339,24 +347,42 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     outline: none !important;
   }
 
-  /* Badge tints and highlights */
   .theme-comfort .bg-slate-100 {
     background-color: #EADCB8 !important;
   }
 
-
-  /* --- 2. PREMIUM VERSÃO DARK / CONTRAST PETROLEUM BLUE MODE --- */
-  .theme-ultradark {
-    background-color: #111c2e !important; /* Azul Petroleo page background */
-    color: #FFFFFF !important; /* White as primary font color for high contrast */
+  /* Comfort sidebar override */
+  .theme-comfort .bp-sidebar {
+    background-color: #F4EBD7 !important;
+    border-color: #DFD0B8 !important;
   }
 
-  .theme-ultradark .min-h-screen {
-    background-color: #111c2e !important; /* Deep Petroleum Blue background */
+  .theme-comfort .bp-sidebar-nav-item {
+    color: #6E5E49 !important;
+  }
+
+  .theme-comfort .bp-sidebar-nav-item:hover {
+    background-color: #EFE4CC !important;
+    color: #352A1C !important;
+  }
+
+  .theme-comfort .bp-sidebar-nav-item-active {
+    background-color: rgba(255, 42, 109, 0.08) !important;
+    color: #9C1334 !important;
+    border-color: #9C1334 !important;
+  }
+
+  /* --- 2. ULTRA DARK MODE --- */
+  .theme-ultradark {
+    background-color: #111c2e !important;
     color: #FFFFFF !important;
   }
 
-  /* All cards, modals, dropdown summaries, and panels under the theme MUST have a pure white background */
+  .theme-ultradark .min-h-screen {
+    background-color: #111c2e !important;
+    color: #FFFFFF !important;
+  }
+
   .theme-ultradark .bg-white,
   .theme-ultradark [class*="bg-white"],
   .theme-ultradark .bg-slate-50\/80,
@@ -366,7 +392,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #CBD5E1 !important;
   }
 
-  /* Secondary subtle elements take white background to ease visibility */
   .theme-ultradark .bg-slate-50,
   .theme-ultradark .bg-slate-105,
   .theme-ultradark [class*="bg-[#f1f5f9]"],
@@ -384,7 +409,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #E2E8F0 !important;
   }
 
-  /* Convert slate or dark text classes to High Contrast Light colors outside cards */
   .theme-ultradark .text-slate-900,
   .theme-ultradark .text-slate-905,
   .theme-ultradark .text-slate-950,
@@ -394,17 +418,16 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark .text-slate-700,
   .theme-ultradark .text-slate-650,
   .theme-ultradark .text-slate-600 {
-    color: #FFFFFF !important; /* High contrast White on Petroleum Blue background */
+    color: #FFFFFF !important;
   }
 
   .theme-ultradark .text-slate-550,
   .theme-ultradark .text-slate-500,
   .theme-ultradark .text-slate-450,
   .theme-ultradark .text-slate-400 {
-    color: #E2E8F0 !important; /* Soft Ice Gray on Petroleum Blue background */
+    color: #E2E8F0 !important;
   }
 
-  /* Target elements INSIDE cards, tables, panels, lists to keep the legible Petroleum Blue text color */
   .theme-ultradark .bg-white .text-slate-900,
   .theme-ultradark .bg-white .text-slate-905,
   .theme-ultradark .bg-white .text-slate-950,
@@ -439,13 +462,11 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #111c2e !important;
   }
 
-  /* Ensure the header logo has high contrast (white word FACILITIES) on the dark background */
   .theme-ultradark header .text-\[\#111c2e\],
   .theme-ultradark .text-xl.font-extrabold.text-\[\#111c2e\] {
     color: #FFFFFF !important;
   }
 
-  /* Hardcoded text targets inside white-backed modules keep their dark color */
   .theme-ultradark .bg-white .text-\[\#111c2e\],
   .theme-ultradark .bg-white [class*="text-[#111c2e]"],
   .theme-ultradark table .text-\[\#111c2e\],
@@ -453,7 +474,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #111c2e !important;
   }
 
-  /* Pink (#ff2a6d) Call-to-action details, badges, alerts */
   .theme-ultradark .text-\[\#ff2a6d\],
   .theme-ultradark [class*="text-[#ff2a6d]"],
   .theme-ultradark .text-rose-600,
@@ -472,7 +492,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #ff2a6d !important;
   }
 
-  /* Magenta (#c21e54) - Secondary highlights & error states */
   .theme-ultradark .text-red-500,
   .theme-ultradark .text-rose-500,
   .theme-ultradark [class*="text-[#c21e54]"] {
@@ -487,7 +506,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #c21e54 !important;
   }
 
-  /* Pink (#ff2a6d) - Interactive elements, highlights */
   .theme-ultradark [class*="text-[#ff2a6d]"],
   .theme-ultradark .text-emerald-500,
   .theme-ultradark .text-emerald-600,
@@ -507,7 +525,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #ff2a6d !important;
   }
 
-  /* Specific borders for tables and dividers */
   .theme-ultradark .border-slate-100,
   .theme-ultradark .border-slate-150,
   .theme-ultradark .border-slate-200,
@@ -516,7 +533,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     border-color: #E2E8F0 !important;
   }
 
-  /* Table styling */
   .theme-ultradark tr:nth-child(even) {
     background-color: #F8FAFC !important;
   }
@@ -525,15 +541,14 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     background-color: rgba(255, 42, 109, 0.05) !important;
   }
   .theme-ultradark th {
-    background-color: #FFFFFF !important; /* Pure White background for all tables and cards */
-    color: #111c2e !important; /* Petroleum Blue font color */
+    background-color: #FFFFFF !important;
+    color: #111c2e !important;
     border-color: #CBD5E1 !important;
   }
   .theme-ultradark th * {
-    color: #111c2e !important; /* All text and buttons inside table headers are Petroleum Blue */
+    color: #111c2e !important;
   }
 
-  /* Inputs, Textareas, and Dropdown select boxes */
   .theme-ultradark input,
   .theme-ultradark select,
   .theme-ultradark textarea,
@@ -552,51 +567,455 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     box-shadow: 0 0 0 2px rgba(255, 42, 109, 0.25) !important;
   }
 
-  /* Highlight segments (like Total Misto Combinado) */
   .theme-ultradark .bg-\[\#ff2a6d\]\/5,
   .theme-ultradark [class*="bg-[#ff2a6d]/5"] {
     background-color: rgba(255, 42, 109, 0.08) !important;
     border-color: #ff2a6d !important;
     color: #111c2e !important;
   }
-}
 
-/* Background elegant dot-grid pattern */
-.bg-dot-pattern {
-  background-image: radial-gradient(rgba(37, 42, 52, 0.06) 1.2px, transparent 1.2px);
-  background-size: 20px 20px;
-}
+  /* Dark sidebar override */
+  .theme-ultradark .bp-sidebar {
+    background-color: #0a1019 !important;
+    border-color: #1e293b !important;
+  }
 
-.theme-ultradark .bg-dot-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px);
-  background-size: 20px 20px;
-}
+  .theme-ultradark .bp-sidebar-nav-item {
+    color: #94a3b8 !important;
+  }
 
-/* Custom Corporate Header */
-#bp-compras-header {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .theme-ultradark .bp-sidebar-nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+  }
 
-.theme-ultradark #bp-compras-header {
-  background-color: #1a2f3b !important;
-  background-image: radial-gradient(circle at bottom right, rgba(255, 42, 109, 0.12), transparent 45%) !important;
-  border-color: rgba(255, 42, 109, 0.35) !important;
-  box-shadow: 0 10px 25px -5px rgba(11, 23, 31, 0.5), 0 8px 10px -6px rgba(11, 23, 31, 0.5) !important;
-}
+  .theme-ultradark .bp-sidebar-nav-item-active {
+    background-color: rgba(255, 42, 109, 0.1) !important;
+    color: #ff2a6d !important;
+    border-color: #ff2a6d !important;
+  }
 
-/* Ensure child brand texts inside the petroleum blue header have perfect contrast in ultradark mode */
-.theme-ultradark #bp-compras-header .text-slate-850,
-.theme-ultradark #bp-compras-header .text-slate-100 {
-  color: #FFFFFF !important;
-}
+  /* Dark dot pattern */
+  .theme-ultradark .bg-dot-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px) !important;
+  }
 
-.theme-ultradark #bp-compras-header .text-slate-500,
-.theme-ultradark #bp-compras-header .text-slate-400 {
-  color: #94A3B8 !important; /* Elegant slate grey so "COMPRAS" subtitle stands out beautifully */
+  .theme-ultradark body,
+  .theme-ultradark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px) !important;
+    background-size: 24px 24px !important;
+  }
 }
 
 /* ==========================================
-   CUSTOM SCROLLBAR STYLING
+   SIDEBAR NAVIGATION SYSTEM (code.html style)
+   ========================================== */
+
+.bp-sidebar {
+  width: 80px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  overflow-y: auto;
+  z-index: 50;
+  transition: width 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .bp-sidebar {
+    width: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bp-sidebar {
+    transform: translateX(-100%);
+  }
+  .bp-sidebar.bp-sidebar-open {
+    transform: translateX(0);
+    width: 260px;
+  }
+}
+
+.bp-sidebar-brand {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bp-sidebar-brand-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #ff2a6d;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 42, 109, 0.25);
+  margin-bottom: 6px;
+}
+
+.bp-sidebar-brand-label {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ff2a6d;
+}
+
+.bp-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+}
+
+.bp-sidebar-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: 8px 0;
+  color: #475569;
+  text-decoration: none;
+  border-right: 3px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  font-family: var(--font-sans);
+}
+
+.bp-sidebar-nav-item:hover {
+  background-color: #f1f4f6;
+  color: #111c2e;
+}
+
+.bp-sidebar-nav-item-active {
+  color: #ff2a6d;
+  border-right-color: #ff2a6d;
+}
+
+.bp-sidebar-nav-item .material-symbols-outlined {
+  font-size: 24px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.bp-sidebar-nav-item-active .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.bp-sidebar-nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.bp-sidebar-nav-item:hover .bp-sidebar-nav-label {
+  opacity: 1;
+}
+
+.bp-sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+/* ==========================================
+   GLASS HEADER (code.html style)
+   ========================================== */
+
+.bp-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 80px;
+  height: 64px;
+  background: rgba(247, 250, 252, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 40;
+  transition: left 0.2s ease;
+}
+
+@media (max-width: 767px) {
+  .bp-header {
+    left: 0;
+  }
+}
+
+.theme-ultradark .bp-header {
+  background: rgba(247, 250, 252, 0.92);
+  border-bottom-color: #e2e8f0;
+}
+
+.theme-comfort .bp-header {
+  background: rgba(244, 235, 215, 0.8);
+  border-bottom-color: #DFD0B8;
+}
+
+/* ==========================================
+   BENTO KPI CARDS (code.html style)
+   ========================================== */
+
+.bp-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.bp-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.bp-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 0;
+}
+
+.bp-card-accent-pink { background-color: #ff2a6d; }
+.bp-card-accent-navy { background-color: #111c2e; }
+.bp-card-accent-emerald { background-color: #10B981; }
+.bp-card-accent-amber { background-color: #f59e0b; }
+.bp-card-accent-sky { background-color: #0ea5e9; }
+
+.bp-card-icon {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   BADGE SYSTEM (code.html style)
+   ========================================== */
+
+.bp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.bp-badge-pink {
+  background-color: rgba(255, 42, 109, 0.1);
+  border-color: rgba(255, 42, 109, 0.2);
+  color: #ff2a6d;
+}
+
+.bp-badge-navy {
+  background-color: rgba(17, 28, 46, 0.06);
+  border-color: rgba(17, 28, 46, 0.1);
+  color: #111c2e;
+}
+
+.bp-badge-emerald {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #059669;
+}
+
+.bp-badge-amber {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+  color: #d97706;
+}
+
+.bp-badge-slate {
+  background-color: rgba(100, 116, 139, 0.1);
+  border-color: rgba(100, 116, 139, 0.2);
+  color: #475569;
+}
+
+/* ==========================================
+   TABLE SYSTEM (code.html style)
+   ========================================== */
+
+.bp-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.bp-table thead {
+  background-color: #f1f4f6;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bp-table th {
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.bp-table td {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #111c2e;
+  border-bottom: 1px solid #f1f4f6;
+}
+
+.bp-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.bp-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ==========================================
+   QUICK ACTION BUTTONS (code.html style)
+   ========================================== */
+
+.bp-quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #f1f4f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.bp-quick-action:hover {
+  border-color: #ff2a6d;
+  color: #ff2a6d;
+}
+
+.bp-quick-action .material-symbols-outlined {
+  margin-bottom: 6px;
+}
+
+.bp-quick-action-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   PREMIUM BUTTON (code.html style)
+   ========================================== */
+
+.bp-btn-primary {
+  background-color: #ff2a6d;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 42, 109, 0.2);
+  transition: all 0.15s ease;
+}
+
+.bp-btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 16px rgba(255, 42, 109, 0.3);
+}
+
+.bp-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.bp-btn-outline {
+  background: white;
+  border: 1.5px solid #ff2a6d;
+  color: #ff2a6d;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bp-btn-outline:hover {
+  background-color: #ff2a6d;
+  color: white;
+}
+
+/* ==========================================
+   INPUT FOCUS (code.html style)
+   ========================================== */
+
+.bp-input {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #f1f4f6;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  color: #111c2e;
+  transition: all 0.2s ease;
+}
+
+.bp-input:focus {
+  outline: none;
+  border-color: #ff2a6d;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.1);
+}
+
+/* ==========================================
+   SCROLLBAR
    ========================================== */
 
 ::-webkit-scrollbar {
@@ -611,307 +1030,174 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(148, 163, 184, 0.35);
   border-radius: 9999px;
-  transition: background-color 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(148, 163, 184, 0.55);
 }
 
-.theme-ultradark ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.12);
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
 }
 
-.theme-ultradark ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.22);
+.theme-ultradark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .theme-comfort ::-webkit-scrollbar-thumb {
   background-color: rgba(139, 115, 85, 0.3);
 }
 
-.theme-comfort ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(139, 115, 85, 0.5);
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
-}
-
-.theme-ultradark * {
-  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
-}
-
-.theme-comfort * {
-  scrollbar-color: rgba(139, 115, 85, 0.3) transparent;
-}
-
 /* ==========================================
-   VIEW TRANSITION & PAGE ANIMATIONS
+   FOCUS RING
    ========================================== */
 
-/* Fade-in animation for view content */
-@keyframes viewFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.view-content-enter {
-  animation: viewFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Slow pulse for accent dots */
-@keyframes pulseSlow {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse-slow {
-  animation: pulseSlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Smooth card hover elevation */
-@keyframes cardReveal {
-  from {
-    opacity: 0;
-    transform: scale(0.98) translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.card-reveal {
-  animation: cardReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* ==========================================
-   FOCUS RING IMPROVEMENTS
-   ========================================== */
-
-/* Global accessible focus ring for keyboard users */
 :focus-visible {
   outline: 2px solid rgba(255, 42, 109, 0.5);
   outline-offset: 2px;
   border-radius: 8px;
 }
 
-.theme-ultradark :focus-visible {
-  outline-color: rgba(255, 42, 109, 0.5);
-}
-
-.theme-comfort :focus-visible {
-  outline-color: rgba(180, 156, 96, 0.5);
-}
-
 /* ==========================================
-   PREMIUM GLASS MORPHISM UTILITIES
+   ANIMATIONS
    ========================================== */
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px) saturate(1.8);
-  -webkit-backdrop-filter: blur(16px) saturate(1.8);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+@keyframes viewFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.glass-card-elevated {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(20px) saturate(2);
-  -webkit-backdrop-filter: blur(20px) saturate(2);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.03),
-    0 4px 16px rgba(17, 28, 46, 0.06),
-    0 12px 40px rgba(17, 28, 46, 0.04);
+.view-content-enter {
+  animation: viewFadeIn 0.3s ease forwards;
 }
 
-.theme-ultradark .glass-card {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+@keyframes cardReveal {
+  from { opacity: 0; transform: scale(0.98) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.theme-ultradark .glass-card-elevated {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.05),
-    0 4px 16px rgba(17, 28, 46, 0.08),
-    0 12px 40px rgba(17, 28, 46, 0.06);
+.card-reveal {
+  animation: cardReveal 0.4s ease forwards;
 }
 
-.theme-comfort .glass-card {
-  background: rgba(244, 235, 215, 0.72);
-  border: 1px solid rgba(223, 208, 184, 0.5);
+@keyframes syncPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
 }
 
-.theme-comfort .glass-card-elevated {
-  background: rgba(244, 235, 215, 0.82);
-  border: 1px solid rgba(223, 208, 184, 0.6);
-  box-shadow:
-    0 0 0 1px rgba(74, 58, 40, 0.04),
-    0 4px 16px rgba(74, 58, 40, 0.06),
-    0 12px 40px rgba(74, 58, 40, 0.04);
+.sync-dot-syncing {
+  animation: syncPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes backdropFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(4px); }
+}
+
+.modal-backdrop {
+  animation: backdropFadeIn 0.2s ease forwards;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 2.5s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: viewFadeIn 0.3s ease forwards;
+}
+
+.animate-scale-up {
+  animation: cardReveal 0.3s ease forwards;
+}
+
+.animate-scale-in {
+  animation: cardReveal 0.3s ease forwards;
 }
 
 /* ==========================================
-   PREMIUM SHADOW SYSTEM
+   MICRO-INTERACTIONS
    ========================================== */
 
-.shadow-premium-sm {
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.03),
-    0 1px 3px rgba(17, 28, 46, 0.04),
-    0 4px 12px rgba(17, 28, 46, 0.03);
+.btn-magnetic {
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.shadow-premium {
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.04),
-    0 4px 16px rgba(17, 28, 46, 0.06),
-    0 12px 40px rgba(17, 28, 46, 0.04);
+.btn-magnetic:hover {
+  transform: translateY(-1px);
 }
 
-.shadow-premium-lg {
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.05),
-    0 8px 24px rgba(17, 28, 46, 0.08),
-    0 24px 64px rgba(17, 28, 46, 0.06);
+.btn-magnetic:active {
+  transform: translateY(0) scale(0.98);
 }
 
-.shadow-premium-pink {
-  box-shadow:
-    0 0 0 1px rgba(255, 42, 109, 0.08),
-    0 4px 16px rgba(255, 42, 109, 0.1),
-    0 12px 40px rgba(255, 42, 109, 0.06);
+.hover-lift {
+  transition: all 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.table-row-transition {
+  transition: background-color 0.15s ease;
+}
+
+.table-row-transition:hover {
+  background-color: #f8fafc;
 }
 
 /* ==========================================
-   PREMIUM GRADIENT BACKGROUNDS
+   INPUT TRANSITIONS
    ========================================== */
 
-.bg-premium-gradient {
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 42, 109, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(17, 28, 46, 0.03) 0%, transparent 50%),
-    linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 40%, #F8F9FA 100%);
-}
-
-.theme-ultradark .bg-premium-gradient {
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 42, 109, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-    linear-gradient(180deg, #0a1019 0%, #111c2e 40%, #0d1520 100%);
-}
-
-.theme-comfort .bg-premium-gradient {
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(180, 156, 96, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(74, 58, 40, 0.04) 0%, transparent 50%),
-    linear-gradient(180deg, #FAF4E5 0%, #F4EBD7 40%, #F8F2E0 100%);
+input, select, textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 /* ==========================================
-   PREMIUM ANIMATION UTILITIES
+   MOBILE TOUCH
    ========================================== */
 
-@keyframes premiumSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
+@media (hover: none) {
+  .hover\:-translate-y-0\.5:hover {
+    transform: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 
-@keyframes premiumFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes premiumScaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  .hover\:shadow-lg:hover {
+    box-shadow: none;
   }
 }
-
-@keyframes premiumGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 42, 109, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 42, 109, 0.2);
-  }
-}
-
-@keyframes floatSoft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.animate-premium-slide-up {
-  animation: premiumSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-premium-fade-in {
-  animation: premiumFadeIn 0.5s ease forwards;
-}
-
-.animate-premium-scale-in {
-  animation: premiumScaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-float-soft {
-  animation: floatSoft 4s ease-in-out infinite;
-}
-
-/* Staggered card reveal */
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
 
 /* ==========================================
-   PREMIUM ACCENT LINE (PINK GLOW)
+   SCROLLBAR HIDE UTILITY
    ========================================== */
 
-.accent-line-premium {
-  height: 3px;
-  background: linear-gradient(90deg, #ff2a6d 0%, #c21e54 50%, transparent 100%);
-  border-radius: 9999px;
-  box-shadow: 0 0 12px rgba(255, 42, 109, 0.3), 0 0 4px rgba(255, 42, 109, 0.2);
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ==========================================
-   PREMIUM BADGE SYSTEM
+   PREMIUM UTILITIES (kept for compatibility)
    ========================================== */
 
 .badge-premium {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  font-size: 11px;
+  gap: 4px;
+  padding: 3px 8px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -931,199 +1217,45 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   color: #111c2e;
 }
 
-.theme-ultradark .badge-premium-navy {
-  background: rgba(17, 28, 46, 0.08);
-  border: 1px solid rgba(17, 28, 46, 0.15);
-  color: #111c2e;
+.accent-line-premium {
+  height: 3px;
+  background: linear-gradient(90deg, #ff2a6d 0%, #c21e54 50%, transparent 100%);
+  border-radius: 9999px;
 }
 
-/* ==========================================
-   SYNC STATUS ANIMATIONS
-   ========================================== */
-
-@keyframes syncPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0);
-  }
+.kpi-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.sync-dot-syncing {
-  animation: syncPulse 1.5s ease-in-out infinite;
+.shadow-premium-sm {
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.03), 0 1px 3px rgba(17, 28, 46, 0.04), 0 4px 12px rgba(17, 28, 46, 0.03);
 }
 
-/* ==========================================
-   IMPROVED TABLE ROW TRANSITIONS
-   ========================================== */
-
-.table-row-transition {
-  transition: background-color 0.15s ease, transform 0.15s ease;
+.shadow-premium {
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.04), 0 4px 16px rgba(17, 28, 46, 0.06), 0 12px 40px rgba(17, 28, 46, 0.04);
 }
 
-.table-row-transition:hover {
-  background-color: rgba(255, 42, 109, 0.02);
+.shadow-premium-lg {
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.05), 0 8px 24px rgba(17, 28, 46, 0.08), 0 24px 64px rgba(17, 28, 46, 0.06);
 }
 
-.theme-ultradark .table-row-transition:hover {
-  background-color: rgba(255, 42, 109, 0.03);
+.divider-premium {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(17, 28, 46, 0.08) 20%, rgba(255, 42, 109, 0.12) 50%, rgba(17, 28, 46, 0.08) 80%, transparent 100%);
+  border: none;
 }
-
-/* ==========================================
-   SMOOTH INPUT TRANSITIONS
-   ========================================== */
-
-input, select, textarea {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-/* ==========================================
-   MODAL BACKDROP IMPROVEMENT
-   ========================================== */
-
-@keyframes backdropFadeIn {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(4px);
-  }
-}
-
-.modal-backdrop {
-  animation: backdropFadeIn 0.2s ease forwards;
-}
-
-/* ==========================================
-   MOBILE TOUCH IMPROVEMENTS
-   ========================================== */
-
-@media (hover: none) {
-  .hover\:-translate-y-0\.5:hover {
-    transform: none;
-  }
-
-  .hover\:shadow-lg:hover {
-    box-shadow: none;
-  }
-}
-
-/* ==========================================
-   SMOOTH PAGE SCROLL
-   ========================================== */
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ==========================================
-   SELECTION COLORS
-   ========================================== */
-
-::selection {
-  background-color: rgba(255, 42, 109, 0.15);
-  color: inherit;
-}
-
-.theme-ultradark ::selection {
-  background-color: rgba(255, 42, 109, 0.2);
-}
-
-/* ==========================================
-   DOUBLE-BEZEL (DOPPELRAND) COMPONENT SYSTEM
-   Premium nested architecture: outer shell + inner core
-   ========================================== */
-
-.double-bezel {
-  position: relative;
-  border-radius: 16px;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(17, 28, 46, 0.06) 0%, rgba(255, 42, 109, 0.04) 100%);
-}
-
-.double-bezel-inner {
-  border-radius: 13px;
-  background: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.theme-ultradark .double-bezel {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 42, 109, 0.06) 100%);
-}
-
-.theme-ultradark .double-bezel-inner {
-  background: #ffffff;
-}
-
-.theme-comfort .double-bezel {
-  background: linear-gradient(135deg, rgba(74, 58, 40, 0.06) 0%, rgba(180, 156, 96, 0.04) 100%);
-}
-
-.theme-comfort .double-bezel-inner {
-  background: #F4EBD7;
-}
-
-/* ==========================================
-   PREMIUM MICRO-INTERACTION UTILITIES
-   ========================================== */
-
-/* Magnetic button press effect */
-.btn-magnetic {
-  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-.btn-magnetic:hover {
-  transform: translateY(-1px);
-}
-
-.btn-magnetic:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* Premium hover lift with shadow interpolation */
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(17, 28, 46, 0.05),
-    0 8px 24px rgba(17, 28, 46, 0.08),
-    0 24px 48px rgba(17, 28, 46, 0.04);
-}
-
-/* Premium card hover with pink accent glow */
-.hover-glow-pink {
-  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-.hover-glow-pink:hover {
-  box-shadow:
-    0 0 0 1px rgba(255, 42, 109, 0.1),
-    0 4px 16px rgba(255, 42, 109, 0.08),
-    0 12px 32px rgba(255, 42, 109, 0.04);
-}
-
-/* ==========================================
-   PREMIUM INPUT FOCUS SYSTEM
-   ========================================== */
 
 .input-premium {
-  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
-  border: 1.5px solid rgba(17, 28, 46, 0.1);
-  background: rgba(244, 246, 249, 0.5);
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+  background: #f1f4f6;
 }
 
 .input-premium:hover {
-  border-color: rgba(17, 28, 46, 0.15);
-  background: rgba(244, 246, 249, 0.7);
+  border-color: #cbd5e1;
+  background: #f8fafc;
 }
 
 .input-premium:focus {
@@ -1133,113 +1265,17 @@ html {
   outline: none;
 }
 
-.theme-ultradark .input-premium {
-  border: 1.5px solid rgba(17, 28, 46, 0.15);
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.theme-ultradark .input-premium:focus {
-  border-color: rgba(255, 42, 109, 0.5);
-  background: white;
-  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.12);
-}
-
-.theme-comfort .input-premium {
-  border: 1.5px solid rgba(74, 58, 40, 0.12);
-  background: rgba(250, 245, 232, 0.5);
-}
-
-.theme-comfort .input-premium:focus {
-  border-color: rgba(180, 156, 96, 0.5);
-  background: #FFFDF5;
-  box-shadow: 0 0 0 3px rgba(180, 156, 96, 0.1);
-}
-
-/* ==========================================
-   PREMIUM SCROLL REVEAL SYSTEM
-   ========================================== */
-
-.reveal-up {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: all 0.7s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-.reveal-up.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-.reveal-scale.revealed {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* ==========================================
-   PREMIUM DIVIDER SYSTEM
-   ========================================== */
-
-.divider-premium {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(17, 28, 46, 0.08) 20%, rgba(255, 42, 109, 0.12) 50%, rgba(17, 28, 46, 0.08) 80%, transparent 100%);
-  border: none;
-}
-
-.theme-ultradark .divider-premium {
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 20%, rgba(255, 42, 109, 0.15) 50%, rgba(255, 255, 255, 0.08) 80%, transparent 100%);
-}
-
-.theme-comfort .divider-premium {
-  background: linear-gradient(90deg, transparent 0%, rgba(74, 58, 40, 0.08) 20%, rgba(180, 156, 96, 0.12) 50%, rgba(74, 58, 40, 0.08) 80%, transparent 100%);
-}
-
-/* ==========================================
-   PREMIUM NOISE/GRAIN OVERLAY
-   ========================================== */
-
-.noise-overlay::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
-/* ==========================================
-   PREMIUM KPI NUMBER STYLING
-   ========================================== */
-
-.kpi-number {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-/* ==========================================
-   PREMIUM PILL BUTTON SYSTEM
-   ========================================== */
-
 .pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 6px;
+  padding: 7px 14px;
   border-radius: 9999px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
   border: none;
 }
@@ -1262,20 +1298,26 @@ html {
 .pill-btn-ghost {
   background: transparent;
   color: #111c2e;
-  border: 1.5px solid rgba(17, 28, 46, 0.12);
+  border: 1px solid #e2e8f0;
 }
 
 .pill-btn-ghost:hover {
-  background: rgba(17, 28, 46, 0.04);
-  border-color: rgba(17, 28, 46, 0.2);
+  background: #f1f4f6;
+  border-color: #cbd5e1;
 }
 
-.theme-ultradark .pill-btn-ghost {
-  color: #111c2e;
-  border-color: rgba(17, 28, 46, 0.15);
+/* ==========================================
+   MAIN CONTENT OFFSET
+   ========================================== */
+
+.bp-main {
+  margin-left: 80px;
+  padding-top: 64px;
+  min-height: 100vh;
 }
 
-.theme-ultradark .pill-btn-ghost:hover {
-  background: rgba(17, 28, 46, 0.06);
+@media (max-width: 767px) {
+  .bp-main {
+    margin-left: 0;
+  }
 }
-

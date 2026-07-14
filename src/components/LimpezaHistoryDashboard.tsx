@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { formatCurrency } from "../utils";
 import { CalendarClock, TrendingDown, TrendingUp, Users, ShoppingCart, HelpCircle } from "lucide-react";
 import {
@@ -62,8 +62,8 @@ const getMonthName = (m: string) => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-slate-900 border border-slate-800 p-2.5 rounded-xl shadow-lg text-[10px]">
-        <p className="font-extrabold text-white mb-1.5 uppercase font-sans tracking-wide text-center bg-slate-800 py-0.5 px-1.5 rounded">{label}</p>
+      <div className="bg-slate-900 border border-slate-800 p-2.5 rounded-xl shadow-lg text-[11px]">
+        <p className="font-extrabold text-white mb-1.5 uppercase tracking-wide text-center bg-slate-800 py-0.5 px-1.5 rounded">{label}</p>
         <div className="space-y-1">
           <p className="font-extrabold text-[#ff2a6d] flex justify-between gap-6">
             <span>Compra :</span>
@@ -127,7 +127,7 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
             >
               {/* Header: Month name */}
               <div className="flex items-center justify-between">
-                <span className="text-[7.5px] font-black tracking-wider text-slate-500 uppercase truncate">
+                <span className="text-[11px] font-black tracking-wider text-slate-500 uppercase truncate">
                   {displayMonth}
                 </span>
               </div>
@@ -140,28 +140,28 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
               </div>
 
               {/* Items & Colab info */}
-              <div className="text-[6.5px] font-black text-slate-500 uppercase font-mono tracking-wider">
+              <div className="text-[11px] font-black text-slate-500 uppercase font-mono tracking-wider">
                 {entry.itemsCount} Itens {entry.capacity ? `• ${entry.capacity} Colab.` : ""}
               </div>
 
               {/* Trend banner at the bottom */}
               <div className="mt-1">
                 {idx === 0 ? (
-                  <span className="text-[6.5px] font-black text-slate-500 bg-slate-50 border border-slate-100 rounded px-1.5 py-0.5 uppercase tracking-wider block text-center">
+                  <span className="text-[11px] font-black text-slate-500 bg-slate-50 border border-slate-100 rounded px-1.5 py-0.5 uppercase tracking-wider block text-center">
                     Mês Referência
                   </span>
                 ) : isDown ? (
-                  <span className="text-[6.5px] font-extrabold text-emerald-600 bg-emerald-50/80 border border-emerald-100/50 px-1 py-0.5 rounded flex items-center justify-center gap-0.5 uppercase tracking-wider">
+                  <span className="text-[11px] font-extrabold text-emerald-600 bg-emerald-50/80 border border-emerald-100/50 px-1 py-0.5 rounded flex items-center justify-center gap-0.5 uppercase tracking-wider">
                     <TrendingDown className="h-2 w-2 text-emerald-600 shrink-0" strokeWidth={3} />
                     Red.: {formatCurrency(Math.abs(valDiff!))} ({-trendPercent!.toFixed(1)}%)
                   </span>
                 ) : isUp ? (
-                  <span className="text-[6.5px] font-extrabold text-rose-600 bg-rose-50/80 border border-rose-100/50 px-1 py-0.5 rounded flex items-center justify-center gap-0.5 uppercase tracking-wider">
+                  <span className="text-[11px] font-extrabold text-rose-600 bg-rose-50/80 border border-rose-100/50 px-1 py-0.5 rounded flex items-center justify-center gap-0.5 uppercase tracking-wider">
                     <TrendingUp className="h-2 w-2 text-rose-600 shrink-0" strokeWidth={3} />
                     Aum.: {formatCurrency(valDiff!)} (+{trendPercent!.toFixed(1)}%)
                   </span>
                 ) : (
-                  <span className="text-[6.5px] font-bold text-slate-550 bg-slate-50 border border-slate-100 px-1 py-0.5 rounded block text-center uppercase">
+                  <span className="text-[11px] font-bold text-slate-550 bg-slate-50 border border-slate-100 px-1 py-0.5 rounded block text-center uppercase">
                     Sem alteração
                   </span>
                 )}
@@ -173,12 +173,12 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
         {/* Right side: Dual line trends chart - slightly larger than the cards area */}
         <div className="sm:col-span-2 lg:col-span-6 bg-white rounded-lg p-2 shadow-5xs border border-slate-150 flex flex-col justify-between min-h-[115px]">
           <div className="flex items-center justify-between mb-0.5 pb-0.5 border-b border-slate-100/80">
-            <span className="text-[7.5px] font-extrabold tracking-wider text-slate-500 uppercase flex items-center gap-1">
+            <span className="text-[11px] font-extrabold tracking-wider text-slate-500 uppercase flex items-center gap-1">
               <Users className="h-2 w-2 text-[#0284C7]" strokeWidth={3} />
               <ShoppingCart className="h-2 w-2 text-[#ff2a6d]" strokeWidth={3} />
               Evolução das Compras vs. Colaboradores
             </span>
-            <span className="text-[6px] bg-[#ff2a6d]/10 text-[#ff2a6d] font-black px-1.5 py-0.5 rounded uppercase font-mono">
+            <span className="text-[11px] bg-[#ff2a6d]/10 text-[#ff2a6d] font-black px-1.5 py-0.5 rounded uppercase font-mono">
               Compra vs Colab
             </span>
           </div>
@@ -234,7 +234,7 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex items-center justify-around text-[6px] font-black uppercase mt-0.5 text-slate-500">
+          <div className="flex items-center justify-around text-[11px] font-black uppercase mt-0.5 text-slate-500">
             <span className="flex items-center gap-1 text-[#ff2a6d]">
               <span className="h-1 w-2 bg-[#ff2a6d] rounded-xs" /> Valor Comprado
             </span>

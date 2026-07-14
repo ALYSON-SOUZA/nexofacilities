@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { 
   X, Github, AlertTriangle, CheckCircle, RefreshCw, Download, 
   Upload, HelpCircle, ArrowRight, ShieldCheck, Database, FileText 
@@ -127,8 +127,8 @@ export default function GithubTroubleshooterModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-fade-in font-sans">
-      <div className="bg-[#FAF9F6] w-full max-w-2xl rounded-[32px] border border-slate-200/80 shadow-[0_25px_60px_rgba(0,0,0,0.1)] relative overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-[#FAF9F6] w-full max-w-2xl rounded-[32px] border border-slate-200/80 shadow-md relative overflow-hidden flex flex-col max-h-[90vh]">
         
         {/* Fuchsia Accent bar */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#ff2a6d]" />
@@ -140,7 +140,7 @@ export default function GithubTroubleshooterModal({
               <Github className="h-5 w-5" />
             </div>
             <div>
-              <span className="text-[9px] font-black text-[#ff2a6d] uppercase tracking-wider block leading-none">CONECTIVIDADE</span>
+              <span className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wider block leading-none">CONECTIVIDADE</span>
               <h3 className="text-md font-bold text-slate-900 mt-1">Diagnóstico de Conexão com o GitHub</h3>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function GithubTroubleshooterModal({
                 type="button"
                 onClick={handleRunDiagnosis}
                 disabled={testStatus === "testing"}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-2 cursor-pointer text-[10.5px] uppercase transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-2 cursor-pointer text-[11px] uppercase transition-all shadow-sm"
               >
                 {testStatus === "testing" ? (
                   <RefreshCw className="h-3.5 w-3.5 animate-spin" />
@@ -215,21 +215,21 @@ export default function GithubTroubleshooterModal({
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[10px] flex items-center justify-center border border-[#ff2a6d]/25">1</span>
+                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">1</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Liberar Cookies</p>
-                <p className="text-[10px] text-slate-450 leading-relaxed font-semibold">Permita cookies de terceiros para o domínio do Google AI Studio no seu navegador.</p>
+                <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Permita cookies de terceiros para o domínio do Google AI Studio no seu navegador.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[10px] flex items-center justify-center border border-[#ff2a6d]/25">2</span>
+                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">2</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Reconectar no AI Studio</p>
-                <p className="text-[10px] text-slate-450 leading-relaxed font-semibold">Abra o menu superior do AI Studio (ícone de engrenagem), remova a conta do GitHub e vincule novamente.</p>
+                <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Abra o menu superior do AI Studio (ícone de engrenagem), remova a conta do GitHub e vincule novamente.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[10px] flex items-center justify-center border border-[#ff2a6d]/25">3</span>
+                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">3</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Baixar ZIP Manual</p>
-                <p className="text-[10px] text-slate-450 leading-relaxed font-semibold">Se o erro persistir, exporte o projeto como ZIP no menu do AI Studio e envie manualmente ao GitHub.</p>
+                <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Se o erro persistir, exporte o projeto como ZIP no menu do AI Studio e envie manualmente ao GitHub.</p>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function GithubTroubleshooterModal({
                   <Database className="h-4 w-4 text-[#ff2a6d]" />
                   Backup Offline de Segurança (Banco de Dados)
                 </h4>
-                <p className="text-[10px] text-slate-450 font-bold mt-1 leading-snug">
+                <p className="text-[11px] text-slate-450 font-bold mt-1 leading-snug">
                   Baixe todas as suas cotações do histórico e categorias em um arquivo de backup para restaurar quando quiser.
                 </p>
               </div>
@@ -250,7 +250,7 @@ export default function GithubTroubleshooterModal({
               <button
                 type="button"
                 onClick={handleExportBackup}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#ff2a6d]/90 text-white font-black px-4 py-2 shadow-sm transition-all text-[10.5px] uppercase cursor-pointer shrink-0"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#ff2a6d]/90 text-white font-black px-4 py-2 shadow-sm transition-all text-[11px] uppercase cursor-pointer shrink-0"
               >
                 <Download className="h-3.5 w-3.5" />
                 Baixar Backup (.JSON)
@@ -260,8 +260,8 @@ export default function GithubTroubleshooterModal({
             {/* Restore File Input */}
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row items-center gap-4">
               <div className="flex-1 w-full text-center md:text-left">
-                <span className="text-[10px] font-black text-slate-500 block uppercase tracking-wide">Restaurar de um Backup</span>
-                <p className="text-[10.5px] text-slate-500 font-semibold mt-1">Carregue um arquivo .JSON exportado anteriormente para recuperar suas cotações.</p>
+                <span className="text-[11px] font-black text-slate-500 block uppercase tracking-wide">Restaurar de um Backup</span>
+                <p className="text-[11px] text-slate-500 font-semibold mt-1">Carregue um arquivo .JSON exportado anteriormente para recuperar suas cotações.</p>
               </div>
 
               <div className="relative cursor-pointer shrink-0">
@@ -273,7 +273,7 @@ export default function GithubTroubleshooterModal({
                 />
                 <button
                   type="button"
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2 text-[10.5px] uppercase pointer-events-none"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2 text-[11px] uppercase pointer-events-none"
                 >
                   <Upload className="h-3.5 w-3.5" />
                   Carregar Backup
@@ -299,14 +299,14 @@ export default function GithubTroubleshooterModal({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-5 border-t border-slate-150 bg-slate-50 flex items-center justify-between text-[10px] font-semibold text-slate-450 uppercase">
+        <div className="p-5 border-t border-slate-150 bg-slate-50 flex items-center justify-between text-[11px] font-semibold text-slate-450 uppercase">
           <span className="flex items-center gap-1">
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
             Segurança de Dados • BP S.A.
           </span>
           <button
             onClick={onClose}
-            className="rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-5 py-2 transition-all cursor-pointer text-[10px] uppercase tracking-wider"
+            className="rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-5 py-2 transition-all cursor-pointer text-[11px] uppercase tracking-wider"
           >
             Fechar Diagnóstico
           </button>

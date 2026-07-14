@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { 
   Package, 
   Trash2, 
@@ -1031,7 +1031,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           variationColor = "text-emerald-700 bg-emerald-50 border border-emerald-100";
         } else if (pct < 0) {
           variationText = `${pct.toFixed(1)}% Vol`;
-          variationColor = "text-cyan-700 bg-cyan-100/45 border border-cyan-150";
+          variationColor = "text-[#111c2e] bg-[#ff2a6d]/10 border border-[#ff2a6d]/15";
         } else {
           variationText = "Estável";
           variationColor = "text-slate-500 bg-slate-100 border border-slate-150";
@@ -1177,7 +1177,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-800 animate-fade-in font-sans leading-normal">
+    <div className="bg-slate-50 min-h-screen text-slate-800 animate-fade-in leading-normal">
       
       {/* Upper Navigation & Compact Brand Bar */}
       <div className="bg-slate-900 text-white p-4 px-6 flex justify-between items-center rounded-2xl shadow-md mb-6 print:hidden">
@@ -1192,11 +1192,11 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           </button>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-pink-500 font-extrabold text-[9px] uppercase tracking-widest bg-pink-950/40 border border-pink-905 px-2 py-0.5 rounded-sm">
+              <span className="text-pink-500 font-extrabold text-[11px] uppercase tracking-widest bg-pink-950/40 border border-pink-905 px-2 py-0.5 rounded-sm">
                 Acompanhamento & Evolução
               </span>
             </div>
-            <h1 className="text-[17px] font-black uppercase text-white font-sans mt-0.5 flex items-center gap-2">
+            <h1 className="text-[17px] font-black uppercase text-white mt-0.5 flex items-center gap-2">
               📊 Controle de Estoque de Consumíveis
             </h1>
           </div>
@@ -1233,7 +1233,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               Consumo de Materiais de Limpeza e Informática baseados na Capacidade de Funcionários (Capacity)
             </p>
           </div>
-          <div className="text-right text-[10px] font-mono text-slate-500">
+          <div className="text-right text-[11px] font-mono text-slate-500">
             Gerado em: {new Date().toLocaleDateString("pt-BR")}
           </div>
         </div>
@@ -1249,7 +1249,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-pink-50 text-[#ff2a6d] shrink-0 border border-pink-100">
                 <CalendarDays className="h-4 w-4" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#ff2a6d] block leading-none font-display">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#ff2a6d] block leading-none font-display">
                 Última Contagem
               </span>
             </div>
@@ -1258,7 +1258,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <span className="text-xl lg:text-[22px] xl:text-[24px] font-black text-[#111c2e] block truncate font-display tracking-tight leading-none">
               {lastMeasurement ? lastMeasurement.date : "Nenhuma lançada"}
             </span>
-            <span className="text-[9.5px] font-bold text-slate-500 mt-1.5 block leading-normal font-sans">
+            <span className="text-[11px] font-bold text-slate-500 mt-1.5 block leading-normal">
               Proporção baseada no capacity da equipe cadastrada.
             </span>
           </div>
@@ -1272,11 +1272,11 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#111c2e]/5 text-[#111c2e] shrink-0 border border-[#111c2e]/15">
                 <Users className="h-4 w-4" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#111c2e] block leading-none font-display">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#111c2e] block leading-none font-display">
                 Capacity Vigente
               </span>
             </div>
-            <span className="inline-flex items-center rounded-full bg-[#111c2e]/10 px-1.5 py-0.5 text-[8.5px] font-black text-[#111c2e] uppercase border border-[#111c2e]/20 print:hidden shrink-0">
+            <span className="inline-flex items-center rounded-full bg-[#111c2e]/10 px-1.5 py-0.5 text-[11px] font-black text-[#111c2e] uppercase border border-[#111c2e]/20 print:hidden shrink-0">
               Profissionais
             </span>
           </div>
@@ -1284,7 +1284,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <span className="text-xl lg:text-[22px] xl:text-[24px] font-black text-[#111c2e] block font-display tracking-tight leading-none">
               {summaryCounters.lastCap} Colaboradores
             </span>
-            <span className="text-[9.5px] font-bold text-slate-500 mt-1.5 block leading-normal font-sans">
+            <span className="text-[11px] font-bold text-slate-500 mt-1.5 block leading-normal">
               Ajustado automaticamente à data de cada medição de estoque.
             </span>
           </div>
@@ -1295,10 +1295,10 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 border-t-4 border-t-[#111c2e] border-l-4 border-l-[#111c2e] transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
-              <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#ff2a6d]/10 text-cyan-600 shrink-0 border border-[#ff2a6d]/20">
+              <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#ff2a6d]/10 text-[#ff2a6d] shrink-0 border border-[#ff2a6d]/20">
                 <TrendingDown className="h-4 w-4" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#c21e54] block leading-none font-display truncate max-w-[150px]">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#c21e54] block leading-none font-display truncate max-w-[150px]">
                 Total Estocado ({activeCategory.name})
               </span>
             </div>
@@ -1307,7 +1307,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <span className="text-xl lg:text-[22px] xl:text-[24px] font-black text-[#c21e54] block font-display tracking-tight leading-none">
               {summaryCounters.activeCategoryLastTotal} Unidades
             </span>
-            <span className="text-[9.5px] font-bold text-slate-500 mt-1.5 block leading-normal font-sans">
+            <span className="text-[11px] font-bold text-slate-500 mt-1.5 block leading-normal">
               Volume total somado de todos os itens monitorados nesta categoria.
             </span>
           </div>
@@ -1321,7 +1321,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#c21e54]/10 text-[#c21e54] shrink-0 border border-[#c21e54]/20">
                 <BarChart3 className="h-4 w-4" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#c21e54] block leading-none font-display">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#c21e54] block leading-none font-display">
                 Consumo por Colaborador
               </span>
             </div>
@@ -1332,7 +1332,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 <span className="text-[11px] font-black text-[#c21e54] block uppercase tracking-tight font-display leading-none">
                   Mínimo 2 Contagens
                 </span>
-                <span className="text-[9.5px] font-bold text-slate-500 mt-1.5 block leading-normal font-sans">
+                <span className="text-[11px] font-bold text-slate-500 mt-1.5 block leading-normal">
                   Insira mais contagens para liberar as estatísticas.
                 </span>
               </>
@@ -1341,7 +1341,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 <span className="text-xl lg:text-[22px] xl:text-[24px] font-black text-[#c21e54] block font-display tracking-tight leading-none">
                   {summaryCounters.perCapita.toFixed(3)} Unidades
                 </span>
-                <span className="text-[9.5px] font-bold text-slate-500 mt-1.5 block leading-normal font-sans">
+                <span className="text-[11px] font-bold text-slate-500 mt-1.5 block leading-normal">
                   Consumo médio diário por profissional no período.
                 </span>
               </>
@@ -1359,7 +1359,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <Layers className="h-5 w-5" />
             </div>
             <div>
-              <span className="text-[8px] font-black uppercase tracking-wider text-[#ff2a6d] block">Categoria para Controle</span>
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#ff2a6d] block">Categoria para Controle</span>
               <h2 className="text-sm font-black text-slate-800 uppercase tracking-tight">Categoria Ativa para Acompanhamento</h2>
             </div>
           </div>
@@ -1454,46 +1454,46 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                 <div className="bg-white border border-indigo-100 p-4 rounded-xl shadow-2xs">
-                  <span className="text-[9px] font-black text-indigo-500 uppercase tracking-widest block">Período de Análise</span>
-                  <span className="text-[13px] font-black text-slate-850 block mt-1.5 font-sans">
+                  <span className="text-[11px] font-black text-indigo-500 uppercase tracking-widest block">Período de Análise</span>
+                  <span className="text-[13px] font-black text-slate-850 block mt-1.5">
                     {sortedMeasurements[0]?.date} até {sortedMeasurements[sortedMeasurements.length - 1]?.date}
                   </span>
-                  <span className="text-[9px] font-bold text-slate-500 mt-1 block uppercase">
+                  <span className="text-[11px] font-bold text-slate-500 mt-1 block uppercase">
                     {detailedStats.totalDays} dias cobertos
                   </span>
                 </div>
 
                 <div className="bg-white border border-indigo-100 p-4 rounded-xl shadow-2xs">
-                  <span className="text-[9px] font-black text-indigo-500 uppercase tracking-widest block">Freq. Média de Contagens</span>
-                  <span className="text-[13px] font-black text-slate-850 block mt-1.5 font-sans">
+                  <span className="text-[11px] font-black text-indigo-500 uppercase tracking-widest block">Freq. Média de Contagens</span>
+                  <span className="text-[13px] font-black text-slate-850 block mt-1.5">
                     A cada {detailedStats.averageInterval} dias
                   </span>
-                  <span className="text-[9px] font-bold text-slate-500 mt-1 block uppercase">
+                  <span className="text-[11px] font-bold text-slate-500 mt-1 block uppercase">
                     {detailedStats.totalPeriods} intervalos registrados
                   </span>
                 </div>
 
                 <div className="bg-white border border-indigo-100 p-4 rounded-xl shadow-2xs">
-                  <span className="text-[9px] font-black text-indigo-500 uppercase tracking-widest block">Uso Total Acumulado</span>
-                  <span className="text-[13px] font-black text-emerald-600 block mt-1.5 font-sans">
+                  <span className="text-[11px] font-black text-indigo-500 uppercase tracking-widest block">Uso Total Acumulado</span>
+                  <span className="text-[13px] font-black text-emerald-600 block mt-1.5">
                     {detailedStats.totalConsumedAll} un consumidas
                   </span>
-                  <span className="text-[9px] font-bold text-slate-500 mt-1 block uppercase">
+                  <span className="text-[11px] font-bold text-slate-500 mt-1 block uppercase">
                     Unidades físicas totais usadas
                   </span>
                 </div>
 
                 <div className="bg-white border border-indigo-100 p-4 rounded-xl shadow-2xs">
-                  <span className="text-[9px] font-black text-indigo-500 uppercase tracking-widest block">Top 3 Consumidos</span>
+                  <span className="text-[11px] font-black text-indigo-500 uppercase tracking-widest block">Top 3 Consumidos</span>
                   <div className="mt-1.5 space-y-0.5 min-w-0">
                     {detailedStats.topConsumed.map((item, id) => (
-                      <div key={id} className="text-[10.5px] font-bold text-slate-800 flex justify-between gap-1 truncate">
+                      <div key={id} className="text-[11px] font-bold text-slate-800 flex justify-between gap-1 truncate">
                         <span className="truncate">{id+1}. {item.name}</span>
                         <span className="font-mono font-black text-indigo-700 shrink-0">{item.qty} un</span>
                       </div>
                     ))}
                     {detailedStats.topConsumed.length === 0 && (
-                      <span className="text-[10px] text-slate-500 font-bold">Nenhum consumo detectado</span>
+                      <span className="text-[11px] text-slate-500 font-bold">Nenhum consumo detectado</span>
                     )}
                   </div>
                 </div>
@@ -1501,12 +1501,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
 
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-2xs">
                 <div className="bg-slate-50 border-b border-slate-200 py-2.5 px-4">
-                  <span className="text-[10px] font-black uppercase text-slate-600 tracking-wider">Consumo Analítico Médio por Item</span>
+                  <span className="text-[11px] font-black uppercase text-slate-600 tracking-wider">Consumo Analítico Médio por Item</span>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse text-left text-slate-700">
                     <thead>
-                      <tr className="bg-slate-50/50 border-b border-slate-200 font-black text-slate-900 uppercase text-[9.5px] tracking-wider leading-none">
+                      <tr className="bg-slate-50/50 border-b border-slate-200 font-black text-slate-900 uppercase text-[11px] tracking-wider leading-none">
                         <th className="px-4 py-3">Descrição do Material</th>
                         <th className="px-4 py-3 text-center">Consumo Total</th>
                         <th className="px-4 py-3 text-center">Média Consumo / Dia</th>
@@ -1535,7 +1535,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <div className="p-6 bg-white rounded-xl border-2 border-dashed border-indigo-150 text-center">
               <span className="text-xl block">📈</span>
               <p className="text-[11px] font-black text-indigo-550 uppercase tracking-wider mt-1">Estatísticas indisponíveis temporariamente</p>
-              <p className="text-[10px] text-slate-500 font-bold mt-0.5">Lance pelo menos duas medições para gerar relatórios e estatísticas automatizadas.</p>
+              <p className="text-[11px] text-slate-500 font-bold mt-0.5">Lance pelo menos duas medições para gerar relatórios e estatísticas automatizadas.</p>
             </div>
           )}
         </div>
@@ -1551,7 +1551,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <button
               type="button"
               onClick={handleOpenNewCountSelector}
-              className="inline-flex items-center gap-1 bg-[#ff2a6d] hover:bg-pink-600 text-white rounded-lg px-2.5 py-1 text-[10px] font-black uppercase shadow-xs transition-colors cursor-pointer text-xs"
+              className="inline-flex items-center gap-1 bg-[#ff2a6d] hover:bg-pink-600 text-white rounded-lg px-2.5 py-1 text-[11px] font-black uppercase shadow-xs transition-colors cursor-pointer text-xs"
             >
               <Plus className="h-3 w-3" />
               Nova Contagem
@@ -1562,7 +1562,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           <div className="p-6 text-center border-2 border-dashed border-slate-150 rounded-xl">
             <span className="text-2xl">🗳️</span>
             <p className="text-xs font-black text-slate-600 mt-1 uppercase">Ainda não há medições gravadas</p>
-            <p className="text-[10px] text-slate-500 font-bold leading-normal mt-0.5">
+            <p className="text-[11px] text-slate-500 font-bold leading-normal mt-0.5">
               Lance a primeira medição clicando no botão "Lançar Medição" acima.
             </p>
           </div>
@@ -1584,7 +1584,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         {idx + 1}ª Medição ({m.date})
                       </span>
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md shrink-0 border border-slate-150">
+                    <span className="text-[11px] font-black uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md shrink-0 border border-slate-150">
                       Cap: {stats.cap} colab
                     </span>
                   </div>
@@ -1592,19 +1592,19 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                   {/* Dense mini stats grid */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] bg-slate-50/50 rounded-xl p-3 border border-slate-150/70 mb-3">
                     <div>
-                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[8.5px]">Volume Físico</span>
+                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Volume Físico</span>
                       <span className="text-slate-900 font-extrabold text-[14.5px] mt-1 block">{stats.totalStock} unidades</span>
                     </div>
                     <div>
-                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[8.5px]">Qtd / Colaborador</span>
+                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Qtd / Colaborador</span>
                       <span className="text-[#ff2a6d] font-extrabold text-[14.5px] mt-1 block">{stats.perColab} un/colab</span>
                     </div>
                     <div>
-                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[8.5px]">Itens Zerados</span>
+                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Itens Zerados</span>
                       <span className="text-slate-800 font-extrabold text-[14.5px] mt-1 block">{stats.zeroCount} itens</span>
                     </div>
                     <div>
-                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[8.5px]">Histórico Fluxo</span>
+                      <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Histórico Fluxo</span>
                       <div className="mt-1 block">
                         <span className={`inline-block text-[11px] font-black px-2 py-0.5 rounded ${stats.variationColor}`}>
                           {stats.variationText}
@@ -1615,7 +1615,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
 
                   {/* Individual Items Balance inside the card */}
                   <div className="bg-[#ff2a6d]/5 border border-[#ff2a6d]/15 rounded-xl p-3 mb-3">
-                    <span className="text-[10px] font-black uppercase text-[#111c2e] tracking-wider block mb-2 border-b border-[#ff2a6d]/15 pb-1 select-none">
+                    <span className="text-[11px] font-black uppercase text-[#111c2e] tracking-wider block mb-2 border-b border-[#ff2a6d]/15 pb-1 select-none">
                       📍 Itens Sob Mais Atenção ({activeCategory.name})
                     </span>
                     
@@ -1630,7 +1630,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         if (cardAttentionItems.length === 0) {
                           return (
                             <div className="text-center py-2">
-                              <span className="text-[9.5px] font-bold text-slate-500 uppercase">
+                              <span className="text-[11px] font-bold text-slate-500 uppercase">
                                 Não há itens sob atenção monitorados para esta categoria.
                               </span>
                             </div>
@@ -1668,7 +1668,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                       {val}
                                     </span>
                                   </div>
-                                  <div className="flex items-center justify-between text-[8px] leading-none font-bold text-slate-500">
+                                  <div className="flex items-center justify-between text-[11px] leading-none font-bold text-slate-500">
                                     <span>{textVal} / colab</span>
                                     <span className={`px-1 py-0.2 rounded-sm border uppercase scale-90 ${badgeBg}`}>{badgeText}</span>
                                   </div>
@@ -1695,7 +1695,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                     <button
                       type="button"
                       onClick={() => handleOpenCountModal(m)}
-                      className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-[10.5px] font-black uppercase hover:bg-slate-100 text-slate-700 transition-colors cursor-pointer"
+                      className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-[11px] font-black uppercase hover:bg-slate-100 text-slate-700 transition-colors cursor-pointer"
                     >
                       Editar Saldos
                     </button>
@@ -1704,7 +1704,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                       onClick={() => {
                         setDeleteConfirmMeasurement({ id: m.id, date: m.date });
                       }}
-                      className="px-3 py-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-[10.5px] font-black uppercase cursor-pointer transition-colors"
+                      className="px-3 py-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-[11px] font-black uppercase cursor-pointer transition-colors"
                     >
                       Excluir
                     </button>
@@ -1728,7 +1728,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <span className="text-[#ff2a6d] font-black bg-pink-50 border border-pink-100 rounded-lg px-2.5 py-1 text-xs">{activeCategory.name.toUpperCase()}</span>
               <span className="text-xs text-slate-500 font-bold">({reportMeasurements.length} Contagens)</span>
             </h3>
-            <p className="text-[10px] text-slate-550 font-bold leading-normal mt-1 print:-mt-0.5">
+            <p className="text-[11px] text-slate-550 font-bold leading-normal mt-1 print:-mt-0.5">
               Histórico de saldo atualizado por item em conformidade com as medições vigentes. Exclua a medição clicando no emoji ❌ na data.
             </p>
           </div>
@@ -1736,7 +1736,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             <button
               type="button"
               onClick={handleOpenNewCountSelector}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#111c2e] hover:bg-slate-800 text-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer leading-none"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#111c2e] hover:bg-slate-800 text-white px-3 py-1.5 text-[11px] font-black uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer leading-none"
               title="Lançar uma nova medição física de estoque"
             >
               <Calendar className="h-3 w-3 text-pink-400" />
@@ -1753,13 +1753,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               </span>
               <span className="text-[11.5px] font-bold text-slate-750 leading-normal select-none">
                 Esta coluna foi isolada. Agora você pode clicar no primeiro número dela,{" "}
-                <strong className="text-amber-950 font-extrabold underline decoration-amber-500 decoration-2">arrastar o mouse direto para baixo</strong> para marcar apenas essas quantidades, e apertar <kbd className="bg-slate-200 border border-slate-300 rounded px-1 text-[10px] font-mono shadow-5xs">Ctrl+C</kbd> para copiar! Os outros itens estão bloqueados para não atrapalhar.
+                <strong className="text-amber-950 font-extrabold underline decoration-amber-500 decoration-2">arrastar o mouse direto para baixo</strong> para marcar apenas essas quantidades, e apertar <kbd className="bg-slate-200 border border-slate-300 rounded px-1 text-[11px] font-mono shadow-5xs">Ctrl+C</kbd> para copiar! Os outros itens estão bloqueados para não atrapalhar.
               </span>
             </div>
             <button 
               type="button"
               onClick={() => setIsolatedColumnId(null)}
-              className="bg-amber-600 hover:bg-amber-700 text-white font-black text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg cursor-pointer transition-all active:scale-95 shrink-0 shadow-3xs"
+              className="bg-amber-600 hover:bg-amber-700 text-white font-black text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-lg cursor-pointer transition-all active:scale-95 shrink-0 shadow-3xs"
             >
               Concluir / Sair (Esc)
             </button>
@@ -1774,7 +1774,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
           (() => {
             const isDenserTable = reportMeasurements.length >= 3;
             const textClass = isDenserTable ? "text-[11px]" : "text-[12.5px]";
-            const labelClass = isDenserTable ? "text-[10px]" : "text-[11.5px]";
+            const labelClass = isDenserTable ? "text-[11px]" : "text-[11.5px]";
             const nameTextClass = isDenserTable ? "text-[12px] md:text-[13px]" : "text-[13.0px] md:text-[14.5px]";
             const cellPaddingClass = isDenserTable ? "px-2 py-0.5" : "px-3.5 py-1";
             const numTextClass = isDenserTable ? "text-[11.5px]" : "text-[13px]";
@@ -1795,7 +1795,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                             <button
                               type="button"
                               onClick={() => copyItemNamesVertical()}
-                              className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight transition-all active:scale-95 cursor-pointer leading-none ${
+                              className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight transition-all active:scale-95 cursor-pointer leading-none ${
                                 copiedColumnId === "names" 
                                   ? "bg-emerald-500 text-white shadow-2xs" 
                                   : "bg-slate-200 hover:bg-slate-300 text-slate-600 hover:text-slate-800"
@@ -1807,7 +1807,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                             <button
                               type="button"
                               onClick={() => toggleIsolateColumn("names")}
-                              className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight transition-all active:scale-95 cursor-pointer leading-none ${
+                              className={`inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight transition-all active:scale-95 cursor-pointer leading-none ${
                                 isolatedColumnId === "names"
                                   ? "bg-amber-600 text-white animate-pulse"
                                   : "bg-amber-100 hover:bg-amber-205 text-amber-850"
@@ -1848,12 +1848,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                 ❌
                               </button>
                             </div>
-                            <span className="block text-[8.5px] font-bold text-slate-500 lowercase mt-0.5">Cap: {mappedCap} colab</span>
+                            <span className="block text-[11px] font-bold text-slate-500 lowercase mt-0.5">Cap: {mappedCap} colab</span>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-1.5 px-0.5 print:hidden">
                               <button
                                 type="button"
                                 onClick={() => copyMeasurementVertical(m)}
-                                className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                                className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                   copiedColumnId === m.id 
                                     ? "bg-emerald-500 text-white" 
                                     : "bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900"
@@ -1866,7 +1866,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                               <button
                                 type="button"
                                 onClick={() => toggleIsolateColumn(m.id)}
-                                className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                                className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                   isSelfIsolated
                                     ? "bg-amber-600 text-white font-black animate-pulse"
                                     : "bg-amber-100 hover:bg-amber-205 text-amber-800"
@@ -1891,22 +1891,22 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                 value={draftMeasurement.date}
                                 onChange={(e) => setDraftMeasurement(prev => prev ? { ...prev, date: e.target.value } : null)}
                                 placeholder="DD/MM/YYYY"
-                                className="w-20 text-[10.5px] font-black text-slate-800 border-0 p-0 focus:ring-0 focus:outline-hidden"
+                                className="w-20 text-[11px] font-black text-slate-800 border-0 p-0 focus:ring-0 focus:outline-hidden"
                               />
                             </div>
-                            <span className="block text-[8px] font-bold text-slate-500 mt-0.5 lowercase">Cap: {getCapacityForDate(draftMeasurement.date)} colab</span>
+                            <span className="block text-[11px] font-bold text-slate-500 mt-0.5 lowercase">Cap: {getCapacityForDate(draftMeasurement.date)} colab</span>
                             <div className="flex items-center justify-center gap-1.5 mt-1.5 print:hidden">
                               <button
                                 type="button"
                                 onClick={handleSaveDraftMeasurement}
-                                className="inline-flex items-center gap-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider shadow-5xs transition-all active:scale-95 cursor-pointer leading-none"
+                                className="inline-flex items-center gap-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded px-2 py-0.5 text-[11px] font-black uppercase tracking-wider shadow-5xs transition-all active:scale-95 cursor-pointer leading-none"
                               >
                                 Salvar
                               </button>
                               <button
                                 type="button"
                                 onClick={() => setDraftMeasurement(null)}
-                                className="inline-flex items-center gap-1 bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900 rounded px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider shadow-5xs transition-all active:scale-95 cursor-pointer leading-none"
+                                className="inline-flex items-center gap-1 bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900 rounded px-2 py-0.5 text-[11px] font-black uppercase tracking-wider shadow-5xs transition-all active:scale-95 cursor-pointer leading-none"
                               >
                                 Cancelar
                               </button>
@@ -1925,12 +1925,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                               : "bg-indigo-50/20"
                         }`}>
                           <span className="block text-[#ff2a6d] font-black text-[11.5px]">{nextScheduledInfo.dateStr}</span>
-                          <span className="block text-[8.5px] font-bold text-slate-500 mt-0.5">Projeção</span>
+                          <span className="block text-[11px] font-bold text-slate-500 mt-0.5">Projeção</span>
                           <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-1.5 px-0.5 print:hidden">
                             <button
                               type="button"
                               onClick={() => copyProjectionVertical()}
-                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                 copiedColumnId === "projection" 
                                   ? "bg-emerald-500 text-white" 
                                   : "bg-indigo-100 hover:bg-indigo-200 text-indigo-700 hover:text-indigo-900"
@@ -1942,7 +1942,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                             <button
                               type="button"
                               onClick={() => toggleIsolateColumn("projection")}
-                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                 isolatedColumnId === "projection"
                                   ? "bg-amber-600 text-white font-black animate-pulse"
                                   : "bg-amber-100 hover:bg-amber-205 text-amber-800"
@@ -1962,13 +1962,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                               ? "bg-amber-800 border-x-2 border-amber-400 font-extrabold"
                               : ""
                         }`}>
-                          <span className="block text-[10px] font-black tracking-wider uppercase">Saldo</span>
-                          <span className="block text-[7.5px] font-extrabold text-slate-500 mt-0.5">Último - Penúltimo</span>
+                          <span className="block text-[11px] font-black tracking-wider uppercase">Saldo</span>
+                          <span className="block text-[11px] font-extrabold text-slate-500 mt-0.5">Último - Penúltimo</span>
                           <div className="flex justify-center mt-1.5 print:hidden">
                             <button
                               type="button"
                               onClick={() => toggleIsolateColumn("saldo")}
-                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none ${
+                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none ${
                                 isolatedColumnId === "saldo"
                                   ? "bg-amber-650 text-white font-black animate-pulse"
                                   : "bg-amber-100 hover:bg-amber-205 text-amber-850"
@@ -1988,13 +1988,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                               ? "bg-amber-805 border-x-2 border-amber-400 font-extrabold"
                               : ""
                         }`}>
-                          <span className="block text-[10px] font-black tracking-wider uppercase text-cyan-300">P/ Capita</span>
-                          <span className="block text-[7.5px] font-extrabold text-[#ff2a6d] mt-0.5">Consumo Per Capita</span>
+                          <span className="block text-[11px] font-black tracking-wider uppercase text-slate-400">P/ Capita</span>
+                          <span className="block text-[11px] font-extrabold text-[#ff2a6d] mt-0.5">Consumo Per Capita</span>
                           <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-1.5 px-0.5 print:hidden">
                             <button
                               type="button"
                               onClick={() => copyConsumoPerCapitaVertical()}
-                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                 copiedColumnId === "consumoPerCapita" 
                                   ? "bg-emerald-500 text-white shadow-5xs" 
                                   : "bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900"
@@ -2006,7 +2006,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                             <button
                               type="button"
                               onClick={() => toggleIsolateColumn("consumoPerCapita")}
-                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[8.5px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
+                              className={`inline-flex items-center justify-center gap-1 rounded px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wider tracking-tight shadow-5xs transition-all active:scale-95 cursor-pointer leading-none w-full sm:w-auto ${
                                 isolatedColumnId === "consumoPerCapita"
                                   ? "bg-amber-600 text-white font-black animate-pulse"
                                   : "bg-amber-100 hover:bg-amber-205 text-amber-800"
@@ -2052,7 +2052,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                 <button
                                   type="button"
                                   onClick={() => setSelectedItemStatsPopup(it)}
-                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-pink-50 hover:bg-[#ff2a6d] hover:text-white text-[#ff2a6d] border border-pink-100/50 font-extrabold text-[9px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
+                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-pink-50 hover:bg-[#ff2a6d] hover:text-white text-[#ff2a6d] border border-pink-100/50 font-extrabold text-[11px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
                                   title="Visualizar histórico completo de estatísticas"
                                 >
                                   📈
@@ -2065,7 +2065,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                     setEditingItemName(it.name);
                                     setShowEditItemModal(true);
                                   }}
-                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-600 border border-blue-100/50 font-extrabold text-[9px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
+                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-600 border border-blue-100/50 font-extrabold text-[11px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
                                   title="Editar nome deste material"
                                 >
                                   ✏️
@@ -2075,7 +2075,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                   onClick={() => {
                                     setDeleteConfirmItem({ id: it.id, name: it.name });
                                   }}
-                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-red-50 hover:bg-red-600 hover:text-white text-red-600 border border-red-100/50 font-extrabold text-[9px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
+                                  className="inline-flex items-center justify-center h-4.5 w-4.5 rounded bg-red-50 hover:bg-red-600 hover:text-white text-red-600 border border-red-100/50 font-extrabold text-[11px] shadow-3xs cursor-pointer active:scale-90 transition-all select-none print:hidden shrink-0"
                                   title="Excluir este material"
                                 >
                                   🗑️
@@ -2161,7 +2161,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                     <span className={`text-[13px] font-extrabold font-mono ${isColumnIsolated ? "text-amber-955 text-sm font-black" : "text-indigo-800"}`}>
                                       {projectedQty}
                                     </span>
-                                    <span className={`text-[7.5px]/tight font-bold mt-0.5 uppercase tracking-tighter ${isColumnIsolated ? "text-amber-600 font-black" : "text-indigo-400"}`}>
+                                    <span className={`text-[11px]/tight font-bold mt-0.5 uppercase tracking-tighter ${isColumnIsolated ? "text-amber-600 font-black" : "text-indigo-400"}`}>
                                       {consumed > 0 ? `-${consumed} uso` : "estável"}
                                     </span>
                                   </div>
@@ -2194,7 +2194,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                           {finalValue}
                                         </span>
                                         {mLast && (
-                                          <span className="text-[7.5px]/tight font-bold text-slate-500 tracking-tighter mt-0.5">
+                                          <span className="text-[11px]/tight font-bold text-slate-500 tracking-tighter mt-0.5">
                                             ({(finalValue / getCapacityForDate(mLast.date)).toFixed(3)} per/cap)
                                           </span>
                                         )}
@@ -2212,7 +2212,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                     )}
                                     {crit.isCritical && (
                                       <span 
-                                        className="text-[7.5px] font-black text-white bg-[#ff2a6d] px-1.5 py-0.5 rounded mt-1 shadow-2xs text-center block max-w-[100px] break-words uppercase animate-pulse leading-none shrink-0"
+                                        className="text-[11px] font-black text-white bg-[#ff2a6d] px-1.5 py-0.5 rounded mt-1 shadow-2xs text-center block max-w-[100px] break-words uppercase animate-pulse leading-none shrink-0"
                                         title={crit.explanation}
                                       >
                                         ⚠️ CRÍTICO
@@ -2221,10 +2221,10 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                   </div>
                                 ) : (
                                   <div className="flex flex-col items-center justify-center select-text">
-                                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">-</span>
+                                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-tighter">-</span>
                                     {crit.isCritical && (
                                       <span 
-                                        className="text-[7.5px] font-black text-white bg-[#ff2a6d] px-1.5 py-0.5 rounded mt-1 shadow-2xs text-center block max-w-[100px] break-words uppercase animate-pulse leading-none shrink-0"
+                                        className="text-[11px] font-black text-white bg-[#ff2a6d] px-1.5 py-0.5 rounded mt-1 shadow-2xs text-center block max-w-[100px] break-words uppercase animate-pulse leading-none shrink-0"
                                         title={crit.explanation}
                                       >
                                         ⚠️ CRÍTICO
@@ -2278,7 +2278,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                                     <span className={`text-[12px] font-black font-mono leading-none ${isColumnIsolated ? "text-amber-955 text-sm font-black" : "text-slate-850"}`}>
                                       {textVal}
                                     </span>
-                                    <span className={`mt-1.5 px-1 py-0.2 rounded-sm border uppercase text-[7.5px]/none font-black ${badgeBg}`}>
+                                    <span className={`mt-1.5 px-1 py-0.2 rounded-sm border uppercase text-[11px]/none font-black ${badgeBg}`}>
                                       {badgeText}
                                     </span>
                                   </div>
@@ -2300,7 +2300,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         )}
 
         {/* Footnote of printable table showing capacity mapping */}
-        <div className="mt-5 border-t border-slate-200 pt-3 flex flex-wrap gap-4 items-center justify-between text-[9px] font-bold text-slate-450 uppercase tracking-wider">
+        <div className="mt-5 border-t border-slate-200 pt-3 flex flex-wrap gap-4 items-center justify-between text-[11px] font-bold text-slate-450 uppercase tracking-wider">
           <div className="flex items-center gap-1.5">
             <Info className="h-3 w-3 text-slate-500 shrink-0" />
             <span>* Saldo calculado considerando penúltima medição menos a atual. Os destaques em cinza sinalizam a diferença de consumo/perda de saldo, e verde sinaliza refil/entrada de saldo.</span>
@@ -2315,17 +2315,17 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL ESTATÍSTICA DEDICADA DE CONSUMO (POPUP) ==================================== */}
       {selectedItemStatsPopup && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="modal-scroll-area-parent bg-slate-100 rounded-[24px] border border-slate-205 shadow-2xl max-w-3xl w-full flex flex-col max-h-[90vh] overflow-hidden p-6 relative">
+          <div className="modal-scroll-area-parent bg-slate-100 rounded-[24px] border border-slate-205 shadow-md max-w-3xl w-full flex flex-col max-h-[90vh] overflow-hidden p-6 relative">
             
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 shrink-0 mb-4 bg-white -m-6 p-6 rounded-t-[24px]">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">📈</span>
                 <div>
-                  <h2 className="text-sm font-black uppercase text-[#111c2e] tracking-wide font-sans leading-none">
+                  <h2 className="text-sm font-black uppercase text-[#111c2e] tracking-wide leading-none">
                     Estatísticas Dedicadas de Consumo
                   </h2>
-                  <p className="text-[10px] text-slate-500 font-bold mt-1.5 font-sans">
+                  <p className="text-[11px] text-slate-500 font-bold mt-1.5">
                     Histórico detalhado p/ o item: <strong className="text-[#ff2a6d] font-black">{selectedItemStatsPopup.name}</strong>
                   </p>
                 </div>
@@ -2345,7 +2345,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 <div className="p-6 text-center border-2 border-dashed border-slate-150 rounded-xl bg-white">
                   <span className="text-2xl">🗳️</span>
                   <p className="text-xs font-black text-slate-600 mt-1 uppercase">Ainda não há medições gravadas</p>
-                  <p className="text-[10px] text-slate-500 font-bold leading-normal mt-0.5">
+                  <p className="text-[11px] text-slate-500 font-bold leading-normal mt-0.5">
                     Lançe pelo menos duas medições para gerar estatísticas.
                   </p>
                 </div>
@@ -2369,22 +2369,22 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                     return (
                       <div className="bg-white border-2 border-[#ff2a6d]/40 rounded-2xl p-4.5 mb-5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-[#ff2a6d]/60">
                         <div className="flex-1 min-w-0">
-                          <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider block">
+                          <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider block">
                             Consumo Per Capita Geral da Tabela (Mapeado)
                           </span>
                           <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-3xl font-sans font-black text-[#111c2e] tracking-tight font-mono">
+                            <span className="text-3xl font-black text-[#111c2e] tracking-tight font-mono">
                               {textVal}
                             </span>
                             <span className="text-xs font-black text-slate-500 font-mono uppercase">unidades / colaborador</span>
                           </div>
-                          <p className="text-[10.5px] text-slate-500 font-bold mt-2 leading-relaxed">
+                          <p className="text-[11px] text-slate-500 font-bold mt-2 leading-relaxed">
                             Esta é a métrica padrão calculada a partir das últimas {reportMeasurements.length} medições de estoque em sincronização com o quadro de colaboradores cadastrados para os meses correspondentes.
                           </p>
                         </div>
                         <div className="flex flex-col items-center sm:items-end gap-1.5 shrink-0 bg-slate-50/80 p-3 rounded-xl border border-slate-150 min-w-[150px]">
-                          <span className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Status Geral</span>
-                          <span className={`inline-block text-[10.5px] font-black px-3.5 py-1.5 rounded-full border text-center uppercase tracking-wider leading-none shadow-3xs ${badgeBg}`}>
+                          <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Status Geral</span>
+                          <span className={`inline-block text-[11px] font-black px-3.5 py-1.5 rounded-full border text-center uppercase tracking-wider leading-none shadow-3xs ${badgeBg}`}>
                             {badgeText}
                           </span>
                         </div>
@@ -2433,7 +2433,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                               {idx + 1}ª Medição ({m.date})
                             </span>
                           </div>
-                          <span className="text-[9px]/none font-bold uppercase bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-150">
+                          <span className="text-[11px]/none font-bold uppercase bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-150">
                             Cap: {cap || "—"} colab
                           </span>
                         </div>
@@ -2441,21 +2441,21 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         {/* Dense mini stats grid */}
                         <div className="grid grid-cols-2 gap-3 text-[11px] bg-slate-50/50 rounded-xl p-3 border border-slate-150 mb-1">
                           <div>
-                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[7.5px]">Qtd física em Estoque</span>
+                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Qtd física em Estoque</span>
                             <span className="text-slate-900 font-black text-[13px] mt-1 block font-mono">
                               {valCurr} un
                             </span>
                           </div>
                           <div>
-                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[7.5px]">Proporção p/ Colaborador</span>
+                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Proporção p/ Colaborador</span>
                             <span className="text-indigo-700 font-black text-[13px] mt-1 block font-mono">
                               {cap && cap > 0 ? (valCurr / cap).toFixed(5) : "—"}
                             </span>
                           </div>
                           <div>
-                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[7.5px]">Fluxo / Comportamento</span>
+                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Fluxo / Comportamento</span>
                             {isFirst ? (
-                              <span className="text-slate-500 font-bold block mt-1 text-[10px] uppercase">Inicial (—)</span>
+                              <span className="text-slate-500 font-bold block mt-1 text-[11px] uppercase">Inicial (—)</span>
                             ) : delta > 0 ? (
                               <span className="text-[#ff2a6d] font-black text-[11px] mt-1 block uppercase">
                                 -{delta} un (Consumo)
@@ -2471,12 +2471,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                             )}
                           </div>
                           <div>
-                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[7.5px]">Consumo Per Capita</span>
+                            <span className="text-slate-500 font-bold uppercase tracking-tight block text-[11px]">Consumo Per Capita</span>
                             <div className="mt-1 flex flex-col gap-0.5">
                               <span className="text-[#111c2e] font-black text-[13px] font-mono leading-none">
                                 {textVal}
                               </span>
-                              <span className={`inline-block text-[7px] font-black px-1.5 py-0.5 rounded border text-center uppercase leading-none self-start mt-1.5 ${badgeBg}`}>
+                              <span className={`inline-block text-[11px] font-black px-1.5 py-0.5 rounded border text-center uppercase leading-none self-start mt-1.5 ${badgeBg}`}>
                                 {badgeText}
                               </span>
                             </div>
@@ -2495,7 +2495,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setSelectedItemStatsPopup(null)}
-                className="bg-[#111c2e] hover:bg-slate-800 text-white px-6 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
+                className="bg-[#111c2e] hover:bg-slate-800 text-white px-6 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
               >
                 Fechar Painel
               </button>
@@ -2508,12 +2508,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL CONFIRMAÇÃO DE EXCLUSÃO DE MEDIÇÃO ==================================== */}
       {deleteConfirmMeasurement && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="bg-white rounded-[24px] border border-slate-150 shadow-2xl max-w-md w-full flex flex-col p-6 relative">
+          <div className="bg-white rounded-[24px] border border-slate-150 shadow-md max-w-md w-full flex flex-col p-6 relative">
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">⚠️</span>
-                <h2 className="text-xs md:text-[13px] font-black uppercase text-red-600 tracking-wide font-sans">
+                <h2 className="text-xs md:text-[13px] font-black uppercase text-red-600 tracking-wide">
                   Confirmar Exclusão
                 </h2>
               </div>
@@ -2531,7 +2531,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <p className="text-xs md:text-[13px] text-slate-705 font-bold leading-relaxed">
                 Tem certeza de que deseja excluir permanentemente a medição do dia <strong className="text-slate-900 underline font-extrabold">{deleteConfirmMeasurement.date}</strong> e todos os saldos físicos correspondentes?
               </p>
-              <div className="text-[10px] text-rose-650 font-black uppercase mt-4 tracking-tight bg-rose-50 border border-rose-100/80 rounded-xl p-3 leading-snug">
+              <div className="text-[11px] text-rose-650 font-black uppercase mt-4 tracking-tight bg-rose-50 border border-rose-100/80 rounded-xl p-3 leading-snug">
                 ⚠️ Atenção: essa ação removerá a data de todas as visualizações e grade comparativa, de forma irreversível.
               </div>
             </div>
@@ -2541,7 +2541,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setDeleteConfirmMeasurement(null)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10.5px] font-black uppercase transition-all shadow-xs active:scale-95 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-black uppercase transition-all shadow-xs active:scale-95 cursor-pointer"
               >
                 Cancelar
               </button>
@@ -2551,7 +2551,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                   handleDeleteMeasurement(deleteConfirmMeasurement.id, deleteConfirmMeasurement.date);
                   setDeleteConfirmMeasurement(null);
                 }}
-                className="px-4 py-2 rounded-xl bg-[#ff2a6d] hover:bg-[#E01E4F] text-white text-[10.5px] font-black uppercase transition-all shadow-md active:scale-95 cursor-pointer animate-pulse"
+                className="px-4 py-2 rounded-xl bg-[#ff2a6d] hover:bg-[#E01E4F] text-white text-[11px] font-black uppercase transition-all shadow-md active:scale-95 cursor-pointer animate-pulse"
               >
                 Sim, Excluir
               </button>
@@ -2563,13 +2563,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL REGISTRAR MEDIÇÃO FÍSICA ==================================== */}
       {showCountModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="modal-scroll-area-parent bg-white rounded-[24px] border border-slate-100 shadow-2xl max-w-2xl w-full flex flex-col max-h-[90vh] overflow-hidden p-6 relative">
+          <div className="modal-scroll-area-parent bg-white rounded-[24px] border border-slate-100 shadow-md max-w-2xl w-full flex flex-col max-h-[90vh] overflow-hidden p-6 relative">
             
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 shrink-0 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🗳️</span>
-                <h2 className="text-sm font-black uppercase text-slate-800 tracking-wide font-sans">
+                <h2 className="text-sm font-black uppercase text-slate-800 tracking-wide">
                   {editingMeasurementId ? "Editar Medição Existente" : "Registrar Saldos da Medição"}
                 </h2>
               </div>
@@ -2585,7 +2585,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             {/* Inputs controls details */}
             <div className="grid grid-cols-2 gap-4 shrink-0 mb-4 bg-slate-50 border border-slate-150 p-3.5 rounded-xl">
               <div>
-                <label className="text-[9.5px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[11px] font-black uppercase text-slate-500 block mb-1">
                   Data da Contagem (DD/MM/YYYY):
                 </label>
                 <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 focus-within:ring-2 focus-within:ring-[#ff2a6d]/20">
@@ -2613,7 +2613,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 </div>
               </div>
               <div>
-                <label className="text-[9.5px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[11px] font-black uppercase text-slate-500 block mb-1">
                   Capacity do Mês Equivalente:
                 </label>
                 <div className="p-2 bg-white rounded-lg border border-slate-150 text-[11px] font-black font-mono text-[#c21e54]">
@@ -2662,19 +2662,19 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         setModalBalances(initialBalances);
                       }
                     }}
-                    className="p-8 text-center rounded-2xl border-2 border-dashed border-cyan-300 bg-cyan-50/5 hover:border-cyan-400 hover:bg-cyan-50/10 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[220px] focus:outline-hidden focus:ring-2 focus:ring-cyan-500/20"
+                    className="p-8 text-center rounded-2xl border-2 border-dashed border-[#ff2a6d]/30 bg-[#f5f5f5] hover:border-[#ff2a6d]/40 hover:bg-[#f5f5f5]/10 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[220px] focus:outline-hidden focus:ring-2 focus:ring-[#ff2a6d]/20"
                     title="Clique aqui e cole (Ctrl+V) sua lista de itens e quantidades"
                   >
                     <div className="max-w-md mx-auto space-y-3">
-                      <div className="h-12 w-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600 mx-auto animate-pulse">
+                      <div className="h-12 w-12 rounded-full bg-[#f5f5f5] flex items-center justify-center text-[#ff2a6d] mx-auto animate-pulse">
                         <FileSpreadsheet className="h-6 w-6" />
                       </div>
                       <div>
-                        <p className="text-cyan-600 font-black text-xs uppercase tracking-tight">Planilha de Medições Vazia</p>
+                        <p className="text-[#ff2a6d] font-black text-xs uppercase tracking-tight">Planilha de Medições Vazia</p>
                         <p className="text-slate-800 text-[11px] font-bold mt-1.5 leading-normal normal-case">
                           Cole (Ctrl+V) uma lista de materiais com quantidades aqui mesmo!
                         </p>
-                        <p className="text-slate-500 text-[9.5px] font-semibold leading-normal mt-1 normal-case">
+                        <p className="text-slate-500 text-[11px] font-semibold leading-normal mt-1 normal-case">
                           Por exemplo, copie duas colunas do Excel (Item e Quantidade) e cole aqui.
                         </p>
                       </div>
@@ -2682,7 +2682,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                   </div>
                   
                   <div className="text-center mt-5">
-                    <span className="text-slate-450 text-[10px] font-bold block mb-2">Ou se preferir:</span>
+                    <span className="text-slate-450 text-[11px] font-bold block mb-2">Ou se preferir:</span>
                     <button
                       type="button"
                       onClick={() => {
@@ -2693,7 +2693,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         });
                         setModalBalances(initial);
                       }}
-                      className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-[10px] uppercase tracking-wider rounded-lg transition-all cursor-pointer"
+                      className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-black text-[11px] uppercase tracking-wider rounded-lg transition-all cursor-pointer"
                     >
                       Carregar Itens Padrão de {activeCategory.name}
                     </button>
@@ -2702,8 +2702,8 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               ) : (
                 <div>
                   <div className="flex justify-between items-center mb-2.5 px-1 mt-2">
-                    <h4 className="text-[10px] font-black uppercase text-cyan-600 tracking-wider flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    <h4 className="text-[11px] font-black uppercase text-[#ff2a6d] tracking-wider flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a6d]" />
                       {activeCategory.name} ({modalItems.length} itens)
                     </h4>
                     <button
@@ -2712,7 +2712,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                         setModalItems([]);
                         setModalBalances({});
                       }}
-                      className="text-[9px] font-black uppercase text-rose-500 hover:text-rose-650 tracking-wider transition-all"
+                      className="text-[11px] font-black uppercase text-rose-500 hover:text-rose-650 tracking-wider transition-all"
                     >
                       Limpar Planilha
                     </button>
@@ -2720,7 +2720,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-1">
                     {modalItems.map((item) => (
                       <div key={item.id} className="bg-slate-55/70 border border-slate-150 rounded-lg p-2.5 flex items-center justify-between gap-3">
-                        <span className="text-[10.5px] font-black text-slate-800 truncate" title={item.name}>
+                        <span className="text-[11px] font-black text-slate-800 truncate" title={item.name}>
                           {item.name}
                         </span>
                         <div className="flex items-center gap-1 bg-white border border-slate-200 rounded px-1.5 py-0.5 shrink-0 max-w-[90px]">
@@ -2782,7 +2782,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setShowCountModal(false)}
-                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
+                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
               >
                 Cancelar
               </button>
@@ -2790,7 +2790,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 type="button"
                 id="btn-save-measurement"
                 onClick={handleSaveMeasurement}
-                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
+                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
               >
                 Salvar Medição
               </button>
@@ -2803,12 +2803,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL ADICIONAR NOVO MATERIAL ==================================== */}
       {showAddItemModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="bg-white rounded-[24px] border border-slate-100 shadow-2xl max-w-md w-full flex flex-col p-6 relative">
+          <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-md w-full flex flex-col p-6 relative">
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">📦</span>
-                <h2 className="text-sm font-black uppercase text-slate-850 tracking-wide font-sans">
+                <h2 className="text-sm font-black uppercase text-slate-850 tracking-wide">
                   Adicionar Novo Material
                 </h2>
               </div>
@@ -2824,13 +2824,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             {/* Form Content */}
             <div className="space-y-4 mb-6">
               <div>
-                <span className="text-[9px] font-black uppercase text-indigo-500 tracking-wider block">Categoria de Destino</span>
+                <span className="text-[11px] font-black uppercase text-indigo-500 tracking-wider block">Categoria de Destino</span>
                 <span className="text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200/85 px-2.5 py-1.5 rounded-lg block mt-1 uppercase">
                   {activeCategory.name}
                 </span>
               </div>
               <div>
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider block mb-1">
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider block mb-1">
                   Nome do Material:
                 </label>
                 <input
@@ -2863,14 +2863,14 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setShowAddItemModal(false)}
-                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
+                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={handleAddItem}
-                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
+                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
               >
                 Adicionar Material
               </button>
@@ -2882,12 +2882,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL EDITAR MATERIAL ==================================== */}
       {showEditItemModal && editingItem && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="bg-white rounded-[24px] border border-slate-100 shadow-2xl max-w-md w-full flex flex-col p-6 relative">
+          <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-md w-full flex flex-col p-6 relative">
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">📝</span>
-                <h2 className="text-sm font-black uppercase text-slate-850 tracking-wide font-sans">
+                <h2 className="text-sm font-black uppercase text-slate-850 tracking-wide">
                   Editar Nome do Material
                 </h2>
               </div>
@@ -2903,13 +2903,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             {/* Form Content */}
             <div className="space-y-4 mb-6">
               <div>
-                <span className="text-[9px] font-black uppercase text-indigo-500 tracking-wider block">Nome Atual</span>
+                <span className="text-[11px] font-black uppercase text-indigo-500 tracking-wider block">Nome Atual</span>
                 <span className="text-xs font-bold text-slate-600 bg-slate-50 border border-slate-150 px-2.5 py-1.5 rounded-lg block mt-1 line-through opacity-70">
                   {editingItem.name}
                 </span>
               </div>
               <div>
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider block mb-1">
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider block mb-1">
                   Novo Nome do Material:
                 </label>
                 <input
@@ -2941,14 +2941,14 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setShowEditItemModal(false)}
-                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
+                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={handleEditItem}
-                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
+                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md hover:shadow-lg"
               >
                 Salvar Alterações
               </button>
@@ -2960,12 +2960,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL CONFIRMAÇÃO DE EXCLUSÃO DE MATERIAL ==================================== */}
       {deleteConfirmItem && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal">
-          <div className="bg-white rounded-[24px] border border-slate-150 shadow-2xl max-w-md w-full flex flex-col p-6 relative">
+          <div className="bg-white rounded-[24px] border border-slate-150 shadow-md max-w-md w-full flex flex-col p-6 relative">
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">⚠️</span>
-                <h2 className="text-xs md:text-[13px] font-black uppercase text-red-600 tracking-wide font-sans">
+                <h2 className="text-xs md:text-[13px] font-black uppercase text-red-600 tracking-wide">
                   Excluir Material do Estoque
                 </h2>
               </div>
@@ -2983,7 +2983,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <p className="text-xs md:text-[13px] text-slate-705 font-bold leading-relaxed">
                 Tem certeza de que deseja excluir permanentemente o material <strong className="text-slate-900 font-extrabold">"{deleteConfirmItem.name}"</strong>?
               </p>
-              <div className="text-[10px] text-rose-650 font-black uppercase mt-4 tracking-tight bg-rose-50 border border-rose-100/80 rounded-xl p-3 leading-snug">
+              <div className="text-[11px] text-rose-650 font-black uppercase mt-4 tracking-tight bg-rose-50 border border-rose-100/80 rounded-xl p-3 leading-snug">
                 ⚠️ Atenção: isso removerá o material desta lista de controle e excluirá seus saldos de todas as contagens anteriores. Essa ação é irreversível.
               </div>
             </div>
@@ -2993,14 +2993,14 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setDeleteConfirmItem(null)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10.5px] font-black uppercase transition-all shadow-xs active:scale-95 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-black uppercase transition-all shadow-xs active:scale-95 cursor-pointer"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={() => handleDeleteItem(deleteConfirmItem.name)}
-                className="px-4 py-2 rounded-xl bg-[#ff2a6d] hover:bg-[#E01E4F] text-white text-[10.5px] font-black uppercase transition-all shadow-md active:scale-95 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#ff2a6d] hover:bg-[#E01E4F] text-white text-[11px] font-black uppercase transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 Sim, Excluir
               </button>
@@ -3012,13 +3012,13 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* ==================================== MODAL SELEÇÃO DE CATEGORIA PARA NOVA CONTAGEM ==================================== */}
       {showCategorySelectorModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 print:hidden animate-fade-in leading-normal text-slate-800">
-          <div className="bg-white rounded-[24px] border border-slate-100 shadow-2xl max-w-md w-full flex flex-col p-6 relative">
+          <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-md w-full flex flex-col p-6 relative">
             
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-rose-50 shrink-0 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl">📊</span>
-                <h2 className="text-sm font-black uppercase text-slate-800 tracking-wide font-sans">
+                <h2 className="text-sm font-black uppercase text-slate-800 tracking-wide">
                   Nova Contagem - Seleção de Categoria
                 </h2>
               </div>
@@ -3034,7 +3034,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
             {/* Category Select */}
             <div className="space-y-4 mb-6">
               <div>
-                <label className="text-[10px] font-black uppercase text-slate-500 block mb-1.5">
+                <label className="text-[11px] font-black uppercase text-slate-500 block mb-1.5">
                   Selecione a categoria para registrar o estoque:
                 </label>
                 <select
@@ -3071,16 +3071,16 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                   <div className={`p-4 rounded-xl border text-xs leading-relaxed ${
                     exists 
                       ? "bg-emerald-50/50 border-emerald-100 text-emerald-800" 
-                      : "bg-cyan-50/40 border-cyan-100 text-cyan-800"
+                      : "bg-[#f5f5f5] border-[#ff2a6d]/10 text-[#111c2e]"
                   }`}>
                     {exists ? (
                       <div className="flex gap-2">
                         <span className="text-sm shrink-0">✅</span>
                         <div>
-                          <strong className="block font-black text-[10.5px] uppercase tracking-wide text-emerald-900">
+                          <strong className="block font-black text-[11px] uppercase tracking-wide text-emerald-900">
                             Controle de estoque existente encontrado!
                           </strong>
-                          <span className="font-bold text-[10px] text-emerald-700 mt-1 block">
+                          <span className="font-bold text-[11px] text-emerald-700 mt-1 block">
                             Já existem {targetCategoryMeasurements.length} medições gravadas para a categoria <strong className="font-extrabold">{targetCategory.name}</strong>. Os dados anteriores e saldos serão carregados automaticamente.
                           </span>
                         </div>
@@ -3089,10 +3089,10 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                       <div className="flex gap-2">
                         <span className="text-sm shrink-0">✨</span>
                         <div>
-                          <strong className="block font-black text-[10.5px] uppercase tracking-wide text-cyan-900">
+                          <strong className="block font-black text-[11px] uppercase tracking-wide text-[#111c2e]">
                             Primeiro registro de contagem!
                           </strong>
-                          <span className="font-bold text-[10px] text-cyan-700 mt-1 block">
+                          <span className="font-bold text-[11px] text-[#111c2e] mt-1 block">
                             Nenhum controle de estoque anterior encontrado para <strong className="font-extrabold">{targetCategory.name}</strong>. A planilha de medição iniciará vazia, permitindo colar itens e quantidades diretamente.
                           </span>
                         </div>
@@ -3108,7 +3108,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
               <button
                 type="button"
                 onClick={() => setShowCategorySelectorModal(false)}
-                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
+                className="bg-slate-100 hover:bg-slate-250 px-5 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all text-slate-650"
               >
                 Cancelar
               </button>
@@ -3181,7 +3181,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                     }
                   }, 100);
                 }}
-                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[10.5px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md"
+                className="bg-[#2a2f3b] hover:bg-slate-800 text-white px-6 py-2.5 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 shadow-md"
               >
                 Avançar para Contagem
               </button>
@@ -3194,12 +3194,12 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       {/* Toast Notification Container */}
       {toastMessage && (
         <div className="fixed top-4 right-4 z-50 max-w-sm mr-2 animate-fade-in print:hidden">
-          <div className="bg-[#1A1E29] text-white border-l-4 border-amber-450 p-4 rounded-xl shadow-2xl flex items-start gap-3 border border-slate-700/30">
+          <div className="bg-[#1A1E29] text-white border-l-4 border-amber-450 p-4 rounded-xl shadow-md flex items-start gap-3 border border-slate-700/30">
             <div className="bg-amber-500/10 p-1.5 rounded-lg text-amber-400 shrink-0">
               <Sparkles className="h-4 w-4" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[10px] font-black uppercase text-amber-450 tracking-wider">Aviso do Sistema</p>
+              <p className="text-[11px] font-black uppercase text-amber-450 tracking-wider">Aviso do Sistema</p>
               <p className="text-[12.5px] font-bold mt-0.5 leading-normal text-slate-100">{toastMessage}</p>
             </div>
             <button 

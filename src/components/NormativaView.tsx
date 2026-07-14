@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   BookOpen, 
   Search, 
@@ -316,7 +316,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
   ];
 
   return (
-    <div className="w-full flex flex-col font-sans text-slate-800 dark:text-slate-200 min-h-screen bg-slate-50 dark:bg-slate-950 p-3 md:p-5">
+    <div className="w-full flex flex-col text-slate-800 dark:text-slate-200 min-h-screen bg-slate-50 dark:bg-slate-950 p-3 md:p-5">
       
       {/* Header Bar */}
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-850 pb-3 mb-5">
@@ -333,15 +333,15 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               <BookOpen className="h-5 w-5 text-[#ff2a6d]" />
               Manual & Normativa <span className="text-[#ff2a6d]">Facilities 2026</span>
             </h1>
-            <p className="text-[10px] text-slate-450 mt-1 font-semibold leading-none">
+            <p className="text-[11px] text-slate-450 mt-1 font-semibold leading-none">
               Governança, Sistemas, Operações e Auditorias Integradas
             </p>
           </div>
         </div>
         
         <div className="text-right hidden md:block">
-          <span className="text-[9.5px] font-black uppercase text-[#ff2a6d] block leading-none">DOCUMENTO UNIFICADO</span>
-          <span className="text-[8.5px] text-slate-500 font-mono font-bold mt-1 block">Versão 2.0 • Julho de 2026</span>
+          <span className="text-[11px] font-black uppercase text-[#ff2a6d] block leading-none">DOCUMENTO UNIFICADO</span>
+          <span className="text-[11px] text-slate-500 font-mono font-bold mt-1 block">Versão 2.0 • Julho de 2026</span>
         </div>
       </div>
 
@@ -402,10 +402,10 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
             {/* Table of Contents Index (Visible on md and larger) */}
             <div className="w-64 border-r border-slate-150 dark:border-slate-850 bg-slate-50/50 dark:bg-slate-900/60 shrink-0 hidden md:flex flex-col select-none overflow-y-auto">
               <div className="p-3 border-b border-slate-150 dark:border-slate-850 flex items-center justify-between shrink-0 bg-slate-100/40 dark:bg-slate-905/30">
-                <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-500">
+                <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-500">
                   Índice de Capítulos
                 </span>
-                <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500 font-mono">
+                <span className="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500 font-mono">
                   {NORMATIVA_SECTIONS.length} itens
                 </span>
               </div>
@@ -429,7 +429,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                           : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
-                      <span className={`font-mono text-[9px] font-black px-1.5 py-0.5 rounded shrink-0 transition-all ${
+                      <span className={`font-mono text-[11px] font-black px-1.5 py-0.5 rounded shrink-0 transition-all ${
                         isSelected 
                           ? "bg-[#ff2a6d] text-white scale-105 shadow-3xs" 
                           : "bg-slate-200 dark:bg-slate-800 text-slate-500 group-hover:bg-slate-300 dark:group-hover:bg-slate-700"
@@ -484,7 +484,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
                     {/* Section Plain Content HTML */}
                     {section.content && (
-                      <div className="text-xs text-slate-750 dark:text-slate-350 leading-relaxed font-sans prose dark:prose-invert">
+                      <div className="text-xs text-slate-750 dark:text-slate-350 leading-relaxed prose dark:prose-invert">
                         {renderHtml(section.content)}
                       </div>
                     )}
@@ -501,7 +501,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                                 <button
                                   key={sIdx}
                                   onClick={() => setActiveSubTab(sIdx)}
-                                  className={`px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-tight transition-all cursor-pointer ${
+                                  className={`px-2.5 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-tight transition-all cursor-pointer ${
                                     activeSubTab === sIdx
                                       ? "bg-white dark:bg-slate-900 text-[#ff2a6d] shadow-3xs"
                                       : "text-slate-500 hover:text-slate-800 dark:hover:text-white"
@@ -523,7 +523,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                           section.subsections.map((sub, sIdx) => (
                             <div key={sIdx} className="bg-slate-50/50 dark:bg-slate-850/5 border border-slate-100 dark:border-slate-850/40 rounded-xl p-3.5 mt-2">
                               <h3 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-tight flex items-center gap-1.5 mb-2 border-b border-slate-150 dark:border-slate-800 pb-1.5">
-                                {sub.number && <span className="font-mono font-bold text-[#ff2a6d] text-[10px]">{sub.number}</span>}
+                                {sub.number && <span className="font-mono font-bold text-[#ff2a6d] text-[11px]">{sub.number}</span>}
                                 {sub.title}
                               </h3>
                               {renderSubsectionContent(sub)}
@@ -550,7 +550,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-black uppercase tracking-wide text-white">TUTOR INTELIGENTE DE NORMATIVAS</span>
-                <span className="text-[8.5px] text-[#ff2a6d] font-bold leading-none mt-0.5">Suporte operacional por voz e IA</span>
+                <span className="text-[11px] text-[#ff2a6d] font-bold leading-none mt-0.5">Suporte operacional por voz e IA</span>
               </div>
             </div>
             
@@ -567,12 +567,12 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
           {/* Interactive Suggested Actions Bar (scrollable horizontally) */}
           <div className="p-2 border-b border-slate-200 dark:border-slate-850 bg-slate-50 dark:bg-slate-950 overflow-x-auto shrink-0 flex items-center gap-1.5 scrollbar-none">
-            <span className="text-[8px] font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1 select-none">Dicas Rápidas:</span>
+            <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1 select-none">Dicas Rápidas:</span>
             {SUGGESTED_QUESTIONS.map((q, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSendMessage(q.query)}
-                className="px-2.5 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-[#ff2a6d] hover:bg-slate-100 dark:hover:bg-slate-850 rounded-full text-[9px] font-extrabold text-slate-650 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shrink-0 cursor-pointer shadow-3xs transition-all active:scale-95 leading-none"
+                className="px-2.5 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-[#ff2a6d] hover:bg-slate-100 dark:hover:bg-slate-850 rounded-full text-[11px] font-extrabold text-slate-650 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shrink-0 cursor-pointer shadow-3xs transition-all active:scale-95 leading-none"
               >
                 {q.text}
               </button>
@@ -590,7 +590,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                 <p className="text-[11px]/relaxed text-slate-500 font-bold mt-1 text-center">
                   Digite sua dúvida acima ou clique no botão de microfone para <strong>falar sua dúvida</strong>. Nosso tutor explicará o procedimento correto segundo a normativa oficial de 2026.
                 </p>
-                <div className="mt-4 p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-150 dark:border-slate-850 rounded-xl text-[10px]/snug text-slate-600 dark:text-slate-400 font-bold italic w-full text-center">
+                <div className="mt-4 p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-150 dark:border-slate-850 rounded-xl text-[11px]/snug text-slate-600 dark:text-slate-400 font-bold italic w-full text-center">
                   💡 Experimente perguntar: <br/>
                   <span className="text-[#ff2a6d] font-black not-italic block mt-1 hover:underline cursor-pointer" onClick={() => handleSendMessage("Zeladoras: como funciona o bônus de R$ 90?")}>
                     "Como funciona o bônus das zeladoras?"
@@ -610,7 +610,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                   }`}>
                     
                     {/* Header bubble with avatar and name */}
-                    <div className="flex items-center gap-1.5 border-b border-white/10 dark:border-slate-800 pb-1 mb-1.5 select-none text-[8.5px] font-black uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 border-b border-white/10 dark:border-slate-800 pb-1 mb-1.5 select-none text-[11px] font-black uppercase tracking-wider">
                       {msg.role === "user" ? (
                         <>
                           <span className="text-white/80">VOCÊ</span>
@@ -640,7 +640,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               <div className="flex items-start gap-2.5">
                 <div className="bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex items-center gap-2 max-w-sm animate-pulse">
                   <RefreshCw className="h-3.5 w-3.5 text-[#ff2a6d] animate-spin" />
-                  <span className="text-[10.5px] font-black text-slate-600 dark:text-slate-450 uppercase tracking-wide">
+                  <span className="text-[11px] font-black text-slate-600 dark:text-slate-450 uppercase tracking-wide">
                     O Tutor de IA está lendo a Normativa e redigindo resposta...
                   </span>
                 </div>
@@ -652,7 +652,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
           {/* Voice status notification banner if speaking */}
           {isRecording && (
-            <div className="px-3.5 py-1.5 bg-[#ff2a6d] text-white text-[10px] font-black uppercase flex items-center justify-between animate-pulse shrink-0 tracking-wider">
+            <div className="px-3.5 py-1.5 bg-[#ff2a6d] text-white text-[11px] font-black uppercase flex items-center justify-between animate-pulse shrink-0 tracking-wider">
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-white animate-ping" />
                 🎙️ Ouvindo sua voz... Fale sua dúvida sobre a normativa de facilities
@@ -668,7 +668,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
           )}
 
           {speechError && (
-            <div className="px-3.5 py-1.5 bg-rose-600 text-white text-[10px] font-bold uppercase flex items-center gap-1 shrink-0">
+            <div className="px-3.5 py-1.5 bg-rose-600 text-white text-[11px] font-bold uppercase flex items-center gap-1 shrink-0">
               <AlertCircle className="h-3.5 w-3.5" />
               <span>{speechError}</span>
             </div>
@@ -712,7 +712,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               />
             </div>
 
-            <div className="text-[9px] text-slate-500 font-bold text-center select-none">
+            <div className="text-[11px] text-slate-500 font-bold text-center select-none">
               O Tutor utiliza inteligência artificial. Valide as informações fiscais com os manuais oficiais.
             </div>
           </div>
@@ -725,7 +725,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
   // Helper renderer to render subsection objects nicely
   function renderSubsectionContent(sub: NormativaSubSection) {
     return (
-      <div className="space-y-3 mt-1 text-xs text-slate-750 dark:text-slate-350 leading-relaxed font-sans">
+      <div className="space-y-3 mt-1 text-xs text-slate-750 dark:text-slate-350 leading-relaxed">
         
         {/* Subsection content (HTML format) */}
         {sub.content && (
@@ -743,7 +743,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               const textPart = parts.length > 1 ? parts.slice(1).join(":") : step;
               return (
                 <div key={idx} className="flex gap-2.5 items-start pl-1 animate-fade-in">
-                  <span className="flex items-center justify-center h-5 w-5 rounded-full bg-[#ff2a6d] text-slate-900 font-mono font-black text-[10px] shrink-0">
+                  <span className="flex items-center justify-center h-5 w-5 rounded-full bg-[#ff2a6d] text-slate-900 font-mono font-black text-[11px] shrink-0">
                     {idx + 1}
                   </span>
                   <p className="flex-1">

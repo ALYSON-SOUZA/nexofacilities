@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import ExcelJS from "exceljs";
 import { Sparkles, X, Printer, RefreshCw, Trash2, Check, Download, FileText, FileSpreadsheet, Key, Laptop, Car, CreditCard, ChevronDown, CheckSquare, Square, Plus } from "lucide-react";
@@ -710,7 +710,7 @@ Assinatura da Administração: _________________________________________________
   };
 
   const getFieldClass = (value: string) => {
-    return `flex-1 px-3 py-2 text-[10.5px] bg-transparent focus:outline-hidden text-slate-900 dark:text-white placeholder-slate-400 font-bold tracking-wide uppercase ${
+    return `flex-1 px-3 py-2 text-[11px] bg-transparent focus:outline-hidden text-slate-900 dark:text-white placeholder-slate-400 font-bold tracking-wide uppercase ${
       value ? "font-black text-blue-900 dark:text-blue-300" : ""
     }`;
   };
@@ -719,13 +719,13 @@ Assinatura da Administração: _________________________________________________
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-xs p-4 animate-fade-in overflow-y-auto">
-      <div className="relative bg-white dark:bg-[#1E222B] w-full max-w-5xl rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-slate-800 max-h-[92vh]">
+      <div className="relative bg-white dark:bg-[#1E222B] w-full max-w-5xl rounded-2xl shadow-md flex flex-col overflow-hidden border border-slate-200 dark:border-slate-800 max-h-[92vh]">
         
         {/* Top Header Bar with Emoji Close Button */}
         <div className="w-full flex items-center justify-between px-5 py-3.5 bg-slate-50 dark:bg-[#15171d] border-b border-slate-200 dark:border-slate-800 shrink-0">
           <div className="flex items-center gap-2">
             <span className="text-base">📋</span>
-            <span className="text-xs font-black tracking-wider uppercase text-[#0B4F6C] dark:text-[#5fa8c9]">
+            <span className="text-xs font-black tracking-wider uppercase text-[#111c2e] dark:text-[#5fa8c9]">
               Emissão de Termos de Responsabilidade & Comodato
             </span>
           </div>
@@ -747,7 +747,7 @@ Assinatura da Administração: _________________________________________________
             
             {/* Checklist of Terms Selection Bar */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2.5">
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2.5">
                 Barra de Seleção de Termos (Checklist)
               </h3>
               <div className="flex flex-col gap-2 max-h-[220px] overflow-y-auto pr-1">
@@ -807,7 +807,7 @@ Assinatura da Administração: _________________________________________________
 
             {/* Pre-fill Collaborator Panel */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs relative">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2">
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2">
                 Vincular à Ficha de Colaborador Salvo
               </h3>
               <div className="relative">
@@ -822,7 +822,7 @@ Assinatura da Administração: _________________________________________________
                 {showSupplierDropdown && (
                   <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[160px] overflow-y-auto bg-white dark:bg-[#20242e] border border-slate-200 dark:border-slate-800 rounded-lg shadow-lg">
                     {savedSuppliers.length === 0 ? (
-                      <div className="p-3 text-[10px] text-slate-500 italic text-center">
+                      <div className="p-3 text-[11px] text-slate-500 italic text-center">
                         Nenhum colaborador salvo encontrado.
                       </div>
                     ) : (
@@ -830,10 +830,10 @@ Assinatura da Administração: _________________________________________________
                         <button
                           key={colab.nomeCompleto}
                           onClick={() => handleSelectCollaborator(colab)}
-                          className="w-full px-3 py-2 text-left text-[10.5px] hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-200 font-medium border-b border-slate-100 dark:border-slate-800 flex flex-col cursor-pointer"
+                          className="w-full px-3 py-2 text-left text-[11px] hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-200 font-medium border-b border-slate-100 dark:border-slate-800 flex flex-col cursor-pointer"
                         >
                           <span className="font-bold uppercase">{colab.nomeCompleto}</span>
-                          <span className="text-[9px] text-slate-500">CPF: {colab.cpf || "Sem CPF"}</span>
+                          <span className="text-[11px] text-slate-500">CPF: {colab.cpf || "Sem CPF"}</span>
                         </button>
                       ))
                     )}
@@ -844,7 +844,7 @@ Assinatura da Administração: _________________________________________________
 
             {/* AI Text Extractor */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2">
+              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2">
                 Preencher com IA Gemini 🤖
               </h3>
               <textarea
@@ -875,7 +875,7 @@ Assinatura da Administração: _________________________________________________
             </div>
             
             {statusMessage && (
-              <div className="p-2.5 bg-slate-800 text-teal-400 text-[10.5px] font-bold uppercase text-center rounded-lg animate-pulse">
+              <div className="p-2.5 bg-slate-800 text-teal-400 text-[11px] font-bold uppercase text-center rounded-lg animate-pulse">
                 {statusMessage}
               </div>
             )}
@@ -913,24 +913,24 @@ Assinatura da Administração: _________________________________________________
                   onClick={handleExportTXT}
                   size="sm"
                   variant="custom"
-                  className="bg-[#0B4F6C] hover:bg-[#083E54] text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#0B4F6C]"
+                  className="bg-[#111c2e] hover:bg-[#0d1520] text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#111c2e]"
                 />
               </div>
             </div>
 
             {/* Live Interactive Form Spreadsheet layout */}
             <div className="bg-slate-50 dark:bg-[#1a1c23] border border-slate-200 dark:border-slate-800 rounded-xl p-3 md:p-6 overflow-x-auto">
-              <div className="w-full min-w-[320px] max-w-4xl mx-auto border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1E222B] text-slate-800 dark:text-white font-sans text-[11px] select-text shadow-md">
+              <div className="w-full min-w-[320px] max-w-4xl mx-auto border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1E222B] text-slate-800 dark:text-white text-[11px] select-text shadow-md">
                 
                 {/* Header Strip */}
                 <div className="bg-[#1A3A5A] text-white flex flex-col items-center justify-center py-4 px-4 text-center">
                   <div className="font-black text-xs uppercase tracking-widest text-[#ff2a6d] mb-1">
                     ADV BELLINATI PEREZ
                   </div>
-                  <div className="text-[9px] font-bold text-slate-300 tracking-wider mb-1">
+                  <div className="text-[11px] font-bold text-slate-300 tracking-wider mb-1">
                     CNPJ: 03.404.018/0051-06
                   </div>
-                  <div className="text-[8px] text-slate-500 font-medium max-w-xl leading-relaxed">
+                  <div className="text-[11px] text-slate-500 font-medium max-w-xl leading-relaxed">
                     Av. Santos Dumont, 5335 — Salas 101 a 120 e 201 a 220 — CEP 60175-047 — Papicu — Fortaleza/CE
                   </div>
                 </div>
@@ -941,14 +941,14 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 1: Identificação */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[10.5px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
                 >
                   1. IDENTIFICAÇÃO DO COLABORADOR / RESPONSÁVEL
                 </div>
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Nome Completo:
                     </div>
                     <input
@@ -963,7 +963,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       CPF:
                     </div>
                     <input
@@ -975,7 +975,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       RG:
                     </div>
                     <input
@@ -990,7 +990,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Cargo:
                     </div>
                     <input
@@ -1002,7 +1002,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Setor:
                     </div>
                     <input
@@ -1018,7 +1018,7 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 2: Especificações */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[10.5px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
                 >
                   2. ESPECIFICAÇÕES DO OBJETO ENTREGUE
                 </div>
@@ -1036,7 +1036,7 @@ Assinatura da Administração: _________________________________________________
                         const borderClass = (fIdx === 0 && !isLastSingle) ? "border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800" : "";
                         return (
                           <div key={field.key} className={`flex flex-col sm:flex-row ${colSpanClass} ${borderClass}`}>
-                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[9px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500 shrink-0">
+                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500 shrink-0">
                               {field.label}:
                             </div>
                             <input
@@ -1059,14 +1059,14 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 3: Cláusulas */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[10.5px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
                 >
                   3. COMPROMISSOS E CLÁUSULAS LEGAIS
                 </div>
                 
                 <div className="p-4 bg-slate-50/50 dark:bg-[#121419] border-b border-slate-200 dark:border-slate-800 space-y-2">
                   {activeTermObj.clauses.map((clause, idx) => (
-                    <p key={idx} className="text-[10px] text-slate-500 italic leading-relaxed text-justify">
+                    <p key={idx} className="text-[11px] text-slate-500 italic leading-relaxed text-justify">
                       {idx + 1}. {clause}
                     </p>
                   ))}
@@ -1076,13 +1076,13 @@ Assinatura da Administração: _________________________________________________
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-50/50 dark:bg-[#121419] min-h-[100px]">
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 text-center">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">
                       ASSINATURA DO COLABORADOR
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 text-center">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">
                       ADMINISTRAÇÃO / RECURSOS HUMANOS
                     </span>
                   </div>
@@ -1099,7 +1099,7 @@ Assinatura da Administração: _________________________________________________
       {/* Dynamic Term Creation Sub-Modal */}
       {isNewTermModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-[#1a1d24] border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl animate-in fade-in-50 zoom-in-95 duration-150">
+          <div className="bg-white dark:bg-[#1a1d24] border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-md animate-in fade-in-50 zoom-in-95 duration-150">
             {/* Header */}
             <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#13151b]">
               <div className="flex items-center gap-2">
@@ -1119,7 +1119,7 @@ Assinatura da Administração: _________________________________________________
             {/* Content */}
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1.5">
+                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1.5">
                   Nome do Termo / Objeto
                 </label>
                 <input
@@ -1132,9 +1132,9 @@ Assinatura da Administração: _________________________________________________
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
+                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
                   <span>Dados ou Texto de Referência</span>
-                  <span className="text-[9px] text-[#ff2a6d] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
+                  <span className="text-[11px] text-[#ff2a6d] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
                 </label>
                 <textarea
                   placeholder="Exemplo de conteúdo que você quer que exista nesse termo. A IA do Gemini analisará este texto para identificar automaticamente quais campos (marca, modelo, chaves, placa, etc.) e cláusulas de responsabilidade o seu termo precisa, gerando uma ficha limpa e elegante estruturada!"
@@ -1150,7 +1150,7 @@ Assinatura da Administração: _________________________________________________
               <button
                 type="button"
                 onClick={() => setIsNewTermModalOpen(false)}
-                className="px-4 py-2 text-[10.5px] font-bold uppercase text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer"
+                className="px-4 py-2 text-[11px] font-bold uppercase text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer"
               >
                 Cancelar
               </button>
@@ -1159,7 +1159,7 @@ Assinatura da Administração: _________________________________________________
                 type="button"
                 onClick={handleCreateCustomTerm}
                 disabled={isGeneratingStructure || !newTermName.trim()}
-                className="px-4 py-2 bg-[#ff2a6d] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-[10.5px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
+                className="px-4 py-2 bg-[#ff2a6d] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-[11px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
                 {isGeneratingStructure ? (
                   <>

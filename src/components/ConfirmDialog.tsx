@@ -42,7 +42,7 @@ export default function ConfirmDialog({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 print:hidden animate-fade-in">
-      <div className="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 flex flex-col gap-4 animate-scale-in">
+      <div className="bg-white rounded-2xl max-w-sm w-full p-5 shadow-md border border-slate-100 flex flex-col gap-4 animate-scale-in">
         <div className="flex items-start gap-3">
           <div className={`h-10 w-10 rounded-full flex items-center justify-center border shrink-0 ${styles.icon}`}>
             <AlertCircle className="h-5 w-5" />
@@ -60,13 +60,13 @@ export default function ConfirmDialog({
         <div className="flex gap-2.5 pt-2 border-t border-slate-100">
           <button
             onClick={onCancel}
-            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 text-slate-600 font-black tracking-wide text-[10px] uppercase py-2.5 transition-all cursor-pointer"
+            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 text-slate-600 font-black tracking-wide text-[11px] uppercase py-2.5 transition-all cursor-pointer"
           >
             {cancelLabel}
           </button>
           <button
             onClick={onConfirm}
-            className={`flex-1 rounded-full text-white font-black tracking-wide text-[10px] uppercase py-2.5 transition-all cursor-pointer shadow-md ${styles.confirmBg}`}
+            className={`flex-1 rounded-full text-white font-black tracking-wide text-[11px] uppercase py-2.5 transition-all cursor-pointer shadow-md ${styles.confirmBg}`}
           >
             {confirmLabel}
           </button>

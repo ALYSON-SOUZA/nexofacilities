@@ -151,10 +151,10 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
   }[size];
 
   const variantClasses = {
-    primary: "bg-[#E4002B] hover:bg-[#c30024] text-white shadow-sm hover:shadow transition-all active:scale-95 rounded-xl border border-[#E4002B]",
+    primary: "bg-[#ff2a6d] hover:bg-[#c21e54] text-white shadow-sm hover:shadow transition-all active:scale-95 rounded-xl border border-[#ff2a6d]",
     secondary: "bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-3xs active:scale-95 rounded-xl border border-slate-200",
     success: "bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm active:scale-95 rounded-xl border border-emerald-600",
-    danger: "bg-red-500 hover:bg-red-600 text-white shadow-sm active:scale-95 rounded-xl border border-red-600",
+    danger: "bg-[#c21e54] hover:bg-[#a01845] text-white shadow-sm active:scale-95 rounded-xl border border-[#c21e54]",
     warning: "bg-amber-500 hover:bg-amber-600 text-white shadow-sm active:scale-95 rounded-xl border border-amber-600",
     neutral: "bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 shadow-3xs active:scale-95 rounded-xl",
     custom: "",
@@ -164,7 +164,7 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
     <div className="relative inline-block select-none">
       <button
         type="button"
-        className={`flex items-center justify-center transition-all cursor-pointer font-sans select-none focus:outline-hidden ${sizeClasses} ${variantClasses} ${className}`}
+        className={`flex items-center justify-center transition-all cursor-pointer select-none focus:outline-hidden ${sizeClasses} ${variantClasses} ${className}`}
         aria-label={item.label}
         title={item.label}
         onMouseEnter={() => setShowTooltip(true)}
@@ -178,7 +178,7 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
 
       {/* TOOLTIP PORTAL-LIKE CSS BUBBLE */}
       {showTooltip && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-wider rounded-lg shadow-xl whitespace-nowrap z-[999] animate-scale-in border border-slate-800 pointer-events-none">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#111c2e] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-md whitespace-nowrap z-[999] animate-scale-in border border-[#111c2e] pointer-events-none">
           {item.label}
           <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
         </div>

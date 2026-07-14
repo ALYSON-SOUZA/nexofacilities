@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { 
   Eye, Plus, Trash2, Calendar, MapPin, User, Check, X, ShieldAlert, 
   Sparkles, ChevronRight, CheckCircle, Volume2, Mic, MicOff, Search, FileText, 
@@ -988,7 +988,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 space-y-6 font-sans select-none animate-fade-in print:p-0 print:m-0 print:max-w-none print:shadow-none">
+    <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 space-y-6 select-none animate-fade-in print:p-0 print:m-0 print:max-w-none print:shadow-none">
       
       {/* HEADER BAR (print:hidden) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4 print:hidden">
@@ -1001,11 +1001,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div>
-            <span className="bg-gradient-to-r from-[#E4002B] to-[#ff2a6d] text-white font-black text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+            <span className="bg-gradient-to-r from-[#ff2a6d] to-[#ff2a6d] text-white font-black text-[11px] px-2 py-0.5 rounded-md uppercase tracking-wider">
               MÓDULO DE RONDA
             </span>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1.5 leading-tight">
-              <Eye className="h-6 w-6 text-[#E4002B]" /> Ronda & Vistoria Predial
+              <Eye className="h-6 w-6 text-[#ff2a6d]" /> Ronda & Vistoria Predial
             </h1>
           </div>
         </div>
@@ -1040,28 +1040,28 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Total de Rondas</span>
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Total de Rondas</span>
               <div className="flex items-baseline gap-1.5 mt-2">
                 <span className="text-3xl font-black text-slate-800">{stats.totalRondas}</span>
-                <span className="text-[10px] font-bold text-slate-500">vistorias</span>
+                <span className="text-[11px] font-bold text-slate-500">vistorias</span>
               </div>
-              <span className="text-[10px] text-slate-500 mt-1 flex items-center gap-1">Sendo {stats.rondasThisMonth} no mês corrente <span className="text-[#E4002B]">🔍 ver</span></span>
+              <span className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">Sendo {stats.rondasThisMonth} no mês corrente <span className="text-[#ff2a6d]">🔍 ver</span></span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Ocorrências Registradas", type: "occurrences", items: flatOccurrences })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Ocorrências por Tipo</span>
-              <div className="grid grid-cols-3 gap-1 mt-2 text-center text-[10px] font-black">
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Ocorrências por Tipo</span>
+              <div className="grid grid-cols-3 gap-1 mt-2 text-center text-[11px] font-black">
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setDrillDownConfig({ title: "Ocorrências de Autuação", type: "occurrences", items: flatOccurrences.filter(x => x.occurrence.type === "autuacao") });
                   }}
-                  className="p-1.5 bg-red-50 text-[#E4002B] rounded-lg hover:bg-red-100 transition-colors"
+                  className="p-1.5 bg-red-50 text-[#ff2a6d] rounded-lg hover:bg-red-100 transition-colors"
                   title="Filtrar por Autuação"
                 >
                   <span className="block text-sm">{stats.autuacaoCount}</span> Aut
@@ -1087,24 +1087,24 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   <span className="block text-sm">{stats.manutencaoCount}</span> Manut
                 </div>
               </div>
-              <span className="text-[10px] text-slate-500 mt-1 flex items-center justify-between">
+              <span className="text-[11px] text-slate-500 mt-1 flex items-center justify-between">
                 <span>Total: {stats.totalOccurrences} problemas</span>
-                <span className="text-[#E4002B] font-bold">Ver tudo</span>
+                <span className="text-[#ff2a6d] font-bold">Ver tudo</span>
               </span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todos os Chamados Técnicos", type: "chamados", items: chamados })}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Chamados Técnicos</span>
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Chamados Técnicos</span>
               <div className="flex items-baseline gap-1.5 mt-2">
                 <span className="text-3xl font-black text-slate-800">{stats.totalChamados}</span>
-                <span className="text-[10px] text-[#E4002B] font-extrabold">{stats.chamadosAbertos} abertos</span>
+                <span className="text-[11px] text-[#ff2a6d] font-extrabold">{stats.chamadosAbertos} abertos</span>
               </div>
-              <span className="text-[10px] text-slate-500 mt-1 flex items-center justify-between">
+              <span className="text-[11px] text-slate-500 mt-1 flex items-center justify-between">
                 <span>Concluídos: {stats.chamadosConcluidos}</span>
-                <span className="text-[#E4002B] font-bold">🔍 ver listagem</span>
+                <span className="text-[#ff2a6d] font-bold">🔍 ver listagem</span>
               </span>
             </div>
  
@@ -1117,18 +1117,18 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas });
                 }
               }}
-              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#E4002B] hover:scale-[1.01] transition-all group"
+              className="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#E4002B] transition-colors">Último Registro</span>
+              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Último Registro</span>
               {stats.lastRonda ? (
                 <div className="mt-2 text-xs">
                   <p className="font-extrabold text-slate-800 leading-tight truncate">{stats.lastRonda.filial}</p>
-                  <p className="text-[10px] text-slate-500 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")} — {stats.lastRonda.id}</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")} — {stats.lastRonda.id}</p>
                 </div>
               ) : (
-                <p className="text-[10px] text-slate-500 mt-2">Nenhum registro ainda.</p>
+                <p className="text-[11px] text-slate-500 mt-2">Nenhum registro ainda.</p>
               )}
-              <span className="text-[10px] text-[#E4002B] font-bold mt-1 flex items-center justify-between">
+              <span className="text-[11px] text-[#ff2a6d] font-bold mt-1 flex items-center justify-between">
                 <span>Para Bellinati Perez</span>
                 <span>Visualizar →</span>
               </span>
@@ -1148,7 +1148,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                 <button
                   onClick={() => setRondaActiveSubView("history_list")}
-                  className="text-[10px] font-bold text-[#E4002B] hover:underline"
+                  className="text-[11px] font-bold text-[#ff2a6d] hover:underline"
                 >
                   Ver todos os registros ({rondas.length}) →
                 </button>
@@ -1196,14 +1196,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         <div className="space-y-1 pr-4 truncate">
                           <div className="flex items-center gap-2">
                             <span className="font-mono text-xs font-black text-slate-800">{r.id}</span>
-                            <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[9px] font-black uppercase">
+                            <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[11px] font-black uppercase">
                               {r.filial}
                             </span>
                           </div>
-                          <p className="text-[10px] text-slate-500 font-bold">
+                          <p className="text-[11px] text-slate-500 font-bold">
                             Vistoriado por {r.user} em {new Date(r.date).toLocaleDateString("pt-BR")}
                           </p>
-                          <div className="flex items-center gap-3 text-[10px] text-slate-500 font-semibold">
+                          <div className="flex items-center gap-3 text-[11px] text-slate-500 font-semibold">
                             <span>🏢 {r.salas.length} salas visitadas</span>
                             <span>🚨 {occTotal} ocorrências</span>
                           </div>
@@ -1252,7 +1252,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* TICKETS LIST */}
               <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3.5 shadow-3xs">
                 {chamados.length === 0 ? (
-                  <p className="text-[10px] text-slate-500 font-bold text-center py-4">Nenhum chamado de manutenção em aberto.</p>
+                  <p className="text-[11px] text-slate-500 font-bold text-center py-4">Nenhum chamado de manutenção em aberto.</p>
                 ) : (
                   chamados.slice(0, 4).map(c => {
                     return (
@@ -1263,7 +1263,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                           <select
                             value={c.status}
                             onChange={(e) => handleUpdateChamadoStatus(c.id, e.target.value as any)}
-                            className={`text-[9px] font-black uppercase tracking-wide rounded-full px-2 py-0.5 border leading-none cursor-pointer focus:outline-hidden ${
+                            className={`text-[11px] font-black uppercase tracking-wide rounded-full px-2 py-0.5 border leading-none cursor-pointer focus:outline-hidden ${
                               c.status === "Concluido"
                                 ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                                 : c.status === "Em andamento"
@@ -1279,7 +1279,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                         <p className="font-semibold text-slate-700 leading-normal line-clamp-2">{c.description}</p>
                         
-                        <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold pt-1 border-t border-slate-100">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 font-bold pt-1 border-t border-slate-100">
                           <span>Ref: {c.rondaId}</span>
                           <span>Resp: {c.responsible.split(" ")[0]}</span>
                         </div>
@@ -1291,10 +1291,10 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               {/* GRAPHICS / RATIO SVG PIE CHART */}
               <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-3xs space-y-3">
-                <span className="block text-[10px] font-black uppercase text-slate-500 tracking-wider leading-none">Distribuição de Ocorrências</span>
+                <span className="block text-[11px] font-black uppercase text-slate-500 tracking-wider leading-none">Distribuição de Ocorrências</span>
                 
                 {stats.totalOccurrences === 0 ? (
-                  <p className="text-[10px] text-slate-500 font-bold text-center py-6">Registros insuficientes para gráfico.</p>
+                  <p className="text-[11px] text-slate-500 font-bold text-center py-6">Registros insuficientes para gráfico.</p>
                 ) : (
                   <div className="flex items-center gap-4">
                     {/* Tiny visual chart bar stack */}
@@ -1304,12 +1304,12 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         className="cursor-pointer hover:bg-red-50/50 p-1 rounded-lg transition-colors group"
                         title="Ver ocorrências de Autuação"
                       >
-                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-600 mb-0.5">
-                          <span className="flex items-center gap-1 group-hover:text-[#E4002B]"><span className="h-2 w-2 rounded-full bg-[#E4002B]"></span> Autuação</span>
+                        <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 mb-0.5">
+                          <span className="flex items-center gap-1 group-hover:text-[#ff2a6d]"><span className="h-2 w-2 rounded-full bg-[#ff2a6d]"></span> Autuação</span>
                           <span>{stats.autuacaoCount} ({Math.round(stats.autuacaoCount / stats.totalOccurrences * 100)}%)</span>
                         </div>
                         <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                          <div className="bg-[#E4002B] h-full transition-all" style={{ width: `${(stats.autuacaoCount / stats.totalOccurrences) * 100}%` }}></div>
+                          <div className="bg-[#ff2a6d] h-full transition-all" style={{ width: `${(stats.autuacaoCount / stats.totalOccurrences) * 100}%` }}></div>
                         </div>
                       </div>
  
@@ -1318,7 +1318,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         className="cursor-pointer hover:bg-blue-50/50 p-1 rounded-lg transition-colors group"
                         title="Ver ocorrências de Limpeza"
                       >
-                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-600 mb-0.5">
+                        <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 mb-0.5">
                           <span className="flex items-center gap-1 group-hover:text-blue-500"><span className="h-2 w-2 rounded-full bg-blue-500"></span> Limpeza e Organização</span>
                           <span>{stats.limpezaCount} ({Math.round(stats.limpezaCount / stats.totalOccurrences * 100)}%)</span>
                         </div>
@@ -1332,7 +1332,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         className="cursor-pointer hover:bg-amber-50/50 p-1 rounded-lg transition-colors group"
                         title="Ver ocorrências de Manutenção"
                       >
-                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-600 mb-0.5">
+                        <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 mb-0.5">
                           <span className="flex items-center gap-1 group-hover:text-amber-500"><span className="h-2 w-2 rounded-full bg-amber-500"></span> Manutenção Física</span>
                           <span>{stats.manutencaoCount} ({Math.round(stats.manutencaoCount / stats.totalOccurrences * 100)}%)</span>
                         </div>
@@ -1370,11 +1370,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 <div className="space-y-1 pr-4 truncate">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-black text-slate-800">{r.id}</span>
-                    <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[9px] font-black uppercase">
+                    <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[11px] font-black uppercase">
                       {r.filial}
                     </span>
                   </div>
-                  <p className="text-[10px] text-slate-500 font-bold">
+                  <p className="text-[11px] text-slate-500 font-bold">
                     Registrado em {new Date(r.date).toLocaleString("pt-BR")} por {r.user}
                   </p>
                   <p className="text-[11px] font-semibold text-slate-500">
@@ -1407,12 +1407,12 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
       {/* ----------------- SUB-VIEW: NOVA RONDA (WIZARD FORM) ----------------- */}
       {rondaActiveSubView === "wizard_ronda" && (
-        <div className="max-w-2xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-xl print:hidden">
+        <div className="max-w-2xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-md print:hidden">
           
           {/* Header Wizard indicator */}
           <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
             <div className="space-y-0.5">
-              <span className="text-[9px] font-black tracking-widest uppercase text-slate-500">Ronda em Andamento</span>
+              <span className="text-[11px] font-black tracking-widest uppercase text-slate-500">Ronda em Andamento</span>
               <h2 className="text-sm font-black uppercase tracking-wider text-white">
                 {currentRondaId || "Nova Ronda"}
               </h2>
@@ -1434,21 +1434,21 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* STEP: HEADER (Choose Filial) */}
             {wizardStep === "header" && (
               <form onSubmit={handleSaveRondaHeader} className="space-y-5">
-                <div className="bg-[#E4002B]/5 p-4 rounded-2xl border border-[#E4002B]/10 flex items-start gap-3">
+                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10 flex items-start gap-3">
                   <span className="text-xl">📍</span>
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-black text-[#E4002B] uppercase tracking-wide">Passo 1: Selecionar Filial para Vistoria</p>
-                    <p className="text-[10px] text-slate-500 font-semibold">Escolha a filial onde a ronda de vistoria está sendo realizada:</p>
+                    <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide">Passo 1: Selecionar Filial para Vistoria</p>
+                    <p className="text-[11px] text-slate-500 font-semibold">Escolha a filial onde a ronda de vistoria está sendo realizada:</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex flex-col space-y-1">
-                    <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Filial de Vistoria *</label>
+                    <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Filial de Vistoria *</label>
                     <select
                       value={newRondaFilial}
                       onChange={(e) => setNewRondaFilial(e.target.value)}
-                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B] bg-white text-slate-700"
+                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] bg-white text-slate-700"
                     >
                       {FILIAIS_OPTIONS.map(opt => (
                         <option key={opt} value={opt}>{opt}</option>
@@ -1461,7 +1461,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <div className="bg-slate-50 border border-slate-150 p-3 rounded-xl flex items-center gap-2.5">
                       <User className="h-4 w-4 text-slate-500 shrink-0" />
                       <div className="space-y-0.5">
-                        <span className="block text-[8px] font-black text-slate-500 uppercase tracking-wider">Operador Responsável</span>
+                        <span className="block text-[11px] font-black text-slate-500 uppercase tracking-wider">Operador Responsável</span>
                         <span className="block text-xs font-bold text-slate-700">{userName}</span>
                       </div>
                     </div>
@@ -1469,7 +1469,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <div className="bg-slate-50 border border-slate-150 p-3 rounded-xl flex items-center gap-2.5">
                       <Calendar className="h-4 w-4 text-slate-500 shrink-0" />
                       <div className="space-y-0.5">
-                        <span className="block text-[8px] font-black text-slate-500 uppercase tracking-wider">Data de Início</span>
+                        <span className="block text-[11px] font-black text-slate-500 uppercase tracking-wider">Data de Início</span>
                         <span className="block text-xs font-bold text-slate-700">{new Date().toLocaleDateString("pt-BR")}</span>
                       </div>
                     </div>
@@ -1496,25 +1496,25 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* STEP: SALA_FORM (Room header input) */}
             {wizardStep === "sala_form" && (
               <form onSubmit={handleSaveSalaHeader} className="space-y-5">
-                <div className="bg-[#E4002B]/5 p-4 rounded-2xl border border-[#E4002B]/10 flex items-start gap-3">
+                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10 flex items-start gap-3">
                   <span className="text-xl">🏢</span>
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-black text-[#E4002B] uppercase tracking-wide">Passo 2: Identificar a Sala / Andar</p>
-                    <p className="text-[10px] text-slate-500 font-semibold">Informe os detalhes do ambiente físico vistoriado agora:</p>
+                    <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide">Passo 2: Identificar a Sala / Andar</p>
+                    <p className="text-[11px] text-slate-500 font-semibold">Informe os detalhes do ambiente físico vistoriado agora:</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   
                   <div className="flex flex-col space-y-1">
-                    <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Identificação da Sala *</label>
+                    <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Identificação da Sala *</label>
                     <input 
                       type="text" 
                       required
                       value={currentSalaName}
                       onChange={(e) => setCurrentSalaName(e.target.value)}
                       placeholder="Ex: Sala de Operações 201, Copa, Recepção"
-                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                     />
                   </div>
 
@@ -1522,13 +1522,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     
                     {/* Gestor da Sala with Autocomplete */}
                     <div className="flex flex-col space-y-1 relative">
-                      <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Gestor da Sala</label>
+                      <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Gestor da Sala</label>
                       <input 
                         type="text" 
                         value={currentSalaGestor}
                         onChange={(e) => handleGestorSearch(e.target.value)}
                         placeholder="Nome do gestor da sala..."
-                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                       />
                       {gestorSuggestions.length > 0 && (
                         <div className="absolute top-[100%] left-0 right-0 bg-white border border-slate-200 rounded-xl mt-1 shadow-lg z-10 overflow-hidden divide-y divide-slate-100">
@@ -1540,7 +1540,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                               className="w-full text-left p-2.5 hover:bg-slate-50 text-[11px] font-bold text-slate-700 block"
                             >
                               <span className="block">{col.nome}</span>
-                              <span className="block text-[9px] text-slate-500 font-semibold">{col.funcao} — {col.filial}</span>
+                              <span className="block text-[11px] text-slate-500 font-semibold">{col.funcao} — {col.filial}</span>
                             </button>
                           ))}
                         </div>
@@ -1549,13 +1549,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                     {/* Gerente da Carteira with Autocomplete */}
                     <div className="flex flex-col space-y-1 relative">
-                      <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Gerente da Carteira</label>
+                      <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Gerente da Carteira</label>
                       <input 
                         type="text" 
                         value={currentSalaGerente}
                         onChange={(e) => handleGerenteSearch(e.target.value)}
                         placeholder="Nome do gerente de carteira..."
-                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                       />
                       {gerenteSuggestions.length > 0 && (
                         <div className="absolute top-[100%] left-0 right-0 bg-white border border-slate-200 rounded-xl mt-1 shadow-lg z-10 overflow-hidden divide-y divide-slate-100">
@@ -1598,14 +1598,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {wizardStep === "occurrence_form" && (
               <div className="space-y-5">
                 
-                <div className="bg-[#E4002B]/5 p-4 rounded-2xl border border-[#E4002B]/10">
-                  <span className="text-[9px] font-black text-[#E4002B] uppercase tracking-wide block">Ambiente: {currentSalaName}</span>
-                  <p className="text-[10px] text-slate-500 font-bold mt-1">Registre se identificou alguma inconformidade ou problema de manutenção/limpeza nesta sala:</p>
+                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10">
+                  <span className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide block">Ambiente: {currentSalaName}</span>
+                  <p className="text-[11px] text-slate-500 font-bold mt-1">Registre se identificou alguma inconformidade ou problema de manutenção/limpeza nesta sala:</p>
                 </div>
 
                 {/* Chips visual choice of classification */}
                 <div className="space-y-1.5">
-                  <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Tipo de Ocorrência *</label>
+                  <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Tipo de Ocorrência *</label>
                   <div className="grid grid-cols-3 gap-2">
                     
                     <EmojiButton
@@ -1635,7 +1635,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 {/* Occurrence text entry with microphone dictation */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Descrição Detalhada *</label>
+                    <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Descrição Detalhada *</label>
                     
                     {/* Voice Recognition Dictation Button */}
                     <EmojiButton
@@ -1648,7 +1648,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   </div>
 
                   {speechError && (
-                    <p className="text-[10px] text-red-600 font-bold">{speechError}</p>
+                    <p className="text-[11px] text-red-600 font-bold">{speechError}</p>
                   )}
 
                   <textarea
@@ -1657,21 +1657,21 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     onChange={(e) => setCurrentOccDesc(e.target.value)}
                     onPaste={handlePasteEvent}
                     placeholder="Cole fotos diretamente aqui (Ctrl+V) ou digite a descrição detalhada do problema físico..."
-                    className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B] bg-slate-50/20 focus:bg-white transition-all resize-none"
+                    className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] bg-slate-50/20 focus:bg-white transition-all resize-none"
                   />
                 </div>
 
                 {/* Image Captures */}
                 <div className="space-y-2">
-                  <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Anexo Fotográfico (Fotos da Ocorrência)</label>
+                  <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Anexo Fotográfico (Fotos da Ocorrência)</label>
                   
                   {/* Visual 3-way trigger */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     
                     <label className="border border-dashed border-slate-300 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-slate-50 cursor-pointer text-center">
                       <span className="text-lg">📷</span>
-                      <span className="text-[10px] font-black text-slate-600 uppercase">Tirar Foto / Anexar</span>
-                      <span className="text-[8px] text-slate-500 font-bold">Use a câmera do celular/tablet</span>
+                      <span className="text-[11px] font-black text-slate-600 uppercase">Tirar Foto / Anexar</span>
+                      <span className="text-[11px] text-slate-500 font-bold">Use a câmera do celular/tablet</span>
                       <input 
                         type="file" 
                         multiple 
@@ -1684,8 +1684,8 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                     <div className="border border-slate-200 rounded-xl p-3 flex flex-col justify-center items-center text-center bg-slate-55">
                       <span className="text-lg">📋</span>
-                      <span className="text-[10px] font-black text-slate-600 uppercase">Colar Clipboard (Ctrl+V)</span>
-                      <span className="text-[8px] text-slate-500 font-bold">Basta colar com a área de texto focada</span>
+                      <span className="text-[11px] font-black text-slate-600 uppercase">Colar Clipboard (Ctrl+V)</span>
+                      <span className="text-[11px] text-slate-500 font-bold">Basta colar com a área de texto focada</span>
                     </div>
 
                   </div>
@@ -1699,7 +1699,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                           <button
                             type="button"
                             onClick={() => setCurrentOccImages(prev => prev.filter((_, i) => i !== idx))}
-                            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[9px] font-bold"
+                            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-[11px] font-bold"
                           >
                             Excluir
                           </button>
@@ -1772,7 +1772,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {wizardStep === "ask_next_sala" && (
               <div className="text-center py-6 space-y-6">
                 
-                <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-[#E4002B] flex items-center justify-center border border-red-100">
+                <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-[#ff2a6d] flex items-center justify-center border border-red-100">
                   <Building2 className="h-5 w-5" />
                 </div>
 
@@ -1781,13 +1781,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   <p className="text-xs text-slate-500 font-semibold max-w-sm mx-auto">
                     A sala/ambiente foi inserido com sucesso na sua lista de vistoria atual.
                   </p>
-                  <div className="mt-3 inline-block bg-slate-50 border border-slate-150 px-3.5 py-1.5 rounded-full text-[10px] text-slate-600 font-bold">
-                    Total nesta Ronda: <span className="text-[#E4002B] font-extrabold">{currentRondaSalas.length} sala(s)</span>
+                  <div className="mt-3 inline-block bg-slate-50 border border-slate-150 px-3.5 py-1.5 rounded-full text-[11px] text-slate-600 font-bold">
+                    Total nesta Ronda: <span className="text-[#ff2a6d] font-extrabold">{currentRondaSalas.length} sala(s)</span>
                   </div>
                 </div>
 
                 <div className="bg-slate-50/50 rounded-2xl p-4 border border-slate-100 text-left max-w-md mx-auto">
-                  <p className="text-[10px] text-slate-500 uppercase font-black tracking-wider text-center">O que deseja fazer agora?</p>
+                  <p className="text-[11px] text-slate-500 uppercase font-black tracking-wider text-center">O que deseja fazer agora?</p>
                 </div>
 
                 <div className="flex gap-4 justify-center pt-2">
@@ -1815,11 +1815,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
       {/* ----------------- SUB-VIEW: TICKETS GENERATION FORM ----------------- */}
       {rondaActiveSubView === "create_chamado" && (
-        <div className="max-w-xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-xl print:hidden">
+        <div className="max-w-xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-md print:hidden">
           
           <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
             <h2 className="text-sm font-black uppercase tracking-wider flex items-center gap-1">
-              <ShieldAlert className="h-5 w-5 text-[#E4002B]" /> Abertura de Chamado de Manutenção
+              <ShieldAlert className="h-5 w-5 text-[#ff2a6d]" /> Abertura de Chamado de Manutenção
             </h2>
             <button
               onClick={() => setRondaActiveSubView("dashboard")}
@@ -1833,7 +1833,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             
             {/* Ronda Origin Selector */}
             <div className="flex flex-col space-y-1">
-              <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Selecione a Ronda de Origem *</label>
+              <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Selecione a Ronda de Origem *</label>
               <select
                 value={ticketRondaId}
                 onChange={(e) => {
@@ -1841,7 +1841,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setTicketSalaId("");
                   setTicketOccurrenceId("");
                 }}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
               >
                 <option value="">Selecione uma ronda recente...</option>
                 {rondas.map(r => (
@@ -1855,14 +1855,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* Room Selector based on Ronda */}
             {ticketRondaId && (
               <div className="flex flex-col space-y-1">
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Sala / Andar de Origem *</label>
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Sala / Andar de Origem *</label>
                 <select
                   value={ticketSalaId}
                   onChange={(e) => {
                     setTicketSalaId(e.target.value);
                     setTicketOccurrenceId("");
                   }}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                 >
                   <option value="">Selecione a sala visitada...</option>
                   {ticketRondaSalas.map(s => (
@@ -1875,7 +1875,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* Specific Occurrence selector based on Room */}
             {ticketSalaId && (
               <div className="flex flex-col space-y-1">
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Inconformidade / Ocorrência de Origem *</label>
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Inconformidade / Ocorrência de Origem *</label>
                 <select
                   value={ticketOccurrenceId}
                   onChange={(e) => {
@@ -1887,7 +1887,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       setTicketDescription(`Providenciar solução para: ${selectedOcc.description}`);
                     }
                   }}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                 >
                   <option value="">Selecione a ocorrência identificada...</option>
                   {ticketRondaSalas.find(s => s.id === ticketSalaId)?.occurrences.map(o => (
@@ -1901,36 +1901,36 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* Action Ticket Description */}
             <div className="flex flex-col space-y-1">
-              <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Ação de Solução Proposta *</label>
+              <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Ação de Solução Proposta *</label>
               <textarea
                 required
                 rows={4}
                 value={ticketDescription}
                 onChange={(e) => setTicketDescription(e.target.value)}
                 placeholder="Ex: Acionar prestador terceirizado de elétrica para substituição de fiação exposta e lâmpadas danificadas."
-                className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B] resize-none"
+                className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] resize-none"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               
               <div className="flex flex-col space-y-1">
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Responsável / Supervisor</label>
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Responsável / Supervisor</label>
                 <input 
                   type="text"
                   value={ticketResponsible}
                   onChange={(e) => setTicketResponsible(e.target.value)}
                   placeholder="Nome do responsável..."
-                  className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                  className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                 />
               </div>
 
               <div className="flex flex-col space-y-1">
-                <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">Status Inicial</label>
+                <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">Status Inicial</label>
                 <select
                   value={ticketStatus}
                   onChange={(e) => setTicketStatus(e.target.value as any)}
-                  className="w-full rounded-xl border border-slate-200 bg-white p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#E4002B]"
+                  className="w-full rounded-xl border border-slate-200 bg-white p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
                 >
                   <option value="Aberto">Aberto</option>
                   <option value="Em andamento">Em andamento</option>
@@ -2009,41 +2009,41 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               {/* Row 1: Header title */}
               <div className="grid grid-cols-4 border-b border-slate-400 bg-[#4D4D4D] text-white p-3 items-center">
                 <div className="col-span-1 flex flex-col justify-center">
-                  <span className="font-sans font-black text-[12px] sm:text-sm tracking-widest leading-none">Bellinati Perez</span>
-                  <span className="text-[7px] text-slate-300 font-bold uppercase tracking-wider">Facilities & Operações</span>
+                  <span className="font-display font-black text-[12px] sm:text-sm tracking-widest leading-none">Bellinati Perez</span>
+                  <span className="text-[11px] text-slate-300 font-bold uppercase tracking-wider">Facilities & Operações</span>
                 </div>
                 <div className="col-span-2 text-center">
                   <h2 className="text-sm sm:text-base font-black uppercase tracking-wider text-white">
                     RELATÓRIO DE RONDA E VISTORIA PREDIAL
                   </h2>
                 </div>
-                <div className="col-span-1 text-right font-mono text-[9px] text-slate-300">
+                <div className="col-span-1 text-right font-mono text-[11px] text-slate-300">
                   REF: {selectedRondaDetail.id}
                 </div>
               </div>
 
               {/* Row 2: Metadata grid table */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-slate-400 text-[10px] font-semibold text-slate-700 bg-slate-50/50">
+              <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-slate-400 text-[11px] font-semibold text-slate-700 bg-slate-50/50">
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Data da Vistoria:</span>
+                  <span className="block text-[11px] font-bold text-slate-500 uppercase">Data da Vistoria:</span>
                   <span className="font-extrabold text-slate-800">
                     {new Date(selectedRondaDetail.date).toLocaleDateString("pt-BR")}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Hora de Início:</span>
+                  <span className="block text-[11px] font-bold text-slate-500 uppercase">Hora de Início:</span>
                   <span className="font-extrabold text-slate-800">
                     {new Date(selectedRondaDetail.date).toLocaleTimeString("pt-BR")}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Filial Responsável:</span>
-                  <span className="font-extrabold text-slate-[#E4002B] uppercase">
+                  <span className="block text-[11px] font-bold text-slate-500 uppercase">Filial Responsável:</span>
+                  <span className="font-extrabold text-slate-[#ff2a6d] uppercase">
                     {selectedRondaDetail.filial}
                   </span>
                 </div>
                 <div className="p-2 space-y-0.5">
-                  <span className="block text-[8px] font-bold text-slate-500 uppercase">Responsável Operacional:</span>
+                  <span className="block text-[11px] font-bold text-slate-500 uppercase">Responsável Operacional:</span>
                   <span className="font-extrabold text-slate-800 uppercase">
                     {selectedRondaDetail.user}
                   </span>
@@ -2054,7 +2054,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 1: OBJETIVO DO TRABALHO */}
             <div className="space-y-1.5">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#E4002B] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                 1. Objetivo e Parecer Técnico
               </h3>
               <p className="text-xs font-semibold text-slate-650 leading-relaxed text-justify">
@@ -2064,14 +2064,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 2: DADOS DAS SALAS VISITADAS */}
             <div className="space-y-2">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#E4002B] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                 2. Salas e Andares Inspecionados
               </h3>
               
               <div className="overflow-hidden border border-slate-300 rounded-xl">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
-                    <tr className="bg-[#4D4D4D] text-white font-black text-[10px] uppercase">
+                    <tr className="bg-[#4D4D4D] text-white font-black text-[11px] uppercase">
                       <th className="p-2.5 border-r border-slate-300">Sala / Ambiente Visitado</th>
                       <th className="p-2.5 border-r border-slate-300">Gestor Responsável</th>
                       <th className="p-2.5">Gerente de Carteira / Diretor</th>
@@ -2092,7 +2092,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 3: REGISTRO DAS OCORRÊNCIAS */}
             <div className="space-y-3">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#E4002B] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                 3. Mapa de Inconformidades e Ocorrências
               </h3>
 
@@ -2111,14 +2111,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <div key={s.id} className="border border-slate-200 rounded-xl p-4 bg-white space-y-3">
                       <div className="border-b pb-2 flex justify-between items-center bg-slate-50 -mx-4 -mt-4 p-3 rounded-t-xl border-slate-200">
                         <span className="font-black text-xs text-slate-800 uppercase">🏢 {s.sala}</span>
-                        <span className="text-[10px] text-slate-500 font-bold">Gestor: {s.gestorSala}</span>
+                        <span className="text-[11px] text-slate-500 font-bold">Gestor: {s.gestorSala}</span>
                       </div>
 
                       <div className="divide-y divide-slate-100 space-y-3 pt-1">
                         {roomOccs.map((o) => {
                           const badgeColor = 
                             o.type === "autuacao" 
-                              ? "bg-red-50 text-[#E4002B] border-red-200" 
+                              ? "bg-red-50 text-[#ff2a6d] border-red-200" 
                               : o.type === "limpeza"
                               ? "bg-blue-50 text-blue-600 border-blue-200"
                               : "bg-amber-50 text-amber-600 border-amber-200";
@@ -2129,10 +2129,10 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                               {/* Left side details */}
                               <div className="flex-1 space-y-1.5">
                                 <div className="flex items-center gap-2">
-                                  <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
+                                  <span className={`text-[11px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
                                     {o.type}
                                   </span>
-                                  <span className="text-[9px] text-slate-500 font-semibold font-mono">
+                                  <span className="text-[11px] text-slate-500 font-semibold font-mono">
                                     🕒 {new Date(o.createdAt).toLocaleTimeString("pt-BR")}
                                   </span>
                                 </div>
@@ -2165,14 +2165,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* SEÇÃO 4: CHAMADOS DE SOLUÇÃO VINCULADOS */}
             {chamados.filter(c => c.rondaId === selectedRondaDetail.id).length > 0 && (
               <div className="space-y-2">
-                <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#E4002B] decoration-2 underline-offset-4">
+                <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                   4. Ações Corretivas e Chamados Gerados
                 </h3>
                 
                 <div className="overflow-hidden border border-slate-300 rounded-xl">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
-                      <tr className="bg-[#4D4D4D] text-white font-black text-[10px] uppercase">
+                      <tr className="bg-[#4D4D4D] text-white font-black text-[11px] uppercase">
                         <th className="p-2 border-r border-slate-300">Nº Chamado</th>
                         <th className="p-2 border-r border-slate-300">Ação Corretiva Proposta</th>
                         <th className="p-2 border-r border-slate-300">Responsável</th>
@@ -2214,7 +2214,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               return (
                 <div className="space-y-3 pt-6 border-t border-slate-200 page-break-before">
-                  <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#E4002B] decoration-2 underline-offset-4">
+                  <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
                     5. Anexo Fotográfico Detalhado (Evidências)
                   </h3>
                   
@@ -2224,7 +2224,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         <div className="h-44 sm:h-52 w-full overflow-hidden rounded-lg bg-slate-100">
                           <img src={img.src} alt={`Evidência ${index + 1}`} className="h-full w-full object-cover" />
                         </div>
-                        <div className="text-[10px] text-slate-500 font-semibold">
+                        <div className="text-[11px] text-slate-500 font-semibold">
                           <span className="block font-black text-slate-800 uppercase truncate">Ambiente: {img.room}</span>
                           <span className="block italic truncate">{img.desc}</span>
                         </div>
@@ -2236,7 +2236,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             })()}
 
             {/* SIGNATURE FIELDS */}
-            <div className="pt-12 grid grid-cols-2 gap-8 text-center text-[10px] font-bold text-slate-500 print:pt-6">
+            <div className="pt-12 grid grid-cols-2 gap-8 text-center text-[11px] font-bold text-slate-500 print:pt-6">
               <div className="space-y-1">
                 <div className="border-t border-slate-400 w-full pt-1 uppercase">
                   {selectedRondaDetail.user}
@@ -2261,16 +2261,16 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ========================================================================= */}
       {drillDownConfig && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             
             {/* Header */}
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <div>
-                <span className="bg-[#E4002B]/10 text-[#E4002B] font-black text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+                <span className="bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] px-2 py-0.5 rounded-md uppercase tracking-wider">
                   Módulo de Consulta Drill-Down
                 </span>
                 <h3 className="text-lg font-black text-slate-800 flex items-center gap-2 mt-1">
-                  <Clipboard className="h-5 w-5 text-[#E4002B]" /> {drillDownConfig.title}
+                  <Clipboard className="h-5 w-5 text-[#ff2a6d]" /> {drillDownConfig.title}
                 </h3>
               </div>
               <button 
@@ -2298,14 +2298,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="font-mono font-black text-slate-800 text-sm">{r.id}</span>
-                          <span className="bg-slate-100 text-slate-600 font-extrabold text-[10px] px-2 py-0.5 rounded-full uppercase">
+                          <span className="bg-slate-100 text-slate-600 font-extrabold text-[11px] px-2 py-0.5 rounded-full uppercase">
                             {r.filial}
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 font-medium">
                           Realizada por <strong className="text-slate-700">{r.user}</strong> em {new Date(r.date).toLocaleString("pt-BR")}
                         </p>
-                        <p className="text-xs text-[#E4002B] font-black uppercase tracking-wider">
+                        <p className="text-xs text-[#ff2a6d] font-black uppercase tracking-wider">
                           {r.salas.length} ambiente(s) vistoriado(s)
                         </p>
                       </div>
@@ -2318,7 +2318,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                             setRondaActiveSubView("detail_view");
                             setDrillDownConfig(null);
                           }}
-                          className="px-3 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase tracking-wider rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
+                          className="px-3 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase tracking-wider rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
                         >
                           <Eye className="h-3.5 w-3.5" /> Relatório
                         </button>
@@ -2345,7 +2345,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     const o: RondaOccurrence = item.occurrence;
                     const badgeColor = 
                       o.type === "autuacao" 
-                        ? "bg-red-50 text-[#E4002B] border-red-200" 
+                        ? "bg-red-50 text-[#ff2a6d] border-red-200" 
                         : o.type === "limpeza"
                         ? "bg-blue-50 text-blue-600 border-blue-200"
                         : "bg-amber-50 text-amber-600 border-amber-200";
@@ -2355,13 +2355,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         <div className="flex items-center justify-between flex-wrap gap-2">
                           <div className="flex items-center gap-2">
                             <span className="font-mono font-bold text-xs text-slate-500">{item.rondaId}</span>
-                            <span className="bg-slate-100 text-slate-600 font-bold text-[10px] px-2 py-0.5 rounded-full uppercase">
+                            <span className="bg-slate-100 text-slate-600 font-bold text-[11px] px-2 py-0.5 rounded-full uppercase">
                               {item.rondaFilial}
                             </span>
                             <span className="text-slate-500">/</span>
                             <span className="font-bold text-xs text-slate-700 uppercase">Ambiente: {item.salaName}</span>
                           </div>
-                          <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
+                          <span className={`text-[11px] font-black uppercase px-2 py-0.5 rounded-md border ${badgeColor}`}>
                             {o.type}
                           </span>
                         </div>
@@ -2380,7 +2380,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                           </div>
                         )}
 
-                        <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
+                        <div className="flex items-center justify-between text-[11px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
                           <span>Registrado por {item.rondaUser} em {new Date(o.createdAt).toLocaleString("pt-BR")}</span>
                           <div className="flex items-center gap-2">
                             <button 
@@ -2388,7 +2388,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                                 handleOpenCreateChamado(item.rondaId, item.salaId, o.id);
                                 setDrillDownConfig(null);
                               }}
-                              className="px-2.5 py-1 bg-slate-100 hover:bg-[#E4002B]/10 hover:text-[#E4002B] text-slate-700 rounded-md transition-colors"
+                              className="px-2.5 py-1 bg-slate-100 hover:bg-[#ff2a6d]/10 hover:text-[#ff2a6d] text-slate-700 rounded-md transition-colors"
                             >
                               + Gerar Chamado
                             </button>
@@ -2421,14 +2421,14 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-2">
                           <span className="font-mono font-black text-slate-800 text-sm">{c.id}</span>
-                          <span className="text-[10px] text-slate-500 font-bold">Ronda vinculada: {c.rondaId}</span>
+                          <span className="text-[11px] text-slate-500 font-bold">Ronda vinculada: {c.rondaId}</span>
                         </div>
                         
                         <div className="flex items-center gap-1">
                           <select 
                             value={c.status}
                             onChange={(e) => handleUpdateChamadoStatus(c.id, e.target.value as any)}
-                            className="text-[10px] font-black uppercase px-2 py-1 rounded-md border border-slate-200 bg-white focus:border-[#E4002B] outline-none"
+                            className="text-[11px] font-black uppercase px-2 py-1 rounded-md border border-slate-200 bg-white focus:border-[#ff2a6d] outline-none"
                           >
                             <option value="Aberto">Aberto</option>
                             <option value="Em andamento">Em andamento</option>
@@ -2441,7 +2441,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         {c.description}
                       </p>
 
-                      <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
+                      <div className="flex items-center justify-between text-[11px] text-slate-500 font-bold border-t border-slate-100 pt-2.5">
                         <span>Responsável: <strong className="text-slate-600 uppercase">{c.responsible}</strong> — Criado em {new Date(c.createdAt).toLocaleDateString("pt-BR")}</span>
                         <div className="flex items-center gap-2">
                           <button 
@@ -2487,39 +2487,39 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ========================================================================= */}
       {editingRonda && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide">Editar Identificação da Ronda</h3>
               <button onClick={() => setEditingRonda(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">ID da Ronda</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">ID da Ronda</label>
                 <input type="text" disabled value={editingRonda.id} className="w-full bg-slate-100 border border-slate-200 rounded-lg p-2.5 text-xs font-mono font-bold text-slate-600" />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Filial</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Filial</label>
                 <select 
                   value={editingRonda.filial}
                   onChange={(e) => setEditingRonda({ ...editingRonda, filial: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none"
                 >
                   {FILIAIS_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Data/Hora</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Data/Hora</label>
                 <input 
                   type="datetime-local" 
                   value={new Date(editingRonda.date).toISOString().slice(0, 16)} 
                   onChange={(e) => setEditingRonda({ ...editingRonda, date: new Date(e.target.value).toISOString() })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingRonda(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedRonda(editingRonda)} className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Salvar Alterações</button>
+              <button onClick={() => handleSaveEditedRonda(editingRonda)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar Alterações</button>
             </div>
           </div>
         </div>
@@ -2530,43 +2530,43 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ========================================================================= */}
       {editingSala && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide">Editar Ambiente Vistoriado</h3>
               <button onClick={() => setEditingSala(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.sala} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, sala: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.gestorSala} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, gestorSala: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
                 <input 
                   type="text" 
                   value={editingSala.sala.gerenteCarteira} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, gerenteCarteira: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingSala(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedSala(editingSala.rondaId, editingSala.sala)} className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
+              <button onClick={() => handleSaveEditedSala(editingSala.rondaId, editingSala.sala)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
             </div>
           </div>
         </div>
@@ -2587,28 +2587,28 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 fd.get("gestor") as string, 
                 fd.get("gerente") as string
               );
-            }} className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+            }} className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
               <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide">Adicionar Novo Ambiente</h3>
                 <button type="button" onClick={() => setAddingSalaToRondaId(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
               </div>
               <div className="p-5 space-y-4">
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
-                  <input type="text" name="sala" required placeholder="Ex: Recepção principal, Sala de Reunião 2" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
+                  <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
+                  <input type="text" name="sala" required placeholder="Ex: Recepção principal, Sala de Reunião 2" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
-                  <input type="text" name="gestor" placeholder="Ex: Maria Rodrigues" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
+                  <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
+                  <input type="text" name="gestor" placeholder="Ex: Maria Rodrigues" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
-                  <input type="text" name="gerente" placeholder="Ex: Diego Machado" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" />
+                  <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
+                  <input type="text" name="gerente" placeholder="Ex: Diego Machado" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
                 </div>
               </div>
               <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
                 <button type="button" onClick={() => setAddingSalaToRondaId(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-                <button type="submit" className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Adicionar</button>
+                <button type="submit" className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Adicionar</button>
               </div>
             </form>
           </div>
@@ -2620,17 +2620,17 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ========================================================================= */}
       {editingOccurrence && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-lg overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+          <div className="bg-white rounded-2xl w-full max-w-lg overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
-                <AlertTriangle className="h-4 w-4 text-[#E4002B]" /> Editar Ocorrência Registrada
+                <AlertTriangle className="h-4 w-4 text-[#ff2a6d]" /> Editar Ocorrência Registrada
               </h3>
               <button onClick={() => setEditingOccurrence(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
             </div>
             
             <div className="p-5 space-y-4 overflow-y-auto max-h-[60vh]">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(["autuacao", "limpeza", "manutencao"] as const).map(t => (
                     <button
@@ -2658,7 +2658,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-[10px] font-black uppercase text-slate-500">Descrição Detalhada</label>
+                  <label className="block text-[11px] font-black uppercase text-slate-500">Descrição Detalhada</label>
                   <button
                     type="button"
                     onClick={() => handleStartVoiceRecording((newVal) => {
@@ -2671,7 +2671,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         };
                       });
                     })}
-                    className={`inline-flex items-center gap-1 text-[10px] font-black uppercase px-2.5 py-1 rounded-md transition-colors ${
+                    className={`inline-flex items-center gap-1 text-[11px] font-black uppercase px-2.5 py-1 rounded-md transition-colors ${
                       isRecording ? "bg-red-500 text-white animate-pulse" : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                     }`}
                   >
@@ -2680,7 +2680,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 </div>
                 
                 {speechError && (
-                  <p className="text-[10px] font-bold text-red-500 mb-2 bg-red-50 p-2 rounded-lg border border-red-100">{speechError}</p>
+                  <p className="text-[11px] font-bold text-red-500 mb-2 bg-red-50 p-2 rounded-lg border border-red-100">{speechError}</p>
                 )}
 
                 <textarea
@@ -2701,13 +2701,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   })}
                   rows={4}
                   placeholder="Descreva o problem observado ou use o botão de ditado por voz. Cole imagens diretamente com Ctrl+V ou colar."
-                  className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#E4002B] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none"
                 />
-                <span className="block text-[9px] text-slate-500 font-semibold mt-1">Dica: Cole um arquivo de imagem direto na caixa acima para anexar.</span>
+                <span className="block text-[11px] text-slate-500 font-semibold mt-1">Dica: Cole um arquivo de imagem direto na caixa acima para anexar.</span>
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({editingOccurrence.occurrence.images.length})</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({editingOccurrence.occurrence.images.length})</label>
                 
                 {editingOccurrence.occurrence.images.length > 0 && (
                   <div className="grid grid-cols-4 gap-2 border border-slate-100 bg-slate-50/50 p-2.5 rounded-xl">
@@ -2735,7 +2735,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                 <div className="mt-2.5">
                   <label className="relative flex items-center justify-center border border-dashed border-slate-300 rounded-xl p-4 cursor-pointer hover:bg-slate-50 transition-colors">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
                       <Image className="h-4 w-4 text-slate-500" /> Anexar novas fotos (Upload local)
                     </span>
                     <input
@@ -2774,7 +2774,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingOccurrence(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedOccurrence(editingOccurrence.rondaId, editingOccurrence.salaId, editingOccurrence.occurrence)} className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Salvar Ocorrência</button>
+              <button onClick={() => handleSaveEditedOccurrence(editingOccurrence.rondaId, editingOccurrence.salaId, editingOccurrence.occurrence)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar Ocorrência</button>
             </div>
           </div>
         </div>
@@ -2799,7 +2799,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
         return (
           <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl w-full max-w-lg overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl w-full max-w-lg overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
               <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide">Registrar Ocorrência</h3>
                 <button type="button" onClick={() => setAddingOccToSala(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
@@ -2807,7 +2807,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               
               <div className="p-5 space-y-4 overflow-y-auto max-h-[60vh]">
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
+                  <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Tipo de Ocorrência</label>
                   <div className="grid grid-cols-3 gap-2">
                     {(["autuacao", "limpeza", "manutencao"] as const).map(t => (
                       <button
@@ -2832,11 +2832,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <label className="block text-[10px] font-black uppercase text-slate-500">Descrição Detalhada</label>
+                    <label className="block text-[11px] font-black uppercase text-slate-500">Descrição Detalhada</label>
                     <button
                       type="button"
                       onClick={() => handleStartVoiceRecording(setOccDesc)}
-                      className={`inline-flex items-center gap-1 text-[10px] font-black uppercase px-2.5 py-1 rounded-md transition-colors ${
+                      className={`inline-flex items-center gap-1 text-[11px] font-black uppercase px-2.5 py-1 rounded-md transition-colors ${
                         isRecording ? "bg-red-500 text-white animate-pulse" : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                       }`}
                     >
@@ -2845,7 +2845,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   </div>
                   
                   {speechError && (
-                    <p className="text-[10px] font-bold text-red-500 mb-2 bg-red-50 p-2 rounded-lg border border-red-100">{speechError}</p>
+                    <p className="text-[11px] font-bold text-red-500 mb-2 bg-red-50 p-2 rounded-lg border border-red-100">{speechError}</p>
                   )}
 
                   <textarea
@@ -2854,12 +2854,12 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     onPaste={(e) => handlePasteEventGeneric(e, setOccImages)}
                     rows={4}
                     placeholder="Descreva o problema observado..."
-                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#E4002B] outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({occImages.length})</label>
+                  <label className="block text-[11px] font-black uppercase text-slate-500 mb-1.5">Fotos Anexadas ({occImages.length})</label>
                   
                   {occImages.length > 0 && (
                     <div className="grid grid-cols-4 gap-2 border border-slate-100 bg-slate-50/50 p-2.5 rounded-xl">
@@ -2880,7 +2880,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                   <div className="mt-2.5">
                     <label className="relative flex items-center justify-center border border-dashed border-slate-300 rounded-xl p-4 cursor-pointer hover:bg-slate-50 transition-colors">
-                      <span className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                      <span className="text-[11px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
                         <Image className="h-4 w-4 text-slate-500" /> Upload de Imagem local
                       </span>
                       <input
@@ -2909,7 +2909,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
                 <button type="button" onClick={() => setAddingOccToSala(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-                <button type="submit" className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Registrar</button>
+                <button type="submit" className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Registrar</button>
               </div>
             </form>
           </div>
@@ -2921,36 +2921,36 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ========================================================================= */}
       {editingChamado && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-slate-100 animate-scale-up">
+          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide">Editar Chamado Técnico</h3>
               <button onClick={() => setEditingChamado(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Ação Corretiva Proposta</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Ação Corretiva Proposta</label>
                 <textarea 
                   value={editingChamado.description} 
                   onChange={(e) => setEditingChamado({ ...editingChamado, description: e.target.value })}
                   rows={3}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Responsável pela Resolução</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Responsável pela Resolução</label>
                 <input 
                   type="text" 
                   value={editingChamado.responsible} 
                   onChange={(e) => setEditingChamado({ ...editingChamado, responsible: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase text-slate-500 mb-1">Status</label>
+                <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Status</label>
                 <select 
                   value={editingChamado.status}
                   onChange={(e) => setEditingChamado({ ...editingChamado, status: e.target.value as any })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#E4002B] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none"
                 >
                   <option value="Aberto">Aberto</option>
                   <option value="Em andamento">Em andamento</option>
@@ -2960,7 +2960,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingChamado(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedChamado(editingChamado)} className="px-4 py-1.5 bg-[#E4002B] hover:bg-[#c30024] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
+              <button onClick={() => handleSaveEditedChamado(editingChamado)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
             </div>
           </div>
         </div>
@@ -2969,7 +2969,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ASSISTÊNCIA DE IMPRESSÃO PARA AMBIENTE SANDBOX / IFRAME */}
       {showPrintModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-2 border-[#E4002B] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-md border-2 border-[#ff2a6d] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
             <button 
               onClick={() => setShowPrintModal(false)}
               className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition-colors cursor-pointer"
@@ -2979,13 +2979,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </button>
 
             <div className="text-center space-y-1.5">
-              <div className="h-11 w-11 rounded-full bg-red-50 flex items-center justify-center text-[#E4002B] mx-auto border border-red-100 animate-pulse">
+              <div className="h-11 w-11 rounded-full bg-red-50 flex items-center justify-center text-[#ff2a6d] mx-auto border border-red-100 animate-pulse">
                 <Printer className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight">
                 Guia para Impressão do Relatório
               </h3>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+              <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
                 Restrição de Segurança do Google AI Studio
               </p>
             </div>
@@ -2994,19 +2994,19 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               <p>
                 Por estar executando em uma janela de testes integrada (iframe do AI Studio), o navegador bloqueia a abertura direta do diálogo de impressão.
               </p>
-              <p className="p-2.5 rounded-xl border border-red-100 bg-red-50/40 text-[#E4002B] font-bold">
+              <p className="p-2.5 rounded-xl border border-red-100 bg-red-50/40 text-[#ff2a6d] font-bold">
                 Para gerar o PDF ou imprimir com perfeição gráfica, por favor use uma das alternativas abaixo:
               </p>
               
               <div className="space-y-2.5 pl-1.5 list-none">
                 <div className="flex items-start gap-2">
-                  <span className="h-4 w-4 rounded-full bg-slate-150 flex items-center justify-center text-slate-600 text-[10px] font-bold shrink-0 mt-0.5">1</span>
+                  <span className="h-4 w-4 rounded-full bg-slate-150 flex items-center justify-center text-slate-600 text-[11px] font-bold shrink-0 mt-0.5">1</span>
                   <p>
                     <strong>Abrir em Nova Guia (Recomendado):</strong> Clique no botão vermelho abaixo para carregar o aplicativo em tela cheia e, em seguida, abra o relatório e clique em imprimir normalmente.
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="h-4 w-4 rounded-full bg-slate-150 flex items-center justify-center text-slate-600 text-[10px] font-bold shrink-0 mt-0.5">2</span>
+                  <span className="h-4 w-4 rounded-full bg-slate-150 flex items-center justify-center text-slate-600 text-[11px] font-bold shrink-0 mt-0.5">2</span>
                   <p>
                     <strong>Atalho do Teclado:</strong> Simplesmente pressione <strong>Ctrl + P</strong> (ou <strong>⌘ + P</strong> no Mac) em seu teclado agora para abrir o painel de impressão nativo!
                     </p>
@@ -3020,7 +3020,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#E4002B] hover:bg-[#c30024] text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#c21e54] text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

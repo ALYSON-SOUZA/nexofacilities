@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Supplier, QuoteItem } from "../types";
 import { 
   Upload, 
@@ -696,13 +696,13 @@ export default function FileImporter({
   };
 
   return (
-    <div id="smart-import-modal" className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 animate-fade-in font-sans">
-      <div className="bg-white rounded-[24px] border border-slate-200 shadow-2xl w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
+    <div id="smart-import-modal" className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 animate-fade-in">
+      <div className="bg-white rounded-[24px] border border-slate-200 shadow-md w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
         
         {/* Header bar styled precisely like Header.tsx fuchsia highlights */}
         <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#ff2a6d] shrink-0">
           <div className="flex items-center gap-2">
-            <span className="bg-[#ff2a6d] text-white font-black text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm flex items-center gap-1 animate-pulse">
+            <span className="bg-[#ff2a6d] text-white font-black text-[11px] uppercase tracking-wider px-2 py-0.5 rounded-sm flex items-center gap-1 animate-pulse">
               <Sparkles className="h-3 w-3 shrink-0" /> IMPORTAÇÃO INTELIGENTE VIA IA
             </span>
             <h3 className="text-sm font-black tracking-tight uppercase">Smart Import de Propostas Comerciais</h3>
@@ -726,7 +726,7 @@ export default function FileImporter({
               <button
                 type="button"
                 onClick={() => { setImportMode("file"); setErrorStatus(""); }}
-                className={`py-2 text-[10px] font-black rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-tight ${
+                className={`py-2 text-[11px] font-black rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-tight ${
                   importMode === "file" ? "bg-[#1E222B] text-white shadow-xs" : "text-slate-500 hover:text-slate-950"
                 }`}
               >
@@ -736,7 +736,7 @@ export default function FileImporter({
               <button
                 type="button"
                 onClick={() => { setImportMode("paste"); setErrorStatus(""); }}
-                className={`py-2 text-[10px] font-black rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-tight ${
+                className={`py-2 text-[11px] font-black rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-tight ${
                   importMode === "paste" ? "bg-[#1E222B] text-white shadow-xs" : "text-slate-500 hover:text-slate-950"
                 }`}
               >
@@ -747,7 +747,7 @@ export default function FileImporter({
 
             {/* ERROR DISPLAY */}
             {errorStatus && (
-              <div className="p-3 bg-rose-50 border border-rose-100 text-rose-950 rounded-xl flex gap-2 text-[10.5px]/snug font-bold animate-fade-in">
+              <div className="p-3 bg-rose-50 border border-rose-100 text-rose-950 rounded-xl flex gap-2 text-[11px]/snug font-bold animate-fade-in">
                 <AlertTriangle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
                 <p>{errorStatus}</p>
               </div>
@@ -759,7 +759,7 @@ export default function FileImporter({
                 <Loader2 className="h-8 w-8 text-[#ff2a6d] animate-spin" />
                 <div className="space-y-1">
                   <p className="text-xs font-black text-slate-800 uppercase tracking-tight">Leitura Inteligente por IA</p>
-                  <p className="text-[10px] text-slate-500 font-medium leading-relaxed max-w-[240px]">{loadingStep}</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-relaxed max-w-[240px]">{loadingStep}</p>
                 </div>
               </div>
             )}
@@ -784,13 +784,13 @@ export default function FileImporter({
                   </div>
                   <div className="space-y-1">
                     <p className="text-xs font-black text-slate-950 uppercase tracking-tight">Arraste ou clique para enviar</p>
-                    <p className="text-[9.5px] text-slate-450 leading-tight px-3">
+                    <p className="text-[11px] text-slate-450 leading-tight px-3">
                       Imagens (prints/fotos), PDF, Excel (.xlsx, .xls), Word (.docx), CSV ou TXT.
                     </p>
                   </div>
                   <button
                     type="button"
-                    className="rounded-full bg-[#1E222B] hover:bg-slate-900 text-white font-black text-[9px] px-3.5 py-1.5 tracking-wider uppercase cursor-pointer transition-all border border-slate-700"
+                    className="rounded-full bg-[#1E222B] hover:bg-slate-900 text-white font-black text-[11px] px-3.5 py-1.5 tracking-wider uppercase cursor-pointer transition-all border border-slate-700"
                   >
                     Procurar no Computador
                   </button>
@@ -804,10 +804,10 @@ export default function FileImporter({
                 </div>
               ) : (
                 <div className="flex flex-col space-y-2 flex-1">
-                  <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest block leading-none">
+                  <label className="text-[11px] font-black text-slate-500 uppercase tracking-widest block leading-none">
                     Área de Colagem (Imagem ou Texto)
                   </label>
-                  <p className="text-[9.5px] text-slate-500 leading-normal">
+                  <p className="text-[11px] text-slate-500 leading-normal">
                     Selecione a tabela da proposta comercial e dê <strong>Ctrl+C</strong>, depois clique no campo abaixo e dê <strong>Ctrl+V</strong> para a IA processar!
                   </p>
                   <textarea
@@ -825,7 +825,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                     type="button"
                     onClick={() => handleAnalyzeTextContent(pasteText)}
                     disabled={!pasteText.trim()}
-                    className={`w-full py-2.5 rounded-xl font-black text-[10px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-2xs transition-all ${
+                    className={`w-full py-2.5 rounded-xl font-black text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-2xs transition-all ${
                       pasteText.trim()
                         ? "bg-[#1E222B] text-white hover:bg-[#ff2a6d] hover:text-white cursor-pointer"
                         : "bg-slate-200 text-slate-450 cursor-not-allowed"
@@ -839,11 +839,11 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
             )}
 
             {/* Guide Info */}
-            <div className="p-3 bg-slate-50 rounded-[14px] text-[10px]/relaxed border border-slate-150 font-semibold text-slate-650 leading-relaxed">
-              <span className="font-bold flex items-center gap-1 text-slate-950 border-b border-slate-200 pb-1 mb-1.5 text-[9px] uppercase">
+            <div className="p-3 bg-slate-50 rounded-[14px] text-[11px]/relaxed border border-slate-150 font-semibold text-slate-650 leading-relaxed">
+              <span className="font-bold flex items-center gap-1 text-slate-950 border-b border-slate-200 pb-1 mb-1.5 text-[11px] uppercase">
                 <HelpCircle className="h-3.5 w-3.5 text-[#ff2a6d]" /> Regras Integradas (RN01-RN09)
               </span>
-              <ul className="list-disc pl-3.5 space-y-1 text-[9px]/relaxed text-slate-500 font-medium">
+              <ul className="list-disc pl-3.5 space-y-1 text-[11px]/relaxed text-slate-500 font-medium">
                 <li><strong>Identificação automática</strong> do Fornecedor por similaridade (CNPJ/Nome).</li>
                 <li><strong>Divergências de preços</strong> comparadas e destacadas para aprovação (RN03).</li>
                 <li><strong>Novos produtos</strong> adicionados sem duplicidade silenciosa (RN04/RN05).</li>
@@ -858,17 +858,17 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
             {/* Header of Audit Review */}
             <div className="bg-slate-100 p-3 flex items-center justify-between border-b border-slate-200 shrink-0">
               <div className="flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1E222B] text-white text-[10px] font-mono font-black">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1E222B] text-white text-[11px] font-mono font-black">
                   {auditedSuppliers.length}
                 </span>
-                <span className="text-[10px] font-black text-slate-800 uppercase tracking-tight">Painel de Auditoria de Orçamentos por Fornecedor</span>
+                <span className="text-[11px] font-black text-slate-800 uppercase tracking-tight">Painel de Auditoria de Orçamentos por Fornecedor</span>
               </div>
               {auditedSuppliers.length > 0 && (
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setIsTableReviewOpen(true)}
-                    className="text-[9.5px] font-black text-[#ff2a6d] hover:text-[#c21e54] hover:underline cursor-pointer uppercase flex items-center gap-1"
+                    className="text-[11px] font-black text-[#ff2a6d] hover:text-[#c21e54] hover:underline cursor-pointer uppercase flex items-center gap-1"
                   >
                     <Table className="h-3.5 w-3.5" /> Abrir Tabela de Revisão
                   </button>
@@ -876,7 +876,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   <button
                     type="button"
                     onClick={() => setAuditedSuppliers([])}
-                    className="text-[9px] font-black text-rose-600 hover:text-rose-800 hover:underline cursor-pointer uppercase"
+                    className="text-[11px] font-black text-rose-600 hover:text-rose-800 hover:underline cursor-pointer uppercase"
                   >
                     Descartar Tudo
                   </button>
@@ -911,18 +911,18 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                               placeholder="NOME DO FORNECEDOR"
                             />
                             {audSup.isNew ? (
-                              <span className="bg-emerald-100 text-emerald-850 font-black text-[8px] uppercase px-1.5 py-0.5 rounded-sm tracking-tight border border-emerald-200">
+                              <span className="bg-emerald-100 text-emerald-850 font-black text-[11px] uppercase px-1.5 py-0.5 rounded-sm tracking-tight border border-emerald-200">
                                 ✨ Fornecedor Novo (RN02)
                               </span>
                             ) : (
-                              <span className="bg-cyan-100 text-cyan-850 font-black text-[8px] uppercase px-1.5 py-0.5 rounded-sm tracking-tight border border-cyan-200">
+                              <span className="bg-[#ff2a6d]/10 text-[#111c2e] font-black text-[11px] uppercase px-1.5 py-0.5 rounded-sm tracking-tight border border-[#ff2a6d]/20">
                                 🏢 Cadastrado (RN01)
                               </span>
                             )}
                           </div>
                           
                           {/* Supplier extra details */}
-                          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-[9.5px] text-slate-450 font-semibold uppercase">
+                          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-[11px] text-slate-450 font-semibold uppercase">
                             {audSup.cnpj && (
                               <span>CNPJ: {audSup.cnpj}</span>
                             )}
@@ -953,7 +953,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                       <button
                         type="button"
                         onClick={() => handleAddBlankRow(audSup.id)}
-                        className="text-[9.5px] font-black text-emerald-600 hover:text-emerald-800 flex items-center gap-1 border border-emerald-200 rounded-full px-2.5 py-1 hover:bg-emerald-50 cursor-pointer"
+                        className="text-[11px] font-black text-emerald-600 hover:text-emerald-800 flex items-center gap-1 border border-emerald-200 rounded-full px-2.5 py-1 hover:bg-emerald-50 cursor-pointer"
                       >
                         <Plus className="h-3 w-3 text-emerald-500" /> Adicionar Item
                       </button>
@@ -1006,7 +1006,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                     />
                                     
                                     {/* Status Label Tag */}
-                                    <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded-sm shrink-0 border ${
+                                    <span className={`text-[11px] font-black uppercase px-1.5 py-0.5 rounded-sm shrink-0 border ${
                                       audItem.status === "pending" ? "bg-rose-100 text-rose-800 border-rose-200 animate-pulse" :
                                       audItem.status === "new_item" ? "bg-emerald-100 text-emerald-850 border-emerald-200" :
                                       audItem.status === "divergent" ? "bg-amber-100 text-amber-850 border-amber-200" :
@@ -1018,13 +1018,13 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
 
                                   {/* Error/Warning note if pending, or comparison info */}
                                   {audItem.status === "pending" && audItem.reviewReason && (
-                                    <p className="text-[9px] text-rose-600 font-semibold mt-0.5 flex items-center gap-1">
+                                    <p className="text-[11px] text-rose-600 font-semibold mt-0.5 flex items-center gap-1">
                                       <AlertTriangle className="h-3 w-3 shrink-0" /> {audItem.reviewReason}
                                     </p>
                                   )}
 
                                   {audItem.status === "divergent" && audItem.oldPrice !== null && (
-                                    <p className="text-[9.5px] text-slate-500 font-bold mt-1">
+                                    <p className="text-[11px] text-slate-500 font-bold mt-1">
                                       Divergência detectada: <span className="line-through text-slate-500">{formatCurrency(audItem.oldPrice)}</span> ➔ <span className="text-[#ff2a6d] font-black">{formatCurrency(audItem.unitPrice)}</span> (Valor da Proposta)
                                     </p>
                                   )}
@@ -1033,25 +1033,25 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
 
                               {/* Qty and Price Inputs */}
                               <div className="flex items-center gap-3 shrink-0 self-end md:self-auto pl-6 md:pl-0">
-                                <div className="flex items-center gap-1 text-[10.5px]">
-                                  <span className="text-[8px] font-black text-slate-500 uppercase tracking-wider">QTD:</span>
+                                <div className="flex items-center gap-1 text-[11px]">
+                                  <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">QTD:</span>
                                   <input
                                     type="number"
                                     min={1}
                                     value={audItem.quantity}
                                     onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "quantity", e.target.value)}
-                                    className="w-10 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-[#ff2a6d] focus:outline-[#ff2a6d]"
+                                    className="w-10 text-center rounded-sm border border-slate-200 py-0.5 text-[11px] font-extrabold text-[#ff2a6d] focus:outline-[#ff2a6d]"
                                   />
                                 </div>
 
-                                <div className="flex items-center gap-1 text-[10.5px]">
-                                  <span className="text-[8px] font-black text-slate-500 uppercase tracking-wider">R$ Unit:</span>
+                                <div className="flex items-center gap-1 text-[11px]">
+                                  <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">R$ Unit:</span>
                                   <input
                                     type="number"
                                     step="0.01"
                                     value={audItem.unitPrice || ""}
                                     onChange={(e) => handleItemFieldUpdate(audSup.id, audItem.id, "unitPrice", e.target.value)}
-                                    className="w-16 text-center rounded-sm border border-slate-200 py-0.5 text-[10px] font-extrabold text-slate-900 focus:outline-[#ff2a6d]"
+                                    className="w-16 text-center rounded-sm border border-slate-200 py-0.5 text-[11px] font-extrabold text-slate-900 focus:outline-[#ff2a6d]"
                                     placeholder="R$ 0,00"
                                   />
                                 </div>
@@ -1069,7 +1069,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                           );
                         })
                       ) : (
-                        <div className="p-4 text-center text-[10px] text-slate-450 uppercase font-black">
+                        <div className="p-4 text-center text-[11px] text-slate-450 uppercase font-black">
                           Sem itens extraídos. Adicione manualmente ou re-envie a proposta.
                         </div>
                       )}
@@ -1081,7 +1081,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                 <div className="h-full flex flex-col items-center justify-center text-center p-12 text-slate-500 my-auto">
                   <Sparkles className="h-10 w-10 text-[#ff2a6d] mb-2 animate-bounce" />
                   <p className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">Aguardando Proposta para Análise...</p>
-                  <p className="text-[9.5px] max-w-[320px] text-slate-500 leading-relaxed mt-1 font-medium">
+                  <p className="text-[11px] max-w-[320px] text-slate-500 leading-relaxed mt-1 font-medium">
                     Arraste ou anexe uma proposta comercial (imagem/PDF/Excel) ou copie e cole o texto do orçamento do fornecedor na caixa de texto. O Gemini fará a leitura e auditoria instantaneamente!
                   </p>
                 </div>
@@ -1090,7 +1090,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
 
             {/* Bottom Actions of Dynamic Preview */}
             <div className="bg-slate-100 p-3.5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
-              <div className="text-[10px]/normal text-slate-500 font-semibold max-w-[380px]">
+              <div className="text-[11px]/normal text-slate-500 font-semibold max-w-[380px]">
                 {auditedSuppliers.length > 0 && (
                   <p className="flex items-center gap-1.5 text-slate-600">
                     <Check className="h-4 w-4 text-emerald-500 shrink-0" /> 
@@ -1103,7 +1103,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full bg-white hover:bg-slate-50 border border-slate-200 px-5 py-2 text-[10px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-700"
+                  className="rounded-full bg-white hover:bg-slate-50 border border-slate-200 px-5 py-2 text-[11px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-700"
                 >
                   Cancelar (RN07)
                 </button>
@@ -1112,7 +1112,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   <button
                     type="button"
                     onClick={() => setIsTableReviewOpen(true)}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 px-5 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-850"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 px-5 py-2.5 text-[11px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-850"
                   >
                     <Table className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     Visualizar em Tabela
@@ -1123,7 +1123,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   type="button"
                   onClick={handleConfirmMerge}
                   disabled={auditedSuppliers.length === 0 || !auditedSuppliers.some(s => s.selectedToApply)}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
+                  className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[11px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
                     auditedSuppliers.length > 0 && auditedSuppliers.some(s => s.selectedToApply)
                       ? "bg-[#ff2a6d] hover:bg-[#c21e54] text-white cursor-pointer"
                       : "bg-slate-200 text-slate-500 cursor-not-allowed"
@@ -1144,7 +1144,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
         {/* MODAL POPUP PARA REVISÃO EM FORMATO DE TABELA ESTILO PLANILHA */}
         {isTableReviewOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/70 backdrop-blur-xs p-2 sm:p-4 print:hidden">
-            <div className="bg-white rounded-[24px] border-2 border-[#ff2a6d] shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-scale-up text-slate-800">
+            <div className="bg-white rounded-[24px] border-2 border-[#ff2a6d] shadow-md w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-scale-up text-slate-800">
               
               {/* Modal Header */}
               <div className="bg-[#1E222B] text-white p-4 flex items-center justify-between border-b-4 border-[#ff2a6d] shrink-0">
@@ -1152,7 +1152,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                   <Table className="h-5 w-5 text-[#ff2a6d] shrink-0" />
                   <div>
                     <h3 className="text-sm font-black tracking-tight uppercase">Revisar Itens Extraídos pela IA</h3>
-                    <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Edite as informações na tabela antes de confirmar a inclusão na cotação</p>
+                    <p className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">Edite as informações na tabela antes de confirmar a inclusão na cotação</p>
                   </div>
                 </div>
                 <button
@@ -1170,7 +1170,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                 <div className="flex-1 overflow-auto rounded-xl border border-slate-200 bg-white shadow-3xs max-h-full">
                   <table className="w-full text-left border-collapse min-w-[700px]">
                     <thead>
-                      <tr className="bg-slate-100 border-b border-slate-200 text-[10px] font-black text-slate-700 uppercase tracking-wider sticky top-0 z-10">
+                      <tr className="bg-slate-100 border-b border-slate-200 text-[11px] font-black text-slate-700 uppercase tracking-wider sticky top-0 z-10">
                         <th className="py-2.5 px-3 w-10 text-center">Ativar</th>
                         <th className="py-2.5 px-3 min-w-[150px]">Fornecedor</th>
                         <th className="py-2.5 px-3 min-w-[200px]">Produto / Material</th>
@@ -1221,7 +1221,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                       onChange={(e) => handleSupplierFieldUpdate(audSup.id, "name", e.target.value)}
                                       className="font-black text-slate-900 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#ff2a6d] uppercase text-[11px] w-full"
                                     />
-                                    <span className="text-[8.5px] text-slate-500 font-semibold pl-1">
+                                    <span className="text-[11px] text-slate-500 font-semibold pl-1">
                                       {audSup.isNew ? "✨ NOVO FORNECEDOR" : "🏢 CADASTRADO"}
                                     </span>
                                   </div>
@@ -1237,12 +1237,12 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                       className="font-bold text-slate-800 bg-transparent hover:bg-slate-50 focus:bg-white focus:outline-none p-1 rounded border border-transparent hover:border-slate-300 focus:border-[#ff2a6d] text-[11px] w-full"
                                     />
                                     {audItem.status === "pending" && audItem.reviewReason && (
-                                      <span className="text-[8.5px] text-rose-600 font-semibold pl-1 flex items-center gap-1">
+                                      <span className="text-[11px] text-rose-600 font-semibold pl-1 flex items-center gap-1">
                                         ⚠️ {audItem.reviewReason}
                                       </span>
                                     )}
                                     {audItem.status === "divergent" && audItem.oldPrice !== null && (
-                                      <span className="text-[8.5px] text-amber-700 font-semibold pl-1">
+                                      <span className="text-[11px] text-amber-700 font-semibold pl-1">
                                         Anterior: R$ {audItem.oldPrice.toFixed(2)}
                                       </span>
                                     )}
@@ -1263,7 +1263,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                                 {/* Valor Unitário */}
                                 <td className="py-2 px-3 text-center">
                                   <div className="relative inline-block w-28">
-                                    <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-slate-500">R$</span>
+                                    <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[11px] font-bold text-slate-500">R$</span>
                                     <input
                                       type="number"
                                       step="0.01"
@@ -1277,7 +1277,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
 
                                 {/* Status / Alerta */}
                                 <td className="py-2 px-3">
-                                  <span className={`inline-block text-[8px] font-black uppercase px-2 py-0.5 rounded-sm border ${statusColor}`}>
+                                  <span className={`inline-block text-[11px] font-black uppercase px-2 py-0.5 rounded-sm border ${statusColor}`}>
                                     {statusText}
                                   </span>
                                 </td>
@@ -1331,7 +1331,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                           setTimeout(() => handleAddBlankRow(tempSupId), 50);
                         }
                       }}
-                      className="inline-flex items-center gap-1 bg-slate-900 hover:bg-slate-800 text-white text-[10px] font-black uppercase px-3.5 py-2 rounded-full transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-black uppercase px-3.5 py-2 rounded-full transition-colors cursor-pointer"
                     >
                       <Plus className="h-3.5 w-3.5" /> Adicionar Linha em Branco
                     </button>
@@ -1341,7 +1341,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                     <button
                       type="button"
                       onClick={() => setIsTableReviewOpen(false)}
-                      className="rounded-full bg-white hover:bg-slate-50 border border-slate-200 px-5 py-2 text-[10px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-700"
+                      className="rounded-full bg-white hover:bg-slate-50 border border-slate-200 px-5 py-2 text-[11px] font-black tracking-wider uppercase transition-all shadow-3xs cursor-pointer text-slate-700"
                     >
                       Voltar ao Painel
                     </button>
@@ -1353,7 +1353,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                         setIsTableReviewOpen(false);
                       }}
                       disabled={auditedSuppliers.length === 0 || !auditedSuppliers.some(s => s.selectedToApply && s.items.some(i => i.selectedToApply))}
-                      className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[10px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
+                      className={`inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-[11px] font-black tracking-wider uppercase transition-all shadow-md active:scale-98 ${
                         auditedSuppliers.length > 0 && auditedSuppliers.some(s => s.selectedToApply && s.items.some(i => i.selectedToApply))
                           ? "bg-[#ff2a6d] hover:bg-[#c21e54] text-white cursor-pointer"
                           : "bg-slate-200 text-slate-500 cursor-not-allowed"

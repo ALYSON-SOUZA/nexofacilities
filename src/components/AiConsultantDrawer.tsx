@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, X, AlertTriangle, HelpCircle, TrendingDown, Check, 
@@ -155,7 +155,7 @@ export default function AiConsultantDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-white shadow-2xl flex flex-col font-sans print:hidden border-l border-slate-200"
+            className="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-white shadow-md flex flex-col print:hidden border-l border-slate-200"
           >
             {/* Header */}
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between select-none">
@@ -165,7 +165,7 @@ export default function AiConsultantDrawer({
                 </div>
                 <div>
                   <h3 className="text-sm font-black tracking-tight uppercase">Assistente de IA</h3>
-                  <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Consultoria em Facilities</p>
+                  <p className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">Consultoria em Facilities</p>
                 </div>
               </div>
 
@@ -212,7 +212,7 @@ export default function AiConsultantDrawer({
                     <ShieldAlert className="h-5 w-5 shrink-0 mt-0.5" />
                     <div>
                       <h4 className="font-bold text-xs text-rose-900">Falha ao processar dados</h4>
-                      <p className="text-[10px] text-rose-700 font-medium leading-relaxed mt-1">
+                      <p className="text-[11px] text-rose-700 font-medium leading-relaxed mt-1">
                         {error}
                       </p>
                     </div>
@@ -238,7 +238,7 @@ export default function AiConsultantDrawer({
                     <h4 className="text-xs font-black text-slate-900 mt-1 uppercase">
                       {activeCategoryName || "Geral"}
                     </h4>
-                    <p className="text-[10px] text-slate-500 font-medium mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 font-medium mt-0.5 leading-relaxed">
                       Sua cotação possui <strong className="text-slate-700">{items.length} itens</strong> com marcas e orçamentos de <strong className="text-slate-700">{suppliers.length} fornecedores</strong>.
                     </p>
                   </div>
@@ -247,7 +247,7 @@ export default function AiConsultantDrawer({
                   <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-lg">
                     <button
                       onClick={() => setActiveTab("alerts")}
-                      className={`py-1.5 text-[10px] font-black uppercase tracking-wider rounded-md transition-all ${
+                      className={`py-1.5 text-[11px] font-black uppercase tracking-wider rounded-md transition-all ${
                         activeTab === "alerts"
                           ? "bg-white shadow-xs text-slate-900"
                           : "text-slate-500 hover:text-slate-700"
@@ -257,7 +257,7 @@ export default function AiConsultantDrawer({
                     </button>
                     <button
                       onClick={() => setActiveTab("savings")}
-                      className={`py-1.5 text-[10px] font-black uppercase tracking-wider rounded-md transition-all ${
+                      className={`py-1.5 text-[11px] font-black uppercase tracking-wider rounded-md transition-all ${
                         activeTab === "savings"
                           ? "bg-white shadow-xs text-slate-900"
                           : "text-slate-500 hover:text-slate-700"
@@ -267,7 +267,7 @@ export default function AiConsultantDrawer({
                     </button>
                     <button
                       onClick={() => setActiveTab("services")}
-                      className={`py-1.5 text-[10px] font-black uppercase tracking-wider rounded-md transition-all ${
+                      className={`py-1.5 text-[11px] font-black uppercase tracking-wider rounded-md transition-all ${
                         activeTab === "services"
                           ? "bg-white shadow-xs text-slate-900"
                           : "text-slate-500 hover:text-slate-700"
@@ -287,7 +287,7 @@ export default function AiConsultantDrawer({
                           </div>
                           <div>
                             <p className="text-xs font-black text-slate-800 uppercase">Tudo certo com os itens!</p>
-                            <p className="text-[10px] text-slate-500 font-medium mt-1">
+                            <p className="text-[11px] text-slate-500 font-medium mt-1">
                               Nenhuma inconsistência de unidade ou divergência séria de preço foi detectada na cotação ativa.
                             </p>
                           </div>
@@ -299,20 +299,20 @@ export default function AiConsultantDrawer({
                               <span className="text-[11px] font-black text-slate-900 uppercase tracking-tight truncate max-w-[250px]">
                                 {issue.itemName}
                               </span>
-                              <span className={`px-2 py-0.5 rounded-[4px] text-[8.5px] uppercase tracking-wider ${getSeverityBadge(issue.severity)}`}>
+                              <span className={`px-2 py-0.5 rounded-[4px] text-[11px] uppercase tracking-wider ${getSeverityBadge(issue.severity)}`}>
                                 {issue.severity === "high" ? "Grave" : issue.severity === "medium" ? "Moderado" : "Leve"}
                               </span>
                             </div>
 
-                            <p className="text-[10px] text-slate-600 font-medium leading-relaxed">
+                            <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
                               {issue.description}
                             </p>
 
                             <div className="pt-2 border-t border-slate-50 bg-slate-50/50 rounded-lg p-2.5">
-                              <span className="text-[8.5px] font-black uppercase text-slate-500 tracking-wider block mb-1">
+                              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider block mb-1">
                                 Ajuste Recomendado:
                               </span>
-                              <p className="text-[10px] text-cyan-950 font-semibold leading-relaxed">
+                              <p className="text-[11px] text-[#111c2e] font-semibold leading-relaxed">
                                 {issue.suggestedFix}
                               </p>
                             </div>
@@ -338,19 +338,19 @@ export default function AiConsultantDrawer({
                                   {sug.title}
                                 </h5>
                               </div>
-                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 text-[9px] font-black text-[#ff2a6d] uppercase">
+                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 text-[11px] font-black text-[#ff2a6d] uppercase">
                                 economize {sug.estimatedSavings}
                               </span>
                             </div>
 
-                            <p className="text-[10px] text-slate-600 font-medium leading-relaxed">
+                            <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
                               {sug.description}
                             </p>
 
                             {sug.alternatives && sug.alternatives.length > 0 && (
                               <div className="flex flex-wrap gap-1.5 pt-1">
                                 {sug.alternatives.map((alt, aIdx) => (
-                                  <span key={aIdx} className="text-[9px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-[4px] flex items-center gap-1">
+                                  <span key={aIdx} className="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-[4px] flex items-center gap-1">
                                     <ShoppingBag className="h-3 w-3 text-slate-500" />
                                     {alt}
                                   </span>
@@ -373,19 +373,19 @@ export default function AiConsultantDrawer({
                         result.serviceRecommendations.map((svc, idx) => (
                           <div key={idx} className="bg-white rounded-xl border border-slate-100 p-3.5 shadow-xs space-y-2.5">
                             <h5 className="text-[11.5px] font-black text-slate-900 uppercase tracking-tight flex items-center gap-1.5">
-                              <Award className="h-3.5 w-3.5 text-cyan-600 shrink-0" />
+                              <Award className="h-3.5 w-3.5 text-[#ff2a6d] shrink-0" />
                               {svc.serviceName}
                             </h5>
 
-                            <p className="text-[10px] text-slate-600 font-normal leading-relaxed">
+                            <p className="text-[11px] text-slate-600 font-normal leading-relaxed">
                               {svc.description}
                             </p>
 
-                            <div className="bg-cyan-50/50 border border-cyan-100/50 rounded-lg p-2.5">
-                              <span className="text-[8.5px] font-black uppercase text-cyan-600 tracking-wider flex items-center gap-1">
+                            <div className="bg-[#f5f5f5] border border-[#ff2a6d]/10 rounded-lg p-2.5">
+                              <span className="text-[11px] font-black uppercase text-[#ff2a6d] tracking-wider flex items-center gap-1">
                                 <ArrowUpRight className="h-3 w-3" /> Por que faz sentido comprar:
                               </span>
-                              <p className="text-[10px] text-cyan-900 font-semibold leading-relaxed mt-1">
+                              <p className="text-[11px] text-[#111c2e] font-semibold leading-relaxed mt-1">
                                 {svc.whyItFits}
                               </p>
                             </div>
@@ -403,7 +403,7 @@ export default function AiConsultantDrawer({
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-800 uppercase">Consultoria em tempo real</h4>
-                    <p className="text-[10.5px] text-slate-500 font-medium mt-1 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 font-medium mt-1 leading-relaxed">
                       Clique no botão abaixo para permitir que o modelo Gemini avalie marcas, embalagens e preços indicando de forma inteligente os melhores ajustes comerciais.
                     </p>
                   </div>
@@ -418,7 +418,7 @@ export default function AiConsultantDrawer({
             </div>
 
             {/* Footer containing help text */}
-            <div className="border-t border-slate-100 p-3.5 bg-slate-50 text-center text-[9px] text-slate-500 font-bold uppercase tracking-wider select-none">
+            <div className="border-t border-slate-100 p-3.5 bg-slate-50 text-center text-[11px] text-slate-500 font-bold uppercase tracking-wider select-none">
               FACILITIES BP-COMPRAS INTEL · GEMINI PRO POWERED
             </div>
           </motion.div>

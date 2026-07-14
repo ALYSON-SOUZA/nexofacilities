@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import { 
   X, FileText, Download, RotateCcw, Check, Sparkles, Receipt, 
@@ -249,7 +249,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
         doc.setDrawColor(255, 46, 99);
         doc.setLineWidth(1.5);
         doc.line(0, 50, 210, 50);
-        doc.setDrawColor(8, 217, 214);
+        doc.setDrawColor(255, 42, 109);
         doc.line(105, 50, 210, 50);
 
         // Title & Header info
@@ -260,12 +260,12 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
         doc.setFont("helvetica", "normal");
         doc.setFontSize(8);
-        doc.setTextColor(8, 217, 214);
+        doc.setTextColor(255, 42, 109);
         doc.text("DOCUMENTO SIMPLIFICADO DE QUITAÇÃO", 20, 31);
 
         doc.setFont("courier", "bold");
         doc.setFontSize(14);
-        doc.setTextColor(8, 217, 214);
+        doc.setTextColor(255, 42, 109);
         doc.text(`Nº ${reciboNum}`, 190, 22, { align: "right" });
 
         doc.setFont("helvetica", "normal");
@@ -370,7 +370,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
         doc.setFont("helvetica", "normal");
         doc.setFontSize(8.5);
-        doc.setTextColor(8, 217, 214);
+        doc.setTextColor(255, 42, 109);
         doc.text("COMPROVANTE DETALHADO DE PRESTAÇÃO E QUITAÇÃO", 15, 29);
 
         // Value Box and Recibo No at the Top Right of page
@@ -531,8 +531,8 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-3 overflow-y-auto font-sans">
-      <div className="bg-[#F4F6FA] dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-3 overflow-y-auto">
+      <div className="bg-[#F4F6FA] dark:bg-slate-950 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
         
         {/* TOPBAR (Petroleum Blue #111c2e) */}
         <header className="bg-[#111c2e] px-6 py-4 flex items-center justify-between shrink-0 border-b border-slate-800">
@@ -541,7 +541,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               <Receipt className="h-5 w-5 text-[#ff2a6d]" />
               <span>Gerador de Recibo de Pagamento ({receiptModel})</span>
             </div>
-            <div className="text-[9px] tracking-widest text-[#ff2a6d] uppercase font-black mt-0.5">
+            <div className="text-[11px] tracking-widest text-[#ff2a6d] uppercase font-black mt-0.5">
               Documentos · Bellinati Perez
             </div>
           </div>
@@ -550,7 +550,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
           <div className="bg-slate-800 p-1 rounded-xl flex items-center gap-1">
             <button
               onClick={() => setReceiptModel("Simplificado")}
-              className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                 receiptModel === "Simplificado"
                   ? "bg-[#ff2a6d] text-slate-950 shadow-md"
                   : "text-slate-500 hover:text-white"
@@ -560,7 +560,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
             </button>
             <button
               onClick={() => setReceiptModel("Completo")}
-              className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                 receiptModel === "Completo"
                   ? "bg-[#ff2a6d] text-white shadow-md"
                   : "text-slate-500 hover:text-white"
@@ -599,13 +599,13 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
             <div className="space-y-4 overflow-y-auto max-h-[60vh] pr-1">
               <div className="text-xs font-black uppercase text-slate-500 tracking-wider border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center justify-between">
                 <span>Dados do Recibo</span>
-                <span className="text-[10px] text-pink-500 font-bold">Nº {reciboNum}</span>
+                <span className="text-[11px] text-pink-500 font-bold">Nº {reciboNum}</span>
               </div>
 
               {/* Recibo Num & Data */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold uppercase text-slate-500">Recibo Nº</label>
+                  <label className="text-[11px] font-bold uppercase text-slate-500">Recibo Nº</label>
                   <input
                     type="text"
                     value={reciboNum}
@@ -615,7 +615,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold uppercase text-slate-500">Data *</label>
+                  <label className="text-[11px] font-bold uppercase text-slate-500">Data *</label>
                   <input
                     type="text"
                     value={data}
@@ -629,12 +629,12 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               {/* Fonte Pagadora Info (Completo ONLY) */}
               {receiptModel === "Completo" && (
                 <div className="bg-slate-50 dark:bg-slate-950 p-3 rounded-lg border border-slate-200 dark:border-slate-800 space-y-3">
-                  <div className="text-[9px] font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
+                  <div className="text-[11px] font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
                     <Building2 className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     <span>Dados da Fonte Pagadora</span>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">Razão Social / Nome *</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">Razão Social / Nome *</label>
                     <input
                       type="text"
                       value={fontePagadoraNome}
@@ -643,7 +643,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">CNPJ / CPF *</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">CNPJ / CPF *</label>
                     <input
                       type="text"
                       value={fontePagadoraCNPJ}
@@ -656,7 +656,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
               {/* Valor R$ */}
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-bold uppercase text-slate-500">Valor R$ *</label>
+                <label className="text-[11px] font-bold uppercase text-slate-500">Valor R$ *</label>
                 <input
                   type="text"
                   value={valor}
@@ -668,7 +668,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
               {/* Descrição referente */}
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-bold uppercase text-slate-500">Descrição (Referente a) *</label>
+                <label className="text-[11px] font-bold uppercase text-slate-500">Descrição (Referente a) *</label>
                 <textarea
                   rows={2}
                   value={descricao}
@@ -680,13 +680,13 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
               {/* Nome & CPF de quem assina */}
               <div className="bg-pink-50/15 dark:bg-slate-950 p-3 rounded-lg border border-pink-100/40 dark:border-slate-800 space-y-3">
-                <div className="text-[9px] font-black uppercase text-[#ff2a6d] tracking-wider flex items-center gap-1">
+                <div className="text-[11px] font-black uppercase text-[#ff2a6d] tracking-wider flex items-center gap-1">
                   <User className="h-3.5 w-3.5" />
                   <span>Emissor (Quem recebe / assina)</span>
                 </div>
                 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[9px] font-bold uppercase text-slate-500">Nome Completo *</label>
+                  <label className="text-[11px] font-bold uppercase text-slate-500">Nome Completo *</label>
                   <input
                     type="text"
                     value={nomeAssinatura}
@@ -698,7 +698,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">CPF / CNPJ *</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">CPF / CNPJ *</label>
                     <input
                       type="text"
                       value={cpfAssinatura}
@@ -708,7 +708,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">RG</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">RG</label>
                     <input
                       type="text"
                       value={emissorRG}
@@ -721,7 +721,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
                 {receiptModel === "Completo" && (
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">Telefone</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">Telefone</label>
                     <input
                       type="text"
                       value={emissorTelefone}
@@ -736,13 +736,13 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               {/* Endereço Residencial (Completo ONLY) */}
               {receiptModel === "Completo" && (
                 <div className="bg-slate-50 dark:bg-slate-950 p-3 rounded-lg border border-slate-200 dark:border-slate-800 space-y-3">
-                  <div className="text-[9px] font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
+                  <div className="text-[11px] font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
                     <MapPin className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     <span>Endereço do Emissor</span>
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[9px] font-bold uppercase text-slate-500">CEP</label>
+                    <label className="text-[11px] font-bold uppercase text-slate-500">CEP</label>
                     <div className="flex gap-1.5 items-center">
                       <input
                         type="text"
@@ -763,7 +763,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
                   <div className="grid grid-cols-4 gap-3">
                     <div className="col-span-3 flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase text-slate-500">Logradouro / Rua</label>
+                      <label className="text-[11px] font-bold uppercase text-slate-500">Logradouro / Rua</label>
                       <input
                         type="text"
                         value={emissorEndereco}
@@ -773,7 +773,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                       />
                     </div>
                     <div className="col-span-1 flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase text-slate-500">Nº</label>
+                      <label className="text-[11px] font-bold uppercase text-slate-500">Nº</label>
                       <input
                         type="text"
                         value={emissorNumero}
@@ -786,7 +786,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
                   <div className="grid grid-cols-3 gap-3">
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase text-slate-500">Bairro</label>
+                      <label className="text-[11px] font-bold uppercase text-slate-500">Bairro</label>
                       <input
                         type="text"
                         value={emissorBairro}
@@ -796,7 +796,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase text-slate-500">Cidade</label>
+                      <label className="text-[11px] font-bold uppercase text-slate-500">Cidade</label>
                       <input
                         type="text"
                         value={emissorCidade}
@@ -806,7 +806,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase text-slate-500">UF</label>
+                      <label className="text-[11px] font-bold uppercase text-slate-500">UF</label>
                       <input
                         type="text"
                         value={emissorUF}
@@ -849,7 +849,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               </div>
 
               {/* Receipt Layout Document */}
-              <div className="bg-white text-slate-900 rounded-xl overflow-hidden shadow-2xl flex flex-col justify-between min-h-[380px] border border-white">
+              <div className="bg-white text-slate-900 rounded-xl overflow-hidden shadow-md flex flex-col justify-between min-h-[380px] border border-white">
                 
                 {/* Header Strip */}
                 <div className="bg-[#111c2e] px-5 py-4 flex items-center justify-between text-white border-b border-slate-800 shrink-0">
@@ -857,13 +857,13 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     <div className="font-extrabold text-xs tracking-wide uppercase">
                       {receiptModel === "Completo" ? "RECIBO DE PAGAMENTO COMPLETO" : "RECIBO DE PAGAMENTO"}
                     </div>
-                    <div className="text-[8px] font-bold text-[#ff2a6d] uppercase tracking-wider mt-0.5">
+                    <div className="text-[11px] font-bold text-[#ff2a6d] uppercase tracking-wider mt-0.5">
                       {receiptModel === "Completo" ? "Comprovante de Quitação com Dados do Emissor" : "DOCUMENTO SIMPLIFICADO DE QUITAÇÃO"}
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-xs font-mono font-black text-[#ff2a6d]">Nº {reciboNum}</div>
-                    <div className="text-[8.5px] text-slate-500 mt-0.5">{data || "—"}</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">{data || "—"}</div>
                   </div>
                 </div>
 
@@ -873,27 +873,27 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     <>
                       <div className="space-y-2 border-b border-slate-100 pb-3">
                         <div className="flex gap-2">
-                          <span className="text-[10px] font-black uppercase text-slate-500 w-16 shrink-0">Data:</span>
+                          <span className="text-[11px] font-black uppercase text-slate-500 w-16 shrink-0">Data:</span>
                           <span className="font-bold text-slate-800">{data || "—"}</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[10px] font-black uppercase text-slate-500 w-16 shrink-0">Descrição:</span>
+                          <span className="text-[11px] font-black uppercase text-slate-500 w-16 shrink-0">Descrição:</span>
                           <span className="font-bold text-slate-800 uppercase leading-relaxed">{descricao || <span className="text-slate-350 italic">EX: PRESTAÇÃO DE SERVIÇOS...</span>}</span>
                         </div>
                       </div>
 
                       <div className="space-y-2.5">
                         <div className="flex items-baseline gap-2">
-                          <span className="text-[10px] font-black uppercase text-slate-500 w-16 shrink-0">Valor:</span>
+                          <span className="text-[11px] font-black uppercase text-slate-500 w-16 shrink-0">Valor:</span>
                           <span className="font-black text-lg text-red-700">R$ {valor || "0,00"}</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[10px] font-black uppercase text-slate-500 w-16 shrink-0">Por extenso:</span>
+                          <span className="text-[11px] font-black uppercase text-slate-500 w-16 shrink-0">Por extenso:</span>
                           <span className="font-semibold italic text-slate-500 leading-relaxed text-[11px]">{valorExtenso}</span>
                         </div>
                       </div>
 
-                      <p className="text-[10px] text-slate-500 leading-relaxed text-justify pt-3 border-t border-slate-100">
+                      <p className="text-[11px] text-slate-500 leading-relaxed text-justify pt-3 border-t border-slate-100">
                         Declaro que recebi a importância descrita acima, referente à prestação de serviços/atividades conforme especificado neste documento, dando plena e irrevogável quitação pelo valor recebido.
                       </p>
                     </>
@@ -902,10 +902,10 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     <div className="space-y-3.5">
                       {/* Payer Card */}
                       <div className="bg-slate-50 border border-slate-150 rounded-lg p-2.5 space-y-1">
-                        <div className="text-[8px] font-black uppercase text-slate-500">Fonte Pagadora</div>
+                        <div className="text-[11px] font-black uppercase text-slate-500">Fonte Pagadora</div>
                         <div className="flex justify-between items-center text-slate-800">
                           <span className="font-bold">{fontePagadoraNome || "—"}</span>
-                          <span className="font-mono text-[9.5px]">{fontePagadoraCNPJ || "—"}</span>
+                          <span className="font-mono text-[11px]">{fontePagadoraCNPJ || "—"}</span>
                         </div>
                       </div>
 
@@ -915,27 +915,27 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                       </div>
 
                       {/* Emissor info card */}
-                      <div className="border-t border-slate-100 pt-3 space-y-1.5 text-[10.5px]">
-                        <div className="text-[8px] font-black uppercase text-slate-500">Dados do Emissor / Prestador</div>
+                      <div className="border-t border-slate-100 pt-3 space-y-1.5 text-[11px]">
+                        <div className="text-[11px] font-black uppercase text-slate-500">Dados do Emissor / Prestador</div>
                         <div className="grid grid-cols-2 gap-y-1 gap-x-4">
                           <div>
-                            <span className="text-slate-500 uppercase text-[8px] font-bold block">Nome Completo</span>
+                            <span className="text-slate-500 uppercase text-[11px] font-bold block">Nome Completo</span>
                             <span className="font-bold text-slate-800 uppercase">{nomeAssinatura || "—"}</span>
                           </div>
                           <div>
-                            <span className="text-slate-500 uppercase text-[8px] font-bold block">CPF / CNPJ</span>
+                            <span className="text-slate-500 uppercase text-[11px] font-bold block">CPF / CNPJ</span>
                             <span className="font-mono font-bold text-slate-800">{cpfAssinatura || "—"}</span>
                           </div>
                           <div>
-                            <span className="text-slate-500 uppercase text-[8px] font-bold block">Documento RG</span>
+                            <span className="text-slate-500 uppercase text-[11px] font-bold block">Documento RG</span>
                             <span className="font-bold text-slate-800">{emissorRG || "—"}</span>
                           </div>
                           <div>
-                            <span className="text-slate-500 uppercase text-[8px] font-bold block">Telefone</span>
+                            <span className="text-slate-500 uppercase text-[11px] font-bold block">Telefone</span>
                             <span className="font-bold text-slate-800">{emissorTelefone || "—"}</span>
                           </div>
                           <div className="col-span-2">
-                            <span className="text-slate-500 uppercase text-[8px] font-bold block">Endereço Residencial</span>
+                            <span className="text-slate-500 uppercase text-[11px] font-bold block">Endereço Residencial</span>
                             <span className="font-bold text-slate-800 uppercase">
                               {emissorEndereco ? `${emissorEndereco}, Nº ${emissorNumero || "S/N"} ${emissorBairro ? `- ${emissorBairro}` : ""} - CEP: ${emissorCEP || ""} - ${emissorCidade || ""}/${emissorUF || ""}` : "—"}
                             </span>
@@ -948,14 +948,14 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                   {/* Signatures Area */}
                   <div className="pt-5 flex flex-col items-center justify-center text-center">
                     <div className="w-56 h-0.5 bg-slate-800 mb-1.5"></div>
-                    <div className="text-[8px] font-black uppercase tracking-wider text-slate-500">Assinatura do Emissor / Prestador</div>
+                    <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Assinatura do Emissor / Prestador</div>
                     <div className="font-bold text-slate-900 text-[11px] mt-0.5">{nomeAssinatura || "—"}</div>
-                    <div className="text-[8.5px] font-mono font-medium text-slate-500 mt-0.5">{cpfAssinatura ? `CPF/CNPJ: ${cpfAssinatura}` : "—"}</div>
+                    <div className="text-[11px] font-mono font-medium text-slate-500 mt-0.5">{cpfAssinatura ? `CPF/CNPJ: ${cpfAssinatura}` : "—"}</div>
                   </div>
                 </div>
 
                 {/* Bottom Receipt footer */}
-                <div className="bg-slate-50 border-t border-slate-150 px-5 py-2.5 flex items-center justify-between text-[8px] font-bold text-slate-500 uppercase shrink-0">
+                <div className="bg-slate-50 border-t border-slate-150 px-5 py-2.5 flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase shrink-0">
                   <span>BELLINATI PEREZ</span>
                   <span className="text-pink-500 font-extrabold">RECIBO DE QUITAÇÃO</span>
                 </div>
@@ -963,7 +963,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
             </div>
 
-            <p className="text-[10px] text-slate-500 uppercase font-bold text-center mt-4">
+            <p className="text-[11px] text-slate-500 uppercase font-bold text-center mt-4">
               Opções Simplificado ou Completo para preenchimento oficial.
             </p>
           </div>

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, 
   Upload, 
@@ -529,7 +529,7 @@ export default function FileArchiveModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs">
-      <div className="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-150 dark:border-slate-800 overflow-hidden flex flex-col h-[85vh] max-h-[750px]">
+      <div className="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl shadow-md border border-slate-150 dark:border-slate-800 overflow-hidden flex flex-col h-[85vh] max-h-[750px]">
         {/* Header */}
         <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-150 dark:border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
@@ -540,7 +540,7 @@ export default function FileArchiveModal({
               <h2 className="text-[14px] font-black uppercase text-slate-850 dark:text-white tracking-wide">
                 Arquivo Digital de Documentos Pro
               </h2>
-              <p className="text-[10px] text-slate-450 dark:text-slate-400 font-bold uppercase tracking-tight">
+              <p className="text-[11px] text-slate-450 dark:text-slate-400 font-bold uppercase tracking-tight">
                 Armazenamento de comprovantes, notas fiscais, contratos e cotações com pré-visualização inteligente
               </p>
             </div>
@@ -555,7 +555,7 @@ export default function FileArchiveModal({
 
         {/* Integration Sync banner & info */}
         {supabaseConnected === false && (
-          <div className="px-6 py-2.5 bg-amber-500/10 border-b border-amber-500/20 text-amber-700 dark:text-amber-400 text-[10px] font-bold uppercase flex items-center justify-between gap-3 shrink-0">
+          <div className="px-6 py-2.5 bg-amber-500/10 border-b border-amber-500/20 text-amber-700 dark:text-amber-400 text-[11px] font-bold uppercase flex items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-2">
               <CloudOff className="h-4 w-4 shrink-0 text-amber-500" />
               <span>Modo Armazenamento Local Ativo (Sem sincronização Supabase).</span>
@@ -581,7 +581,7 @@ export default function FileArchiveModal({
           <div className="flex bg-slate-200/60 dark:bg-slate-800/60 p-0.5 rounded-xl self-start">
             <button
               onClick={() => setActiveTab("list")}
-              className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                 activeTab === "list"
                   ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-300"
@@ -591,7 +591,7 @@ export default function FileArchiveModal({
             </button>
             <button
               onClick={() => setActiveTab("upload")}
-              className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-4 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === "upload"
                   ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-300"
@@ -614,7 +614,7 @@ export default function FileArchiveModal({
             )}
 
             {status && (
-              <div className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wide flex items-center gap-1.5 ${
+              <div className={`px-4 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wide flex items-center gap-1.5 ${
                 status.type === "success" 
                   ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-650 border border-emerald-100 dark:border-emerald-900/30" 
                   : status.type === "error"
@@ -662,14 +662,14 @@ export default function FileArchiveModal({
                 <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
                   <button
                     onClick={() => setSelectedCategory("All")}
-                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider border cursor-pointer shrink-0 transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider border cursor-pointer shrink-0 transition-all flex items-center gap-1.5 ${
                       selectedCategory === "All"
                         ? "bg-slate-850 border-slate-850 text-white dark:bg-slate-700 dark:border-slate-700"
                         : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-slate-350"
                     }`}
                   >
                     <span>Todos</span>
-                    <span className={`px-1.5 py-0.2 rounded-full text-[8.5px] font-black ${
+                    <span className={`px-1.5 py-0.2 rounded-full text-[11px] font-black ${
                       selectedCategory === "All" ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                     }`}>{categoryCounts["All"]}</span>
                   </button>
@@ -677,14 +677,14 @@ export default function FileArchiveModal({
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider border cursor-pointer shrink-0 transition-all flex items-center gap-1.5 ${
+                      className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider border cursor-pointer shrink-0 transition-all flex items-center gap-1.5 ${
                         selectedCategory === cat
                           ? "bg-slate-850 border-slate-850 text-white dark:bg-slate-700 dark:border-slate-700"
                           : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-slate-350"
                       }`}
                     >
                       <span>{cat}</span>
-                      <span className={`px-1.5 py-0.2 rounded-full text-[8.5px] font-black ${
+                      <span className={`px-1.5 py-0.2 rounded-full text-[11px] font-black ${
                         selectedCategory === cat ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                       }`}>{categoryCounts[cat]}</span>
                     </button>
@@ -694,7 +694,7 @@ export default function FileArchiveModal({
 
               {/* Bulk actions control bar */}
               {filteredFiles.length > 0 && (
-                <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-150 dark:border-slate-850 flex items-center justify-between shrink-0 text-[10px] font-bold uppercase text-slate-500 tracking-wide">
+                <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-150 dark:border-slate-850 flex items-center justify-between shrink-0 text-[11px] font-bold uppercase text-slate-500 tracking-wide">
                   <div className="flex items-center gap-3">
                     <button 
                       onClick={toggleSelectAllVisible}
@@ -737,7 +737,7 @@ export default function FileArchiveModal({
               {loading ? (
                 <div className="flex-1 flex flex-col items-center justify-center p-12">
                   <div className="w-10 h-10 border-4 border-slate-200 border-t-[#111c2e] rounded-full animate-spin"></div>
-                  <p className="text-[10px] font-black text-slate-450 uppercase tracking-widest mt-4 animate-pulse">Sincronizando com Supabase Cloud...</p>
+                  <p className="text-[11px] font-black text-slate-450 uppercase tracking-widest mt-4 animate-pulse">Sincronizando com Supabase Cloud...</p>
                 </div>
               ) : filteredFiles.length === 0 ? (
                 <div className="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-800/80 rounded-2xl p-12 text-center bg-white dark:bg-slate-900/40">
@@ -747,7 +747,7 @@ export default function FileArchiveModal({
                   <h3 className="text-[12px] font-black uppercase text-slate-800 dark:text-white tracking-wide">
                     Nenhum arquivo encontrado
                   </h3>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight max-w-sm mt-1">
+                  <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tight max-w-sm mt-1">
                     {searchQuery || selectedCategory !== "All"
                       ? "Experimente mudar os filtros ou limpar a pesquisa ativa."
                       : "A pasta de arquivos digitais compartilhados está vazia. Comece salvando novos documentos!"}
@@ -797,7 +797,7 @@ export default function FileArchiveModal({
                         {/* Info */}
                         <div className="flex-1 min-w-0 space-y-1">
                           <div className="flex items-center gap-2">
-                            <span className={`px-2 py-0.5 rounded-md text-[8.5px] font-black uppercase tracking-wider border ${
+                            <span className={`px-2 py-0.5 rounded-md text-[11px] font-black uppercase tracking-wider border ${
                               file.category === "Contratos" 
                                 ? "bg-rose-50 dark:bg-rose-950/30 text-rose-600 border-rose-100 dark:border-rose-900/30"
                                 : file.category === "Cotações"
@@ -812,7 +812,7 @@ export default function FileArchiveModal({
                             </span>
 
                             {/* Cloud Badge Indicator */}
-                            <span className="flex items-center gap-1 text-[8px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight">
+                            <span className="flex items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight">
                               {supabaseConnected ? (
                                 <span className="flex items-center gap-0.5 text-emerald-600 dark:text-emerald-400">
                                   <Cloud className="h-2.5 w-2.5" />
@@ -826,7 +826,7 @@ export default function FileArchiveModal({
                               )}
                             </span>
 
-                            <span className="text-[8px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight ml-auto">
+                            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-tight ml-auto">
                               {new Date(file.createdAt).toLocaleDateString("pt-BR")}
                             </span>
                           </div>
@@ -836,16 +836,16 @@ export default function FileArchiveModal({
                           </h4>
 
                           {file.description ? (
-                            <p className="text-[10px] text-slate-450 dark:text-slate-400 font-medium leading-normal line-clamp-2">
+                            <p className="text-[11px] text-slate-450 dark:text-slate-400 font-medium leading-normal line-clamp-2">
                               {highlightText(file.description, searchQuery)}
                             </p>
                           ) : (
-                            <p className="text-[9.5px] text-slate-350 dark:text-slate-500 font-bold italic uppercase tracking-tight">
+                            <p className="text-[11px] text-slate-350 dark:text-slate-500 font-bold italic uppercase tracking-tight">
                               Sem descrição adicional
                             </p>
                           )}
 
-                          <div className="pt-1.5 flex items-center justify-between text-[8.5px] font-bold text-slate-500 uppercase tracking-wider">
+                          <div className="pt-1.5 flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                             <span>{formatFileSize(file.size)}</span>
                             <span className="font-mono text-slate-300 dark:text-slate-650">#{file.id.split("_")[2]}</span>
                           </div>
@@ -880,7 +880,7 @@ export default function FileArchiveModal({
 
               {/* Data space / Quota indicator progress bar */}
               <div className="mt-auto pt-4 border-t border-slate-150 dark:border-slate-800 shrink-0">
-                <div className="flex justify-between items-center text-[9px] font-black uppercase text-slate-500 dark:text-slate-500 tracking-wider mb-1">
+                <div className="flex justify-between items-center text-[11px] font-black uppercase text-slate-500 dark:text-slate-500 tracking-wider mb-1">
                   <span className="flex items-center gap-1">
                     <Layers className="h-3 w-3" />
                     <span>Uso Recomendado da Tabela Base64</span>
@@ -900,7 +900,7 @@ export default function FileArchiveModal({
                   />
                 </div>
                 {quotaPercentage > 80 && (
-                  <p className="text-[8px] font-bold text-rose-500 uppercase tracking-tight mt-1">
+                  <p className="text-[11px] font-bold text-rose-500 uppercase tracking-tight mt-1">
                     ⚠️ Atenção: Armazenamento próximo ao limite recomendado. Considere excluir comprovantes antigos.
                   </p>
                 )}
@@ -928,7 +928,7 @@ export default function FileArchiveModal({
                     <p className="text-[11px] font-black text-slate-700 dark:text-slate-250 uppercase tracking-tight">
                       Arraste seu arquivo aqui ou clique para procurar
                     </p>
-                    <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wide leading-tight">
+                    <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wide leading-tight">
                       Suporta PDFs, planilhas Excel, imagens de recibos ou TXTs de até 25MB
                     </p>
                   </div>
@@ -939,10 +939,10 @@ export default function FileArchiveModal({
                         {getFileIcon(uploadedFile.type, uploadedFile.name)}
                       </span>
                       <div className="text-left min-w-0">
-                        <span className="text-[10px] font-black text-slate-700 dark:text-white truncate block uppercase tracking-tight" title={uploadedFile.name}>
+                        <span className="text-[11px] font-black text-slate-700 dark:text-white truncate block uppercase tracking-tight" title={uploadedFile.name}>
                           {uploadedFile.name}
                         </span>
-                        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
+                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
                           {formatFileSize(uploadedFile.size)}
                         </span>
                       </div>
@@ -966,7 +966,7 @@ export default function FileArchiveModal({
               {/* Form Fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[9px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
+                  <label className="text-[11px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
                     Nome de Referência / Título *
                   </label>
                   <input
@@ -975,18 +975,18 @@ export default function FileArchiveModal({
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="Ex: Ficha Jovem Aprendiz João Silva"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[11px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[9px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
+                  <label className="text-[11px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
                     Categoria do Documento *
                   </label>
                   <select
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[11px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all"
                   >
                     {categories.map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -996,7 +996,7 @@ export default function FileArchiveModal({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[9px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
+                <label className="text-[11px] font-black text-slate-450 dark:text-slate-400 uppercase tracking-wider block">
                   Descrição ou Observações do Arquivo
                 </label>
                 <textarea
@@ -1004,7 +1004,7 @@ export default function FileArchiveModal({
                   onChange={(e) => setFormDescription(e.target.value)}
                   placeholder="Informações adicionais para facilitar buscas futuras, como datas importantes, CPF, valor ou números de chamados..."
                   rows={2}
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[10.5px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all resize-none"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-[11px] font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] transition-all resize-none"
                 />
               </div>
 
@@ -1035,7 +1035,7 @@ export default function FileArchiveModal({
       {/* Interactive File Preview Modal Overlay */}
       {previewFile && (
         <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-xs flex items-center justify-center z-[120] p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-150 dark:border-slate-850 flex flex-col gap-4 overflow-hidden max-h-[90vh]">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-md border border-slate-150 dark:border-slate-850 flex flex-col gap-4 overflow-hidden max-h-[90vh]">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <span className="p-2 bg-slate-100 dark:bg-slate-800 rounded-xl">
@@ -1045,7 +1045,7 @@ export default function FileArchiveModal({
                   <h3 className="text-xs font-black text-slate-900 dark:text-white uppercase truncate max-w-[400px]" title={previewFile.name}>
                     {previewFile.name}
                   </h3>
-                  <span className="text-[8.5px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-wide">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-wide">
                     {previewFile.category} • {formatFileSize(previewFile.size)} • {new Date(previewFile.createdAt).toLocaleString("pt-BR")}
                   </span>
                 </div>
@@ -1069,11 +1069,11 @@ export default function FileArchiveModal({
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
-                    <span className="text-[9px] font-black uppercase text-white bg-slate-900/80 px-2.5 py-1 rounded-md">Visualização de Imagem</span>
+                    <span className="text-[11px] font-black uppercase text-white bg-slate-900/80 px-2.5 py-1 rounded-md">Visualização de Imagem</span>
                   </div>
                 </div>
               ) : isTextPreviewable(previewFile.type, previewFile.name) ? (
-                <pre className="w-full text-left font-mono text-[9.5px] leading-relaxed text-slate-700 dark:text-slate-350 bg-white dark:bg-slate-900 p-3.5 rounded-lg border border-slate-150 dark:border-slate-800 overflow-x-auto whitespace-pre-wrap">
+                <pre className="w-full text-left font-mono text-[11px] leading-relaxed text-slate-700 dark:text-slate-350 bg-white dark:bg-slate-900 p-3.5 rounded-lg border border-slate-150 dark:border-slate-800 overflow-x-auto whitespace-pre-wrap">
                   {getTextPreviewContent(previewFile.dataUrl)}
                 </pre>
               ) : (
@@ -1081,10 +1081,10 @@ export default function FileArchiveModal({
                   <span className="p-4 bg-white dark:bg-slate-900 rounded-full border border-slate-100 dark:border-slate-800 inline-block text-slate-350">
                     {getFileIcon(previewFile.type, previewFile.name)}
                   </span>
-                  <p className="text-[10px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-tight">
+                  <p className="text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-tight">
                     Visualização direta não disponível para este formato ({previewFile.type})
                   </p>
-                  <p className="text-[9px] text-slate-500 dark:text-slate-550 font-bold uppercase tracking-wide">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-550 font-bold uppercase tracking-wide">
                     Faça o download físico do arquivo utilizando o botão abaixo para visualizá-lo em seu leitor nativo.
                   </p>
                 </div>
@@ -1096,8 +1096,8 @@ export default function FileArchiveModal({
               <div className="bg-amber-500/5 border border-amber-500/10 rounded-xl p-3 flex gap-2.5">
                 <Info className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <span className="text-[8px] font-black uppercase text-amber-600 dark:text-amber-400 tracking-wider">Notas & Observações:</span>
-                  <p className="text-[10px] text-slate-650 dark:text-slate-400 font-medium leading-relaxed">
+                  <span className="text-[11px] font-black uppercase text-amber-600 dark:text-amber-400 tracking-wider">Notas & Observações:</span>
+                  <p className="text-[11px] text-slate-650 dark:text-slate-400 font-medium leading-relaxed">
                     {previewFile.description}
                   </p>
                 </div>
@@ -1106,7 +1106,7 @@ export default function FileArchiveModal({
 
             {/* Bottom Controls */}
             <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3">
-              <span className="text-[8.5px] font-bold text-slate-500 uppercase tracking-wide font-mono">ID: {previewFile.id}</span>
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wide font-mono">ID: {previewFile.id}</span>
               <div className="flex gap-2">
                 <EmojiButton
                   iconKey="imprimir"
@@ -1132,7 +1132,7 @@ export default function FileArchiveModal({
       {/* Confirmation Modal Overlay for file deletion */}
       {confirmDeleteId && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-red-50 dark:bg-red-950/40 flex items-center justify-center text-red-650 border border-red-100 dark:border-red-900/30 shrink-0">
                 <Trash2 className="h-6 w-6" />
@@ -1147,7 +1147,7 @@ export default function FileArchiveModal({
                 <p className="text-xs font-black text-red-650 dark:text-red-400 uppercase truncate max-w-[240px]">
                   {files.find(f => f.id === confirmDeleteId)?.name}
                 </p>
-                <p className="text-[10.5px] text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
+                <p className="text-[11px] text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
                   ⚠️ ATENÇÃO: Esta ação é irreversível e o arquivo será excluído de todos os dispositivos sincronizados!
                 </p>
               </div>
@@ -1176,7 +1176,7 @@ export default function FileArchiveModal({
       {/* Confirmation Modal Overlay for batch deletion */}
       {confirmBulkDelete && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-red-50 dark:bg-red-950/40 flex items-center justify-center text-red-650 border border-red-100 dark:border-red-900/30 shrink-0">
                 <Trash2 className="h-6 w-6" />
@@ -1188,7 +1188,7 @@ export default function FileArchiveModal({
                 <p className="text-[11px] text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
                   Você está prestes a excluir permanentemente {selectedFileIds.size} arquivos do armazenamento local e da nuvem Supabase.
                 </p>
-                <p className="text-[10.5px] text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
+                <p className="text-[11px] text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
                   ⚠️ ATENÇÃO: Esta ação é irreversível e apagará múltiplos arquivos de forma permanente!
                 </p>
               </div>

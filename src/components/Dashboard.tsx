@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Supplier, ComparisonSummary } from "../types";
 import { formatCurrency } from "../utils";
 import { CheckCircle, Building, TrendingDown, Percent } from "lucide-react";
@@ -55,7 +55,7 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       borderColor: "border-l-[#111c2e]",
       valueColor: "text-[#111c2e]",
       iconBg: "bg-[#ff2a6d]",
-      glowColor: "rgba(8,217,214,0.06)",
+      glowColor: "rgba(8,255,42,109,0.06)",
     },
     {
       id: "card-store-best",
@@ -111,7 +111,7 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
 
           <div className="flex items-start justify-between gap-1 relative z-10">
             <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block leading-none font-sans">
+              <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 block leading-none">
                 {card.label}
               </span>
             </div>
@@ -126,11 +126,11 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
             </span>
             <div className="mt-2.5">
               {card.detailStyle ? (
-                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider border ${card.detailStyle}`}>
+                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider border ${card.detailStyle}`}>
                   {card.detail}
                 </span>
               ) : (
-                <p className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wide leading-normal">
+                <p className="text-[11px] text-slate-500 font-extrabold uppercase tracking-wide leading-normal">
                   {card.detail}
                 </p>
               )}

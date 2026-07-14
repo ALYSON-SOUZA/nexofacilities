@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { X, Sparkles, Loader2, Upload, FileText, Image, CheckCircle } from "lucide-react";
 import { QuoteItem } from "../types";
 import { EmojiButton } from "./EmojiButton";
@@ -111,7 +111,7 @@ export default function IntelligentReadingModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-150 overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md border border-slate-150 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="px-5 py-4 bg-slate-50 border-b border-slate-150 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function IntelligentReadingModal({
               <h2 className="text-[14px] font-black uppercase text-slate-850 tracking-wide">
                 Leitura Inteligente de Compras
               </h2>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+              <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tight">
                 Marcar itens comprados via analysis IA (Imagem ou Texto)
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function IntelligentReadingModal({
                 <span className="text-xs font-black uppercase tracking-wider text-slate-500 block mb-1">
                   Enviar Comprovante/Foto
                 </span>
-                <span className="text-[9px] text-slate-500 font-bold uppercase block">
+                <span className="text-[11px] text-slate-500 font-bold uppercase block">
                   Formatos aceitos: Imagens (.jpg, .png, etc.)
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function IntelligentReadingModal({
                     <span className="p-1.5 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
                       <Image className="h-4 w-4" />
                     </span>
-                    <span className="text-[10px] font-black text-slate-700 truncate block">
+                    <span className="text-[11px] font-black text-slate-700 truncate block">
                       {fileName || "imagem_carregada.png"}
                     </span>
                   </div>
@@ -231,8 +231,8 @@ export default function IntelligentReadingModal({
 
           {/* Results Analysis Panel */}
           {analysisSummary && (
-            <div className="mt-4 p-4 bg-[#0B4F6C]/5 border border-[#0B4F6C]/15 rounded-xl space-y-2 animate-fade-in">
-              <div className="flex items-center gap-1.5 text-[#0B4F6C] font-black text-[11.5px] uppercase">
+            <div className="mt-4 p-4 bg-[#111c2e]/5 border border-[#111c2e]/15 rounded-xl space-y-2 animate-fade-in">
+              <div className="flex items-center gap-1.5 text-[#111c2e] font-black text-[11.5px] uppercase">
                 <CheckCircle className="h-4 w-4" />
                 Resultado da Análise IA
               </div>
@@ -240,7 +240,7 @@ export default function IntelligentReadingModal({
                 {analysisSummary}
               </p>
               {matchedCount !== null && (
-                <div className="text-[10px] font-black uppercase text-[#ff2a6d] pt-1">
+                <div className="text-[11px] font-black uppercase text-[#ff2a6d] pt-1">
                   🎯 {matchedCount} {matchedCount === 1 ? 'item foi' : 'itens foram'} identificados e marcados como comprado na planilha!
                 </div>
               )}

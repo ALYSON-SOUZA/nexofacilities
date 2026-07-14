@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Printer, RotateCcw, Calendar, LogOut, Save, FileSpreadsheet, Sparkles, Sun, Moon, Eye, Github, Cloud, CloudOff, Loader2, Check } from "lucide-react";
 import { EmojiButton } from "./EmojiButton";
 
@@ -83,7 +83,7 @@ export default function Header({
     const c = config[syncStatus as keyof typeof config];
     if (!c) return null;
     return (
-      <div className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider transition-all duration-300 ${c.bg}`}>
+      <div className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${c.bg}`}>
         <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
         {c.icon}
         <span className="hidden sm:inline">{c.label}</span>
@@ -92,7 +92,7 @@ export default function Header({
   })();
 
   return (
-    <header className={`mb-3 font-sans transition-all duration-300 ${activeView !== "cotacao" ? "print:hidden" : ""}`}>
+    <header className={`mb-3 transition-all duration-300 ${activeView !== "cotacao" ? "print:hidden" : ""}`}>
       
       {/* 1. TOP MOST BAR - Brand logo and Operator Pill (visible on mobile only, print:hidden) */}
       <div className="flex items-center justify-between pb-2.5 print:hidden md:hidden">
@@ -102,7 +102,7 @@ export default function Header({
             FACILITIES <span className="text-[#ff2a6d] font-black">BP-COMPRAS</span>
           </span>
           
-          <span className="inline-flex items-center gap-1 rounded-[6px] bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-1.5 py-0.5 text-[8px] font-black text-[#ff2a6d] uppercase">
+          <span className="inline-flex items-center gap-1 rounded-[6px] bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-1.5 py-0.5 text-[11px] font-black text-[#ff2a6d] uppercase">
             {activeQuoteId}
           </span>
         </div>
@@ -133,8 +133,8 @@ export default function Header({
 
           {/* Top-Right Profile block (Exactly like the attached image layout) */}
           <div className="flex items-center gap-2 print:hidden select-none">
-            <div className="text-right flex flex-col font-sans">
-              <span className="text-[10px] font-black text-slate-800 tracking-tight leading-none uppercase">
+            <div className="text-right flex flex-col">
+              <span className="text-[11px] font-black text-slate-800 tracking-tight leading-none uppercase">
                 {firstName}
               </span>
             </div>
@@ -176,7 +176,7 @@ export default function Header({
               </span>
               <div className="h-5 w-[2px] bg-slate-400" />
               <div>
-                <span className="text-[9px] font-black uppercase tracking-wider text-[#ff2a6d] block leading-none">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#ff2a6d] block leading-none">
                   COTAÇÃO
                 </span>
                 <h1 className="text-sm font-black tracking-tight text-slate-900 mt-0.5 leading-none">
@@ -184,7 +184,7 @@ export default function Header({
                 </h1>
               </div>
             </div>
-            <div className="text-right text-[9px] space-y-0.5 leading-tight">
+            <div className="text-right text-[11px] space-y-0.5 leading-tight">
               <p className="font-extrabold text-slate-900">
                 ID DA COTAÇÃO: <span className="text-[#ff2a6d] font-black underline">{activeQuoteId}</span>
               </p>
@@ -194,13 +194,13 @@ export default function Header({
           </div>
 
           {/* Highlighted Title and Ticket details for print output */}
-          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-[10px] font-bold">
+          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-[11px] font-bold">
             <div className="flex items-center gap-1.5">
-              <span className="text-slate-450 uppercase text-[8px] font-black tracking-wider">Título do Orçamento:</span>
+              <span className="text-slate-450 uppercase text-[11px] font-black tracking-wider">Título do Orçamento:</span>
               <span className="text-slate-900 font-black uppercase">{quoteTitle || "Sem Título"}</span>
             </div>
             <div className="flex items-center gap-1.5 border-l border-slate-300 pl-4">
-              <span className="text-slate-450 uppercase text-[8px] font-black tracking-wider">Número do Chamado:</span>
+              <span className="text-slate-450 uppercase text-[11px] font-black tracking-wider">Número do Chamado:</span>
               <span className="text-slate-900 font-mono font-black">{chamadoNumber || "Sem Chamado"}</span>
             </div>
           </div>
@@ -215,7 +215,7 @@ export default function Header({
             COTAÇÃO
             {onCategoryClick && (
               <div className="inline-flex items-center gap-2">
-                <span className="font-mono text-[10px] bg-[#ff2a6d]/10 border border-[#ff2a6d]/25 text-[#ff2a6d] px-2 py-1 rounded-md font-extrabold uppercase tracking-wide">
+                <span className="font-mono text-[11px] bg-[#ff2a6d]/10 border border-[#ff2a6d]/25 text-[#ff2a6d] px-2 py-1 rounded-md font-extrabold uppercase tracking-wide">
                   {activeCategoryName}
                 </span>
                 <EmojiButton
@@ -226,11 +226,11 @@ export default function Header({
                 />
               </div>
             )}
-            <span className="font-mono text-[10px] bg-slate-100 border border-slate-200 text-slate-600 px-2 py-0.5 rounded-sm normal-case font-extrabold tracking-normal">
+            <span className="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-2 py-0.5 rounded-sm normal-case font-extrabold tracking-normal">
               # {activeQuoteId}
             </span>
           </h2>
-          <p className="text-[10px] text-slate-450 mt-1 font-semibold leading-none">
+          <p className="text-[11px] text-slate-450 mt-1 font-semibold leading-none">
             Otimização de orçamentos
           </p>
         </div>
@@ -250,7 +250,7 @@ export default function Header({
                 value={quoteDate}
                 onChange={(e) => onDateChange(e.target.value)}
                 placeholder="jul/26"
-                className="w-12 border-0 bg-transparent p-0 text-[10px] font-black text-slate-800 outline-hidden focus:ring-0 leading-none uppercase font-mono"
+                className="w-12 border-0 bg-transparent p-0 text-[11px] font-black text-slate-800 outline-hidden focus:ring-0 leading-none uppercase font-mono"
                 title="Mês de Referência da Cotação"
               />
             </div>
@@ -302,11 +302,11 @@ export default function Header({
                 }}
               />
             </div>
-            <div className="text-left flex flex-col font-sans">
-              <span className="text-[10px] font-black text-slate-800 tracking-tight leading-none uppercase">
+            <div className="text-left flex flex-col">
+              <span className="text-[11px] font-black text-slate-800 tracking-tight leading-none uppercase">
                 {firstName}
               </span>
-              <span className="text-[8px] font-bold text-slate-500 mt-0.5 leading-none">
+              <span className="text-[11px] font-bold text-slate-500 mt-0.5 leading-none">
                 ID: {displayCpf}
               </span>
             </div>

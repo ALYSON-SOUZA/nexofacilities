@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { User, FileText, ArrowRight } from "lucide-react";
 import { ensureAuthSession } from "../supabaseClient";
 
@@ -65,7 +65,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
   const isFormFilled = nameInput.trim().length >= 3 && cpfInput.replace(/\D/g, "").length === 11;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FAF9F6] via-white to-pink-50/40 flex flex-col items-center justify-center p-4 sm:p-6 select-none relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAF9F6] via-white to-pink-50/40 flex flex-col items-center justify-center p-4 sm:p-6 select-none relative overflow-hidden">
       {/* Animated background orbs */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ff2a6d] via-pink-400 to-[#ff2a6d]" />
       <div
@@ -78,7 +78,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
       <div
         className="absolute bottom-[-8%] right-[-8%] w-[45%] h-[45%] rounded-full blur-3xl transition-all duration-[3000ms] ease-out delay-300"
         style={{
-          background: "radial-gradient(circle, rgba(8,217,214,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(8,255,42,109,0.06) 0%, transparent 60%)",
           transform: mounted ? "translate(0, 0) scale(1)" : "translate(20px, 20px) scale(0.95)",
         }}
       />
@@ -125,7 +125,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* NAME FIELD */}
               <div className="space-y-1.5 text-left">
-                <label htmlFor="full-name" className="text-[10px] font-extrabold uppercase tracking-widest text-slate-800 block">
+                <label htmlFor="full-name" className="text-[11px] font-extrabold uppercase tracking-widest text-slate-800 block">
                   NOME
                 </label>
                 <div className="relative group">
@@ -149,7 +149,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
 
               {/* CPF FIELD */}
               <div className="space-y-1.5 text-left">
-                <label htmlFor="user-cpf" className="text-[10px] font-extrabold uppercase tracking-widest text-slate-800 block">
+                <label htmlFor="user-cpf" className="text-[11px] font-extrabold uppercase tracking-widest text-slate-800 block">
                   CPF
                 </label>
                 <div className="relative group">
@@ -207,7 +207,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-8 text-[10px] text-slate-500 font-semibold tracking-wider uppercase">
+        <div className="text-center mt-8 text-[11px] text-slate-500 font-semibold tracking-wider uppercase">
           <span>Licenciado para BP S.A. • v2.8.0</span>
         </div>
       </div>

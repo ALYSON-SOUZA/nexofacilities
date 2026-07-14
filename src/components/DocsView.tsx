@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   Upload, 
   FileText, 
@@ -537,11 +537,11 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
   const uniqueTags = ["TODOS", ...Array.from(new Set(documents.map(d => d.theme_tag).filter(Boolean)))];
 
   return (
-    <div className="bg-slate-50 min-h-[calc(100vh-130px)] rounded-[32px] p-4 lg:p-6 border border-slate-200/80 shadow-md flex flex-col font-sans animate-fade-in relative overflow-hidden">
+    <div className="bg-slate-50 min-h-[calc(100vh-130px)] rounded-[32px] p-4 lg:p-6 border border-slate-200/80 shadow-md flex flex-col animate-fade-in relative overflow-hidden">
       
       {/* Background decoration elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#ff2a6d]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* View Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 border-b border-slate-200/80 gap-4 mb-5 shrink-0">
@@ -550,7 +550,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
             <span className="p-1.5 rounded-lg bg-[#ff2a6d] text-slate-900 shadow-xs">
               <Sparkles className="h-4.5 w-4.5 text-slate-900" />
             </span>
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Bellinati Perez Facilities</span>
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500">Bellinati Perez Facilities</span>
           </div>
           <h1 className="text-xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
             NEXO FACILITIES
@@ -563,7 +563,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
           {onOpenIntelligentReading && (
             <button
               onClick={onOpenIntelligentReading}
-              className="px-4 py-2 bg-[#ff2a6d] hover:bg-pink-600 text-white font-black text-[10.5px] uppercase tracking-wider rounded-xl shadow-md transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 animate-pulse"
+              className="px-4 py-2 bg-[#ff2a6d] hover:bg-pink-600 text-white font-black text-[11px] uppercase tracking-wider rounded-xl shadow-md transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 animate-pulse"
               title="Leitura Inteligente (Análise de Comprovante/Notas por IA)"
             >
               <span>🧠 Docs Intel (Leitura Inteligente)</span>
@@ -571,7 +571,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
           )}
           <button
             onClick={onBack}
-            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-black text-[10.5px] uppercase tracking-wider rounded-xl shadow-md transition-all self-start cursor-pointer active:scale-95"
+            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-black text-[11px] uppercase tracking-wider rounded-xl shadow-md transition-all self-start cursor-pointer active:scale-95"
           >
             Voltar para Cotação
           </button>
@@ -595,11 +595,11 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               {/* Theme/Tag selector */}
               <div className="flex items-center gap-1.5 bg-slate-50 px-2 py-1 rounded-lg border border-slate-200">
                 <Tag className="h-3 w-3 text-slate-500" />
-                <span className="text-[8px] font-black text-slate-500 uppercase">Tag:</span>
+                <span className="text-[11px] font-black text-slate-500 uppercase">Tag:</span>
                 <select
                   value={themeTag}
                   onChange={(e) => setThemeTag(e.target.value)}
-                  className="bg-transparent text-[10px] font-black text-slate-700 outline-none border-0 cursor-pointer p-0"
+                  className="bg-transparent text-[11px] font-black text-slate-700 outline-none border-0 cursor-pointer p-0"
                 >
                   <option value="Geral">Geral</option>
                   <option value="Contrato">Contrato</option>
@@ -617,7 +617,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               <button
                 type="button"
                 onClick={() => setUploadMode("file")}
-                className={`flex-1 py-1.5 px-3 rounded-lg text-[10px] font-black uppercase tracking-wider text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`flex-1 py-1.5 px-3 rounded-lg text-[11px] font-black uppercase tracking-wider text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   uploadMode === "file"
                     ? "bg-white text-[#ff2a6d] shadow-xs"
                     : "text-slate-500 hover:text-slate-600"
@@ -629,7 +629,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               <button
                 type="button"
                 onClick={() => setUploadMode("paste")}
-                className={`flex-1 py-1.5 px-3 rounded-lg text-[10px] font-black uppercase tracking-wider text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`flex-1 py-1.5 px-3 rounded-lg text-[11px] font-black uppercase tracking-wider text-center transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   uploadMode === "paste"
                     ? "bg-white text-[#ff2a6d] shadow-xs"
                     : "text-slate-500 hover:text-slate-600"
@@ -649,14 +649,14 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wider animate-pulse">
                       Analisando e Criando Documento por IA...
                     </p>
-                    <p className="text-[9px] text-slate-500 font-semibold uppercase mt-0.5">
+                    <p className="text-[11px] text-slate-500 font-semibold uppercase mt-0.5">
                       Processando OCR, resumo estruturado e inserindo na pasta
                     </p>
                   </div>
                 ) : (
                   <>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider">
+                      <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider">
                         Nome do Documento (Opcional)
                       </label>
                       <input
@@ -664,14 +664,14 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         value={pastedDocName}
                         onChange={(e) => setPastedDocName(e.target.value)}
                         placeholder="Ex: Contrato de Limpeza BP"
-                        className="text-[10px] font-bold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-[#ff2a6d] focus:bg-white transition-all"
+                        className="text-[11px] font-bold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-[#ff2a6d] focus:bg-white transition-all"
                       />
                     </div>
                     
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-black uppercase text-slate-500 tracking-wider flex items-center justify-between">
+                      <label className="text-[11px] font-black uppercase text-slate-500 tracking-wider flex items-center justify-between">
                         <span>Texto do Documento ou Comprovante</span>
-                        <span className="text-[#ff2a6d] text-[8px] animate-pulse">Suporta Ctrl+V de Imagens!</span>
+                        <span className="text-[#ff2a6d] text-[11px] animate-pulse">Suporta Ctrl+V de Imagens!</span>
                       </label>
                       <textarea
                         value={pastedTextContent}
@@ -687,7 +687,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         type="button"
                         onClick={() => { setPastedTextContent(""); setPastedDocName(""); }}
                         disabled={!pastedTextContent && !pastedDocName}
-                        className="px-3 py-2 bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-500 font-black text-[9px] uppercase tracking-wider rounded-lg transition-all cursor-pointer"
+                        className="px-3 py-2 bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-500 font-black text-[11px] uppercase tracking-wider rounded-lg transition-all cursor-pointer"
                       >
                         Limpar
                       </button>
@@ -695,7 +695,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         type="button"
                         onClick={handleProcessPastedText}
                         disabled={!pastedTextContent.trim()}
-                        className="flex-1 py-2 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-450 text-white font-black text-[10px] uppercase tracking-wider rounded-lg shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                        className="flex-1 py-2 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-450 text-white font-black text-[11px] uppercase tracking-wider rounded-lg shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
                       >
                         <Sparkles className="h-3.5 w-3.5" />
                         <span>Analisar e Criar com IA</span>
@@ -732,7 +732,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wider animate-pulse">
                       Processando Documento por IA (OCR & Resumo)...
                     </p>
-                    <p className="text-[9px] text-slate-500 font-semibold uppercase leading-none">
+                    <p className="text-[11px] text-slate-500 font-semibold uppercase leading-none">
                       Isso pode levar alguns segundos
                     </p>
                   </div>
@@ -745,14 +745,14 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                       <p className="text-xs font-black text-slate-700 uppercase tracking-tight">
                         Arraste e solte arquivos aqui
                       </p>
-                      <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
+                      <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
                         Ou clique para selecionar de sua pasta
                       </p>
-                      <p className="text-[9px] text-[#ff2a6d] font-black uppercase tracking-wider mt-1.5">
+                      <p className="text-[11px] text-[#ff2a6d] font-black uppercase tracking-wider mt-1.5">
                         💡 Dica: Você também pode colar imagens (Ctrl+V) aqui!
                       </p>
                     </div>
-                    <div className="text-[8px] text-slate-500 font-semibold uppercase mt-1 leading-normal max-w-xs">
+                    <div className="text-[11px] text-slate-500 font-semibold uppercase mt-1 leading-normal max-w-xs">
                       Suporta: PDF, DOCX, XLS/X, CSV, TXT e Imagens (JPG, PNG) para OCR Inteligente
                     </div>
                   </div>
@@ -761,7 +761,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
             )}
 
             {uploadError && (
-              <div className="p-2.5 bg-rose-50 border border-rose-200 rounded-xl flex items-center gap-2 text-rose-700 text-[10px] font-bold">
+              <div className="p-2.5 bg-rose-50 border border-rose-200 rounded-xl flex items-center gap-2 text-rose-700 text-[11px] font-bold">
                 <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
                 <span>{uploadError}</span>
               </div>
@@ -777,7 +777,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               </h3>
               <button
                 onClick={fetchDocuments}
-                className="text-[9px] font-black uppercase text-[#ff2a6d] hover:text-[#06b2b0] tracking-wider transition-colors cursor-pointer"
+                className="text-[11px] font-black uppercase text-[#ff2a6d] hover:text-[#ff2a6d] tracking-wider transition-colors cursor-pointer"
               >
                 Atualizar Lista
               </button>
@@ -791,7 +791,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Pesquisar arquivos por nome ou tag..."
-                  className="w-full text-[10px] font-bold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-8 py-2 focus:outline-none focus:border-[#ff2a6d] focus:bg-white transition-all placeholder:text-slate-400"
+                  className="w-full text-[11px] font-bold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-8 py-2 focus:outline-none focus:border-[#ff2a6d] focus:bg-white transition-all placeholder:text-slate-400"
                 />
                 <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-slate-500" />
                 {searchTerm && (
@@ -807,14 +807,14 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               {/* Tag Quick Filters */}
               {documents.length > 0 && (
                 <div className="flex items-center gap-1 overflow-x-auto pb-1.5 scrollbar-thin select-none max-w-full">
-                  <span className="text-[7.5px] font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1">Filtrar:</span>
+                  <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1">Filtrar:</span>
                   {uniqueTags.map((tag) => {
                     const isSelected = filterTag === tag;
                     return (
                       <button
                         key={tag}
                         onClick={() => setFilterTag(tag)}
-                        className={`px-2 py-0.5 rounded-md text-[8.5px] font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                        className={`px-2 py-0.5 rounded-md text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                           isSelected
                             ? "bg-[#ff2a6d] text-white shadow-xs"
                             : "bg-slate-100 hover:bg-slate-200 text-slate-500 border border-slate-200"
@@ -833,21 +833,21 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               {loadingList ? (
                 <div className="flex flex-col items-center justify-center py-12 gap-2 text-slate-500">
                   <Loader2 className="h-6 w-6 animate-spin text-[#ff2a6d]" />
-                  <span className="text-[9.5px] font-black uppercase tracking-wider">Carregando Acervo...</span>
+                  <span className="text-[11px] font-black uppercase tracking-wider">Carregando Acervo...</span>
                 </div>
               ) : documents.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center text-slate-500">
                   <FileText className="h-8 w-8 mb-2 opacity-40 text-slate-300" />
                   <span className="text-xs font-black uppercase text-slate-500">Nenhum documento incluído</span>
-                  <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mt-1 leading-normal max-w-xs">
+                  <p className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider mt-1 leading-normal max-w-xs">
                     Arraste um contrato ou proposta de fornecedor no quadro acima para começar!
                   </p>
                 </div>
               ) : filteredDocuments.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center text-slate-500">
                   <Search className="h-6 w-6 mb-1 text-slate-300" />
-                  <span className="text-[10px] font-black uppercase text-slate-500">Nenhum resultado encontrado</span>
-                  <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
+                  <span className="text-[11px] font-black uppercase text-slate-500">Nenhum resultado encontrado</span>
+                  <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
                     Tente ajustar os filtros ou termo de busca
                   </p>
                 </div>
@@ -870,13 +870,13 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                           {doc.name}
                         </h4>
                         <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                          <span className="px-1.5 py-0.5 rounded-sm bg-slate-100 border border-slate-200 text-[8px] font-black uppercase tracking-wider text-slate-500">
+                          <span className="px-1.5 py-0.5 rounded-sm bg-slate-100 border border-slate-200 text-[11px] font-black uppercase tracking-wider text-slate-500">
                             {doc.theme_tag}
                           </span>
-                          <span className="text-[9px] font-mono text-slate-500">
+                          <span className="text-[11px] font-mono text-slate-500">
                             {formatSize(doc.file_size)}
                           </span>
-                          <span className="text-[9px] text-slate-500 flex items-center gap-0.5">
+                          <span className="text-[11px] text-slate-500 flex items-center gap-0.5">
                             <Clock className="h-3 w-3" />
                             {new Date(doc.uploaded_at).toLocaleDateString("pt-BR")}
                           </span>
@@ -958,7 +958,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               
               {/* Chat Subheader with Filter options */}
               <div className="p-3 bg-slate-50/50 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2 shrink-0">
-                <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-[11px] text-slate-500 font-bold uppercase tracking-wider">
                   <Bot className="h-3.5 w-3.5 text-[#ff2a6d]" />
                   <span>Escopo de Respostas:</span>
                 </div>
@@ -966,7 +966,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                 <select
                   value={chatFilterDocId}
                   onChange={(e) => setChatFilterDocId(e.target.value)}
-                  className="text-[10px] font-black text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 focus:outline-[#ff2a6d] cursor-pointer max-w-[250px]"
+                  className="text-[11px] font-black text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 focus:outline-[#ff2a6d] cursor-pointer max-w-[250px]"
                 >
                   <option value="">Foco: Todo o Acervo ({documents.length} DOCs)</option>
                   {documents.map((doc) => (
@@ -1034,21 +1034,21 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                       {/* Display smart sources / citation widgets underneath the bubble */}
                       {msg.citations && msg.citations.length > 0 && (
                         <div className="mt-3.5 pt-3 border-t border-slate-200/50">
-                          <p className="text-[8px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
+                          <p className="text-[11px] font-black uppercase text-slate-500 tracking-wider mb-1.5">
                             📚 Fontes de Referência Verificadas:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {msg.citations.map((cite, cIdx) => (
                               <div
                                 key={cIdx}
-                                className="px-2 py-1 bg-white border border-slate-200 rounded-md text-[9px] text-slate-600 font-bold hover:border-[#ff2a6d] transition-all cursor-pointer relative group/cite max-w-[150px] truncate"
+                                className="px-2 py-1 bg-white border border-slate-200 rounded-md text-[11px] text-slate-600 font-bold hover:border-[#ff2a6d] transition-all cursor-pointer relative group/cite max-w-[150px] truncate"
                                 title={cite.snippet}
                               >
                                 {cite.documentName}
                                 
                                 {/* Hover snippet preview tooltip */}
-                                <div className="absolute bottom-full left-0 mb-1 hidden group-hover/cite:block bg-slate-950 text-white text-[8.5px] p-2.5 rounded-lg shadow-xl w-60 z-50 pointer-events-none border border-slate-800 font-medium leading-normal normal-case">
-                                  <span className="font-black text-[#ff2a6d] uppercase text-[7.5px] block mb-1">Snippet do Documento:</span>
+                                <div className="absolute bottom-full left-0 mb-1 hidden group-hover/cite:block bg-slate-950 text-white text-[11px] p-2.5 rounded-lg shadow-md w-60 z-50 pointer-events-none border border-slate-800 font-medium leading-normal normal-case">
+                                  <span className="font-black text-[#ff2a6d] uppercase text-[11px] block mb-1">Snippet do Documento:</span>
                                   "{cite.snippet}"
                                 </div>
                               </div>
@@ -1057,7 +1057,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                         </div>
                       )}
                     </div>
-                    <span className="text-[8.5px] text-slate-500 font-bold uppercase tracking-wider mt-1 px-1">
+                    <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-1 px-1">
                       {msg.sender === "user" ? "Você" : "Assistente Intel"} • {msg.timestamp}
                     </span>
                   </div>
@@ -1066,7 +1066,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                 {chatLoading && (
                   <div className="flex items-center gap-2 text-slate-500 text-xs px-2">
                     <Loader2 className="h-4 w-4 animate-spin text-[#ff2a6d]" />
-                    <span className="font-bold uppercase tracking-wider animate-pulse text-[10px]">IA está lendo os documentos de facilities...</span>
+                    <span className="font-bold uppercase tracking-wider animate-pulse text-[11px]">IA está lendo os documentos de facilities...</span>
                   </div>
                 )}
                 
@@ -1077,19 +1077,19 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               <div className="p-2 border-t border-slate-100 bg-slate-50 flex flex-wrap gap-1.5 shrink-0 select-none">
                 <button
                   onClick={() => setInputText("Quais as principais obrigações e SLAs de serviços listados?")}
-                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[9px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
+                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
                 >
                   📋 SLAs & Prazos
                 </button>
                 <button
                   onClick={() => setInputText("Quais são os valores totais, taxas ou custos descritos nos documentos?")}
-                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[9px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
+                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
                 >
                   💰 Custos & Valores
                 </button>
                 <button
                   onClick={() => setInputText("Faça um comparativo geral resumido dos arquivos cadastrados.")}
-                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[9px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
+                  className="px-2 py-1 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-600 uppercase tracking-tight transition-colors cursor-pointer"
                 >
                   ⚖️ Comparar DOCs
                 </button>
@@ -1109,7 +1109,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   <button
                     onClick={handleSendMessage}
                     disabled={chatLoading || !inputText.trim()}
-                    className="px-4 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 text-white font-black text-[10px] uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer"
+                    className="px-4 bg-[#ff2a6d] hover:bg-pink-600 disabled:bg-slate-200 text-white font-black text-[11px] uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer"
                   >
                     Perguntar
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -1128,14 +1128,14 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     <Sparkles className="h-4 w-4 text-[#ff2a6d]" />
                     Gerador de Pitch Deck Executivo
                   </h3>
-                  <p className="text-[10px] text-slate-500 font-semibold uppercase leading-normal">
+                  <p className="text-[11px] text-slate-500 font-semibold uppercase leading-normal">
                     Selecione documentos e defina um tema para a IA montar uma apresentação estruturada de slides corporativos.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[9px] font-black uppercase text-slate-500">Documento de Origem</label>
+                    <label className="text-[11px] font-black uppercase text-slate-500">Documento de Origem</label>
                     <select
                       value={presDocId}
                       onChange={(e) => setPresDocId(e.target.value)}
@@ -1151,7 +1151,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[9px] font-black uppercase text-slate-500">Tópico ou Foco dos Slides</label>
+                    <label className="text-[11px] font-black uppercase text-slate-500">Tópico ou Foco dos Slides</label>
                     <input
                       type="text"
                       value={presTopic}
@@ -1165,7 +1165,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                 <button
                   onClick={handleGeneratePresentation}
                   disabled={presLoading || documents.length === 0}
-                  className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 text-white font-black text-[10.5px] uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-200 text-white font-black text-[11px] uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {presLoading ? (
                     <>
@@ -1189,7 +1189,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] font-black uppercase tracking-wider text-slate-500">
+                      <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
                         Slides Gerados ({slides.length} slides)
                       </span>
                     </div>
@@ -1197,7 +1197,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     <div className="flex items-center gap-2">
                       <button
                         onClick={handleCopyPresentation}
-                        className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-[9px] font-black text-slate-600 uppercase tracking-tight flex items-center gap-1 transition-colors cursor-pointer"
+                        className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-[11px] font-black text-slate-600 uppercase tracking-tight flex items-center gap-1 transition-colors cursor-pointer"
                       >
                         {copiedPres ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
                         {copiedPres ? "Copiado!" : "Copiar MD"}
@@ -1206,13 +1206,13 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   </div>
 
                   {/* Pitch Deck Dark-mode Slide Frame */}
-                  <div className="flex-1 rounded-2xl bg-slate-950 text-slate-200 p-6 shadow-xl flex flex-col justify-between relative overflow-hidden min-h-[250px]">
+                  <div className="flex-1 rounded-2xl bg-slate-950 text-slate-200 p-6 shadow-md flex flex-col justify-between relative overflow-hidden min-h-[250px]">
                     {/* Futuristic wireframe accent */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff2a6d]/5 rounded-full blur-2xl" />
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#ff2a6d]/5 rounded-full blur-2xl" />
 
                     {/* Top slide identifier */}
-                    <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5 shrink-0 text-slate-500 text-[8px] font-black uppercase tracking-widest select-none">
+                    <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5 shrink-0 text-slate-500 text-[11px] font-black uppercase tracking-widest select-none">
                       <span>BP-COMPRAS EXECUTIVE INTELLIGENCE</span>
                       <span>SLIDE {currentSlideIndex + 1} OF {slides.length}</span>
                     </div>
@@ -1251,7 +1251,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                     </div>
 
                     {/* Bottom slide pagination control */}
-                    <div className="border-t border-slate-800/80 pt-3.5 shrink-0 flex items-center justify-between text-slate-500 text-[9px] select-none">
+                    <div className="border-t border-slate-800/80 pt-3.5 shrink-0 flex items-center justify-between text-slate-500 text-[11px] select-none">
                       <span className="font-bold">Tema: {presTopic || "Insights Gerais"}</span>
                       <div className="flex items-center gap-1.5">
                         <button
@@ -1279,7 +1279,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                 <div className="flex-1 flex flex-col items-center justify-center py-20 text-slate-500 border border-dashed border-slate-200 rounded-2xl bg-slate-50/20 text-center">
                   <Presentation className="h-10 w-10 opacity-30 text-slate-350 mb-2" />
                   <span className="text-xs font-black uppercase text-slate-500">Nenhuma apresentação formulada</span>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase mt-1 leading-normal max-w-xs">
+                  <p className="text-[11px] text-slate-500 font-bold uppercase mt-1 leading-normal max-w-xs">
                     Escolha um tema corporativo e clique em Gerar para produzir um pitch deck executivo!
                   </p>
                 </div>
@@ -1292,7 +1292,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
       {/* DOCUMENT DETAILED VIEW MODAL */}
       {isDocModalOpen && selectedDoc && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in text-slate-850">
-          <div className="bg-white rounded-3xl border border-slate-100 max-w-4xl w-full h-[85vh] p-6 shadow-2xl flex flex-col gap-4 animate-scale-up relative">
+          <div className="bg-white rounded-3xl border border-slate-100 max-w-4xl w-full h-[85vh] p-6 shadow-md flex flex-col gap-4 animate-scale-up relative">
             
             {/* Close button */}
             <button
@@ -1308,17 +1308,17 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
             {/* Modal Header */}
             <div className="border-b border-slate-100 pb-3 shrink-0">
               <div className="flex items-center gap-2 mb-1">
-                <span className="px-2 py-0.5 rounded-sm bg-pink-100 border border-pink-200 text-[#ff2a6d] text-[9px] font-black uppercase tracking-wider">
+                <span className="px-2 py-0.5 rounded-sm bg-pink-100 border border-pink-200 text-[#ff2a6d] text-[11px] font-black uppercase tracking-wider">
                   {selectedDoc.theme_tag}
                 </span>
-                <span className="text-[9px] font-mono text-slate-500">ID: {selectedDoc.id}</span>
+                <span className="text-[11px] font-mono text-slate-500">ID: {selectedDoc.id}</span>
               </div>
               <h2 className="text-base font-black text-slate-900 uppercase tracking-tight truncate pr-8">
                 {selectedDoc.name}
               </h2>
               
               {/* Document metadata badges */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2 text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2 text-[11px] text-slate-500 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1">
                   <User className="h-3.5 w-3.5 text-slate-500" />
                   Responsável: <strong className="text-slate-850">{selectedDoc.user_responsible}</strong>
@@ -1340,7 +1340,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               {/* Left Side: Extracted Raw OCR Text */}
               <div className="flex flex-col border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
                 <div className="bg-slate-100 border-b border-slate-200 px-3.5 py-2.5 flex items-center justify-between shrink-0 select-none">
-                  <span className="text-[10px] font-black text-slate-600 uppercase tracking-wider flex items-center gap-1">
+                  <span className="text-[11px] font-black text-slate-600 uppercase tracking-wider flex items-center gap-1">
                     <FileText className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     Transcrição OCR do Documento Original
                   </span>
@@ -1353,7 +1353,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
               {/* Right Side: AI summary text */}
               <div className="flex flex-col border border-[#ff2a6d]/25 rounded-2xl overflow-hidden bg-pink-50/5">
                 <div className="bg-pink-50/30 border-b border-[#ff2a6d]/15 px-3.5 py-2.5 flex items-center justify-between shrink-0 select-none">
-                  <span className="text-[10px] font-black text-[#ff2a6d] uppercase tracking-wider flex items-center gap-1">
+                  <span className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wider flex items-center gap-1">
                     <Sparkles className="h-3.5 w-3.5 text-[#ff2a6d]" />
                     Resumo Estruturado por IA (.txt)
                   </span>
@@ -1429,7 +1429,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
 
             {/* Modal Footer */}
             <div className="border-t border-slate-100 pt-3 flex items-center justify-between shrink-0 select-none">
-              <span className="text-[9px] text-slate-500 font-semibold uppercase">
+              <span className="text-[11px] text-slate-500 font-semibold uppercase">
                 Arquivado via BP-COMPRAS INTEL SYSTEM
               </span>
               <button
@@ -1437,7 +1437,7 @@ export default function DocsView({ onBack, userName, onOpenIntelligentReading }:
                   setIsDocModalOpen(false);
                   setSelectedDoc(null);
                 }}
-                className="px-5 py-2 border border-slate-200 hover:bg-slate-50 font-black text-[10px] uppercase tracking-wider rounded-xl cursor-pointer"
+                className="px-5 py-2 border border-slate-200 hover:bg-slate-50 font-black text-[11px] uppercase tracking-wider rounded-xl cursor-pointer"
               >
                 Fechar Painel
               </button>

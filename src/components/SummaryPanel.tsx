@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Supplier, ComparisonSummary } from "../types";
 import { formatCurrency } from "../utils";
 import { CheckCircle2, PiggyBank, Briefcase } from "lucide-react";
@@ -107,7 +107,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                 </div>
                 <div className="text-right">
                   <span className="font-extrabold text-slate-900 text-[12.5px] md:text-[13.5px] font-mono">{formatCurrency(sum)}</span>
-                  <span className="text-[10px] text-slate-450 font-semibold block">
+                  <span className="text-[11px] text-slate-450 font-semibold block">
                     {percentage.toFixed(1)}% do total ótimo
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
           })}
 
           <div className="border-t border-slate-200/60 pt-2 flex items-center justify-between bg-[#ff2a6d]/5 p-2.5 rounded-xl border border-[#ff2a6d]/35 text-slate-900">
-            <span className="text-[10px] font-black uppercase">TOTAL MISTO COMBINADO:</span>
+            <span className="text-[11px] font-black uppercase">TOTAL MISTO COMBINADO:</span>
             <span className="text-sm font-black font-mono text-slate-950">{formatCurrency(mixedTotal)}</span>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                     
                     window.open(url, "_blank");
                   }}
-                  className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20ba56] text-white px-3 py-1 font-black text-[9.5px] uppercase rounded-full tracking-wide shadow-2xs cursor-pointer transition-all active:scale-95"
+                  className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20ba56] text-white px-3 py-1 font-black text-[11px] uppercase rounded-full tracking-wide shadow-2xs cursor-pointer transition-all active:scale-95"
                   title="Enviar pedido consolidado inteiro para este fornecedor via WhatsApp"
                 >
                   <span className="text-xs">💬</span> Enviar Pedido Fechado
@@ -212,7 +212,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               <span className="uppercase tracking-tight">Economia Absoluta (Mista vs Mais Cara):</span>
               <span className="text-[#ff2a6d] font-black font-mono text-[13.5px]">{formatCurrency(maxSavings)}</span>
             </div>
-            <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[10.5px]">
+            <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[11px]">
               <span className="uppercase tracking-tight text-slate-450">Economia Incremental (Mista vs Única Cheaper):</span>
               <span className="font-mono text-emerald-800 font-black text-[12.5px]">{formatCurrency(smartSavings)}</span>
             </div>

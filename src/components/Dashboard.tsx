@@ -16,7 +16,7 @@ function AnimatedNumber({ value, prefix = "" }: { value: string; prefix?: string
   }, []);
   return (
     <span
-      className="transition-all duration-700 ease-out"
+      className="transition-all duration-700 ease-out kpi-number"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(8px)",
@@ -50,12 +50,11 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       label: "MELHOR COMPRA MISTA",
       value: formatCurrency(mixedTotal),
       detail: "RECOMENDADO",
-      detailStyle: "bg-[#ff2a6d]/8 text-[#c21e54] border-[#ff2a6d]/15",
+      detailStyle: "badge-premium badge-premium-pink",
       icon: <CheckCircle className="h-4.5 w-4.5 text-[#ff2a6d] shrink-0" />,
-      borderColor: "border-l-[#111c2e]",
       valueColor: "text-[#111c2e]",
-      iconBg: "bg-[#ff2a6d]",
-      glowColor: "rgba(8,255,42,109,0.06)",
+      iconBg: "bg-[#ff2a6d]/8",
+      glowColor: "rgba(255,42,109,0.06)",
     },
     {
       id: "card-store-best",
@@ -64,9 +63,8 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       detail: bestSupplier ? `FORNECEDOR: ${bestSupplier.name}` : "Total fornecedor único",
       detailStyle: "",
       icon: <Building className="h-4.5 w-4.5 text-slate-500 shrink-0" />,
-      borderColor: "border-l-slate-700",
       valueColor: "text-[#111c2e]",
-      iconBg: "bg-slate-700",
+      iconBg: "bg-slate-100",
       glowColor: "rgba(37,42,52,0.04)",
     },
     {
@@ -76,9 +74,8 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       detail: "Poupado vs mais caro",
       detailStyle: "",
       icon: <TrendingDown className="h-4.5 w-4.5 text-[#10B981] shrink-0" />,
-      borderColor: "border-l-[#10B981]",
       valueColor: "text-[#10B981]",
-      iconBg: "bg-[#10B981]",
+      iconBg: "bg-emerald-50",
       glowColor: "rgba(16,185,129,0.06)",
     },
     {
@@ -88,57 +85,64 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       detail: "Eficiência mista alcançada",
       detailStyle: "",
       icon: <Percent className="h-4.5 w-4.5 text-[#ff2a6d] shrink-0" />,
-      borderColor: "border-l-[#ff2a6d]",
       valueColor: "text-[#ff2a6d]",
-      iconBg: "bg-[#ff2a6d]",
-      glowColor: "rgba(255,46,99,0.06)",
+      iconBg: "bg-[#ff2a6d]/8",
+      glowColor: "rgba(255,42,109,0.06)",
     },
   ];
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-5 print:mb-3 print:grid-cols-4 print:gap-3">
-      {cards.map((card) => (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6 print:mb-3 print:grid-cols-4 print:gap-3">
+      {cards.map((card, index) => (
         <div
           key={card.id}
           id={card.id}
-          className={`group relative bg-white rounded-xl p-4 shadow-xs border border-slate-200/80 border-l-4 ${card.borderColor} transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.04] hover:-translate-y-0.5 flex flex-col justify-between overflow-hidden print:border-slate-300`}
+          className="animate-premium-slide-up opacity-0"
+          style={{ animationDelay: `${index * 0.08}s` }}
         >
-          {/* Subtle top-right glow on hover */}
-          <div
-            className="absolute -top-8 -right-8 w-20 h-20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-            style={{ background: card.glowColor }}
-          />
+          {/* Double-Bezel Architecture */}
+          <div className="double-bezel h-full">
+            <div
+              className={`group relative double-bezel-inner p-4 transition-all duration-300 hover:shadow-premium-lg hover:-translate-y-0.5 flex flex-col justify-between overflow-hidden h-full`}
+            >
+              {/* Subtle top-right glow on hover */}
+              <div
+                className="absolute -top-8 -right-8 w-24 h-24 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: card.glowColor }}
+              />
 
-          <div className="flex items-start justify-between gap-1 relative z-10">
-            <div className="space-y-1">
-              <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 block leading-none">
-                {card.label}
-              </span>
-            </div>
-            <div className="p-1 rounded-lg transition-all duration-300 group-hover:scale-110" style={{ background: card.glowColor }}>
-              {card.icon}
-            </div>
-          </div>
+              <div className="flex items-start justify-between gap-1 relative z-10">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-slate-500 block leading-none">
+                    {card.label}
+                  </span>
+                </div>
+                <div className={`p-1.5 rounded-lg transition-all duration-300 group-hover:scale-110 ${card.iconBg}`}>
+                  {card.icon}
+                </div>
+              </div>
 
-          <div className="mt-3 relative z-10">
-            <span className={`text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black ${card.valueColor} leading-none tracking-tight block`}>
-              <AnimatedNumber value={card.value} />
-            </span>
-            <div className="mt-2.5">
-              {card.detailStyle ? (
-                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider border ${card.detailStyle}`}>
-                  {card.detail}
+              <div className="mt-3 relative z-10">
+                <span className={`text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] print:text-2xl font-black ${card.valueColor} leading-none tracking-tight block`}>
+                  <AnimatedNumber value={card.value} />
                 </span>
-              ) : (
-                <p className="text-[11px] text-slate-500 font-extrabold uppercase tracking-wide leading-normal">
-                  {card.detail}
-                </p>
-              )}
+                <div className="mt-2.5">
+                  {card.detailStyle ? (
+                    <span className={card.detailStyle}>
+                      {card.detail}
+                    </span>
+                  ) : (
+                    <p className="text-[11px] text-slate-500 font-extrabold uppercase tracking-wide leading-normal">
+                      {card.detail}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Bottom-right decorative dot */}
+              <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full blur-xs pointer-events-none transition-all duration-500 group-hover:scale-150" style={{ background: card.glowColor }} />
             </div>
           </div>
-
-          {/* Bottom-right decorative dot */}
-          <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-full blur-xs pointer-events-none transition-all duration-500 group-hover:scale-150" style={{ background: card.glowColor }} />
         </div>
       ))}
     </div>

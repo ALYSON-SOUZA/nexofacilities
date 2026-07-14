@@ -21,7 +21,7 @@ export const ICON_MAP = {
   // General Actions
   salvar: { emoji: "💾", label: "Salvar" },
   cancelar: { emoji: "❌", label: "Cancelar / Fechar" },
-  fechar: { emoji: "❌", label: "Fechar / Cancelar" }, // fallback to same emoji for safety but we can use different keys
+  fechar: { emoji: "❌", label: "Fechar / Cancelar" },
   voltar: { emoji: "⬅️", label: "Voltar" },
   editar: { emoji: "✏️", label: "Editar" },
   excluir: { emoji: "🗑️", label: "Excluir" },
@@ -51,11 +51,11 @@ export const ICON_MAP = {
   importarDados: { emoji: "📥", label: "Importar Arquivo" },
   anexarArquivo: { emoji: "📎", label: "Anexar Arquivo" },
   tirarFoto: { emoji: "📷", label: "Tirar Foto (Câmera)" },
-  colarImagem: { emoji: "📋", label: "Colar Imagem" }, // Wait, no duplicate emojis allowed! Let's use "🖼️" for paste image
+  colarImagem: { emoji: "📋", label: "Colar Imagem" },
   colarImagemEmoji: { emoji: "🖼️", label: "Colar Imagem" },
   ditarVoz: { emoji: "🎤", label: "Ditar por Voz" },
   visualizar: { emoji: "👁️", label: "Visualizar / Ver Detalhes" },
-  verDetalhes: { emoji: "👁️", label: "Ver Detalhes" }, // Wait, "👁️" is duplicate of verDetalhes. Let's make "🔍" for buscarVistoria, "🔎" for verDetalhes, "👁️" for visualizar.
+  verDetalhes: { emoji: "👁️", label: "Ver Detalhes" },
   buscarVistoria: { emoji: "🔎", label: "Buscar Vistoria" },
   verDetalhesEmoji: { emoji: "👁️", label: "Ver Detalhes" },
 
@@ -63,10 +63,10 @@ export const ICON_MAP = {
   adicionarSala: { emoji: "🚪", label: "Adicionar Sala" },
   registrarOcorrencia: { emoji: "📝", label: "Registrar Ocorrência" },
   tipoAutuacao: { emoji: "🚨", label: "Tipo: Autuação" },
-  tipoLimpeza: { emoji: "🧽", label: "Tipo: Limpeza / Organização" }, // was 🧹, let's use 🧽 for cleaning
+  tipoLimpeza: { emoji: "🧽", label: "Tipo: Limpeza / Organização" },
   tipoManutencao: { emoji: "🔧", label: "Tipo: Manutenção" },
   finalizarOcorrencia: { emoji: "✅", label: "Finalizar Ocorrência" },
-  continuarVistoria: { emoji: "⏩", label: "Continuar Vistoria" }, // was ➕, changed to ⏩
+  continuarVistoria: { emoji: "⏩", label: "Continuar Vistoria" },
   finalizarVistoria: { emoji: "🏁", label: "Finalizar Vistoria / Concluir Ronda" },
   criarChamado: { emoji: "📌", label: "Criar Chamado" },
 
@@ -83,7 +83,7 @@ export const ICON_MAP = {
   temaEscuro: { emoji: "🌙", label: "Modo Escuro (Dark)" },
 
   // User Actions
-  logout: { emoji: "🚪", label: "Sair / Trocar Operador" }, // Wait, "🚪" is duplicate of adicionarSala. Let's use "🚶‍♂️" or "🏃" or "🔐" or "🚪" - wait. Let's make logout "🔒"
+  logout: { emoji: "🚪", label: "Sair / Trocar Operador" },
   sair: { emoji: "🔒", label: "Sair / Trocar Operador" },
   menuRonda: { emoji: "🚶", label: "Ronda" },
 
@@ -117,24 +117,21 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
   const touchTimeout = useRef<NodeJS.Timeout | null>(null);
   const item = ICON_MAP[iconKey] || { emoji: "❓", label: "Ação" };
 
-  // Long press for mobile to trigger tooltip
   const handleTouchStart = () => {
     touchTimeout.current = setTimeout(() => {
       setShowTooltip(true);
-    }, 400); // 400ms long press
+    }, 400);
   };
 
   const handleTouchEnd = () => {
     if (touchTimeout.current) {
       clearTimeout(touchTimeout.current);
     }
-    // Leave tooltip open briefly
     setTimeout(() => {
       setShowTooltip(false);
     }, 1500);
   };
 
-  // Ensure tooltips are cleaned up if component unmounts
   useEffect(() => {
     return () => {
       if (touchTimeout.current) {
@@ -151,12 +148,12 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
   }[size];
 
   const variantClasses = {
-    primary: "bg-[#ff2a6d] hover:bg-[#c21e54] text-white shadow-sm hover:shadow transition-all active:scale-95 rounded-xl border border-[#ff2a6d]",
-    secondary: "bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-3xs active:scale-95 rounded-xl border border-slate-200",
-    success: "bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm active:scale-95 rounded-xl border border-emerald-600",
-    danger: "bg-[#c21e54] hover:bg-[#a01845] text-white shadow-sm active:scale-95 rounded-xl border border-[#c21e54]",
-    warning: "bg-amber-500 hover:bg-amber-600 text-white shadow-sm active:scale-95 rounded-xl border border-amber-600",
-    neutral: "bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 shadow-3xs active:scale-95 rounded-xl",
+    primary: "bg-[#ff2a6d] hover:bg-[#c21e54] text-white shadow-sm hover:shadow-premium-pink btn-magnetic rounded-xl border border-[#ff2a6d]",
+    secondary: "bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-3xs btn-magnetic rounded-xl border border-slate-200",
+    success: "bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm btn-magnetic rounded-xl border border-emerald-600",
+    danger: "bg-[#c21e54] hover:bg-[#a01845] text-white shadow-sm btn-magnetic rounded-xl border border-[#c21e54]",
+    warning: "bg-amber-500 hover:bg-amber-600 text-white shadow-sm btn-magnetic rounded-xl border border-amber-600",
+    neutral: "bg-white border border-slate-200/80 hover:bg-slate-50 hover:border-slate-300 text-slate-700 shadow-3xs btn-magnetic rounded-xl",
     custom: "",
   }[variant];
 
@@ -176,11 +173,11 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
         <span>{item.emoji}</span>
       </button>
 
-      {/* TOOLTIP PORTAL-LIKE CSS BUBBLE */}
+      {/* Premium Tooltip */}
       {showTooltip && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#111c2e] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-md whitespace-nowrap z-[999] animate-scale-in border border-[#111c2e] pointer-events-none">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#111c2e] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-premium whitespace-nowrap z-[999] animate-premium-scale-in border border-[#111c2e] pointer-events-none">
           {item.label}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
+          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#111c2e]" />
         </div>
       )}
     </div>

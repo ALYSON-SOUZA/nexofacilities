@@ -491,8 +491,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
   .theme-ultradark [class*="text-[#ff2a6d]"],
   .theme-ultradark .text-emerald-500,
   .theme-ultradark .text-emerald-600,
-  .theme-ultradark .text-emerald-700,
-  .theme-ultradark .text-cyan-600 {
+  .theme-ultradark .text-emerald-700 {
     color: #ff2a6d !important;
   }
   .theme-ultradark [class*="bg-[#ff2a6d]"],
@@ -503,7 +502,6 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
     color: #ffffff !important;
     border-color: #ff2a6d !important;
   }
-  .theme-ultradark .hover\:bg-\[rgba\(8\,217\,214\,0\.2\)\]:hover,
   .theme-ultradark .hover\:border-\[\#ff2a6d\]:hover {
     background-color: rgba(255, 42, 109, 0.15) !important;
     border-color: #ff2a6d !important;
@@ -712,11 +710,231 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 }
 
 .theme-ultradark :focus-visible {
-  outline-color: rgba(8, 217, 214, 0.5);
+  outline-color: rgba(255, 42, 109, 0.5);
 }
 
 .theme-comfort :focus-visible {
   outline-color: rgba(180, 156, 96, 0.5);
+}
+
+/* ==========================================
+   PREMIUM GLASS MORPHISM UTILITIES
+   ========================================== */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card-elevated {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(2);
+  -webkit-backdrop-filter: blur(20px) saturate(2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.03),
+    0 4px 16px rgba(17, 28, 46, 0.06),
+    0 12px 40px rgba(17, 28, 46, 0.04);
+}
+
+.theme-ultradark .glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.theme-ultradark .glass-card-elevated {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.05),
+    0 4px 16px rgba(17, 28, 46, 0.08),
+    0 12px 40px rgba(17, 28, 46, 0.06);
+}
+
+.theme-comfort .glass-card {
+  background: rgba(244, 235, 215, 0.72);
+  border: 1px solid rgba(223, 208, 184, 0.5);
+}
+
+.theme-comfort .glass-card-elevated {
+  background: rgba(244, 235, 215, 0.82);
+  border: 1px solid rgba(223, 208, 184, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(74, 58, 40, 0.04),
+    0 4px 16px rgba(74, 58, 40, 0.06),
+    0 12px 40px rgba(74, 58, 40, 0.04);
+}
+
+/* ==========================================
+   PREMIUM SHADOW SYSTEM
+   ========================================== */
+
+.shadow-premium-sm {
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.03),
+    0 1px 3px rgba(17, 28, 46, 0.04),
+    0 4px 12px rgba(17, 28, 46, 0.03);
+}
+
+.shadow-premium {
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.04),
+    0 4px 16px rgba(17, 28, 46, 0.06),
+    0 12px 40px rgba(17, 28, 46, 0.04);
+}
+
+.shadow-premium-lg {
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.05),
+    0 8px 24px rgba(17, 28, 46, 0.08),
+    0 24px 64px rgba(17, 28, 46, 0.06);
+}
+
+.shadow-premium-pink {
+  box-shadow:
+    0 0 0 1px rgba(255, 42, 109, 0.08),
+    0 4px 16px rgba(255, 42, 109, 0.1),
+    0 12px 40px rgba(255, 42, 109, 0.06);
+}
+
+/* ==========================================
+   PREMIUM GRADIENT BACKGROUNDS
+   ========================================== */
+
+.bg-premium-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 42, 109, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(17, 28, 46, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 40%, #F8F9FA 100%);
+}
+
+.theme-ultradark .bg-premium-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 42, 109, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    linear-gradient(180deg, #0a1019 0%, #111c2e 40%, #0d1520 100%);
+}
+
+.theme-comfort .bg-premium-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(180, 156, 96, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(74, 58, 40, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #FAF4E5 0%, #F4EBD7 40%, #F8F2E0 100%);
+}
+
+/* ==========================================
+   PREMIUM ANIMATION UTILITIES
+   ========================================== */
+
+@keyframes premiumSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes premiumFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes premiumScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes premiumGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 42, 109, 0.2);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-premium-slide-up {
+  animation: premiumSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-premium-fade-in {
+  animation: premiumFadeIn 0.5s ease forwards;
+}
+
+.animate-premium-scale-in {
+  animation: premiumScaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-soft {
+  animation: floatSoft 4s ease-in-out infinite;
+}
+
+/* Staggered card reveal */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+
+/* ==========================================
+   PREMIUM ACCENT LINE (PINK GLOW)
+   ========================================== */
+
+.accent-line-premium {
+  height: 3px;
+  background: linear-gradient(90deg, #ff2a6d 0%, #c21e54 50%, transparent 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 12px rgba(255, 42, 109, 0.3), 0 0 4px rgba(255, 42, 109, 0.2);
+}
+
+/* ==========================================
+   PREMIUM BADGE SYSTEM
+   ========================================== */
+
+.badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.badge-premium-pink {
+  background: rgba(255, 42, 109, 0.08);
+  border: 1px solid rgba(255, 42, 109, 0.15);
+  color: #c21e54;
+}
+
+.badge-premium-navy {
+  background: rgba(17, 28, 46, 0.06);
+  border: 1px solid rgba(17, 28, 46, 0.1);
+  color: #111c2e;
+}
+
+.theme-ultradark .badge-premium-navy {
+  background: rgba(17, 28, 46, 0.08);
+  border: 1px solid rgba(17, 28, 46, 0.15);
+  color: #111c2e;
 }
 
 /* ==========================================
@@ -749,7 +967,7 @@ h1, h2, h3, h4, h5, h6, th, .font-display {
 }
 
 .theme-ultradark .table-row-transition:hover {
-  background-color: rgba(8, 217, 214, 0.03);
+  background-color: rgba(255, 42, 109, 0.03);
 }
 
 /* ==========================================
@@ -813,6 +1031,251 @@ html {
 }
 
 .theme-ultradark ::selection {
-  background-color: rgba(8, 217, 214, 0.2);
+  background-color: rgba(255, 42, 109, 0.2);
+}
+
+/* ==========================================
+   DOUBLE-BEZEL (DOPPELRAND) COMPONENT SYSTEM
+   Premium nested architecture: outer shell + inner core
+   ========================================== */
+
+.double-bezel {
+  position: relative;
+  border-radius: 16px;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(17, 28, 46, 0.06) 0%, rgba(255, 42, 109, 0.04) 100%);
+}
+
+.double-bezel-inner {
+  border-radius: 13px;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-ultradark .double-bezel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 42, 109, 0.06) 100%);
+}
+
+.theme-ultradark .double-bezel-inner {
+  background: #ffffff;
+}
+
+.theme-comfort .double-bezel {
+  background: linear-gradient(135deg, rgba(74, 58, 40, 0.06) 0%, rgba(180, 156, 96, 0.04) 100%);
+}
+
+.theme-comfort .double-bezel-inner {
+  background: #F4EBD7;
+}
+
+/* ==========================================
+   PREMIUM MICRO-INTERACTION UTILITIES
+   ========================================== */
+
+/* Magnetic button press effect */
+.btn-magnetic {
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-1px);
+}
+
+.btn-magnetic:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Premium hover lift with shadow interpolation */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(17, 28, 46, 0.05),
+    0 8px 24px rgba(17, 28, 46, 0.08),
+    0 24px 48px rgba(17, 28, 46, 0.04);
+}
+
+/* Premium card hover with pink accent glow */
+.hover-glow-pink {
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.hover-glow-pink:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 42, 109, 0.1),
+    0 4px 16px rgba(255, 42, 109, 0.08),
+    0 12px 32px rgba(255, 42, 109, 0.04);
+}
+
+/* ==========================================
+   PREMIUM INPUT FOCUS SYSTEM
+   ========================================== */
+
+.input-premium {
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  border: 1.5px solid rgba(17, 28, 46, 0.1);
+  background: rgba(244, 246, 249, 0.5);
+}
+
+.input-premium:hover {
+  border-color: rgba(17, 28, 46, 0.15);
+  background: rgba(244, 246, 249, 0.7);
+}
+
+.input-premium:focus {
+  border-color: rgba(255, 42, 109, 0.4);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.08);
+  outline: none;
+}
+
+.theme-ultradark .input-premium {
+  border: 1.5px solid rgba(17, 28, 46, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.theme-ultradark .input-premium:focus {
+  border-color: rgba(255, 42, 109, 0.5);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.12);
+}
+
+.theme-comfort .input-premium {
+  border: 1.5px solid rgba(74, 58, 40, 0.12);
+  background: rgba(250, 245, 232, 0.5);
+}
+
+.theme-comfort .input-premium:focus {
+  border-color: rgba(180, 156, 96, 0.5);
+  background: #FFFDF5;
+  box-shadow: 0 0 0 3px rgba(180, 156, 96, 0.1);
+}
+
+/* ==========================================
+   PREMIUM SCROLL REVEAL SYSTEM
+   ========================================== */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.7s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================
+   PREMIUM DIVIDER SYSTEM
+   ========================================== */
+
+.divider-premium {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(17, 28, 46, 0.08) 20%, rgba(255, 42, 109, 0.12) 50%, rgba(17, 28, 46, 0.08) 80%, transparent 100%);
+  border: none;
+}
+
+.theme-ultradark .divider-premium {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 20%, rgba(255, 42, 109, 0.15) 50%, rgba(255, 255, 255, 0.08) 80%, transparent 100%);
+}
+
+.theme-comfort .divider-premium {
+  background: linear-gradient(90deg, transparent 0%, rgba(74, 58, 40, 0.08) 20%, rgba(180, 156, 96, 0.12) 50%, rgba(74, 58, 40, 0.08) 80%, transparent 100%);
+}
+
+/* ==========================================
+   PREMIUM NOISE/GRAIN OVERLAY
+   ========================================== */
+
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ==========================================
+   PREMIUM KPI NUMBER STYLING
+   ========================================== */
+
+.kpi-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* ==========================================
+   PREMIUM PILL BUTTON SYSTEM
+   ========================================== */
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.pill-btn-primary {
+  background: linear-gradient(135deg, #ff2a6d 0%, #c21e54 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 42, 109, 0.25);
+}
+
+.pill-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 42, 109, 0.35);
+}
+
+.pill-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.pill-btn-ghost {
+  background: transparent;
+  color: #111c2e;
+  border: 1.5px solid rgba(17, 28, 46, 0.12);
+}
+
+.pill-btn-ghost:hover {
+  background: rgba(17, 28, 46, 0.04);
+  border-color: rgba(17, 28, 46, 0.2);
+}
+
+.theme-ultradark .pill-btn-ghost {
+  color: #111c2e;
+  border-color: rgba(17, 28, 46, 0.15);
+}
+
+.theme-ultradark .pill-btn-ghost:hover {
+  background: rgba(17, 28, 46, 0.06);
 }
 

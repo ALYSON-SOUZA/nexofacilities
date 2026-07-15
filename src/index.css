@@ -61,6 +61,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body, button, input, select, textarea {
@@ -73,6 +74,11 @@ h1, h2, h3, h4, h5, h6, th {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 ::selection {

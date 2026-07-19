@@ -2,6 +2,12 @@ node_modules/
 build/
 dist/
 coverage/
+.next/
+.turbo/
+.cache/
+.vite/
+.opencode/
+*.tsbuildinfo
 .DS_Store
 *.log
 .env*

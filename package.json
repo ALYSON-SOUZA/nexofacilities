@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && cp dist/index.html COMPRAS.html && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "vite build && node -e \"require('fs').copyFileSync('dist/index.html','COMPRAS.html')\" && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
@@ -21,7 +21,6 @@
     "express": "^4.21.2",
     "helmet": "^8.3.0",
     "jspdf": "^4.2.1",
-    "jspdf-autotable": "^5.0.8",
     "lucide-react": "^0.546.0",
     "mammoth": "^1.12.0",
     "motion": "^12.23.24",
@@ -43,7 +42,6 @@
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
-    "vercel": "^56.0.0",
     "vite-plugin-singlefile": "^2.3.3",
     "vitest": "^4.1.10"
   }

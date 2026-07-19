@@ -2132,34 +2132,34 @@ export default function App() {
         />
 
         {/* Brand Header */}
-        <div id="bp-compras-header" className="mb-5 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-4 relative">
+        <div id="bp-compras-header" className="mb-3 sm:mb-5 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-3 sm:gap-4 relative">
           {/* Left Side: Brand Logo */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
-              <span className="text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#ff2a6d] uppercase leading-none">FACILITIES</span>
-              <div className="text-lg font-display font-extrabold tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
+              <span className="text-[6px] sm:text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#ff2a6d] uppercase leading-none">FACILITIES</span>
+              <div className="text-base sm:text-lg font-display font-extrabold tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
                 <span className="text-slate-900">B</span>
                 <span className="text-[#ff2a6d]">P</span>
               </div>
-              <span className="text-[8.5px] font-sans font-medium tracking-[0.35em] text-slate-400 uppercase leading-none">COMPRAS</span>
+              <span className="text-[7px] sm:text-[8.5px] font-sans font-medium tracking-[0.35em] text-slate-400 uppercase leading-none">COMPRAS</span>
             </div>
           </div>
 
           {/* Right Side: Title & Chamado Inputs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto flex-1 justify-end">
-            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all flex-1 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
-              <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto flex-1 justify-end min-w-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+              <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
                 value={quoteTitle}
                 onChange={(e) => setQuoteTitle(e.target.value)}
                 placeholder="Ex: Refeitório, Recepção"
-                className="w-full bg-transparent text-sm font-medium text-slate-900 placeholder-slate-300 tracking-tight focus:outline-none leading-none p-0 border-0"
+                className="w-full bg-transparent text-xs sm:text-sm font-medium text-slate-900 placeholder-slate-300 tracking-tight focus:outline-none leading-none p-0 border-0 min-w-0"
               />
             </div>
 
-            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all max-w-[200px] shrink-0">
-              <span className="text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono">Chamado:</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all w-full sm:w-auto sm:max-w-[200px] shrink-0">
+              <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
               <input
                 type="text"
                 value={chamadoNumber}
@@ -2168,7 +2168,7 @@ export default function App() {
                   setChamadoNumber(val);
                 }}
                 placeholder="00000000"
-                className="w-22 bg-transparent text-sm font-mono font-bold text-slate-900 placeholder-slate-300 tracking-widest text-center focus:outline-none leading-none p-0 border-0"
+                className="w-full sm:w-22 bg-transparent text-xs sm:text-sm font-mono font-bold text-slate-900 placeholder-slate-300 tracking-widest text-center focus:outline-none leading-none p-0 border-0"
                 maxLength={8}
               />
             </div>
@@ -2178,18 +2178,18 @@ export default function App() {
         {activeView === "cotacao" ? (
           <div key="view-cotacao" className="view-content-enter">
             {editingQuoteId && (
-              <div className="mb-3.5 p-3 px-4 bg-sky-50 border border-sky-100 rounded-2xl text-[11px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-2.5 shadow-2xs print:hidden animate-fade-in">
+              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3 px-3 sm:px-4 bg-sky-50 border border-sky-100 rounded-2xl text-[10px] sm:text-[11px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-2 shadow-2xs print:hidden animate-fade-in">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-2.5 w-2.5 rounded-full bg-sky-500 shrink-0 animate-pulse" />
+                  <span className="flex h-2 sm:h-2.5 w-2 sm:w-2.5 rounded-full bg-sky-500 shrink-0 animate-pulse" />
                   <div>
-                    <span className="uppercase text-[8px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
-                    <span className="font-extrabold uppercase text-[11.5px] text-sky-950 font-sans">
+                    <span className="uppercase text-[7px] sm:text-[8px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
+                    <span className="font-extrabold uppercase text-[10px] sm:text-[11.5px] text-sky-950 font-sans">
                       Você está alterando a Cotação <span className="font-black font-mono text-[#ff2a6d]">#{editingQuoteId}</span>
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
-                  <span className="text-[9.5px] text-sky-600 font-medium leading-tight">
+                  <span className="text-[8px] sm:text-[9.5px] text-sky-600 font-medium leading-tight hidden sm:inline">
                     * Inclusões, exclusões e preços editados são salvos automaticamente no histórico.
                   </span>
                   <button
@@ -2198,7 +2198,7 @@ export default function App() {
                       setSuccessMessage("Modo de edição finalizado. A cotação continua salva no histórica, e agora você pode criar novas.");
                       setTimeout(() => setSuccessMessage(""), 5000);
                     }}
-                    className="px-3 py-1 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[10px] font-black cursor-pointer shadow-3xs transition-all uppercase tracking-tight"
+                    className="px-2.5 sm:px-3 py-1 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[9px] sm:text-[10px] font-black cursor-pointer shadow-3xs transition-all uppercase tracking-tight"
                   >
                     Sair da Edição
                   </button>
@@ -2208,44 +2208,44 @@ export default function App() {
 
             {/* METADATA DE ÚLTIMA ALTERAÇÃO (APENAS ONLINE - TELA) */}
             {lastChangeLog && (
-              <div className="mb-3.5 p-3.5 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 shadow-2xs print:hidden animate-fade-in text-slate-700">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-2 w-2 rounded-full bg-[#ff2a6d] animate-pulse shrink-0" />
-                  <span className="uppercase text-[9px] tracking-wider text-slate-450 font-extrabold">Última Alteração:</span>
-                  <span className="text-slate-900 font-black uppercase text-[10.5px]">{lastChangeLog.action}</span>
+              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3.5 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-[10px] sm:text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 shadow-2xs print:hidden animate-fade-in text-slate-700">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#ff2a6d] animate-pulse shrink-0" />
+                  <span className="uppercase text-[7px] sm:text-[9px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
+                  <span className="text-slate-900 font-black uppercase text-[9px] sm:text-[10.5px] truncate">{lastChangeLog.action}</span>
                 </div>
-                <div className="text-[9.5px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
-                  Realizado por: <span className="font-extrabold text-[#ff2a6d]">{lastChangeLog.user.toUpperCase()}</span> em {lastChangeLog.timestamp}
+                <div className="text-[8px] sm:text-[9.5px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
+                  por <span className="font-extrabold text-[#ff2a6d]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
                 </div>
               </div>
             )}
 
             {/* Action Buttons Toolbar */}
-            <div className="mb-4 flex flex-wrap items-center justify-end gap-2 print:hidden">
+            <div className="mb-3 sm:mb-4 flex flex-wrap items-center justify-end gap-1.5 sm:gap-2 print:hidden">
               <button
                 onClick={handleSaveComparison}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-sky-400 text-sky-600 text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-sky-400 text-sky-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
                 title="Salvar Cotação Atual"
               >
-                <Save className="h-3.5 w-3.5 shrink-0" />
+                <Save className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Salvar</span>
               </button>
 
               <button
                 onClick={handleExportQuoteExcel}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-green-500 text-green-600 text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-green-500 text-green-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
                 title="Exportar para Excel"
               >
-                <FileSpreadsheet className="h-3.5 w-3.5 shrink-0" />
+                <FileSpreadsheet className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Excel</span>
               </button>
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-purple-400 text-purple-600 text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-purple-400 text-purple-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
                 title="Imprimir Relatório"
               >
-                <Printer className="h-3.5 w-3.5 shrink-0" />
+                <Printer className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Imprimir</span>
               </button>
 
@@ -2257,10 +2257,10 @@ export default function App() {
                   variant: "danger",
                   onConfirm: handleResetToDefaults,
                 })}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-amber-500 text-amber-600 text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-amber-500 text-amber-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
                 title="Reiniciar Cotação"
               >
-                <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                <RotateCcw className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Reiniciar</span>
               </button>
             </div>

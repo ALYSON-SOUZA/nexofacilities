@@ -27,9 +27,11 @@ body {
 /* ─── TV / LARGE SCREEN CAP ─── */
 @media (min-width: 1920px) {
   .bp-main {
-    max-width: 1800px;
-    margin-left: auto !important;
+    max-width: calc(1800px + 80px);
+    margin-left: 80px !important;
     margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -40,7 +42,7 @@ body {
   /* ── MAIN CONTENT ── */
   .bp-main {
     margin-left: 0 !important;
-    padding: 0.75rem !important;
+    padding: 0.5rem !important;
     padding-top: 0 !important;
     overflow-x: hidden;
   }
@@ -55,12 +57,16 @@ body {
   /* ── DASHBOARD KPI CARDS (stacked) ── */
   #root .md\:grid-cols-12 {
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
   }
 
   /* KPI value text scaled down */
   #root .md\:grid-cols-12 h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  #root .md\:grid-cols-12 .p-5 {
+    padding: 0.75rem !important;
   }
 
   /* ── TABLE (internal horizontal scroll) ── */
@@ -70,14 +76,14 @@ body {
   }
 
   .overflow-x-auto table {
-    min-width: 800px;
+    min-width: 700px;
   }
 
   /* ── BRAND HEADER (title/chamado → stacked) ── */
   #bp-compras-header {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
   }
 
   #bp-compras-header .flex-col.sm\:flex-row {
@@ -90,15 +96,27 @@ body {
     width: 100% !important;
   }
 
+  /* ── HEADER TITLE/CHAMADO INPUTS ── */
+  #bp-compras-header > div:last-child {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.375rem !important;
+  }
+
+  #bp-compras-header > div:last-child > div {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
   /* ── ACTION BUTTONS TOOLBAR ── */
   #root .mb-4.flex.flex-wrap.items-center.justify-end {
-    gap: 0.375rem !important;
+    gap: 0.25rem !important;
     flex-wrap: wrap;
   }
 
   #root .mb-4.flex.flex-wrap.items-center.justify-end button {
     font-size: 10px !important;
-    padding: 0.375rem 0.5rem !important;
+    padding: 0.25rem 0.375rem !important;
   }
 
   /* ── QUICK GUIDE GRID ── */
@@ -109,7 +127,7 @@ body {
   /* ── SUMMARY PANELS ── */
   #root .grid.md\:grid-cols-2 {
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
   }
 
   /* ── STOCK CONTROL KPI CARDS ── */
@@ -153,8 +171,8 @@ body {
 
   /* ── SUCCESS TOAST ── */
   .fixed.top-4.right-4.z-50 {
-    left: 0.75rem !important;
-    right: 0.75rem !important;
+    left: 0.5rem !important;
+    right: 0.5rem !important;
     max-width: none !important;
   }
 
@@ -162,7 +180,7 @@ body {
   .fixed.inset-0 .bg-white.rounded-\[24px\],
   .fixed.inset-0 .bg-white.rounded-2xl {
     max-width: 95vw !important;
-    padding: 1rem !important;
+    padding: 0.75rem !important;
     max-height: 85vh;
     overflow-y: auto;
   }
@@ -176,13 +194,19 @@ body {
   #root .bg-sky-50.border.border-sky-100.rounded-2xl,
   #root .bg-white.border.border-slate-200.rounded-2xl {
     flex-direction: column !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
   }
 
   /* ── FOOTER ── */
   footer.mt-8 {
-    padding: 0.75rem 0 !important;
+    padding: 0.5rem 0 !important;
     font-size: 10px !important;
+  }
+
+  /* ── SYNC BADGE (compact) ── */
+  .sync-dot-syncing + span:last-child {
+    display: none !important;
   }
 }
 

@@ -24,8 +24,6 @@ import {
 import { CapacityRow, Category, Measurement } from "../types";
 import { parseRawLine } from "./FileImporter";
 import { dbFetchMeasurements, dbUpsertMeasurements, dbDeleteMeasurement } from "../supabaseClient";
-// @ts-ignore
-import promoImage from "../assets/images/stock_control_dashboard_promo_1782046837146.jpg";
 
 interface StockItem {
   id: string;

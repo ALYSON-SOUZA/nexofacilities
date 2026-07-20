@@ -1,8 +1,0 @@
-{
-  "name": "Remix: Comparador de Cotações",
-  "description": "Ferramenta de comparação de preços de materiais de limpeza para o departamento de Facilities, com cenários de compra mista ou fornecedor único.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

@@ -1833,8 +1833,34 @@ export default function App() {
             <span className="material-symbols-outlined" style={{ color: "#ff2a6d" }}>add_circle</span>
             <span className="bp-sidebar-nav-label" style={{ color: "#ff2a6d" }}>Nova</span>
           </button>
-          <button className="bp-sidebar-nav-item" title="Configurações">
-            <span className="material-symbols-outlined">settings</span>
+          <button
+            onClick={() => {
+              // Save all current state to localStorage
+              localStorage.setItem("clean_quotes_chamado_number", chamadoNumber);
+              localStorage.setItem("clean_quotes_title", quoteTitle);
+              localStorage.setItem("clean_quotes_categories", JSON.stringify(categories));
+              localStorage.setItem("clean_quotes_active_category_id", activeCategoryId);
+              localStorage.setItem("clean_quotes_username", userName);
+              localStorage.setItem("clean_quotes_user_cpf", userCpf);
+              localStorage.setItem("clean_quotes_date", quoteDate);
+              localStorage.setItem("clean_quotes_suppliers", JSON.stringify(suppliers));
+              localStorage.setItem("clean_quotes_items", JSON.stringify(items));
+              localStorage.setItem("clean_quotes_capacity", JSON.stringify(capacityRows));
+              localStorage.setItem("clean_quotes_archived", JSON.stringify(archivedQuotes));
+              localStorage.setItem("clean_quotes_selected_compare_id", selectedCompareQuoteId);
+              localStorage.setItem("clean_quotes_visual_theme", visualTheme);
+              if (editingQuoteId) {
+                localStorage.setItem("clean_quotes_editing_quote_id", editingQuoteId);
+              }
+              // Close the application
+              window.close();
+            }}
+            className="bp-sidebar-nav-item"
+            title="Salvar e Sair"
+            type="button"
+          >
+            <span className="material-symbols-outlined" style={{ color: "#ff2a6d" }}>logout</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#ff2a6d" }}>Sair</span>
           </button>
         </div>
       </aside>

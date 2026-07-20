@@ -410,7 +410,7 @@ export default function Table({
   }, [suppliers, items, itemBestSuppliers]);
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-visible mb-3 print:border-slate-350 print:shadow-none text-[11px] relative">
+    <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden mb-3 print:border-slate-350 print:shadow-none text-[11px] relative">
       
       {/* File Importer overlay overlay */}
       {isImportOpen && (
@@ -432,7 +432,7 @@ export default function Table({
       )}
 
       {/* NEW Upper Workbench Tool Bar for rapid search-to-insert dropdown & importing */}
-      <div className="border-b border-slate-200 bg-slate-50 p-3 flex flex-wrap gap-3 items-center justify-between print:hidden rounded-t-2xl">
+      <div className="border-b border-slate-200 bg-slate-50 p-2 sm:p-3 flex flex-wrap gap-2 sm:gap-3 items-center justify-between print:hidden rounded-t-2xl">
         
         {/* Quick Add Autocomplete widget */}
         <form
@@ -443,13 +443,13 @@ export default function Table({
             setQuickName("");
             setQuickQty(1);
           }}
-          className="flex flex-wrap items-center gap-2 flex-1 min-w-[320px]"
+          className="flex flex-wrap items-center gap-2 flex-1 min-w-0"
         >
-          <div className="flex-1 min-w-[200px] max-w-sm">
+          <div className="flex-1 min-w-0 sm:min-w-[140px] max-w-sm">
             <AutocompleteItemInput
               value={quickName}
               onChange={setQuickName}
-              placeholder="🔍 Busque material pelo nome para adicionar..."
+              placeholder="🔍 Busque material..."
               suggestions={suggestionItems}
               className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#ff2a6d] text-[11px]"
             />
@@ -536,15 +536,15 @@ export default function Table({
 
       {/* Toggleable Expanded Quick Guide */}
       {showQuickGuide && (
-        <div className="p-4 border-b border-slate-200 bg-amber-50/20 text-slate-700 leading-relaxed text-[11px] space-y-3 animate-fade-in print:hidden">
+        <div className="p-3 sm:p-4 border-b border-slate-200 bg-amber-50/20 text-slate-700 leading-relaxed text-[11px] space-y-2 sm:space-y-3 animate-fade-in print:hidden">
           <div className="flex items-start gap-2">
             <HelpCircle className="h-4 w-4 text-[#ff2a6d] shrink-0 mt-0.5" />
             <div>
-              <p className="font-black text-slate-900 uppercase text-[12px] tracking-wide">💡 Guia Rápido de Uso do Nexo Facilities</p>
-              <p className="text-slate-500 font-medium">Melhore sua produtividade diária de compras com os atalhos abaixo:</p>
+              <p className="font-black text-slate-900 uppercase text-[11px] sm:text-[12px] tracking-wide">💡 Guia Rápido de Uso</p>
+              <p className="text-slate-500 font-medium">Melhore sua produtividade diária de compras:</p>
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4 pt-1 text-[11px]">
+          <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-1 text-[10px] sm:text-[11px]">
             <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#ff2a6d]/30 transition-all">
               <span className="block font-black text-[#ff2a6d] uppercase text-[11px] tracking-wider mb-1">📋 Preenchimento em Lote</span>
               <p className="text-slate-500 leading-normal font-semibold">
@@ -574,8 +574,8 @@ export default function Table({
       )}
 
       {/* Table Container for horizontal scrolling */}
-      <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200">
-        <table className="w-full border-collapse text-left text-[13px] text-slate-700 print:text-[11px]/tight">
+      <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200 -mx-1 px-1">
+        <table className="w-full border-collapse text-left text-[11px] sm:text-[13px] text-slate-700 print:text-[11px]/tight min-w-[600px]">
           <thead>
             {/* Primary Headers Group */}
             <tr className="border-b border-slate-200 bg-slate-50 print:bg-slate-100 print:border-b-2">
@@ -584,21 +584,21 @@ export default function Table({
               </th>
               {showStockPlanning && isLimpeza && (
                 <>
-                  <th className="px-2 py-1 font-black text-emerald-950 text-center w-[100px] min-w-[100px] max-w-[100px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[80px] min-w-[80px] max-w-[80px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
                     Estoque Atual
                   </th>
-                  <th className="px-2 py-1 font-black text-emerald-950 text-center w-[105px] min-w-[105px] max-w-[105px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[85px] min-w-[85px] max-w-[85px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
                     Mínimo Canal
                   </th>
-                  <th className="px-2 py-1 font-extrabold text-emerald-950 text-center w-[115px] min-w-[115px] max-w-[115px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-100/40 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-extrabold text-emerald-950 text-center w-[95px] min-w-[95px] max-w-[95px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-100/40 border-l border-slate-200" rowSpan={2}>
                     Diferença Ideal
                   </th>
                 </>
               )}
-              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-14 uppercase tracking-tight text-[11px] print:text-[11px]" rowSpan={2}>
+              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-14 uppercase tracking-tight text-[10px] sm:text-[11px] print:text-[11px]" rowSpan={2}>
                 Pago?
               </th>
-              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-12 uppercase tracking-tight text-[13px] md:text-[14px] print:text-[11px]/tight" rowSpan={2}>
+              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-12 uppercase tracking-tight text-[11px] sm:text-[13px] md:text-[14px] print:text-[11px]/tight" rowSpan={2}>
                 QTD
               </th>
               {suppliers.map((s, idx) => {
@@ -607,7 +607,7 @@ export default function Table({
                   <th
                     key={s.id}
                     colSpan={2}
-                    className={`px-2 py-1 text-center font-bold tracking-wide border-l border-slate-200 border-b w-[190px] min-w-[190px] max-w-[190px] print:w-[160px] print:min-w-[160px] print:max-w-[160px] ${palette.headerBg} ${palette.topBorder || ""}`}
+                    className={`px-1 sm:px-2 py-1 text-center font-bold tracking-wide border-l border-slate-200 border-b w-[120px] sm:w-[160px] min-w-[120px] sm:min-w-[160px] max-w-[120px] sm:max-w-[160px] print:w-[160px] print:min-w-[160px] print:max-w-[160px] ${palette.headerBg} ${palette.topBorder || ""}`}
                   >
                     <div className="flex flex-col items-center justify-between w-full min-h-[76px] select-none py-1.5 mx-auto">
                       <div className="flex items-center justify-between w-full gap-1.5 px-0.5 pb-1 border-b border-slate-200/10">
@@ -660,7 +660,7 @@ export default function Table({
                   </th>
                 );
               })}
-              <th className="px-2 py-1 text-center w-8 print:hidden text-[11px]" rowSpan={2}>
+              <th className="px-1 py-1 text-center w-6 sm:w-8 print:hidden text-[10px] sm:text-[11px]" rowSpan={2}>
                 Excl.
               </th>
             </tr>
@@ -669,10 +669,10 @@ export default function Table({
             <tr className="border-b border-slate-200 bg-slate-50/30 print:bg-slate-50">
               {suppliers.map((s, idx) => (
                 <React.Fragment key={s.id}>
-                  <th className="px-2 py-1 text-right font-semibold text-slate-500 border-l border-slate-100 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[11px] print:text-[11px]">
+                  <th className="px-1 sm:px-2 py-1 text-right font-semibold text-slate-500 border-l border-slate-100 w-[60px] sm:w-[80px] min-w-[60px] sm:min-w-[80px] max-w-[60px] sm:max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[10px] sm:text-[11px] print:text-[11px]">
                     Unit (R$)
                   </th>
-                  <th className="px-2 py-1 text-right font-bold text-slate-600 w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[11px] print:text-[11px]">
+                  <th className="px-1 sm:px-2 py-1 text-right font-bold text-slate-600 w-[65px] sm:w-[80px] min-w-[65px] sm:min-w-[80px] max-w-[65px] sm:max-w-[80px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[10px] sm:text-[11px] print:text-[11px]">
                     Total (R$)
                   </th>
                 </React.Fragment>
@@ -692,7 +692,7 @@ export default function Table({
                   className={`hover:bg-slate-50/40 transition-colors group print:hover:bg-transparent ${isPrintHidden ? "print:hidden" : ""}`}
                 >
                   {/* Item name input built around Autocomplete directly */}
-                  <td className="p-0.5 px-3 focus-within:bg-slate-50/50">
+                  <td className="p-0.5 px-2 sm:px-3 focus-within:bg-slate-50/50 sticky left-0 z-10 bg-white shadow-[2px_0_4px_-2px_rgba(0,0,0,0.08)] print:shadow-none print:sticky-none">
                     <div className="flex items-center gap-1 w-full justify-between">
                       <div className="flex-1 min-w-0">
                         <AutocompleteItemInput
@@ -703,7 +703,7 @@ export default function Table({
                           placeholder="Ex. Álcool Gel"
                           suggestions={suggestionItems}
                           triggerOnBlurOnly={true}
-                          className="w-full border-0 bg-transparent p-0.5 text-slate-900 font-bold focus:ring-0 outline-hidden placeholder:text-slate-300 leading-none print:p-0 text-[11px] print:text-[11px]"
+                          className="w-full border-0 bg-transparent p-0.5 text-slate-900 font-bold focus:ring-0 outline-hidden placeholder:text-slate-300 leading-none print:p-0 text-[11px] print:text-[11px] max-w-[140px] sm:max-w-none"
                         />
                       </div>
                       {item.observation && item.observation.trim() !== "" && (
@@ -735,7 +735,7 @@ export default function Table({
                   {showStockPlanning && isLimpeza && (
                     <>
                       {/* Estoque Atual Input */}
-                      <td className="p-1 px-1.5 bg-emerald-50/10 border-l border-slate-200 w-[100px] min-w-[100px] max-w-[100px]">
+                      <td className="p-1 px-1.5 bg-emerald-50/10 border-l border-slate-200 w-[80px] min-w-[80px] max-w-[80px]">
                         <div className="flex items-center justify-center bg-white rounded-lg border border-slate-200 focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 px-1 py-0.5 transition-all">
                           <StockInput
                             value={item.currentStock}
@@ -750,7 +750,7 @@ export default function Table({
                       </td>
 
                       {/* Estoque Mínimo Input */}
-                      <td className="p-1 px-1.5 bg-emerald-50/10 border-l border-slate-200 w-[105px] min-w-[105px] max-w-[105px]">
+                      <td className="p-1 px-1.5 bg-emerald-50/10 border-l border-slate-200 w-[85px] min-w-[85px] max-w-[85px]">
                         <div className="flex items-center justify-center bg-white rounded-lg border border-slate-200 focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 px-1 py-0.5 transition-all">
                           <StockInput
                             value={item.minStock}
@@ -765,7 +765,7 @@ export default function Table({
                       </td>
 
                       {/* Diferença Ideal (Sugestão de compra) */}
-                      <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[115px] min-w-[115px] max-w-[115px]">
+                      <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[95px] min-w-[95px] max-w-[95px]">
                         {(() => {
                           const estAtual = item.currentStock || 0;
                           const estMin = item.minStock || 0;
@@ -819,7 +819,7 @@ export default function Table({
                       <React.Fragment key={s.id}>
                         {/* Unit price input */}
                         <td
-                          className={`p-0.5 px-1 border-l border-slate-100 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
+                          className={`p-0.5 px-0.5 sm:px-1 border-l border-slate-100 text-right w-[60px] sm:w-[80px] min-w-[60px] sm:min-w-[80px] max-w-[60px] sm:max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
                         >
                           <div
                             className={`flex items-center justify-end rounded-md px-1 py-0.5 transition-all focus-within:bg-white focus-within:ring-2 focus-within:shadow-sm focus-within:border-slate-350 border border-transparent ${palette.inputBorder}`}
@@ -838,7 +838,7 @@ export default function Table({
 
                         {/* Calculated total cost for this column with CHEAPEST or PREFERRED mark */}
                         <td
-                          className={`p-0.5 px-2 text-right font-bold transition-colors border-r border-[#E2E8F0] w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] ${
+                          className={`p-0.5 px-1 sm:px-2 text-right font-bold transition-colors border-r border-[#E2E8F0] w-[65px] sm:w-[90px] min-w-[65px] sm:min-w-[90px] max-w-[65px] sm:max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] ${
                             isCheapest
                               ? isPreferred
                                 ? "bg-amber-100/35 text-amber-800 border-amber-200"
@@ -918,31 +918,31 @@ export default function Table({
 
             {items.length === 0 && (
               <tr>
-                <td colSpan={2 + suppliers.length * 2 + 1} className="p-4 bg-slate-50/50">
+                <td colSpan={2 + suppliers.length * 2 + 1} className="p-4 bg-slate-50/30">
                   <div
                     tabIndex={0}
                     onPaste={handleEmptyStatePaste}
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={handleDrop}
-                    className={`p-10 text-center rounded-[20px] border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center min-h-[260px] focus:outline-hidden focus:ring-2 focus:ring-[#ff2a6d]/20 ${
+                    className={`ramp-dropzone p-10 text-center flex flex-col items-center justify-center min-h-[260px] focus:outline-hidden focus:ring-2 focus:ring-[#ff2a6d]/20 ${
                       isDraggingOver
-                        ? "border-[#ff2a6d] bg-pink-50/10 text-[#ff2a6d]"
-                        : "border-slate-200 bg-white hover:border-[#ff2a6d]/40"
+                        ? "ramp-dropzone-active"
+                        : ""
                     }`}
                     title="Clique aqui e cole ou arraste um arquivo para importar"
                   >
-                    <div className="max-w-md mx-auto space-y-3">
-                      <div className="h-12 w-12 rounded-full bg-pink-50 flex items-center justify-center text-[#ff2a6d] mx-auto animate-pulse">
-                        <FileDown className="h-6 w-6" />
+                    <div className="max-w-md mx-auto space-y-4">
+                      <div className="h-14 w-14 rounded-full bg-slate-100 flex items-center justify-center text-[#ff2a6d] mx-auto">
+                        <FileDown className="h-7 w-7" />
                       </div>
                       <div>
-                        <p className="text-[#ff2a6d] font-black text-xs uppercase tracking-tight">Planilha de Cotação Vazia</p>
-                        <p className="text-slate-800 text-[11px] font-bold mt-1.5 leading-normal normal-case">
+                        <p className="text-slate-900 font-bold text-sm">Planilha de Cotação Vazia</p>
+                        <p className="text-slate-500 text-[11px] font-medium mt-2 leading-relaxed">
                           Cole (Ctrl+V) uma lista de materiais com quantidades aqui mesmo!
                         </p>
-                        <p className="text-slate-500 text-[11px] font-semibold leading-normal mt-1 normal-case">
-                          Ou simplesmente <span className="text-[#ff2a6d] font-bold">arraste e solte</span> sua planilha Excel (.xlsx), CSV ou TXT nesta área de novos itens.
+                        <p className="text-slate-400 text-[11px] font-medium mt-1 leading-relaxed">
+                          Ou <span className="text-[#ff2a6d] font-bold">arraste e solte</span> sua planilha Excel, CSV ou TXT.
                         </p>
                       </div>
                     </div>
@@ -988,17 +988,17 @@ export default function Table({
                   {/* Stock Planning columns (if active) */}
                   {showStockPlanning && isLimpeza && (
                     <>
-                      <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[100px] min-w-[100px] max-w-[100px]">
+                      <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[80px] min-w-[80px] max-w-[80px]">
                         <span className="font-bold text-slate-800 text-[11px]">
                           {item.currentStock || 0}
                         </span>
                       </td>
-                      <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[105px] min-w-[105px] max-w-[105px]">
+                      <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[85px] min-w-[85px] max-w-[85px]">
                         <span className="font-bold text-slate-800 text-[11px]">
                           {item.minStock || 0}
                         </span>
                       </td>
-                      <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[115px] min-w-[115px] max-w-[115px]">
+                      <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[95px] min-w-[95px] max-w-[95px]">
                         <span className="font-mono text-[11px] font-black text-slate-600">
                           {Math.max(0, (item.minStock || 0) - (item.currentStock || 0))} und
                         </span>
@@ -1025,7 +1025,7 @@ export default function Table({
                       <React.Fragment key={`print-price-${s.id}`}>
                         {/* Unit price */}
                         <td
-                          className={`p-1 px-1 border-l border-slate-100 text-right w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
+                          className={`p-1 px-1 border-l border-slate-100 text-right w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
                         >
                           <span className="text-[11px] text-slate-800 font-extrabold font-mono">
                             {price !== null && price > 0 ? formatCurrency(price) : "-"}
@@ -1034,7 +1034,7 @@ export default function Table({
 
                         {/* Calculated total cost with CHEAPEST mark */}
                         <td
-                          className={`p-1 px-2 text-right font-bold border-r border-[#E2E8F0] w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] ${
+                          className={`p-1 px-2 text-right font-bold border-r border-[#E2E8F0] w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] ${
                             isCheapest
                               ? isPreferred
                                 ? "bg-amber-100 text-amber-800"
@@ -1077,8 +1077,8 @@ export default function Table({
                 const total = supplierTotals[s.id] || 0;
                 return (
                   <React.Fragment key={s.id}>
-                    <td className="border-l border-slate-200 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
-                    <td className="px-2 py-1.5 text-right font-black text-slate-950 font-mono text-[11px] print:text-[11px]/none w-[100px] min-w-[100px] max-w-[100px] print:w-[85px] print:min-w-[85px] print:max-w-[85px]">
+                    <td className="border-l border-slate-200 w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
+                    <td className="px-2 py-1.5 text-right font-black text-slate-950 font-mono text-[11px] print:text-[11px]/none w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px]">
                       {formatCurrency(total)}
                     </td>
                   </React.Fragment>
@@ -1100,8 +1100,8 @@ export default function Table({
 
                 return (
                   <React.Fragment key={s.id}>
-                    <td className="border-l border-slate-200 w-[90px] min-w-[90px] max-w-[90px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
-                    <td className="px-2 py-2 text-right font-mono w-[110px] min-w-[110px] max-w-[110px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] bg-[#111c2e]/5">
+                    <td className="border-l border-slate-200 w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
+                    <td className="px-2 py-2 text-right font-mono w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] bg-[#111c2e]/5">
                       <div className="flex flex-col items-end leading-none">
                         <span className="text-[13.5px] print:text-[11px] font-black text-[#111c2e]">
                           {formatCurrency(amount)}
@@ -1123,30 +1123,32 @@ export default function Table({
       </div>
 
       {/* Spreadsheet Control bar at bottom of table (compact padding) */}
-      <div className="border-t border-slate-100 bg-slate-50/30 p-2.5 flex flex-wrap gap-2 items-center justify-between print:hidden">
+      <div className="border-t border-slate-100 bg-slate-50/30 p-2 sm:p-2.5 flex flex-wrap gap-1.5 sm:gap-2 items-center justify-between print:hidden">
         <button
           onClick={onAddItem}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-1.5 font-black text-[#ff2a6d] hover:bg-[#ff2a6d]/5 hover:border-[#ff2a6d] shadow-sm transition-all cursor-pointer leading-none"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 sm:px-4 py-1.5 font-black text-[#ff2a6d] hover:bg-[#ff2a6d]/5 hover:border-[#ff2a6d] shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-[11px]"
         >
-          <Plus className="h-3.5 w-3.5" />
+          <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           ITEM
         </button>
 
         <button
           onClick={onAddSupplier}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-[#111c2e] hover:bg-slate-800 px-4 py-1.5 font-bold text-white shadow-sm transition-all cursor-pointer leading-none"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-[#111c2e] hover:bg-slate-800 px-3 sm:px-4 py-1.5 font-bold text-white shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-[11px]"
         >
-          <Plus className="h-3.5 w-3.5" />
-          ADICIONAR FORNECEDOR
+          <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+          <span className="hidden sm:inline">ADICIONAR FORNECEDOR</span>
+          <span className="sm:hidden">FORNECEDOR</span>
         </button>
       </div>
 
       {/* Dynamic Purchase Control Info Bar - Visible on screen and nicely styled for print */}
-      <div className="border-t border-slate-100 bg-slate-100/60 p-3 px-4 flex items-center gap-2 font-black text-[11px] text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-[11px] print:rounded-none">
-        <span className="text-base print:text-[11px]">🛍️</span>
+      <div className="border-t border-slate-100 bg-slate-100/60 p-2 sm:p-3 px-3 sm:px-4 flex items-center gap-1.5 sm:gap-2 font-black text-[10px] sm:text-[11px] text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-[11px] print:rounded-none">
+        <span className="text-sm sm:text-base print:text-[11px]">🛍️</span>
         {totalToBuy > 0 ? (
-          <span>
-            CONTROLE DE COMPRA: <span className="text-[#ff2a6d] font-black">{totalRemaining} {totalRemaining === 1 ? 'item restante' : 'itens restantes'}</span> por comprar (de {totalToBuy} ativos na planilha, {totalBought} já comprados)
+          <span className="leading-tight">
+            CONTROLE: <span className="text-[#ff2a6d] font-black">{totalRemaining} {totalRemaining === 1 ? 'restante' : 'restantes'}</span>
+            <span className="hidden sm:inline"> de {totalToBuy} itens ({totalBought} comprados)</span>
           </span>
         ) : (
           <span className="text-slate-500 font-bold uppercase">Controle de Compra: Nenhuma quantidade de item ativa nesta cotação.</span>
@@ -1155,11 +1157,11 @@ export default function Table({
 
       {/* Dynamic Observations Bottom Section - Prints at the end of report */}
       {observationsList.length > 0 && (
-        <div className="border-t border-slate-200 bg-white p-5 rounded-b-2xl">
-          <h3 className="text-[12.5px] font-black uppercase text-[#ff2a6d] tracking-wide mb-3 flex items-center gap-1.5 border-b border-pink-100 pb-2">
+        <div className="border-t border-slate-200 bg-white p-3 sm:p-5 rounded-b-2xl">
+          <h3 className="text-[11px] sm:text-[12.5px] font-black uppercase text-[#ff2a6d] tracking-wide mb-2 sm:mb-3 flex items-center gap-1.5 border-b border-pink-100 pb-2">
             📝 Observações da Cotação
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 print:grid-cols-1">
             {observationsList.map((obs) => (
               <div 
                 key={obs.id} 
@@ -1280,8 +1282,8 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
-      <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-md w-full overflow-hidden p-6 relative">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-2 sm:p-4 animate-fade-in print:hidden">
+      <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-md w-full overflow-hidden p-4 sm:p-6 relative">
         
         {/* Header */}
         <div className="flex items-center justify-between mb-4 pb-3 border-b border-rose-50">
@@ -1466,8 +1468,8 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden leading-normal">
-      <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-lg w-full overflow-hidden flex flex-col">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-2 sm:p-4 animate-fade-in print:hidden leading-normal">
+      <div className="bg-white rounded-[24px] border border-slate-100 shadow-md max-w-lg w-full overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh]">
         
         {/* Modal Header */}
         <div className="bg-[#111c2e] text-white p-4 flex items-center justify-between">
@@ -1714,8 +1716,8 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden leading-normal">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-md max-w-md w-full overflow-hidden flex flex-col">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-2 sm:p-4 animate-fade-in print:hidden leading-normal">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-md max-w-md w-full overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh]">
         
         {/* Modal Top title bar */}
         <div className="bg-[#111c2e] text-white p-4 flex items-center justify-between">

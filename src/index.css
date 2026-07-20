@@ -55,13 +55,10 @@
    ========================================== */
 
 body {
-  background-color: #F4F7F9;
-  background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
+  background-color: #f7fafc;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 body, button, input, select, textarea {
@@ -74,7 +71,6 @@ h1, h2, h3, h4, h5, h6, th {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -84,6 +80,10 @@ html {
 ::selection {
   background-color: rgba(255, 42, 109, 0.15);
   color: inherit;
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 /* ==========================================
@@ -601,14 +601,13 @@ html {
     border-color: #ff2a6d !important;
   }
 
-  /* Dark dot pattern */
   .theme-ultradark .bg-dot-pattern {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px) !important;
+    background-image: none !important;
   }
 
   .theme-ultradark body,
   .theme-ultradark {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px) !important;
+    background-image: none !important;
     background-size: 24px 24px !important;
   }
 }
@@ -666,7 +665,6 @@ html {
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 4px 12px rgba(255, 42, 109, 0.25);
   margin-bottom: 6px;
 }
 
@@ -707,13 +705,14 @@ html {
 }
 
 .bp-sidebar-nav-item:hover {
-  background-color: #f1f4f6;
+  background-color: #f7fafc;
   color: #111c2e;
 }
 
 .bp-sidebar-nav-item-active {
   color: #ff2a6d;
   border-right-color: #ff2a6d;
+  background-color: rgba(255, 42, 109, 0.04);
 }
 
 .bp-sidebar-nav-item .material-symbols-outlined {
@@ -750,7 +749,7 @@ html {
 }
 
 /* ==========================================
-   GLASS HEADER (code.html style)
+   HEADER (Ramp-style flat clean)
    ========================================== */
 
 .bp-header {
@@ -759,9 +758,7 @@ html {
   right: 0;
   left: 80px;
   height: 64px;
-  background: rgba(247, 250, 252, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
@@ -778,7 +775,7 @@ html {
 }
 
 .theme-ultradark .bp-header {
-  background: rgba(247, 250, 252, 0.92);
+  background: #ffffff;
   border-bottom-color: #e2e8f0;
 }
 
@@ -788,22 +785,21 @@ html {
 }
 
 /* ==========================================
-   BENTO KPI CARDS (code.html style)
+   BENTO KPI CARDS (Ramp-style minimal)
    ========================================== */
 
 .bp-card {
   background: white;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .bp-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .bp-card-accent {
@@ -949,7 +945,7 @@ html {
 }
 
 /* ==========================================
-   PREMIUM BUTTON (code.html style)
+   PREMIUM BUTTON (Ramp-style minimal)
    ========================================== */
 
 .bp-btn-primary {
@@ -965,17 +961,17 @@ html {
   gap: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 42, 109, 0.2);
-  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(255, 42, 109, 0.2);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .bp-btn-primary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 16px rgba(255, 42, 109, 0.3);
+  background-color: #e6245f;
+  box-shadow: 0 2px 6px rgba(255, 42, 109, 0.25);
 }
 
 .bp-btn-primary:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 .bp-btn-outline {
@@ -999,25 +995,25 @@ html {
 }
 
 /* ==========================================
-   INPUT FOCUS (code.html style)
+   INPUT FOCUS (Ramp-style minimal)
    ========================================== */
 
 .bp-input {
   padding: 6px 12px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
-  background-color: #f1f4f6;
+  background-color: white;
   font-size: 14px;
   font-family: var(--font-sans);
   color: #111c2e;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .bp-input:focus {
   outline: none;
   border-color: #ff2a6d;
   background-color: white;
-  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.08);
 }
 
 /* ==========================================
@@ -1131,24 +1127,25 @@ html {
    ========================================== */
 
 .btn-magnetic {
-  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-magnetic:hover {
-  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .btn-magnetic:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.98);
 }
 
 .hover-lift {
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .table-row-transition {
@@ -1224,7 +1221,7 @@ input, select, textarea {
 }
 
 .accent-line-premium {
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, #ff2a6d 0%, #c21e54 50%, transparent 100%);
   border-radius: 9999px;
 }
@@ -1236,15 +1233,15 @@ input, select, textarea {
 }
 
 .shadow-premium-sm {
-  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.03), 0 1px 3px rgba(17, 28, 46, 0.04), 0 4px 12px rgba(17, 28, 46, 0.03);
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.03), 0 1px 2px rgba(17, 28, 46, 0.03);
 }
 
 .shadow-premium {
-  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.04), 0 4px 16px rgba(17, 28, 46, 0.06), 0 12px 40px rgba(17, 28, 46, 0.04);
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.04), 0 2px 8px rgba(17, 28, 46, 0.04);
 }
 
 .shadow-premium-lg {
-  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.05), 0 8px 24px rgba(17, 28, 46, 0.08), 0 24px 64px rgba(17, 28, 46, 0.06);
+  box-shadow: 0 0 0 1px rgba(17, 28, 46, 0.05), 0 4px 16px rgba(17, 28, 46, 0.06);
 }
 
 .divider-premium {
@@ -1254,20 +1251,18 @@ input, select, textarea {
 }
 
 .input-premium {
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid #e2e8f0;
-  background: #f1f4f6;
+  background: white;
 }
 
 .input-premium:hover {
   border-color: #cbd5e1;
-  background: #f8fafc;
 }
 
 .input-premium:focus {
   border-color: rgba(255, 42, 109, 0.4);
-  background: white;
-  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.06);
   outline: none;
 }
 
@@ -1325,5 +1320,124 @@ input, select, textarea {
 @media (max-width: 767px) {
   .bp-main {
     margin-left: 0;
+  }
+}
+
+/* ==========================================
+   RAMP-INSPIRED FINTECH MINIMALISM
+   ========================================== */
+
+/* Ultra-clean surfaces with generous whitespace */
+.ramp-surface {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.15s ease;
+}
+
+.ramp-surface:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* High contrast text hierarchy */
+.ramp-text-primary {
+  color: #111c2e;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ramp-text-secondary {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.ramp-text-tertiary {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Accent color ONLY for primary CTAs */
+.ramp-cta {
+  background: #ff2a6d;
+  color: white;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.ramp-cta:hover {
+  background: #e6245f;
+  box-shadow: 0 2px 8px rgba(255, 42, 109, 0.25);
+}
+
+/* Speed-focused micro-interactions */
+.ramp-interact {
+  transition: all 0.12s ease;
+}
+
+.ramp-interact:active {
+  transform: scale(0.98);
+}
+
+/* Clean input system */
+.ramp-input {
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #111c2e;
+  transition: all 0.15s ease;
+}
+
+.ramp-input:focus {
+  outline: none;
+  border-color: #ff2a6d;
+  box-shadow: 0 0 0 3px rgba(255, 42, 109, 0.08);
+}
+
+/* Drag & Drop zone - central and intuitive */
+.ramp-dropzone {
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.ramp-dropzone:hover {
+  border-color: #ff2a6d;
+  background: rgba(255, 42, 109, 0.02);
+}
+
+.ramp-dropzone-active {
+  border-color: #ff2a6d;
+  background: rgba(255, 42, 109, 0.04);
+  box-shadow: 0 0 0 4px rgba(255, 42, 109, 0.1);
+}
+
+/* OCR-ready input animation */
+@keyframes ocrFill {
+  0% { background-color: rgba(255, 42, 109, 0.05); }
+  100% { background-color: transparent; }
+}
+
+.ocr-animate {
+  animation: ocrFill 0.4s ease-out;
+}
+
+/* No CLS - stable layout for auto-fill */
+.ramp-stable {
+  contain: layout style;
+}
+
+/* Generous whitespace utility */
+.ramp-space {
+  padding: 24px;
+}
+
+@media (max-width: 767px) {
+  .ramp-space {
+    padding: 16px;
   }
 }

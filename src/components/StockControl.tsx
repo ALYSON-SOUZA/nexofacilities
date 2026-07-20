@@ -1178,44 +1178,46 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
     <div className="bg-slate-50 min-h-screen text-slate-800 animate-fade-in leading-normal">
       
       {/* Upper Navigation & Compact Brand Bar */}
-      <div className="bg-white/80 backdrop-blur-md border border-slate-200 p-4 px-6 flex justify-between items-center rounded-xl shadow-sm mb-6 print:hidden">
-        <div className="flex items-center gap-3">
+      <div className="ramp-surface p-3 sm:p-4 px-4 sm:px-6 flex flex-wrap sm:flex-nowrap justify-between items-start sm:items-center gap-3 print:hidden mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button 
             onClick={onBack}
-            className="p-2 bg-slate-100 hover:bg-slate-200 rounded-full transition-transform active:scale-95 text-[#ff2a6d] hover:text-[#ff2a6d]/80 cursor-pointer"
+            className="p-1.5 sm:p-2 bg-slate-100 hover:bg-slate-200 rounded-full transition-transform active:scale-95 text-[#ff2a6d] hover:text-[#ff2a6d]/80 cursor-pointer shrink-0"
             title="Voltar para a Cotação"
             type="button"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="text-[#ff2a6d] font-extrabold text-[11px] uppercase tracking-widest bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 rounded-sm">
+              <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest bg-[#ff2a6d]/8 text-[#ff2a6d] border border-[#ff2a6d]/15 px-1.5 sm:px-2 py-0.5 rounded-sm">
                 Acompanhamento & Evolução
               </span>
             </div>
-            <h1 className="text-[17px] font-black uppercase text-slate-900 mt-0.5 flex items-center gap-2">
-              📊 Controle de Estoque de Consumíveis
+            <h1 className="text-[13px] sm:text-[17px] font-black uppercase text-slate-900 mt-0.5 flex items-center gap-1.5 sm:gap-2 truncate">
+              📊 <span className="hidden sm:inline">Controle de Estoque de Consumíveis</span><span className="sm:hidden">Estoque</span>
             </h1>
           </div>
         </div>
         
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           <button
             type="button"
             onClick={handleOpenNewCountSelector}
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-pink-600 px-4 py-2 text-[11px] font-black uppercase text-white shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer leading-none"
+            className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-pink-600 px-2.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-black uppercase text-white shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer leading-none"
           >
-            <Plus className="h-3.5 w-3.5" />
-            Lançar Medição
+            <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <span className="hidden xs:inline">Lançar Medição</span>
+            <span className="xs:hidden">Medição</span>
           </button>
           <button
             type="button"
             onClick={() => window.print()}
-            className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 px-4 py-2 text-[11px] font-black uppercase text-slate-600 border border-slate-200 transition-all active:scale-95 cursor-pointer leading-none"
+            className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-slate-100 hover:bg-slate-200 px-2.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-black uppercase text-slate-600 border border-slate-200 transition-all active:scale-95 cursor-pointer leading-none"
           >
-            <Printer className="h-3.5 w-3.5" />
-            Imprimir Relatório
+            <Printer className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <span className="hidden sm:inline">Imprimir Relatório</span>
+            <span className="sm:hidden">Imprimir</span>
           </button>
         </div>
       </div>
@@ -1241,7 +1243,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6 print:hidden">
         
         {/* Card 1: Last Measurement info -> Pink (#ff2a6d) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-pink transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-pink-50 text-[#ff2a6d] shrink-0 border border-pink-100">
@@ -1264,7 +1266,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 2: Consumer Capacity -> Petroleum Blue (#111c2e) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-navy transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#111c2e]/5 text-[#111c2e] shrink-0 border border-[#111c2e]/15">
@@ -1290,7 +1292,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 3: Stock Volume */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-navy transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#ff2a6d]/10 text-[#ff2a6d] shrink-0 border border-[#ff2a6d]/20">
@@ -1313,7 +1315,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 4: Consumption per Capita -> Magenta (#c21e54) */}
-        <div className="relative bg-white rounded-xl p-4 shadow-xs border border-slate-200 bp-card bp-card-accent-pink transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#c21e54]/10 text-[#c21e54] shrink-0 border border-[#c21e54]/20">
@@ -1782,7 +1784,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
                 <table className="w-full border-collapse text-left text-slate-700">
                   <thead>
                     <tr className="border-b border-slate-300 bg-slate-50/80 font-black uppercase text-slate-900 tracking-tight print:bg-slate-100">
-                      <th className={`${cellPaddingClass} ${labelClass} text-left w-[290px] transition-all duration-300 ${
+                      <th className={`${cellPaddingClass} ${labelClass} text-left w-full sm:w-[290px] transition-all duration-300 ${
                         isolatedColumnId && isolatedColumnId !== "names" 
                           ? "select-none opacity-15 pointer-events-none" 
                           : ""

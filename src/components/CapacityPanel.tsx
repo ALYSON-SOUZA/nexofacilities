@@ -203,7 +203,7 @@ export default function CapacityPanel({
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 print:hidden text-xs">
       
       {/* 1. CAPACITY & GENERAL PLANNING PANEL */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 shadow-2xs print:border-slate-300 print:shadow-none">
+      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5 animate-pulse">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-100 text-orange-700 print:hidden">
@@ -221,15 +221,15 @@ export default function CapacityPanel({
 
         {/* Capacity spreadsheet grid */}
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-left text-[11px]">
+          <table className="w-full border-collapse text-left text-[10px] sm:text-[11px]">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50/60 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
-                <th className="py-1.5 px-2">Mês/Ano</th>
-                <th className="py-1.5 px-1 text-center w-[75px]">Capacity</th>
+              <tr className="border-b border-slate-200 bg-slate-50/60 text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+                <th className="py-1.5 px-1.5 sm:px-2">Mês/Ano</th>
+                <th className="py-1.5 px-1 text-center w-[60px] sm:w-[75px]">Capacity</th>
                 {isLimpeza && (
                   <>
-                    <th className="py-1.5 px-1 text-right w-[95px]">Total Pago</th>
-                    <th className="py-1.5 px-2 text-right bg-slate-100/20 w-[80px]">Gasto/Colab.</th>
+                    <th className="py-1.5 px-1 text-right w-[70px] sm:w-[95px]">Total Pago</th>
+                    <th className="py-1.5 px-1 sm:px-2 text-right bg-slate-100/20 w-[65px] sm:w-[80px]">Gasto/Colab.</th>
                   </>
                 )}
               </tr>
@@ -369,7 +369,7 @@ export default function CapacityPanel({
       </div>
 
       {/* 2. QUANTITATIVE & PRICING COMPARATIVE PANEL */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 shadow-2xs print:border-slate-300 print:shadow-none">
+      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 print:hidden">
@@ -507,7 +507,7 @@ export default function CapacityPanel({
       </div>
 
       {/* 3. HISTÓRICO DE COTAÇÕES SALVAS COM ID ÚNICO */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 shadow-2xs print:hidden">
+      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
         <div className="flex items-center justify-between mb-2 pb-1 border-b border-slate-100">
           <div className="flex items-center gap-1.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-pink-100 text-[#ff2a6d]">

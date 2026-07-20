@@ -1036,75 +1036,75 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
         <div className="space-y-6 print:hidden">
           
           {/* STATS TILES */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
             
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas })}
-              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Total de Rondas</span>
-              <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-3xl font-black text-slate-800">{stats.totalRondas}</span>
-                <span className="text-[11px] font-bold text-slate-500">vistorias</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Rondas</span>
+              <div className="flex items-baseline gap-1 sm:gap-1.5 mt-1 sm:mt-2">
+                <span className="text-xl sm:text-3xl font-black text-slate-800">{stats.totalRondas}</span>
+                <span className="text-[9px] sm:text-[11px] font-bold text-slate-500">vist.</span>
               </div>
-              <span className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">Sendo {stats.rondasThisMonth} no mês corrente <span className="text-[#ff2a6d]">🔍 ver</span></span>
+              <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center gap-1 truncate">{stats.rondasThisMonth} no mês <span className="text-[#ff2a6d] hidden sm:inline">🔍 ver</span></span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Ocorrências Registradas", type: "occurrences", items: flatOccurrences })}
-              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Ocorrências por Tipo</span>
-              <div className="grid grid-cols-3 gap-1 mt-2 text-center text-[11px] font-black">
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Ocorrências</span>
+              <div className="grid grid-cols-3 gap-0.5 sm:gap-1 mt-1 sm:mt-2 text-center text-[9px] sm:text-[11px] font-black">
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setDrillDownConfig({ title: "Ocorrências de Autuação", type: "occurrences", items: flatOccurrences.filter(x => x.occurrence.type === "autuacao") });
                   }}
-                  className="p-1.5 bg-red-50 text-[#ff2a6d] rounded-lg hover:bg-red-100 transition-colors"
+                  className="p-1 sm:p-1.5 bg-red-50 text-[#ff2a6d] rounded-lg hover:bg-red-100 transition-colors"
                   title="Filtrar por Autuação"
                 >
-                  <span className="block text-sm">{stats.autuacaoCount}</span> Aut
+                  <span className="block text-xs sm:text-sm">{stats.autuacaoCount}</span> Aut
                 </div>
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setDrillDownConfig({ title: "Ocorrências de Limpeza e Organização", type: "occurrences", items: flatOccurrences.filter(x => x.occurrence.type === "limpeza") });
                   }}
-                  className="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                  className="p-1 sm:p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
                   title="Filtrar por Limpeza"
                 >
-                  <span className="block text-sm">{stats.limpezaCount}</span> Limp
+                  <span className="block text-xs sm:text-sm">{stats.limpezaCount}</span> Limp
                 </div>
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setDrillDownConfig({ title: "Ocorrências de Manutenção Física", type: "occurrences", items: flatOccurrences.filter(x => x.occurrence.type === "manutencao") });
                   }}
-                  className="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors"
+                  className="p-1 sm:p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors"
                   title="Filtrar por Manutenção"
                 >
-                  <span className="block text-sm">{stats.manutencaoCount}</span> Manut
+                  <span className="block text-xs sm:text-sm">{stats.manutencaoCount}</span> Manut
                 </div>
               </div>
-              <span className="text-[11px] text-slate-500 mt-1 flex items-center justify-between">
-                <span>Total: {stats.totalOccurrences} problemas</span>
-                <span className="text-[#ff2a6d] font-bold">Ver tudo</span>
+              <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center justify-between">
+                <span>Total: {stats.totalOccurrences}</span>
+                <span className="text-[#ff2a6d] font-bold hidden sm:inline">Ver tudo</span>
               </span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todos os Chamados Técnicos", type: "chamados", items: chamados })}
-              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Chamados Técnicos</span>
-              <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-3xl font-black text-slate-800">{stats.totalChamados}</span>
-                <span className="text-[11px] text-[#ff2a6d] font-extrabold">{stats.chamadosAbertos} abertos</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Chamados</span>
+              <div className="flex items-baseline gap-1 sm:gap-1.5 mt-1 sm:mt-2">
+                <span className="text-xl sm:text-3xl font-black text-slate-800">{stats.totalChamados}</span>
+                <span className="text-[9px] sm:text-[11px] text-[#ff2a6d] font-extrabold">{stats.chamadosAbertos} abertos</span>
               </div>
-              <span className="text-[11px] text-slate-500 mt-1 flex items-center justify-between">
+              <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center justify-between">
                 <span>Concluídos: {stats.chamadosConcluidos}</span>
-                <span className="text-[#ff2a6d] font-bold">🔍 ver listagem</span>
+                <span className="text-[#ff2a6d] font-bold hidden sm:inline">🔍 ver</span>
               </span>
             </div>
  
@@ -1117,20 +1117,20 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas });
                 }
               }}
-              className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Último Registro</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Último Registro</span>
               {stats.lastRonda ? (
-                <div className="mt-2 text-xs">
+                <div className="mt-1 sm:mt-2 text-[10px] sm:text-xs">
                   <p className="font-extrabold text-slate-800 leading-tight truncate">{stats.lastRonda.filial}</p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")} — {stats.lastRonda.id}</p>
+                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5">{new Date(stats.lastRonda.date).toLocaleDateString("pt-BR")}</p>
                 </div>
               ) : (
-                <p className="text-[11px] text-slate-500 mt-2">Nenhum registro ainda.</p>
+                <p className="text-[9px] sm:text-[11px] text-slate-500 mt-1 sm:mt-2">Nenhum registro.</p>
               )}
-              <span className="text-[11px] text-[#ff2a6d] font-bold mt-1 flex items-center justify-between">
-                <span>Para Bellinati Perez</span>
-                <span>Visualizar →</span>
+              <span className="text-[9px] sm:text-[11px] text-[#ff2a6d] font-bold mt-0.5 sm:mt-1 flex items-center justify-between">
+                <span className="hidden sm:inline">Bellinati Perez</span>
+                <span>→</span>
               </span>
             </div>
  

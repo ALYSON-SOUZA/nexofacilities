@@ -1708,12 +1708,12 @@ export default function App() {
   const displayCpf = userCpf ? userCpf : "000.000.000-00";
 
   return (
-    <div className={`min-h-screen text-slate-900 selection:bg-slate-200 font-sans leading-none theme-${visualTheme} bg-dot-pattern`}>
+    <div className={`min-h-screen text-slate-900 selection:bg-slate-200 font-sans leading-none theme-${visualTheme}`}>
       
       {/* MOBILE HEADER (only visible on mobile) */}
       <div className="md:hidden flex items-center justify-between bg-white text-slate-900 px-4 py-3 print:hidden shrink-0 border-b border-slate-200">
-        <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white shadow-sm">
+        <div className="flex items-center gap-2.5">
+          <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white">
             <span className="material-symbols-outlined text-[16px] text-white" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
           <span className="text-xs font-display font-extrabold tracking-wider uppercase text-slate-900">
@@ -1722,7 +1722,7 @@ export default function App() {
         </div>
         <button
           onClick={() => setIsMobileSidebarOpen(true)}
-          className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors cursor-pointer"
+          className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors duration-200 cursor-pointer"
           title="Abrir Menu"
         >
           <Menu className="h-4 w-4" />
@@ -1733,7 +1733,7 @@ export default function App() {
       {isMobileSidebarOpen && (
         <div 
           onClick={() => setIsMobileSidebarOpen(false)}
-          className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-30 md:hidden print:hidden"
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] z-30 md:hidden print:hidden transition-opacity duration-200"
         />
       )}
 
@@ -1841,15 +1841,15 @@ export default function App() {
       
       {/* SUCCESS FLUTUANTE DE FEEDBACK */}
       {successMessage && (
-        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-[#ff2a6d] text-white font-extrabold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
-          <Check className="h-4 w-4 shrink-0" />
+        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-[#111c2e] text-white font-bold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
+          <Check className="h-4 w-4 shrink-0 text-[#ff2a6d]" />
           <span>{successMessage}</span>
         </div>
       )}
 
       {showCategoryModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-2 sm:p-4 print:hidden">
-          <div className="bg-white rounded-[24px] border-2 border-[#ff2a6d] p-4 sm:p-6 max-w-md w-full shadow-2xl relative animate-scale-up text-slate-800 max-h-[90vh] flex flex-col overflow-hidden">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-[2px] p-2 sm:p-4 print:hidden">
+          <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 max-w-md w-full shadow-2xl relative animate-scale-up text-slate-800 max-h-[90vh] flex flex-col overflow-hidden">
             <div className="absolute top-4 right-4 z-10">
               <EmojiButton
                 iconKey="fechar"
@@ -1881,7 +1881,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsCategorySelectOpen(!isCategorySelectOpen)}
-                  className="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-[#ff2a6d] focus:border-[#ff2a6d] bg-slate-50 hover:bg-slate-100 transition-all flex items-center justify-between cursor-pointer"
+                  className="w-full text-left p-3 rounded-xl border border-slate-200 hover:border-slate-300 bg-white transition-all duration-200 flex items-center justify-between cursor-pointer"
                 >
                   <div className="truncate pr-2">
                     <span className="text-[8px] font-black text-slate-500 block uppercase tracking-wider">Categoria Ativa Selecionada</span>
@@ -1896,7 +1896,7 @@ export default function App() {
                 </button>
 
                 {isCategorySelectOpen && (
-                  <div className="absolute left-0 right-0 mt-1 bg-white border-2 border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in">
+                  <div className="absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in">
                     <div className="p-1 px-2 text-[8px] font-black tracking-wider text-slate-500 bg-slate-50 border-b border-slate-100 uppercase">
                       RELAÇÃO DE CATEGORIAS (ROLE PARA ATIVAR)
                     </div>
@@ -2132,7 +2132,7 @@ export default function App() {
         />
 
         {/* Brand Header */}
-        <div id="bp-compras-header" className="mb-3 sm:mb-5 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-3 sm:gap-4 relative">
+        <div id="bp-compras-header" className="mb-5 sm:mb-6 py-3 px-1 print:hidden flex flex-row items-center justify-between gap-3 sm:gap-4 relative">
           {/* Left Side: Brand Logo */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
@@ -2147,7 +2147,7 @@ export default function App() {
 
           {/* Right Side: Title & Chamado Inputs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto flex-1 justify-end min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
               <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
@@ -2158,7 +2158,7 @@ export default function App() {
               />
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all w-full sm:w-auto sm:max-w-[200px] shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[200px] shrink-0">
               <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
               <input
                 type="text"
@@ -2178,7 +2178,7 @@ export default function App() {
         {activeView === "cotacao" ? (
           <div key="view-cotacao" className="view-content-enter">
             {editingQuoteId && (
-              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3 px-3 sm:px-4 bg-sky-50 border border-sky-100 rounded-2xl text-[10px] sm:text-[11px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-2 shadow-2xs print:hidden animate-fade-in">
+              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3 px-3 sm:px-4 bg-sky-50 border border-sky-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-2 print:hidden animate-fade-in">
                 <div className="flex items-center gap-2">
                   <span className="flex h-2 sm:h-2.5 w-2 sm:w-2.5 rounded-full bg-sky-500 shrink-0 animate-pulse" />
                   <div>
@@ -2198,7 +2198,7 @@ export default function App() {
                       setSuccessMessage("Modo de edição finalizado. A cotação continua salva no histórica, e agora você pode criar novas.");
                       setTimeout(() => setSuccessMessage(""), 5000);
                     }}
-                    className="px-2.5 sm:px-3 py-1 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[9px] sm:text-[10px] font-black cursor-pointer shadow-3xs transition-all uppercase tracking-tight"
+                    className="px-2.5 sm:px-3 py-1 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[9px] sm:text-[10px] font-black cursor-pointer transition-all duration-200 uppercase tracking-tight"
                   >
                     Sair da Edição
                   </button>
@@ -2208,7 +2208,7 @@ export default function App() {
 
             {/* METADATA DE ÚLTIMA ALTERAÇÃO (APENAS ONLINE - TELA) */}
             {lastChangeLog && (
-              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3.5 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl text-[10px] sm:text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 shadow-2xs print:hidden animate-fade-in text-slate-700">
+              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3.5 bg-white border border-slate-200 rounded-xl text-[10px] sm:text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 print:hidden animate-fade-in text-slate-700">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#ff2a6d] animate-pulse shrink-0" />
                   <span className="uppercase text-[7px] sm:text-[9px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
@@ -2221,31 +2221,31 @@ export default function App() {
             )}
 
             {/* Action Buttons Toolbar */}
-            <div className="mb-3 sm:mb-4 flex flex-wrap items-center justify-end gap-1.5 sm:gap-2 print:hidden">
+            <div className="mb-4 sm:mb-5 flex flex-wrap items-center justify-end gap-2 print:hidden">
               <button
                 onClick={handleSaveComparison}
-                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-sky-400 text-sky-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-sky-400 text-slate-700 hover:text-sky-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
                 title="Salvar Cotação Atual"
               >
-                <Save className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+                <Save className="h-3.5 w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Salvar</span>
               </button>
 
               <button
                 onClick={handleExportQuoteExcel}
-                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-green-500 text-green-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-emerald-400 text-slate-700 hover:text-emerald-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
                 title="Exportar para Excel"
               >
-                <FileSpreadsheet className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+                <FileSpreadsheet className="h-3.5 w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Excel</span>
               </button>
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-purple-400 text-purple-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-violet-400 text-slate-700 hover:text-violet-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
                 title="Imprimir Relatório"
               >
-                <Printer className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+                <Printer className="h-3.5 w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Imprimir</span>
               </button>
 
@@ -2257,10 +2257,10 @@ export default function App() {
                   variant: "danger",
                   onConfirm: handleResetToDefaults,
                 })}
-                className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-amber-500 text-amber-600 text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-amber-400 text-slate-700 hover:text-amber-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
                 title="Reiniciar Cotação"
               >
-                <RotateCcw className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+                <RotateCcw className="h-3.5 w-3.5 shrink-0" />
                 <span className="hidden sm:inline">Reiniciar</span>
               </button>
             </div>
@@ -2368,7 +2368,7 @@ export default function App() {
         )}
 
         {/* Corporate Footer */}
-        <footer className="mt-8 border-t border-slate-200 pt-4 text-center text-[11px] text-slate-400 print:hidden">
+        <footer className="mt-8 border-t border-slate-100 pt-4 text-center text-[11px] text-slate-400 print:hidden">
           <p className="flex items-center justify-center gap-1.5 font-medium">
             <span className="material-symbols-outlined text-[14px]">shopping_cart</span>
             FACILITIES BP-COMPRAS • Planilha Comparativa de Cotações para Facilities • Dados persistidos com segurança local.
@@ -2377,8 +2377,8 @@ export default function App() {
 
         {/* Warning Modal for Material de Limpeza Extra */}
         {showLimpezaExtraPrompt && (
-          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
-            <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-100 flex flex-col gap-4 animate-scale-in">
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
+            <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 flex flex-col gap-4 animate-scale-in">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 border border-amber-200 shrink-0">
                   <AlertCircle className="h-5 w-5" />
@@ -2432,8 +2432,8 @@ export default function App() {
 
         {/* PRINTING ASSISTANCE MODAL FOR IFRAME / SANDBOX INTEGRATION */}
         {showPrintModal && (
-          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
-            <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-2 border-[#ff2a6d] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
+            <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 flex flex-col gap-5 animate-scale-in text-slate-800 relative">
               <button 
                 onClick={() => setShowPrintModal(false)}
                 className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition-colors cursor-pointer"
@@ -2443,13 +2443,13 @@ export default function App() {
               </button>
 
               <div className="text-center space-y-1.5">
-                <div className="h-11 w-11 rounded-full bg-pink-50 flex items-center justify-center text-[#ff2a6d] mx-auto border border-pink-100 animate-pulse">
+                <div className="h-11 w-11 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 mx-auto">
                   <Printer className="h-5.5 w-5.5" />
                 </div>
                 <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight">
                   Guia para Impressão Completa
                 </h3>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
                   Dispositivo de Segurança do Google AI Studio
                 </p>
               </div>
@@ -2484,7 +2484,7 @@ export default function App() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#c21e54] text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#111c2e] hover:bg-slate-800 text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

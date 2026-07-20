@@ -79,7 +79,7 @@ export default function Header({
     const c = config[syncStatus as keyof typeof config];
     if (!c) return null;
     return (
-      <div className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${c.bg}`}>
+      <div className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider transition-all duration-200 ${c.bg}`}>
         <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
         {c.icon}
         <span className="hidden sm:inline">{c.label}</span>
@@ -102,7 +102,7 @@ export default function Header({
         </div>
 
         <div className="flex items-center gap-2 print:hidden">
-          <div className="flex bg-slate-100/80 rounded-lg p-1 gap-0.5 border border-slate-200/60">
+          <div className="flex bg-slate-100 rounded-lg p-0.5 gap-0.5 border border-slate-200">
             <EmojiButton
               iconKey="temaClaro"
               onClick={() => onThemeChange("light")}
@@ -182,12 +182,12 @@ export default function Header({
         </div>
       )}
 
-      {/* 4. GLASS HEADER (code.html style) */}
+      {/* 4. GLASS HEADER (Ramp-style clean) */}
       <div className="print:hidden">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3">
           {/* Left: Title + Category */}
           <div className="flex items-center gap-2 md:gap-3 min-w-0 shrink-0">
-            <div className="border-l-[3px] border-[#ff2a6d] pl-3 py-0.5 min-w-0">
+            <div className="border-l-[2px] border-[#ff2a6d] pl-3 py-0.5 min-w-0">
               <h2 className="text-xs sm:text-sm font-display font-extrabold text-[#111c2e] uppercase tracking-wide leading-none flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 {activeView === "cotacao" ? "COTAÇÃO" : activeView === "estoque" ? "ESTOQUE" : activeView === "normativa" ? "NORMATIVA" : activeView === "docs" ? "DOCUMENTOS" : "RONDA"}
                 {onCategoryClick && activeView === "cotacao" && (
@@ -218,8 +218,8 @@ export default function Header({
             {syncBadge}
 
             {onDateChange && activeView === "cotacao" && (
-              <div className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 hover-lift cursor-default">
-                <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-500 shrink-0" />
+              <div className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 cursor-default">
+                <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-400 shrink-0" />
                 <input
                   type="text"
                   value={quoteDate}
@@ -231,7 +231,7 @@ export default function Header({
               </div>
             )}
 
-            <div className="flex bg-slate-100/80 rounded-lg p-0.5 sm:p-1 gap-0.5 border border-slate-200/60">
+            <div className="flex bg-slate-100 rounded-lg p-0.5 sm:p-1 gap-0.5 border border-slate-200 transition-colors">
               <EmojiButton
                 iconKey="temaClaro"
                 onClick={() => onThemeChange("light")}
@@ -255,14 +255,14 @@ export default function Header({
             {onGithubClick && (
               <button
                 onClick={onGithubClick}
-                className="hidden sm:flex items-center justify-center p-1.5 h-7 w-7 sm:h-8 sm:w-8 rounded-lg border border-slate-200/60 hover:border-[#ff2a6d]/40 bg-white text-slate-600 hover:text-[#ff2a6d] transition-all duration-150 cursor-pointer hover-lift"
+                className="hidden sm:flex items-center justify-center p-1.5 h-7 w-7 sm:h-8 sm:w-8 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-600 hover:text-slate-800 transition-all duration-200 cursor-pointer"
                 title="Diagnosticar e Solucionar Conectividade com GitHub"
               >
                 <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
               </button>
             )}
 
-            <div className="hidden sm:flex items-center gap-2 select-none border-l border-slate-200 pl-2 sm:pl-3">
+            <div className="hidden sm:flex items-center gap-2 select-none border-l border-slate-200/60 pl-2 sm:pl-3">
               <div className="text-right flex flex-col">
                 <span className="text-[10px] sm:text-[11px] font-bold text-slate-800 tracking-tight leading-none uppercase">
                   {firstName}
@@ -271,7 +271,7 @@ export default function Header({
                   ID: {displayCpf}
                 </span>
               </div>
-              <div className="h-7 w-7 sm:h-9 sm:w-9 rounded-full border-2 border-slate-100 overflow-hidden shrink-0 bg-slate-100">
+              <div className="h-7 w-7 sm:h-9 sm:w-9 rounded-full border border-slate-200 overflow-hidden shrink-0 bg-slate-100">
                 <img 
                   src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&q=80&w=150" 
                   alt="Operador" 

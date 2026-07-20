@@ -349,7 +349,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1">
         
         {/* Left Side: Normativa Manual Browser (cols 7) */}
-        <div className="lg:col-span-7 flex flex-col bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden min-h-[500px] lg:min-h-[calc(100vh-130px)]">
+        <div className="lg:col-span-7 flex flex-col ramp-surface overflow-hidden min-h-[500px] lg:min-h-[calc(100vh-130px)]">
           
           {/* Internal Browser Controls */}
           <div className="p-3 border-b border-slate-150 bg-slate-50/50 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -545,8 +545,8 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
           {/* Chat Header */}
           <div className="p-3.5 bg-white border-b border-slate-200 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-slate-900 font-black shadow-xs">
-                <HelpCircle className="h-4.5 w-4.5" />
+              <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white font-black shadow-xs">
+                <HelpCircle className="h-4 w-4" />
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-black uppercase tracking-wide text-slate-900">TUTOR INTELIGENTE DE NORMATIVAS</span>

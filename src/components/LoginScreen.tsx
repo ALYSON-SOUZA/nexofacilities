@@ -74,8 +74,8 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
           transform: mounted ? "translateY(0)" : "translateY(24px)",
         }}
       >
-        {/* Logo */}
-        <div className="text-center mb-8">
+        {/* Logo - Ultra clean */}
+        <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-1">
             <span className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-[#111c2e]">
               FACILITIES
@@ -84,16 +84,16 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
               BP
             </span>
           </div>
-          <div className="w-20 h-[3px] bg-gradient-to-r from-[#ff2a6d] via-[#c21e54] to-transparent mx-auto rounded-full mt-3" />
-          <p className="text-[11px] text-slate-400 mt-3 font-medium tracking-wider uppercase">
+          <div className="w-16 h-[2px] bg-[#ff2a6d] mx-auto rounded-full mt-4" />
+          <p className="text-[11px] text-slate-400 mt-4 font-medium tracking-wider uppercase">
             Sistema de Cotações Corporativas
           </p>
         </div>
 
-        {/* Login Card - code.html style */}
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
-          {/* Left accent bar */}
-          <div className="absolute top-0 left-0 w-[3px] h-full bg-[#ff2a6d]" />
+        {/* Login Card - Ramp-style minimal */}
+        <div className="ramp-surface relative overflow-hidden">
+          {/* Left accent bar - ultra thin */}
+          <div className="absolute top-0 left-0 w-[2px] h-full bg-[#ff2a6d]" />
 
           <div className="p-6 sm:p-8 pl-7 sm:pl-9">
             {/* Header */}
@@ -127,7 +127,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                       if (error) setError("");
                     }}
                     placeholder="Ex: SEU NOME"
-                    className="w-full bp-input text-[13px] font-medium text-[#111c2e] placeholder-slate-400 rounded-lg py-3 pl-4 pr-11"
+                    className="w-full ramp-input text-[13px] font-medium text-[#111c2e] placeholder-slate-400 py-3 pl-4 pr-11"
                     autoFocus
                   />
                   <div className="absolute right-3 top-3 text-slate-400 group-focus-within:text-[#ff2a6d] transition-colors duration-200">
@@ -148,7 +148,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                     value={cpfInput}
                     onChange={handleCpfChange}
                     placeholder="000.000.000-00"
-                    className="w-full bp-input text-[13px] font-medium text-[#111c2e] placeholder-slate-400 rounded-lg py-3 pl-4 pr-11"
+                    className="w-full ramp-input text-[13px] font-medium text-[#111c2e] placeholder-slate-400 py-3 pl-4 pr-11"
                   />
                   <div className="absolute right-3 top-3 text-slate-400 group-focus-within:text-[#ff2a6d] transition-colors duration-200">
                     <FileText className="h-4 w-4" />
@@ -167,7 +167,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                 <button
                   type="submit"
                   disabled={!isFormFilled || isSubmitting}
-                  className="bp-btn-primary w-full justify-center text-sm font-display font-bold disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="ramp-cta w-full justify-center text-sm font-display font-bold py-3 rounded-lg flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                   style={{
                     boxShadow: isFormFilled
                       ? "0 4px 12px rgba(255, 42, 109, 0.25)"

@@ -80,22 +80,22 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 mt-2 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-xs">
+    <div className="grid gap-3 sm:gap-4 md:grid-cols-2 mt-2 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-[10px] sm:text-xs">
       
       {/* Composição Compra Mista Detail */}
-      <div className="bp-card p-4 print:bg-white print:border-slate-300 print:shadow-none">
-          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-3 uppercase tracking-wide">
-            <div className="p-1 rounded-lg bg-slate-100">
+      <div className="ramp-surface p-5 sm:p-6 print:bg-white print:border-slate-300 print:shadow-none">
+          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-4 uppercase tracking-wide">
+            <div className="p-1.5 rounded-lg bg-slate-100">
               <Briefcase className="h-3.5 w-3.5 text-slate-700 print:text-black" />
             </div>
             Composição da Compra Mista
           </h3>
           
-          <p className="text-[11px] text-slate-500 font-medium mb-3 -mt-1">
+          <p className="text-[11px] text-slate-500 font-medium mb-4 -mt-1">
             Cenário de Melhor Preço por Item
           </p>
           
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {suppliers.map((s, idx) => {
               const sum = compositionTotals[s.id] || 0;
               const percentage = mixedTotal > 0 ? (sum / mixedTotal) * 100 : 0;
@@ -126,9 +126,9 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
       </div>
 
       {/* Relatório de Decisão Executiva */}
-      <div className="bp-card p-4 print:border-slate-300 print:shadow-none">
-          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-3 uppercase tracking-wide">
-            <div className="p-1 rounded-lg bg-[#ff2a6d]/8">
+      <div className="ramp-surface p-5 sm:p-6 print:border-slate-300 print:shadow-none">
+          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-4 uppercase tracking-wide">
+            <div className="p-1.5 rounded-lg bg-[#ff2a6d]/8">
               <PiggyBank className="h-3.5 w-3.5 text-[#ff2a6d] print:text-black" />
             </div>
             Relatório de Economia & Gestão

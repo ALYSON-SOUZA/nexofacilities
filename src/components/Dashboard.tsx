@@ -106,16 +106,16 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
       </div>
 
       {/* OTIMIZAÇÃO REAL */}
-      <div id="card-optimization-real" className="bp-card-accent-pink">
+      <div id="card-optimization-real" className="bp-card-accent-magenta">
         <div className="bp-card h-full group">
           <div className="p-6 flex flex-col justify-between h-full">
             <div className="flex justify-between items-start mb-4">
-              <div className="bp-card-icon bg-[#FF2E63]/5 text-[#FF2E63]">
+              <div className="bp-card-icon bg-[#A82047]/10 text-[#A82047]">
                 <Percent className="h-5 w-5" />
               </div>
             </div>
             <p className="text-sm font-bold text-[#252A34] uppercase tracking-wide mb-2">OTIMIZAÇÃO REAL</p>
-            <h2 className="font-mono text-[28px] leading-[1.1] font-medium text-[#FF2E63] mt-2">
+            <h2 className="font-mono text-[28px] leading-[1.1] font-medium text-[#A82047] mt-2">
               <AnimatedNumber value={optimizationPercent > 0 ? `${optimizationPercent.toFixed(1)}%` : "0.0%"} />
             </h2>
             <p className="mt-4 text-[10px] font-bold text-[#6a6a6a] uppercase tracking-tight">

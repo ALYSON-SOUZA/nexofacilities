@@ -80,10 +80,10 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
   }
 
   return (
-    <div className="grid gap-4 sm:gap-5 md:grid-cols-12 mt-4 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-[10px] sm:text-xs">
+    <div className="grid gap-4 sm:gap-5 md:grid-cols-2 mt-4 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-[10px] sm:text-xs">
       
-      {/* Composição Compra Mista Detail - Dominant bento module (7 cols) */}
-      <div className="md:col-span-7 bp-card p-5 sm:p-6 print:bg-white print:border-slate-300 print:shadow-none">
+      {/* Composição Compra Mista Detail - Equal module */}
+      <div className="glass-card p-5 sm:p-6 rounded-xl print:bg-white print:border-slate-300 print:shadow-none">
           <h3 className="showcase-title-sm flex items-center gap-2 mb-4">
             <div className="showcase-icon showcase-icon-navy" style={{ width: 32, height: 32 }}>
               <Briefcase className="h-4 w-4" />
@@ -125,8 +125,8 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
           </div>
       </div>
 
-      {/* Relatório de Decisão Executiva - Secondary bento module (5 cols) */}
-      <div className="md:col-span-5 bp-card p-5 sm:p-6 print:border-slate-300 print:shadow-none">
+      {/* Relatório de Decisão Executiva - Equal module */}
+      <div className="glass-card p-5 sm:p-6 rounded-xl print:border-slate-300 print:shadow-none">
           <h3 className="showcase-title-sm flex items-center gap-2 mb-4">
             <div className="showcase-icon showcase-icon-pink" style={{ width: 32, height: 32 }}>
               <PiggyBank className="h-4 w-4" />

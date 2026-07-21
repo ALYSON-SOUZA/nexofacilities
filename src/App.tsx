@@ -2329,10 +2329,10 @@ export default function App() {
               />
             </div>
 
-            {/* Bento bottom row: Capacity + Summary side by side */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 mb-4 print:mb-3">
-              {/* Capacity Planning - Dominant module (8 cols) */}
-              <div className="lg:col-span-8 print:hidden">
+            {/* Bento bottom row: Capacity + Summary stacked */}
+            <div className="space-y-4 sm:space-y-5 mb-4 print:mb-3">
+              {/* Capacity Planning - Full width equal 3-col */}
+              <div className="print:hidden">
                 <CapacityPanel
                   capacityRows={capacityRows}
                   mixedTotal={summary.mixedTotal}
@@ -2355,8 +2355,8 @@ export default function App() {
                 />
               </div>
 
-              {/* Summary Decision Panels - Secondary module (4 cols) */}
-              <div className="lg:col-span-4 print:break-inside-avoid">
+              {/* Summary Decision Panels - Full width */}
+              <div className="print:break-inside-avoid">
                 <SummaryPanel suppliers={suppliers} items={items} summary={summary} />
               </div>
             </div>

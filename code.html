@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#85f6e5",
+                        "primary-container": "#008377",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffd9e1",
+                        "on-primary-fixed-variant": "#005048",
+                        "tertiary-container": "#636cc7",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb1c5",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed-variant": "#8b0e45",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#00685e",
+                        "outline": "#6d7a77",
+                        "on-tertiary-fixed-variant": "#343d96",
+                        "surface-bright": "#f8f9fa",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#67d9c9",
+                        "surface-container": "#edeeef",
+                        "secondary": "#ab2c5d",
+                        "on-secondary-fixed": "#3f001b",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-container": "#6e0034",
+                        "on-surface": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "outline-variant": "#bcc9c6",
+                        "on-surface-variant": "#3d4947",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#006a60",
+                        "secondary-container": "#fd6c9c",
+                        "on-tertiary-container": "#fffbff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bdc2ff",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed": "#e0e0ff",
+                        "tertiary": "#4a53ad",
+                        "primary-fixed-dim": "#67d9c9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#00201c",
+                        "on-tertiary-fixed": "#000767",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-container": "#f4fffb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "gutter": "20px",
+                        "md": "16px",
+                        "margin": "24px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Montserrat"],
+                        "data-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "data-lg": ["24px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #F4F7F9; }
+        .sidebar-active { border-right: 4px solid #00685e; font-weight: 700; color: #00685e; background-color: rgba(0, 104, 94, 0.05); }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0px 4px 20px rgba(0,0,0,0.04); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bcc9c6; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 py-lg bg-surface-container-lowest w-64 border-r border-outline-variant shadow-sm z-50">
+<div class="px-lg mb-xl">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">ProcureCentral</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Facility Management</p>
+</div>
+<nav class="flex-1 px-sm">
+<div class="space-y-sm">
+<a class="flex items-center gap-md p-md rounded-lg sidebar-active transition-all group" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">request_quote</span>
+<span class="font-body-md">New Quotes</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+<span class="font-body-md">Analysis</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">event_note</span>
+<span class="font-body-md">Planning</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">description</span>
+<span class="font-body-md">Reports</span>
+</a>
+</div>
+<div class="mt-xl px-md">
+<button class="w-full py-md bg-primary text-on-primary font-headline-md rounded-full shadow-lg flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+<span>New Quotation</span>
+</button>
+</div>
+</nav>
+<div class="px-sm pt-xl border-t border-outline-variant">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-lg h-16 w-[calc(100%-16rem)] ml-64 bg-surface fixed top-0 z-40">
+<div class="flex items-center gap-lg flex-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Painel Unificado de Gestão</h2>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Busque por cotações, itens ou fornecedores..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="flex items-center gap-md pl-md border-l border-outline-variant">
+<div class="text-right">
+<p class="font-headline-md text-[14px] leading-tight">Admin User</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">GESTÃO DE FACILITIES</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a facility manager in a modern office setting with warm natural lighting and soft blurred architectural details in the background. The manager is wearing a smart-casual blazer, projecting confidence and professionalism. The aesthetic is clean, bright, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_CdUbAWB2LbssapFshaG2rcwV9Sm6Xi5G9nE5kNgaQhqOzMiu4kjMDnarQvI3IJsntgtjaD30nDQx42pL3fL4_xicv8H2R7xxwhZLRgHLWjAvozA5QLUMCbzEy2NCnnT4mtc9XsTIsI_7QGU3alifqaxZ-9eRgceRcPIZ5aBHUNt4IYPsC0W_Y4hI3GV1ZQ6Kr4U7S_wF9f9Pji8juwWG4J9Lv3cD6CdXSP23A6HAcmbC3Dt7Z7Goa_cuaTmaOMZjkydL2PgqZ6Q"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 min-h-screen custom-scrollbar">
+<div class="p-lg space-y-lg">
+<!-- Section 1: Capacity & Planejamento -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<div class="lg:col-span-1 glass-card p-lg rounded-xl">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-headline-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container">group</span>
+                                Capacity &amp; Planejamento
+                            </h3>
+<p class="font-body-sm text-on-surface-variant">Análise de custo por funcionário</p>
+</div>
+<span class="px-sm py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-label-caps">Média vs Projeção</span>
+</div>
+<table class="w-full text-left font-body-md border-collapse">
+<thead>
+<tr class="font-label-caps text-on-surface-variant border-b border-outline-variant">
+<th class="pb-sm">MÊS/ANO</th>
+<th class="pb-sm text-right">CAPACITY</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr><td class="py-sm">JAN/26</td><td class="py-sm text-right font-bold">521</td></tr>
+<tr><td class="py-sm">FEV/26</td><td class="py-sm text-right font-bold">535</td></tr>
+<tr><td class="py-sm">MAR/26</td><td class="py-sm text-right font-bold">557</td></tr>
+<tr><td class="py-sm">ABR/26</td><td class="py-sm text-right font-bold">534</td></tr>
+<tr><td class="py-sm">MAI/26</td><td class="py-sm text-right font-bold">514</td></tr>
+<tr><td class="py-sm">JUN/26</td><td class="py-sm text-right font-bold">538</td></tr>
+<tr class="bg-primary/5 rounded-lg">
+<td class="py-sm pl-2">
+<span class="block">JUL/26</span>
+<span class="font-label-caps text-[9px] text-primary uppercase">Ativo (Cotação)</span>
+</td>
+<td class="py-sm pr-2 text-right font-bold text-primary">545</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Comparativo empty state placeholder -->
+<div class="lg:col-span-1 glass-card p-lg rounded-xl flex flex-col items-center justify-center text-center border-dashed border-2 border-outline-variant/50 bg-transparent">
+<span class="material-symbols-outlined text-outline-variant text-[48px] mb-md">menu_book</span>
+<h3 class="font-headline-md text-on-surface-variant">Sem Dados para Comparativo</h3>
+<p class="font-body-sm text-outline px-xl">Gere ou selecione uma cotação arquivada para acompanhar no rastreador de flutuações de custos!</p>
+</div>
+<!-- Histórico Registrado -->
+<div class="lg:col-span-1 glass-card p-lg rounded-xl">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">folder_open</span>
+<h3 class="font-headline-md text-on-surface">HISTÓRICO REGISTRADO</h3>
+</div>
+<div class="flex items-center gap-xs">
+<button class="flex items-center gap-xs px-sm py-1 border border-outline-variant rounded text-label-caps hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> FILTRAR
+                            </button>
+<span class="px-2 py-1 bg-secondary-fixed text-secondary font-label-caps rounded">0 / 0</span>
+</div>
+</div>
+<div class="h-48 border-2 border-dashed border-outline-variant/30 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-outline-variant text-[32px] mb-sm">folder_off</span>
+<p class="font-body-sm text-on-surface-variant">Nenhuma cotação arquivada.</p>
+<p class="text-[11px] text-outline px-md">Insira os preços e clique em "Nova Cotação" no topo para arquivar o rascunho.</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Nova Cotação de Insumos (Dropzone) -->
+<section class="glass-card rounded-xl overflow-hidden">
+<div class="p-lg">
+<h3 class="font-headline-md text-on-surface mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                        Nova Cotação de Insumos
+                    </h3>
+<div class="relative group">
+<div class="w-full min-h-[250px] border-2 border-dashed border-primary-container/30 rounded-xl bg-primary/5 flex flex-col items-center justify-center p-xl transition-all group-hover:bg-primary/10 group-hover:border-primary-container">
+<div class="w-16 h-16 bg-on-secondary-fixed-variant/10 rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary text-[32px]">system_update_alt</span>
+</div>
+<h4 class="font-headline-md text-secondary uppercase mb-sm">PLANILHA DE COTAÇÃO VAZIA</h4>
+<p class="font-body-md text-on-surface-variant font-semibold">Cole (Ctrl+V) uma lista de materiais com quantidades aqui mesmo!</p>
+<p class="font-body-sm text-outline mt-sm">Ou simplesmente <span class="text-secondary font-bold">arraste e solte</span> sua planilha Excel (.xlsx), CSV ou TXT nesta área de novos itens.</p>
+</div>
+</div>
+</div>
+<!-- Summary indicators footer of section 2 -->
+<div class="grid grid-cols-4 border-t border-outline-variant bg-surface-container-lowest">
+<div class="p-md border-r border-outline-variant">
+<p class="font-label-caps text-on-surface-variant text-[10px]">TOTAL FORNECEDOR ÚNICO (100%)</p>
+<p class="font-data-lg text-primary mt-xs text-right">R$ 0,00</p>
+</div>
+<div class="p-md border-r border-outline-variant bg-surface-container">
+<p class="font-label-caps text-on-surface-variant text-[10px]">Sua Contribuição em Compra Mista</p>
+<p class="font-data-lg text-primary-container mt-xs text-right">R$ 0,00</p>
+</div>
+<div class="p-md border-r border-outline-variant">
+<p class="font-data-lg text-primary mt-xs text-right opacity-30">R$ 0,00</p>
+</div>
+<div class="p-md">
+<p class="font-data-lg text-primary mt-xs text-right opacity-30">R$ 0,00</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Resumo de Performance & Detalhes -->
+<section class="space-y-lg">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">assessment</span>
+                        Resumo de Otimização Financeira
+                    </h3>
+<div class="flex gap-sm">
+<button class="p-2 border border-outline-variant rounded-lg text-primary hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">save</span></button>
+<button class="p-2 border border-outline-variant rounded-lg text-primary hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">description</span></button>
+<button class="p-2 border border-outline-variant rounded-lg text-primary hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">print</span></button>
+<button class="p-2 border border-outline-variant rounded-lg text-primary hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">refresh</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Card 1 -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-primary-container relative overflow-hidden group">
+<span class="material-symbols-outlined absolute top-4 right-4 text-primary-container text-[24px]">task_alt</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">MELHOR COMPRA MISTA</p>
+<p class="font-display-lg text-on-surface my-sm">R$ 14.520,80</p>
+<span class="px-3 py-1 bg-primary/10 text-primary font-label-caps text-[10px] rounded-full">RECOMENDADO</span>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-outline relative">
+<span class="material-symbols-outlined absolute top-4 right-4 text-outline-variant">store</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">MELHOR LOJA ÚNICA</p>
+<p class="font-display-lg text-on-surface my-sm">R$ 15.890,00</p>
+<p class="font-body-sm text-on-surface-variant">FORNECEDOR: <span class="font-bold">Eletro Global</span></p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-primary relative">
+<span class="material-symbols-outlined absolute top-4 right-4 text-primary">trending_down</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">ECONOMIA AUDITADA</p>
+<p class="font-display-lg text-primary my-sm">R$ 2.450,15</p>
+<p class="font-body-sm text-primary-container">POUPADO VS MAIS CARO</p>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-secondary relative">
+<span class="material-symbols-outlined absolute top-4 right-4 text-secondary">percent</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">OTIMIZAÇÃO REAL</p>
+<p class="font-display-lg text-secondary my-sm">R$ 1.840,00</p>
+<p class="font-body-sm text-secondary">EFICIÊNCIA MISTA ALCANÇADA</p>
+</div>
+</div>
+</section>
+<!-- Section 4: Table and Analysis -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-lg">
+<!-- Quotation Items Table -->
+<div class="xl:col-span-8 glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="p-lg bg-surface-container flex justify-between items-center">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-full border border-outline-variant focus:border-primary focus:ring-0" placeholder="Busque material pelo nome para adicionar..." type="text"/>
+</div>
+<div class="flex gap-md items-center ml-lg">
+<div class="flex items-center gap-sm">
+<span class="font-label-caps text-on-surface-variant">QTD:</span>
+<input class="w-16 h-10 border border-secondary rounded-lg text-center font-bold text-secondary focus:ring-secondary" type="number" value="1"/>
+</div>
+<button class="bg-primary/10 text-primary px-lg py-2 rounded-full font-headline-md text-sm flex items-center gap-xs hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span> INSERIR NA PLANILHA
+                            </button>
+<button class="bg-inverse-surface text-surface px-lg py-2 rounded-full font-headline-md text-sm flex items-center gap-xs hover:opacity-90">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span> IMPORT IA
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface">
+<th class="p-lg text-left font-label-caps text-on-surface border-b border-outline-variant w-1/4">ITENS A COTAR</th>
+<th class="p-lg text-center font-label-caps text-on-surface border-b border-outline-variant">PAGO?</th>
+<th class="p-lg text-center font-label-caps text-on-surface border-b border-outline-variant">QTD</th>
+<th class="p-0 border-b border-outline-variant bg-primary/10">
+<div class="py-md px-sm text-center border-b border-dashed border-primary-container/30">
+<span class="block font-headline-md text-sm uppercase">FORNECEDOR 1</span>
+<span class="text-[9px] text-primary-container leading-none">(clique para cadastrar fone/vendedor)</span>
+</div>
+<div class="flex divide-x divide-primary-container/20">
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Unit (R$)</span>
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Total (R$)</span>
+</div>
+</th>
+<th class="p-0 border-b border-outline-variant bg-surface-container-low">
+<div class="py-md px-sm text-center border-b border-dashed border-outline-variant">
+<span class="block font-headline-md text-sm uppercase">FORNECEDOR 2</span>
+<span class="text-[9px] text-on-surface-variant leading-none">(clique para cadastrar fone/vendedor)</span>
+</div>
+<div class="flex divide-x divide-outline-variant">
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Unit (R$)</span>
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Total (R$)</span>
+</div>
+</th>
+<th class="p-0 border-b border-outline-variant bg-primary-fixed/20">
+<div class="py-md px-sm text-center border-b border-dashed border-primary/30">
+<span class="block font-headline-md text-sm uppercase">FORNECEDOR 3</span>
+<span class="text-[9px] text-primary/70 leading-none">(clique para cadastrar fone/vendedor)</span>
+</div>
+<div class="flex divide-x divide-primary/20">
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Unit (R$)</span>
+<span class="flex-1 py-1 text-[9px] text-center font-label-caps">Total (R$)</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-md font-body-md text-on-surface">Cabo Flexível 4mm 100m</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-md text-center font-bold">10</td>
+<td class="p-0 bg-primary/5">
+<div class="flex divide-x divide-primary/10">
+<span class="flex-1 p-md text-center">320,00</span>
+<span class="flex-1 p-md text-center font-bold">3.200,00</span>
+</div>
+</td>
+<td class="p-0">
+<div class="flex divide-x divide-outline-variant/30">
+<span class="flex-1 p-md text-center">345,50</span>
+<span class="flex-1 p-md text-center">3.455,00</span>
+</div>
+</td>
+<td class="p-0 bg-primary-fixed/5">
+<div class="flex divide-x divide-primary/10">
+<span class="flex-1 p-md text-center">315,00</span>
+<span class="flex-1 p-md text-center font-bold text-primary">3.150,00</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-md font-body-md text-on-surface">Lâmpada LED 12W E27</td>
+<td class="p-md text-center"><span class="material-symbols-outlined text-outline-variant">circle</span></td>
+<td class="p-md text-center font-bold">50</td>
+<td class="p-0 bg-primary/5">
+<div class="flex divide-x divide-primary/10">
+<span class="flex-1 p-md text-center font-bold text-primary">8,50</span>
+<span class="flex-1 p-md text-center font-bold">425,00</span>
+</div>
+</td>
+<td class="p-0">
+<div class="flex divide-x divide-outline-variant/30">
+<span class="flex-1 p-md text-center">9,90</span>
+<span class="flex-1 p-md text-center">495,00</span>
+</div>
+</td>
+<td class="p-0 bg-primary-fixed/5">
+<div class="flex divide-x divide-primary/10">
+<span class="flex-1 p-md text-center">10,20</span>
+<span class="flex-1 p-md text-center">510,00</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-lg flex justify-between">
+<button class="px-lg py-2 border border-secondary text-secondary rounded-full font-bold flex items-center gap-sm hover:bg-secondary/5">
+<span class="material-symbols-outlined">add</span> ITEM
+                        </button>
+<button class="px-lg py-2 bg-inverse-surface text-surface rounded-full font-bold flex items-center gap-sm hover:opacity-90">
+<span class="material-symbols-outlined">person_add</span> ADICIONAR FORNECEDOR
+                        </button>
+</div>
+</div>
+<!-- Analysis Sidebar -->
+<div class="xl:col-span-4 space-y-lg">
+<!-- Composição da Compra Mista -->
+<div class="glass-card p-lg rounded-xl">
+<h4 class="font-headline-md text-on-surface mb-lg flex items-center gap-sm uppercase text-sm">
+<span class="material-symbols-outlined text-primary">shopping_basket</span>
+                            COMPOSIÇÃO DA COMPRA MISTA (CENÁRIO DE MELHOR PREÇO)
+                        </h4>
+<div class="space-y-md">
+<div class="flex justify-between items-center group">
+<div class="flex items-center gap-md">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-headline-md text-sm">FORNECEDOR 1</span>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-on-surface">R$ 5.420,80</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant">37.3% do total ótimo</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<span class="w-3 h-3 rounded-full bg-primary-fixed"></span>
+<span class="font-headline-md text-sm">FORNECEDOR 2</span>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-on-surface">R$ 4.800,00</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant">33.1% do total ótimo</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-md">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-headline-md text-sm">FORNECEDOR 3</span>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-on-surface">R$ 4.300,00</p>
+<p class="font-label-caps text-[9px] text-on-surface-variant">29.6% do total ótimo</p>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-primary/20 flex justify-between items-center">
+<span class="font-headline-md text-sm">TOTAL MISTO COMBINADO:</span>
+<span class="font-display-lg text-primary text-xl">R$ 14.520,80</span>
+</div>
+</div>
+<!-- Relatório de Economia -->
+<div class="glass-card p-lg rounded-xl">
+<h4 class="font-headline-md text-on-surface mb-md flex items-center gap-sm uppercase text-sm">
+<span class="material-symbols-outlined text-secondary">savings</span>
+                            RELATÓRIO DE ECONOMIA &amp; GESTÃO DE FACILITIES
+                        </h4>
+<div class="bg-primary/5 p-md rounded-lg mb-lg border border-primary-container/20">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="font-headline-md text-[13px] text-primary-container uppercase">MELHOR ÚNICO FORNECEDOR (CONSOLIDADO)</span>
+</div>
+<p class="font-body-sm text-on-surface-variant leading-tight">
+                                Se fechar o pedido inteiro com apenas 1 fornecedor, a melhor opção é a <br/>
+<span class="font-bold border-b-2 border-secondary text-on-surface uppercase">FORNECEDOR 1</span> com o valor total de <span class="font-bold text-on-surface">R$ 15.890,00</span>.
+                            </p>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Cenário Fechado Mais Caro (Fornecedor 1):</span>
+<span class="font-headline-md">R$ 16.970,95</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Cenário Compra Mista (Cheapest Items):</span>
+<span class="font-headline-md text-primary-container">R$ 14.520,80</span>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant space-y-sm">
+<div class="flex justify-between items-center font-bold">
+<span class="text-secondary uppercase text-[12px]">ECONOMIA ABSOLUTA (MISTA VS MAIS CARA):</span>
+<span class="text-secondary">R$ 2.450,15</span>
+</div>
+<div class="flex justify-between items-center font-bold">
+<span class="text-primary-container uppercase text-[12px]">ECONOMIA INCREMENTAL (MISTA VS ÚNICA CHEAPER):</span>
+<span class="text-primary-container">R$ 1.369,20</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Simple interactivity for demonstration
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

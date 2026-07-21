@@ -127,6 +127,12 @@ body {
     gap: 0.5rem !important;
   }
 
+  /* ── CAPACITY PANEL 3-COL GRID ── */
+  #root .lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
   /* ── STOCK CONTROL KPI CARDS ── */
   #root .grid.sm\:grid-cols-2 {
     grid-template-columns: 1fr !important;
@@ -242,6 +248,11 @@ body {
 
   /* Summary panels: 2 cols */
   #root .grid.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Capacity panel: 2 cols on tablet */
+  #root .lg\:grid-cols-3 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 

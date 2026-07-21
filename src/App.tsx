@@ -1713,11 +1713,11 @@ export default function App() {
       {/* MOBILE HEADER (only visible on mobile) */}
       <div className="md:hidden flex items-center justify-between bg-white text-slate-900 px-4 py-3 print:hidden shrink-0 border-b border-slate-200">
         <div className="flex items-center gap-2.5">
-          <div className="h-7 w-7 rounded-lg bg-[#ff2a6d] flex items-center justify-center text-white">
+          <div className="h-7 w-7 rounded-lg bg-[#FF2E63] flex items-center justify-center text-white">
             <span className="material-symbols-outlined text-[16px] text-white" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
           <span className="text-xs font-display font-extrabold tracking-wider uppercase text-slate-900">
-            FACILITIES <span className="text-[#ff2a6d]">BP-COMPRAS</span>
+            FACILITIES <span className="text-[#FF2E63]">BP-COMPRAS</span>
           </span>
         </div>
         <button
@@ -1830,8 +1830,8 @@ export default function App() {
             className="bp-sidebar-nav-item"
             title="Nova Cotação"
           >
-            <span className="material-symbols-outlined" style={{ color: "#ff2a6d" }}>add_circle</span>
-            <span className="bp-sidebar-nav-label" style={{ color: "#ff2a6d" }}>Nova</span>
+            <span className="material-symbols-outlined" style={{ color: "#FF2E63" }}>add_circle</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#FF2E63" }}>Nova</span>
           </button>
           <button
             onClick={() => {
@@ -1859,16 +1859,16 @@ export default function App() {
             title="Salvar e Sair"
             type="button"
           >
-            <span className="material-symbols-outlined" style={{ color: "#ff2a6d" }}>logout</span>
-            <span className="bp-sidebar-nav-label" style={{ color: "#ff2a6d" }}>Sair</span>
+            <span className="material-symbols-outlined" style={{ color: "#FF2E63" }}>logout</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#FF2E63" }}>Sair</span>
           </button>
         </div>
       </aside>
       
       {/* SUCCESS FLUTUANTE DE FEEDBACK */}
       {successMessage && (
-        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-[#111c2e] text-white font-bold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
-          <Check className="h-4 w-4 shrink-0 text-[#ff2a6d]" />
+        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-[#252A34] text-white font-bold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
+          <Check className="h-4 w-4 shrink-0 text-[#FF2E63]" />
           <span>{successMessage}</span>
         </div>
       )}
@@ -1889,7 +1889,7 @@ export default function App() {
             {/* Scrollable Container for Modal Body */}
             <div className="flex-1 overflow-y-auto space-y-4 pr-1.5 scrollbar-thin scrollbar-thumb-slate-200 py-1">
               <div className="text-center space-y-1">
-                <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center text-[#ff2a6d] mx-auto mb-1">
+                <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF2E63] mx-auto mb-1">
                   <ShoppingCart className="h-5 w-5" />
                 </div>
                 <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight">
@@ -1915,7 +1915,7 @@ export default function App() {
                       {activeCategoryObj?.name || "Nenhuma categoria"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#ff2a6d] font-extrabold text-[9px] shrink-0">
+                  <div className="flex items-center gap-1.5 text-[#FF2E63] font-extrabold text-[9px] shrink-0">
                     <span>CLIQUE PARA ESCOLHER</span>
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isCategorySelectOpen ? "rotate-180" : ""}`} />
                   </div>
@@ -1943,7 +1943,7 @@ export default function App() {
                           >
                             <div className="space-y-0.5 max-w-[70%]">
                               <span className={`text-[10px] uppercase tracking-tight block truncate ${
-                                isSelected ? "font-black text-[#ff2a6d]" : "font-extrabold text-slate-800"
+                                isSelected ? "font-black text-[#FF2E63]" : "font-extrabold text-slate-800"
                               }`}>
                                 {cat.name}
                               </span>
@@ -1952,7 +1952,7 @@ export default function App() {
                               </span>
                             </div>
                             <div className={`px-2 py-0.5 rounded-full text-[8px] font-black tracking-tight shrink-0 ${
-                              isSelected ? "bg-[#ff2a6d] text-white" : "bg-slate-100 text-slate-600"
+                              isSelected ? "bg-[#FF2E63] text-white" : "bg-slate-100 text-slate-600"
                             }`}>
                               {cat.items ? cat.items.length : 0} ITENS
                             </div>
@@ -1973,7 +1973,7 @@ export default function App() {
                     placeholder="Ex. Copa e Cozinha, Ferramentas..."
                     value={newCategoryName}
                     onChange={(e) => setNewCategoryName(e.target.value)}
-                    className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#ff2a6d]"
+                    className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#FF2E63]"
                   />
                   <button
                     onClick={() => {
@@ -2016,7 +2016,7 @@ export default function App() {
                         }
                       }
                     }}
-                    className="w-full text-xs font-bold border-2 border-slate-200 text-slate-800 rounded-xl py-2 px-2.5 bg-slate-50 focus:outline-none focus:border-[#ff2a6d] cursor-pointer"
+                    className="w-full text-xs font-bold border-2 border-slate-200 text-slate-800 rounded-xl py-2 px-2.5 bg-slate-50 focus:outline-none focus:border-[#FF2E63] cursor-pointer"
                   >
                     <option value="">-- Começar do Zero (Cotação Limpa) --</option>
                     {archivedQuotes.map((q) => (
@@ -2044,7 +2044,7 @@ export default function App() {
                         placeholder="Ex: Refeitório, Recepção"
                         value={modalQuoteTitle}
                         onChange={(e) => setModalQuoteTitle(e.target.value)}
-                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900 focus:border-[#ff2a6d] focus:outline-none focus:ring-0"
+                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900 focus:border-[#FF2E63] focus:outline-none focus:ring-0"
                       />
                     </div>
                   </div>
@@ -2060,7 +2060,7 @@ export default function App() {
                         maxLength={8}
                         value={modalChamadoNumber}
                         onChange={(e) => setModalChamadoNumber(e.target.value.replace(/\D/g, "").slice(0, 8))}
-                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-black text-slate-900 tracking-widest text-center focus:border-[#ff2a6d] focus:outline-none focus:ring-0 uppercase"
+                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-black text-slate-900 tracking-widest text-center focus:border-[#FF2E63] focus:outline-none focus:ring-0 uppercase"
                       />
                     </div>
                   </div>
@@ -2162,10 +2162,10 @@ export default function App() {
           {/* Left Side: Brand Logo */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
-              <span className="text-[6px] sm:text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#ff2a6d] uppercase leading-none">FACILITIES</span>
+              <span className="text-[6px] sm:text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#FF2E63] uppercase leading-none">FACILITIES</span>
               <div className="text-base sm:text-lg font-display font-extrabold tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
                 <span className="text-slate-900">B</span>
-                <span className="text-[#ff2a6d]">P</span>
+                <span className="text-[#FF2E63]">P</span>
               </div>
               <span className="text-[7px] sm:text-[8.5px] font-sans font-medium tracking-[0.35em] text-slate-400 uppercase leading-none">COMPRAS</span>
             </div>
@@ -2173,7 +2173,7 @@ export default function App() {
 
           {/* Right Side: Title & Chamado Inputs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto flex-1 justify-end min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#FF2E63] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
               <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
@@ -2184,7 +2184,7 @@ export default function App() {
               />
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#ff2a6d] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[200px] shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#FF2E63] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[200px] shrink-0">
               <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
               <input
                 type="text"
@@ -2210,7 +2210,7 @@ export default function App() {
                   <div>
                     <span className="uppercase text-[7px] sm:text-[8px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
                     <span className="font-extrabold uppercase text-[10px] sm:text-[11.5px] text-sky-950 font-sans">
-                      Você está alterando a Cotação <span className="font-black font-mono text-[#ff2a6d]">#{editingQuoteId}</span>
+                      Você está alterando a Cotação <span className="font-black font-mono text-[#FF2E63]">#{editingQuoteId}</span>
                     </span>
                   </div>
                 </div>
@@ -2236,12 +2236,12 @@ export default function App() {
             {lastChangeLog && (
               <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3.5 bg-white border border-slate-200 rounded-xl text-[10px] sm:text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 print:hidden animate-fade-in text-slate-700">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#ff2a6d] animate-pulse shrink-0" />
+                  <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#FF2E63] animate-pulse shrink-0" />
                   <span className="uppercase text-[7px] sm:text-[9px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
                   <span className="text-slate-900 font-black uppercase text-[9px] sm:text-[10.5px] truncate">{lastChangeLog.action}</span>
                 </div>
                 <div className="text-[8px] sm:text-[9.5px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
-                  por <span className="font-extrabold text-[#ff2a6d]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
+                  por <span className="font-extrabold text-[#FF2E63]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
                 </div>
               </div>
             )}
@@ -2417,7 +2417,7 @@ export default function App() {
                     Simulação de Categoria Recomendada
                   </h3>
                   <p className="text-[11px] text-slate-550 font-bold leading-relaxed">
-                    Você está na categoria <strong className="text-[#ff2a6d]">MATERIAL DE LIMPEZA</strong>, mas possui <strong className="font-extrabold text-slate-800">{items.filter(it => it.quantity > 0).length} itens</strong> para compra.
+                    Você está na categoria <strong className="text-[#FF2E63]">MATERIAL DE LIMPEZA</strong>, mas possui <strong className="font-extrabold text-slate-800">{items.filter(it => it.quantity > 0).length} itens</strong> para compra.
                   </p>
                   <p className="text-[11px] text-slate-550 font-bold leading-relaxed mt-1">
                     Como há <strong className="text-slate-800">menos de 8 itens</strong> ativos, recomendamos mudar para a nova categoria <strong className="text-slate-800">MATERIAL DE LIMPEZA EXTRA</strong>, que não exige o planejamento de Capacity.
@@ -2487,7 +2487,7 @@ export default function App() {
                 <p>
                   Por estar em uma janela integrada para testes (iframe do AI Studio), o navegador bloqueia a abertura direta da janela de impressão.
                 </p>
-                <p className="p-2.5 rounded-xl border border-rose-100 bg-rose-50/40 text-[#ff2a6d] font-bold">
+                <p className="p-2.5 rounded-xl border border-rose-100 bg-rose-50/40 text-[#FF2E63] font-bold">
                   Para gerar o PDF completo com todas as páginas perfeitamente, por favor utilize uma das seguintes alternativas:
                 </p>
                 
@@ -2513,7 +2513,7 @@ export default function App() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#111c2e] hover:bg-slate-800 text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#252A34] hover:bg-slate-800 text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

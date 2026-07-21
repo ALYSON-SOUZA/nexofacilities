@@ -160,8 +160,8 @@ export default function AiConsultantDrawer({
             {/* Header */}
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between select-none">
               <div className="flex items-center gap-3">
-                <div className="p-1.5 rounded-lg bg-[#ff2a6d]/20 flex items-center justify-center">
-                  <Sparkles className="h-4 w-4 text-[#ff2a6d]" />
+                <div className="p-1.5 rounded-lg bg-[#FF2E63]/20 flex items-center justify-center">
+                  <Sparkles className="h-4 w-4 text-[#FF2E63]" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold tracking-tight">Assistente de IA</h3>
@@ -193,9 +193,9 @@ export default function AiConsultantDrawer({
                 /* Dynamic Loading Screen with Cycle Messages */
                 <div className="h-full flex flex-col items-center justify-center py-12 px-6 space-y-4">
                   <div className="relative flex items-center justify-center h-16 w-16">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#ff2a6d]/20 animate-ping" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#FF2E63]/20 animate-ping" />
                     <div className="rounded-full bg-slate-900 border border-slate-700/50 h-10 w-10 flex items-center justify-center text-white">
-                      <Sparkles className="h-5 w-5 text-[#ff2a6d] animate-spin" />
+                      <Sparkles className="h-5 w-5 text-[#FF2E63] animate-spin" />
                     </div>
                   </div>
                   <div className="text-center space-y-1">
@@ -312,7 +312,7 @@ export default function AiConsultantDrawer({
                               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider block mb-1">
                                 Ajuste Recomendado:
                               </span>
-                              <p className="text-[11px] text-[#111c2e] font-semibold leading-relaxed">
+                              <p className="text-[11px] text-[#252A34] font-semibold leading-relaxed">
                                 {issue.suggestedFix}
                               </p>
                             </div>
@@ -338,7 +338,7 @@ export default function AiConsultantDrawer({
                                   {sug.title}
                                 </h5>
                               </div>
-                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#ff2a6d]/10 border border-[#ff2a6d]/20 px-2 py-0.5 text-[11px] font-black text-[#ff2a6d] uppercase">
+                              <span className="shrink-0 inline-flex items-center rounded-md bg-[#FF2E63]/10 border border-[#FF2E63]/20 px-2 py-0.5 text-[11px] font-black text-[#FF2E63] uppercase">
                                 economize {sug.estimatedSavings}
                               </span>
                             </div>
@@ -373,7 +373,7 @@ export default function AiConsultantDrawer({
                         result.serviceRecommendations.map((svc, idx) => (
                           <div key={idx} className="bg-white rounded-xl border border-slate-100 p-3.5 shadow-xs space-y-2.5">
                             <h5 className="text-[11.5px] font-black text-slate-900 uppercase tracking-tight flex items-center gap-1.5">
-                              <Award className="h-3.5 w-3.5 text-[#ff2a6d] shrink-0" />
+                              <Award className="h-3.5 w-3.5 text-[#FF2E63] shrink-0" />
                               {svc.serviceName}
                             </h5>
 
@@ -381,11 +381,11 @@ export default function AiConsultantDrawer({
                               {svc.description}
                             </p>
 
-                            <div className="bg-[#f5f5f5] border border-[#ff2a6d]/10 rounded-lg p-2.5">
-                              <span className="text-[11px] font-black uppercase text-[#ff2a6d] tracking-wider flex items-center gap-1">
+                            <div className="bg-[#f5f5f5] border border-[#FF2E63]/10 rounded-lg p-2.5">
+                              <span className="text-[11px] font-black uppercase text-[#FF2E63] tracking-wider flex items-center gap-1">
                                 <ArrowUpRight className="h-3 w-3" /> Por que faz sentido comprar:
                               </span>
-                              <p className="text-[11px] text-[#111c2e] font-semibold leading-relaxed mt-1">
+                              <p className="text-[11px] text-[#252A34] font-semibold leading-relaxed mt-1">
                                 {svc.whyItFits}
                               </p>
                             </div>

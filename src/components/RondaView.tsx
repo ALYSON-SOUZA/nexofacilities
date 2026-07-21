@@ -1005,7 +1005,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               MÓDULO DE RONDA
             </span>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1.5 leading-tight">
-              <Eye className="h-6 w-6 text-[#ff2a6d]" /> Ronda & Vistoria Predial
+              <Eye className="h-6 w-6 text-[#FF2E63]" /> Ronda & Vistoria Predial
             </h1>
           </div>
         </div>
@@ -1040,28 +1040,28 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas })}
-              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bp-card p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#FF2E63] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Rondas</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#FF2E63] transition-colors">Rondas</span>
               <div className="flex items-baseline gap-1 sm:gap-1.5 mt-1 sm:mt-2">
                 <span className="text-xl sm:text-3xl font-black text-slate-800">{stats.totalRondas}</span>
                 <span className="text-[9px] sm:text-[11px] font-bold text-slate-500">vist.</span>
               </div>
-              <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center gap-1 truncate">{stats.rondasThisMonth} no mês <span className="text-[#ff2a6d] hidden sm:inline">🔍 ver</span></span>
+              <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center gap-1 truncate">{stats.rondasThisMonth} no mês <span className="text-[#FF2E63] hidden sm:inline">🔍 ver</span></span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todas as Ocorrências Registradas", type: "occurrences", items: flatOccurrences })}
-              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bp-card p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#FF2E63] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Ocorrências</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#FF2E63] transition-colors">Ocorrências</span>
               <div className="grid grid-cols-3 gap-0.5 sm:gap-1 mt-1 sm:mt-2 text-center text-[9px] sm:text-[11px] font-black">
                 <div 
                   onClick={(e) => {
                     e.stopPropagation();
                     setDrillDownConfig({ title: "Ocorrências de Autuação", type: "occurrences", items: flatOccurrences.filter(x => x.occurrence.type === "autuacao") });
                   }}
-                  className="p-1 sm:p-1.5 bg-red-50 text-[#ff2a6d] rounded-lg hover:bg-red-100 transition-colors"
+                  className="p-1 sm:p-1.5 bg-red-50 text-[#FF2E63] rounded-lg hover:bg-red-100 transition-colors"
                   title="Filtrar por Autuação"
                 >
                   <span className="block text-xs sm:text-sm">{stats.autuacaoCount}</span> Aut
@@ -1089,22 +1089,22 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               </div>
               <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center justify-between">
                 <span>Total: {stats.totalOccurrences}</span>
-                <span className="text-[#ff2a6d] font-bold hidden sm:inline">Ver tudo</span>
+                <span className="text-[#FF2E63] font-bold hidden sm:inline">Ver tudo</span>
               </span>
             </div>
  
             <div 
               onClick={() => setDrillDownConfig({ title: "Todos os Chamados Técnicos", type: "chamados", items: chamados })}
-              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bp-card p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#FF2E63] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Chamados</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#FF2E63] transition-colors">Chamados</span>
               <div className="flex items-baseline gap-1 sm:gap-1.5 mt-1 sm:mt-2">
                 <span className="text-xl sm:text-3xl font-black text-slate-800">{stats.totalChamados}</span>
-                <span className="text-[9px] sm:text-[11px] text-[#ff2a6d] font-extrabold">{stats.chamadosAbertos} abertos</span>
+                <span className="text-[9px] sm:text-[11px] text-[#FF2E63] font-extrabold">{stats.chamadosAbertos} abertos</span>
               </div>
               <span className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 sm:mt-1 flex items-center justify-between">
                 <span>Concluídos: {stats.chamadosConcluidos}</span>
-                <span className="text-[#ff2a6d] font-bold hidden sm:inline">🔍 ver</span>
+                <span className="text-[#FF2E63] font-bold hidden sm:inline">🔍 ver</span>
               </span>
             </div>
  
@@ -1117,9 +1117,9 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setDrillDownConfig({ title: "Todas as Rondas de Vistoria", type: "rondas", items: rondas });
                 }
               }}
-              className="ramp-surface p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#ff2a6d] hover:scale-[1.01] transition-all group"
+              className="bp-card p-2.5 sm:p-4 flex flex-col justify-between cursor-pointer hover:border-[#FF2E63] hover:scale-[1.01] transition-all group"
             >
-              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#ff2a6d] transition-colors">Último Registro</span>
+              <span className="text-[9px] sm:text-[11px] font-black uppercase text-slate-500 tracking-wider group-hover:text-[#FF2E63] transition-colors">Último Registro</span>
               {stats.lastRonda ? (
                 <div className="mt-1 sm:mt-2 text-[10px] sm:text-xs">
                   <p className="font-extrabold text-slate-800 leading-tight truncate">{stats.lastRonda.filial}</p>
@@ -1128,7 +1128,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               ) : (
                 <p className="text-[9px] sm:text-[11px] text-slate-500 mt-1 sm:mt-2">Nenhum registro.</p>
               )}
-              <span className="text-[9px] sm:text-[11px] text-[#ff2a6d] font-bold mt-0.5 sm:mt-1 flex items-center justify-between">
+              <span className="text-[9px] sm:text-[11px] text-[#FF2E63] font-bold mt-0.5 sm:mt-1 flex items-center justify-between">
                 <span className="hidden sm:inline">Bellinati Perez</span>
                 <span>→</span>
               </span>
@@ -1148,7 +1148,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
                 <button
                   onClick={() => setRondaActiveSubView("history_list")}
-                  className="text-[11px] font-bold text-[#ff2a6d] hover:underline"
+                  className="text-[11px] font-bold text-[#FF2E63] hover:underline"
                 >
                   Ver todos os registros ({rondas.length}) →
                 </button>
@@ -1305,11 +1305,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         title="Ver ocorrências de Autuação"
                       >
                         <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 mb-0.5">
-                          <span className="flex items-center gap-1 group-hover:text-[#ff2a6d]"><span className="h-2 w-2 rounded-full bg-[#ff2a6d]"></span> Autuação</span>
+                          <span className="flex items-center gap-1 group-hover:text-[#FF2E63]"><span className="h-2 w-2 rounded-full bg-[#FF2E63]"></span> Autuação</span>
                           <span>{stats.autuacaoCount} ({Math.round(stats.autuacaoCount / stats.totalOccurrences * 100)}%)</span>
                         </div>
                         <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                          <div className="bg-[#ff2a6d] h-full transition-all" style={{ width: `${(stats.autuacaoCount / stats.totalOccurrences) * 100}%` }}></div>
+                          <div className="bg-[#FF2E63] h-full transition-all" style={{ width: `${(stats.autuacaoCount / stats.totalOccurrences) * 100}%` }}></div>
                         </div>
                       </div>
  
@@ -1410,7 +1410,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
         <div className="max-w-2xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-md print:hidden">
           
           {/* Header Wizard indicator */}
-          <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
+          <div className="bg-[#252A34] text-white p-5 flex items-center justify-between">
             <div className="space-y-0.5">
               <span className="text-[11px] font-black tracking-widest uppercase text-slate-500">Ronda em Andamento</span>
               <h2 className="text-sm font-black uppercase tracking-wider text-white">
@@ -1434,10 +1434,10 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* STEP: HEADER (Choose Filial) */}
             {wizardStep === "header" && (
               <form onSubmit={handleSaveRondaHeader} className="space-y-5">
-                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10 flex items-start gap-3">
+                <div className="bg-[#FF2E63]/5 p-4 rounded-2xl border border-[#FF2E63]/10 flex items-start gap-3">
                   <span className="text-xl">📍</span>
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide">Passo 1: Selecionar Filial para Vistoria</p>
+                    <p className="text-[11px] font-black text-[#FF2E63] uppercase tracking-wide">Passo 1: Selecionar Filial para Vistoria</p>
                     <p className="text-[11px] text-slate-500 font-semibold">Escolha a filial onde a ronda de vistoria está sendo realizada:</p>
                   </div>
                 </div>
@@ -1448,7 +1448,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     <select
                       value={newRondaFilial}
                       onChange={(e) => setNewRondaFilial(e.target.value)}
-                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] bg-white text-slate-700"
+                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63] bg-white text-slate-700"
                     >
                       {FILIAIS_OPTIONS.map(opt => (
                         <option key={opt} value={opt}>{opt}</option>
@@ -1496,10 +1496,10 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* STEP: SALA_FORM (Room header input) */}
             {wizardStep === "sala_form" && (
               <form onSubmit={handleSaveSalaHeader} className="space-y-5">
-                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10 flex items-start gap-3">
+                <div className="bg-[#FF2E63]/5 p-4 rounded-2xl border border-[#FF2E63]/10 flex items-start gap-3">
                   <span className="text-xl">🏢</span>
                   <div className="space-y-0.5">
-                    <p className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide">Passo 2: Identificar a Sala / Andar</p>
+                    <p className="text-[11px] font-black text-[#FF2E63] uppercase tracking-wide">Passo 2: Identificar a Sala / Andar</p>
                     <p className="text-[11px] text-slate-500 font-semibold">Informe os detalhes do ambiente físico vistoriado agora:</p>
                   </div>
                 </div>
@@ -1514,7 +1514,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       value={currentSalaName}
                       onChange={(e) => setCurrentSalaName(e.target.value)}
                       placeholder="Ex: Sala de Operações 201, Copa, Recepção"
-                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                      className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                     />
                   </div>
 
@@ -1528,7 +1528,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         value={currentSalaGestor}
                         onChange={(e) => handleGestorSearch(e.target.value)}
                         placeholder="Nome do gestor da sala..."
-                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                       />
                       {gestorSuggestions.length > 0 && (
                         <div className="absolute top-[100%] left-0 right-0 bg-white border border-slate-200 rounded-xl mt-1 shadow-lg z-10 overflow-hidden divide-y divide-slate-100">
@@ -1555,7 +1555,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         value={currentSalaGerente}
                         onChange={(e) => handleGerenteSearch(e.target.value)}
                         placeholder="Nome do gerente de carteira..."
-                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                        className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                       />
                       {gerenteSuggestions.length > 0 && (
                         <div className="absolute top-[100%] left-0 right-0 bg-white border border-slate-200 rounded-xl mt-1 shadow-lg z-10 overflow-hidden divide-y divide-slate-100">
@@ -1598,8 +1598,8 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {wizardStep === "occurrence_form" && (
               <div className="space-y-5">
                 
-                <div className="bg-[#ff2a6d]/5 p-4 rounded-2xl border border-[#ff2a6d]/10">
-                  <span className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wide block">Ambiente: {currentSalaName}</span>
+                <div className="bg-[#FF2E63]/5 p-4 rounded-2xl border border-[#FF2E63]/10">
+                  <span className="text-[11px] font-black text-[#FF2E63] uppercase tracking-wide block">Ambiente: {currentSalaName}</span>
                   <p className="text-[11px] text-slate-500 font-bold mt-1">Registre se identificou alguma inconformidade ou problema de manutenção/limpeza nesta sala:</p>
                 </div>
 
@@ -1657,7 +1657,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     onChange={(e) => setCurrentOccDesc(e.target.value)}
                     onPaste={handlePasteEvent}
                     placeholder="Cole fotos diretamente aqui (Ctrl+V) ou digite a descrição detalhada do problema físico..."
-                    className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] bg-slate-50/20 focus:bg-white transition-all resize-none"
+                    className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63] bg-slate-50/20 focus:bg-white transition-all resize-none"
                   />
                 </div>
 
@@ -1772,7 +1772,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {wizardStep === "ask_next_sala" && (
               <div className="text-center py-6 space-y-6">
                 
-                <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-[#ff2a6d] flex items-center justify-center border border-red-100">
+                <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-[#FF2E63] flex items-center justify-center border border-red-100">
                   <Building2 className="h-5 w-5" />
                 </div>
 
@@ -1782,7 +1782,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     A sala/ambiente foi inserido com sucesso na sua lista de vistoria atual.
                   </p>
                   <div className="mt-3 inline-block bg-slate-50 border border-slate-150 px-3.5 py-1.5 rounded-full text-[11px] text-slate-600 font-bold">
-                    Total nesta Ronda: <span className="text-[#ff2a6d] font-extrabold">{currentRondaSalas.length} sala(s)</span>
+                    Total nesta Ronda: <span className="text-[#FF2E63] font-extrabold">{currentRondaSalas.length} sala(s)</span>
                   </div>
                 </div>
 
@@ -1817,9 +1817,9 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {rondaActiveSubView === "create_chamado" && (
         <div className="max-w-xl mx-auto bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-md print:hidden">
           
-          <div className="bg-[#111c2e] text-white p-5 flex items-center justify-between">
+          <div className="bg-[#252A34] text-white p-5 flex items-center justify-between">
             <h2 className="text-sm font-black uppercase tracking-wider flex items-center gap-1">
-              <ShieldAlert className="h-5 w-5 text-[#ff2a6d]" /> Abertura de Chamado de Manutenção
+              <ShieldAlert className="h-5 w-5 text-[#FF2E63]" /> Abertura de Chamado de Manutenção
             </h2>
             <button
               onClick={() => setRondaActiveSubView("dashboard")}
@@ -1841,7 +1841,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   setTicketSalaId("");
                   setTicketOccurrenceId("");
                 }}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
               >
                 <option value="">Selecione uma ronda recente...</option>
                 {rondas.map(r => (
@@ -1862,7 +1862,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     setTicketSalaId(e.target.value);
                     setTicketOccurrenceId("");
                   }}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                 >
                   <option value="">Selecione a sala visitada...</option>
                   {ticketRondaSalas.map(s => (
@@ -1887,7 +1887,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                       setTicketDescription(`Providenciar solução para: ${selectedOcc.description}`);
                     }
                   }}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-semibold text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                 >
                   <option value="">Selecione a ocorrência identificada...</option>
                   {ticketRondaSalas.find(s => s.id === ticketSalaId)?.occurrences.map(o => (
@@ -1908,7 +1908,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 value={ticketDescription}
                 onChange={(e) => setTicketDescription(e.target.value)}
                 placeholder="Ex: Acionar prestador terceirizado de elétrica para substituição de fiação exposta e lâmpadas danificadas."
-                className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d] resize-none"
+                className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63] resize-none"
               />
             </div>
 
@@ -1921,7 +1921,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   value={ticketResponsible}
                   onChange={(e) => setTicketResponsible(e.target.value)}
                   placeholder="Nome do responsável..."
-                  className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                  className="w-full rounded-xl border border-slate-200 p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                 />
               </div>
 
@@ -1930,7 +1930,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 <select
                   value={ticketStatus}
                   onChange={(e) => setTicketStatus(e.target.value as any)}
-                  className="w-full rounded-xl border border-slate-200 bg-white p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#ff2a6d]"
+                  className="w-full rounded-xl border border-slate-200 bg-white p-3 font-semibold text-xs focus:outline-none focus:ring-1 focus:ring-[#FF2E63]"
                 >
                   <option value="Aberto">Aberto</option>
                   <option value="Em andamento">Em andamento</option>
@@ -2038,7 +2038,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 </div>
                 <div className="p-2 space-y-0.5">
                   <span className="block text-[11px] font-bold text-slate-500 uppercase">Filial Responsável:</span>
-                  <span className="font-extrabold text-slate-[#ff2a6d] uppercase">
+                  <span className="font-extrabold text-slate-[#FF2E63] uppercase">
                     {selectedRondaDetail.filial}
                   </span>
                 </div>
@@ -2054,7 +2054,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 1: OBJETIVO DO TRABALHO */}
             <div className="space-y-1.5">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#FF2E63] decoration-2 underline-offset-4">
                 1. Objetivo e Parecer Técnico
               </h3>
               <p className="text-xs font-semibold text-slate-600 leading-relaxed text-justify">
@@ -2064,7 +2064,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 2: DADOS DAS SALAS VISITADAS */}
             <div className="space-y-2">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#FF2E63] decoration-2 underline-offset-4">
                 2. Salas e Andares Inspecionados
               </h3>
               
@@ -2092,7 +2092,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             {/* SEÇÃO 3: REGISTRO DAS OCORRÊNCIAS */}
             <div className="space-y-3">
-              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
+              <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#FF2E63] decoration-2 underline-offset-4">
                 3. Mapa de Inconformidades e Ocorrências
               </h3>
 
@@ -2118,7 +2118,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         {roomOccs.map((o) => {
                           const badgeColor = 
                             o.type === "autuacao" 
-                              ? "bg-red-50 text-[#ff2a6d] border-red-200" 
+                              ? "bg-red-50 text-[#FF2E63] border-red-200" 
                               : o.type === "limpeza"
                               ? "bg-blue-50 text-blue-600 border-blue-200"
                               : "bg-amber-50 text-amber-600 border-amber-200";
@@ -2165,7 +2165,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* SEÇÃO 4: CHAMADOS DE SOLUÇÃO VINCULADOS */}
             {chamados.filter(c => c.rondaId === selectedRondaDetail.id).length > 0 && (
               <div className="space-y-2">
-                <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
+                <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#FF2E63] decoration-2 underline-offset-4">
                   4. Ações Corretivas e Chamados Gerados
                 </h3>
                 
@@ -2214,7 +2214,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               return (
                 <div className="space-y-3 pt-6 border-t border-slate-200 page-break-before">
-                  <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#ff2a6d] decoration-2 underline-offset-4">
+                  <h3 className="text-xs font-black uppercase text-slate-800 tracking-wider underline decoration-[#FF2E63] decoration-2 underline-offset-4">
                     5. Anexo Fotográfico Detalhado (Evidências)
                   </h3>
                   
@@ -2266,11 +2266,11 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             {/* Header */}
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <div>
-                <span className="bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+                <span className="bg-[#FF2E63]/10 text-[#FF2E63] font-black text-[11px] px-2 py-0.5 rounded-md uppercase tracking-wider">
                   Módulo de Consulta Drill-Down
                 </span>
                 <h3 className="text-lg font-black text-slate-800 flex items-center gap-2 mt-1">
-                  <Clipboard className="h-5 w-5 text-[#ff2a6d]" /> {drillDownConfig.title}
+                  <Clipboard className="h-5 w-5 text-[#FF2E63]" /> {drillDownConfig.title}
                 </h3>
               </div>
               <button 
@@ -2305,7 +2305,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                         <p className="text-xs text-slate-500 font-medium">
                           Realizada por <strong className="text-slate-700">{r.user}</strong> em {new Date(r.date).toLocaleString("pt-BR")}
                         </p>
-                        <p className="text-xs text-[#ff2a6d] font-black uppercase tracking-wider">
+                        <p className="text-xs text-[#FF2E63] font-black uppercase tracking-wider">
                           {r.salas.length} ambiente(s) vistoriado(s)
                         </p>
                       </div>
@@ -2318,7 +2318,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                             setRondaActiveSubView("detail_view");
                             setDrillDownConfig(null);
                           }}
-                          className="px-3 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase tracking-wider rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
+                          className="px-3 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase tracking-wider rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
                         >
                           <Eye className="h-3.5 w-3.5" /> Relatório
                         </button>
@@ -2345,7 +2345,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     const o: RondaOccurrence = item.occurrence;
                     const badgeColor = 
                       o.type === "autuacao" 
-                        ? "bg-red-50 text-[#ff2a6d] border-red-200" 
+                        ? "bg-red-50 text-[#FF2E63] border-red-200" 
                         : o.type === "limpeza"
                         ? "bg-blue-50 text-blue-600 border-blue-200"
                         : "bg-amber-50 text-amber-600 border-amber-200";
@@ -2388,7 +2388,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                                 handleOpenCreateChamado(item.rondaId, item.salaId, o.id);
                                 setDrillDownConfig(null);
                               }}
-                              className="px-2.5 py-1 bg-slate-100 hover:bg-[#ff2a6d]/10 hover:text-[#ff2a6d] text-slate-700 rounded-md transition-colors"
+                              className="px-2.5 py-1 bg-slate-100 hover:bg-[#FF2E63]/10 hover:text-[#FF2E63] text-slate-700 rounded-md transition-colors"
                             >
                               + Gerar Chamado
                             </button>
@@ -2428,7 +2428,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                           <select 
                             value={c.status}
                             onChange={(e) => handleUpdateChamadoStatus(c.id, e.target.value as any)}
-                            className="text-[11px] font-black uppercase px-2 py-1 rounded-md border border-slate-200 bg-white focus:border-[#ff2a6d] outline-none"
+                            className="text-[11px] font-black uppercase px-2 py-1 rounded-md border border-slate-200 bg-white focus:border-[#FF2E63] outline-none"
                           >
                             <option value="Aberto">Aberto</option>
                             <option value="Em andamento">Em andamento</option>
@@ -2502,7 +2502,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 <select 
                   value={editingRonda.filial}
                   onChange={(e) => setEditingRonda({ ...editingRonda, filial: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none"
                 >
                   {FILIAIS_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
@@ -2513,13 +2513,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   type="datetime-local" 
                   value={new Date(editingRonda.date).toISOString().slice(0, 16)} 
                   onChange={(e) => setEditingRonda({ ...editingRonda, date: new Date(e.target.value).toISOString() })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingRonda(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedRonda(editingRonda)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar Alterações</button>
+              <button onClick={() => handleSaveEditedRonda(editingRonda)} className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Salvar Alterações</button>
             </div>
           </div>
         </div>
@@ -2542,7 +2542,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   type="text" 
                   value={editingSala.sala.sala} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, sala: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
               <div>
@@ -2551,7 +2551,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   type="text" 
                   value={editingSala.sala.gestorSala} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, gestorSala: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
               <div>
@@ -2560,13 +2560,13 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   type="text" 
                   value={editingSala.sala.gerenteCarteira} 
                   onChange={(e) => setEditingSala({ ...editingSala, sala: { ...editingSala.sala, gerenteCarteira: e.target.value } })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingSala(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedSala(editingSala.rondaId, editingSala.sala)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
+              <button onClick={() => handleSaveEditedSala(editingSala.rondaId, editingSala.sala)} className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
             </div>
           </div>
         </div>
@@ -2595,20 +2595,20 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               <div className="p-5 space-y-4">
                 <div>
                   <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Nome do Ambiente / Sala</label>
-                  <input type="text" name="sala" required placeholder="Ex: Recepção principal, Sala de Reunião 2" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
+                  <input type="text" name="sala" required placeholder="Ex: Recepção principal, Sala de Reunião 2" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" />
                 </div>
                 <div>
                   <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gestor do Ambiente</label>
-                  <input type="text" name="gestor" placeholder="Ex: Maria Rodrigues" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
+                  <input type="text" name="gestor" placeholder="Ex: Maria Rodrigues" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" />
                 </div>
                 <div>
                   <label className="block text-[11px] font-black uppercase text-slate-500 mb-1">Gerente de Carteira</label>
-                  <input type="text" name="gerente" placeholder="Ex: Diego Machado" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" />
+                  <input type="text" name="gerente" placeholder="Ex: Diego Machado" className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" />
                 </div>
               </div>
               <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
                 <button type="button" onClick={() => setAddingSalaToRondaId(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-                <button type="submit" className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Adicionar</button>
+                <button type="submit" className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Adicionar</button>
               </div>
             </form>
           </div>
@@ -2623,7 +2623,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
           <div className="bg-white rounded-2xl w-full max-w-lg overflow-hidden flex flex-col shadow-md border border-slate-100 animate-scale-up">
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
-                <AlertTriangle className="h-4 w-4 text-[#ff2a6d]" /> Editar Ocorrência Registrada
+                <AlertTriangle className="h-4 w-4 text-[#FF2E63]" /> Editar Ocorrência Registrada
               </h3>
               <button onClick={() => setEditingOccurrence(null)} className="p-1 hover:bg-slate-200 rounded text-slate-500"><X className="h-4 w-4" /></button>
             </div>
@@ -2701,7 +2701,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   })}
                   rows={4}
                   placeholder="Descreva o problem observado ou use o botão de ditado por voz. Cole imagens diretamente com Ctrl+V ou colar."
-                  className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#FF2E63] outline-none"
                 />
                 <span className="block text-[11px] text-slate-500 font-semibold mt-1">Dica: Cole um arquivo de imagem direto na caixa acima para anexar.</span>
               </div>
@@ -2774,7 +2774,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingOccurrence(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedOccurrence(editingOccurrence.rondaId, editingOccurrence.salaId, editingOccurrence.occurrence)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar Ocorrência</button>
+              <button onClick={() => handleSaveEditedOccurrence(editingOccurrence.rondaId, editingOccurrence.salaId, editingOccurrence.occurrence)} className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Salvar Ocorrência</button>
             </div>
           </div>
         </div>
@@ -2854,7 +2854,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                     onPaste={(e) => handlePasteEventGeneric(e, setOccImages)}
                     rows={4}
                     placeholder="Descreva o problema observado..."
-                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs font-semibold text-slate-700 focus:border-[#FF2E63] outline-none"
                   />
                 </div>
 
@@ -2909,7 +2909,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
 
               <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
                 <button type="button" onClick={() => setAddingOccToSala(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-                <button type="submit" className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Registrar</button>
+                <button type="submit" className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Registrar</button>
               </div>
             </form>
           </div>
@@ -2933,7 +2933,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   value={editingChamado.description} 
                   onChange={(e) => setEditingChamado({ ...editingChamado, description: e.target.value })}
                   rows={3}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
               <div>
@@ -2942,7 +2942,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   type="text" 
                   value={editingChamado.responsible} 
                   onChange={(e) => setEditingChamado({ ...editingChamado, responsible: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none" 
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none" 
                 />
               </div>
               <div>
@@ -2950,7 +2950,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 <select 
                   value={editingChamado.status}
                   onChange={(e) => setEditingChamado({ ...editingChamado, status: e.target.value as any })}
-                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#ff2a6d] outline-none"
+                  className="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 focus:border-[#FF2E63] outline-none"
                 >
                   <option value="Aberto">Aberto</option>
                   <option value="Em andamento">Em andamento</option>
@@ -2960,7 +2960,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </div>
             <div className="p-4 border-t border-slate-200 flex justify-end gap-2 bg-slate-50">
               <button onClick={() => setEditingChamado(null)} className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs uppercase rounded-lg">Cancelar</button>
-              <button onClick={() => handleSaveEditedChamado(editingChamado)} className="px-4 py-1.5 bg-[#ff2a6d] hover:bg-[#c21e54] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
+              <button onClick={() => handleSaveEditedChamado(editingChamado)} className="px-4 py-1.5 bg-[#FF2E63] hover:bg-[#A82047] text-white font-black text-xs uppercase rounded-lg">Salvar</button>
             </div>
           </div>
         </div>
@@ -2969,7 +2969,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
       {/* ASSISTÊNCIA DE IMPRESSÃO PARA AMBIENTE SANDBOX / IFRAME */}
       {showPrintModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-fade-in print:hidden">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-md border-2 border-[#ff2a6d] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-md border-2 border-[#FF2E63] flex flex-col gap-5 animate-scale-in text-slate-800 relative">
             <button 
               onClick={() => setShowPrintModal(false)}
               className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition-colors cursor-pointer"
@@ -2979,7 +2979,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
             </button>
 
             <div className="text-center space-y-1.5">
-              <div className="h-11 w-11 rounded-full bg-red-50 flex items-center justify-center text-[#ff2a6d] mx-auto border border-red-100 animate-pulse">
+              <div className="h-11 w-11 rounded-full bg-red-50 flex items-center justify-center text-[#FF2E63] mx-auto border border-red-100 animate-pulse">
                 <Printer className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight">
@@ -2994,7 +2994,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
               <p>
                 Por estar executando em uma janela de testes integrada (iframe do AI Studio), o navegador bloqueia a abertura direta do diálogo de impressão.
               </p>
-              <p className="p-2.5 rounded-xl border border-red-100 bg-red-50/40 text-[#ff2a6d] font-bold">
+              <p className="p-2.5 rounded-xl border border-red-100 bg-red-50/40 text-[#FF2E63] font-bold">
                 Para gerar o PDF ou imprimir com perfeição gráfica, por favor use uma das alternativas abaixo:
               </p>
               
@@ -3020,7 +3020,7 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#c21e54] text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#FF2E63] hover:bg-[#A82047] text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

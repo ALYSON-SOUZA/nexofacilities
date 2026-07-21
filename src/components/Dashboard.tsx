@@ -52,14 +52,14 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
           <div className="bp-card-accent bp-card-accent-pink w-[3px]" />
           <div className="p-5 sm:p-6 flex flex-col justify-between h-full">
             <div className="flex justify-between items-start mb-4">
-              <div className="bp-card-icon bg-[rgba(255,42,109,0.05)] text-[#ff2a6d]">
+              <div className="bp-card-icon bg-[rgba(255,46,99,0.05)] text-[#FF2E63]">
                 <CheckCircle className="h-4 w-4" />
               </div>
               <span className="showcase-badge showcase-badge-pink">RECOMENDADO</span>
             </div>
             <div>
               <p className="showcase-label mb-2">MELHOR COMPRA MISTA</p>
-              <h3 className="text-3xl sm:text-4xl lg:text-[36px] xl:text-[40px] font-display font-extrabold text-[#111c2e] leading-none tracking-tight">
+              <h3 className="text-3xl sm:text-4xl lg:text-[36px] xl:text-[40px] font-display font-extrabold text-[#252A34] leading-none tracking-tight">
                 <AnimatedNumber value={formatCurrency(mixedTotal)} />
               </h3>
             </div>
@@ -80,7 +80,7 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
             </div>
             <div>
               <p className="showcase-label mb-2">MELHOR LOJA ÚNICA</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[30px] font-display font-extrabold text-[#111c2e] leading-none tracking-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[30px] font-display font-extrabold text-[#252A34] leading-none tracking-tight">
                 <AnimatedNumber value={bestSupplier ? formatCurrency(bestSupplierTotal) : "R$ 0,00"} />
               </h3>
             </div>
@@ -125,13 +125,13 @@ export default function Dashboard({ suppliers, summary }: DashboardProps) {
           <div className="bp-card-accent bp-card-accent-pink w-[3px]" />
           <div className="p-5 sm:p-6 flex flex-col justify-between h-full">
             <div className="flex justify-between items-start mb-4">
-              <div className="bp-card-icon bg-[rgba(255,42,109,0.05)] text-[#ff2a6d]">
+              <div className="bp-card-icon bg-[rgba(255,46,99,0.05)] text-[#FF2E63]">
                 <Percent className="h-4 w-4" />
               </div>
             </div>
             <div>
               <p className="showcase-label mb-2">OTIMIZAÇÃO REAL</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[30px] font-display font-extrabold text-[#ff2a6d] leading-none tracking-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-[28px] xl:text-[30px] font-display font-extrabold text-[#FF2E63] leading-none tracking-tight">
                 <AnimatedNumber value={optimizationPercent > 0 ? `${optimizationPercent.toFixed(1)}%` : "0.0%"} />
               </h3>
             </div>

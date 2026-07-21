@@ -148,10 +148,10 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
   }[size];
 
   const variantClasses = {
-    primary: "bg-[#ff2a6d] hover:bg-[#c21e54] text-white shadow-sm hover:shadow-premium-pink btn-magnetic rounded-xl border border-[#ff2a6d]",
+    primary: "bg-[#FF2E63] hover:bg-[#A82047] text-white shadow-sm hover:shadow-premium-pink btn-magnetic rounded-xl border border-[#FF2E63]",
     secondary: "bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-3xs btn-magnetic rounded-xl border border-slate-200",
     success: "bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm btn-magnetic rounded-xl border border-emerald-600",
-    danger: "bg-[#c21e54] hover:bg-[#a01845] text-white shadow-sm btn-magnetic rounded-xl border border-[#c21e54]",
+    danger: "bg-[#A82047] hover:bg-[#a01845] text-white shadow-sm btn-magnetic rounded-xl border border-[#A82047]",
     warning: "bg-amber-500 hover:bg-amber-600 text-white shadow-sm btn-magnetic rounded-xl border border-amber-600",
     neutral: "bg-white border border-slate-200/80 hover:bg-slate-50 hover:border-slate-300 text-slate-700 shadow-3xs btn-magnetic rounded-xl",
     custom: "",
@@ -175,9 +175,9 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
 
       {/* Premium Tooltip */}
       {showTooltip && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#111c2e] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-premium whitespace-nowrap z-[999] animate-premium-scale-in border border-[#111c2e] pointer-events-none">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#252A34] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-premium whitespace-nowrap z-[999] animate-premium-scale-in border border-[#252A34] pointer-events-none">
           {item.label}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#111c2e]" />
+          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#252A34]" />
         </div>
       )}
     </div>

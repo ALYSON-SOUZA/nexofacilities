@@ -981,10 +981,10 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
       <div className="bg-[#F4F6FA] dark:bg-slate-950 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
         
         {/* TOPBAR (石油蓝 exact Petroleum Blue) */}
-        <header className="bg-[#111c2e] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0 border-b border-slate-800">
+        <header className="bg-[#252A34] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0 border-b border-slate-800">
           <div className="text-center sm:text-left">
             <div className="font-bold text-2xl tracking-tight text-white">
-              Bellinati<span className="text-[#ff2a6d]">Perez</span>
+              Bellinati<span className="text-[#FF2E63]">Perez</span>
             </div>
             <div className="text-[11px] tracking-widest text-slate-500 uppercase font-semibold">
               Seriedade · Competência · Inovação
@@ -993,8 +993,8 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
           {/* Quick Stats badges and Controls */}
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="flex items-center gap-2 bg-[#ff2a6d]/10 border border-[#ff2a6d]/30 px-3.5 py-1.5 rounded-full text-[11px] text-[#ff2a6d] tracking-wider uppercase font-black">
-              <span className="h-1.5 w-1.5 bg-[#ff2a6d] rounded-full animate-ping"></span>
+            <div className="flex items-center gap-2 bg-[#FF2E63]/10 border border-[#FF2E63]/30 px-3.5 py-1.5 rounded-full text-[11px] text-[#FF2E63] tracking-wider uppercase font-black">
+              <span className="h-1.5 w-1.5 bg-[#FF2E63] rounded-full animate-ping"></span>
               <span>Filial Fortaleza</span>
             </div>
 
@@ -1010,7 +1010,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               onClick={handleAddNewClick}
               size="sm"
               variant="primary"
-              className="bg-[#ff2a6d] hover:bg-[#ff2a6d]/90 border-[#ff2a6d]"
+              className="bg-[#FF2E63] hover:bg-[#FF2E63]/90 border-[#FF2E63]"
             />
 
             <EmojiButton
@@ -1024,12 +1024,12 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
         </header>
 
         {/* STICKY TAB CONTROLS */}
-        <div className="bg-[#111c2e] px-6 pb-2 flex gap-4 shrink-0 border-b border-slate-800">
+        <div className="bg-[#252A34] px-6 pb-2 flex gap-4 shrink-0 border-b border-slate-800">
           <button
             onClick={() => setActiveTab("dashboard")}
             className={`pb-2.5 text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
               activeTab === "dashboard" 
-                ? "text-[#ff2a6d] border-b-2 border-[#ff2a6d]" 
+                ? "text-[#FF2E63] border-b-2 border-[#FF2E63]" 
                 : "text-slate-500 hover:text-white"
             }`}
           >
@@ -1040,7 +1040,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
             onClick={() => setActiveTab("form")}
             className={`pb-2.5 text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
               activeTab === "form" 
-                ? "text-[#ff2a6d] border-b-2 border-[#ff2a6d]" 
+                ? "text-[#FF2E63] border-b-2 border-[#FF2E63]" 
                 : "text-slate-500 hover:text-white"
             }`}
           >
@@ -1070,12 +1070,12 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
             <div className="space-y-6">
               
               {/* HERO BANNER SECTION (Petroleum Blue dark banner) */}
-              <section className="bg-[#111c2e] px-6 py-8 border-b border-slate-700 text-white relative overflow-hidden">
+              <section className="bg-[#252A34] px-6 py-8 border-b border-slate-700 text-white relative overflow-hidden">
                 <div className="text-[11px] tracking-widest text-slate-500 uppercase font-black mb-1.5">
                   Gestão de Pessoas · Filial Fortaleza · 2024–2028
                 </div>
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                  Nossos <span className="text-[#ff2a6d] underline decoration-pink-500 decoration-4">Aprendizes</span>
+                  Nossos <span className="text-[#FF2E63] underline decoration-pink-500 decoration-4">Aprendizes</span>
                 </h1>
                 <p className="text-xs text-slate-500 mt-2 font-medium">
                   Acompanhe e administre os jovens que fazem parte da nossa jornada em Fortaleza.
@@ -1086,33 +1086,33 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               <div className="px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {/* Stat 1 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#ff2a6d]"></div>
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#FF2E63]"></div>
                   <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Total de Aprendizes</div>
-                  <div className="text-3xl font-extrabold text-[#111c2e] dark:text-white mt-1.5">{totalCount.toString().padStart(2, "0")}</div>
+                  <div className="text-3xl font-extrabold text-[#252A34] dark:text-white mt-1.5">{totalCount.toString().padStart(2, "0")}</div>
                   <div className="text-[11px] text-slate-500 font-semibold mt-1">Filial Fortaleza</div>
                 </div>
 
                 {/* Stat 2 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#ff2a6d]"></div>
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#FF2E63]"></div>
                   <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Área Administrativa</div>
-                  <div className="text-3xl font-extrabold text-[#ff2a6d] mt-1.5">{adminCount.toString().padStart(2, "0")}</div>
+                  <div className="text-3xl font-extrabold text-[#FF2E63] mt-1.5">{adminCount.toString().padStart(2, "0")}</div>
                   <div className="text-[11px] text-slate-500 font-semibold mt-1">JAC Arco Adm</div>
                 </div>
 
                 {/* Stat 3 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#c21e54]"></div>
-                  <div className="text-3xl font-extrabold text-[#c21e54] mt-1.5" style={{ color: "var(--magenta)" }}>{servCount.toString().padStart(2, "0")}</div>
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#A82047]"></div>
+                  <div className="text-3xl font-extrabold text-[#A82047] mt-1.5" style={{ color: "var(--magenta)" }}>{servCount.toString().padStart(2, "0")}</div>
                   <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Múltiplas Ocupações</div>
                   <div className="text-[11px] text-slate-500 font-semibold mt-1">JAC Qualificação de Serviço</div>
                 </div>
 
                 {/* Stat 4 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#111c2e]"></div>
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#252A34]"></div>
                   <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Próximo Término</div>
-                  <div className="text-lg font-black text-[#111c2e] dark:text-white mt-1.5 truncate">
+                  <div className="text-lg font-black text-[#252A34] dark:text-white mt-1.5 truncate">
                     {nearestRecord ? formatMonthYear(nearestRecord.dataTermino) : "—"}
                   </div>
                   <div className="text-[11px] text-slate-500 font-semibold mt-1 truncate">
@@ -1136,7 +1136,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                         onClick={() => setCurrentStatusFilter("Ativo")}
                         className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                           currentStatusFilter === "Ativo"
-                            ? "bg-[#111c2e] text-[#ff2a6d] dark:bg-[#ff2a6d] dark:text-slate-950 shadow-xs"
+                            ? "bg-[#252A34] text-[#FF2E63] dark:bg-[#FF2E63] dark:text-slate-950 shadow-xs"
                             : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -1146,7 +1146,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                         onClick={() => setCurrentStatusFilter("Inativo")}
                         className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                           currentStatusFilter === "Inativo"
-                            ? "bg-[#111c2e] text-pink-500 dark:bg-[#ff2a6d] dark:text-white shadow-xs"
+                            ? "bg-[#252A34] text-pink-500 dark:bg-[#FF2E63] dark:text-white shadow-xs"
                             : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -1162,14 +1162,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                         placeholder="Buscar por nome, CPF, ID..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-8 pr-2.5 py-1.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-850 dark:text-white focus:outline-hidden focus:border-[#ff2a6d] font-bold"
+                        className="w-full pl-8 pr-2.5 py-1.5 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-850 dark:text-white focus:outline-hidden focus:border-[#FF2E63] font-bold"
                       />
                     </div>
                   </div>
 
                   <div className="text-xs font-black uppercase text-slate-500 tracking-widest border-b border-slate-200 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <span>Equipe de Aprendizes ({currentStatusFilter === "Ativo" ? "Ativos" : "Desligados"})</span>
-                    <span className="text-[11px] font-semibold text-[#ff2a6d]">Resultados ({displayedRecords.length})</span>
+                    <span className="text-[11px] font-semibold text-[#FF2E63]">Resultados ({displayedRecords.length})</span>
                   </div>
 
                   {displayedRecords.length === 0 ? (
@@ -1209,8 +1209,8 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                 isInactive
                                   ? "bg-red-500 text-white border-red-650"
                                   : isAdm 
-                                    ? "bg-[#ff2a6d]/15 text-[#c21e54] border-[#ff2a6d]/40" 
-                                    : "bg-[#ff2a6d]/10 text-[#c21e54] dark:text-pink-400 border-[#ff2a6d]/30"
+                                    ? "bg-[#FF2E63]/15 text-[#A82047] border-[#FF2E63]/40" 
+                                    : "bg-[#FF2E63]/10 text-[#A82047] dark:text-pink-400 border-[#FF2E63]/30"
                               }`}>
                                 {isInactive ? "Desligado" : r.tipoAprendiz || "Aprendiz"}
                               </span>
@@ -1228,8 +1228,8 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                   isInactive
                                     ? "bg-gradient-to-tr from-red-750 to-red-500"
                                     : isAdm 
-                                      ? "bg-gradient-to-tr from-[#c21e54] to-[#ff2a6d]" 
-                                      : "bg-gradient-to-tr from-[#c21e54] to-[#ff2a6d]"
+                                      ? "bg-gradient-to-tr from-[#A82047] to-[#FF2E63]" 
+                                      : "bg-gradient-to-tr from-[#A82047] to-[#FF2E63]"
                                 }`}>
                                   {getInitials(r.nomeCompleto)}
                                 </div>
@@ -1242,7 +1242,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                 <div className={`font-extrabold text-sm ${
                                   isInactive 
                                     ? "text-red-750 dark:text-red-400 group-hover:text-red-600" 
-                                    : "text-[#111c2e] dark:text-slate-100 group-hover:text-[#ff2a6d]"
+                                    : "text-[#252A34] dark:text-slate-100 group-hover:text-[#FF2E63]"
                                 } transition-colors line-clamp-1`}>
                                   {r.nomeCompleto}
                                 </div>
@@ -1272,7 +1272,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                               {/* Card Footer actions & scheduling badges */}
                               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
                                 <div className="flex flex-col">
-                                  <span className={`text-xs font-extrabold ${isInactive ? "text-red-650" : isAdm ? "text-[#c21e54]" : "text-[#ff2a6d]"}`}>
+                                  <span className={`text-xs font-extrabold ${isInactive ? "text-red-650" : isAdm ? "text-[#A82047]" : "text-[#FF2E63]"}`}>
                                     {r.horarioTrabalho || "08:00 às 12:00"}
                                   </span>
                                   <span className="text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold px-1.5 py-0.5 rounded-md mt-0.5 max-w-max">
@@ -1337,14 +1337,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                         <div key={i} className="space-y-1.5">
                           <div className="flex justify-between items-start">
                             <div>
-                              <span className="text-xs font-extrabold text-[#111c2e] dark:text-white block leading-tight">
+                              <span className="text-xs font-extrabold text-[#252A34] dark:text-white block leading-tight">
                                 {r.nomeCompleto.split(" ")[0]} {r.nomeCompleto.split(" ").slice(-1)[0]}
                               </span>
                               <span className="text-[11px] text-slate-500 font-medium">
                                 {r.dataAdmissao} <span className="text-slate-300">→</span> {r.dataTermino}
                               </span>
                             </div>
-                            <span className={`text-xs font-black ${isAdm ? "text-[#c21e54]" : "text-[#c21e54]"}`}>
+                            <span className={`text-xs font-black ${isAdm ? "text-[#A82047]" : "text-[#A82047]"}`}>
                               ~{pct}%
                             </span>
                           </div>
@@ -1354,8 +1354,8 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                             <div 
                               className={`h-full rounded-full transition-all duration-500 ${
                                 isAdm 
-                                  ? "bg-gradient-to-r from-[#ff2a6d] to-[#c21e54]" 
-                                  : "bg-gradient-to-r from-[#ff2a6d] to-[#c21e54]"
+                                  ? "bg-gradient-to-r from-[#FF2E63] to-[#A82047]" 
+                                  : "bg-gradient-to-r from-[#FF2E63] to-[#A82047]"
                               }`}
                               style={{ width: `${pct}%` }}
                             ></div>
@@ -1384,11 +1384,11 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                         key={index}
                         className={`bg-white dark:bg-slate-900 border border-slate-200/85 dark:border-slate-800 rounded-xl p-4 min-h-48 flex flex-col justify-between transition-all hover:shadow-md ${
                           hasClassClass === "has-event-both" 
-                            ? "border-t-4 border-l-2 border-[#ff2a6d]" 
+                            ? "border-t-4 border-l-2 border-[#FF2E63]" 
                             : hasClassClass === "has-event-ciano" 
-                              ? "border-t-4 border-[#ff2a6d]" 
+                              ? "border-t-4 border-[#FF2E63]" 
                               : hasClassClass === "has-event-rosa" 
-                                ? "border-t-4 border-[#ff2a6d]" 
+                                ? "border-t-4 border-[#FF2E63]" 
                                 : ""
                         }`}
                       >
@@ -1405,14 +1405,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                   key={pIdx} 
                                   className={`p-2 rounded-lg border text-left text-[11px] font-semibold flex items-start gap-1.5 ${
                                     isAdm 
-                                      ? "bg-[#ff2a6d]/5 border-[#ff2a6d]/20" 
-                                      : "bg-[#ff2a6d]/5 border-[#ff2a6d]/15"
+                                      ? "bg-[#FF2E63]/5 border-[#FF2E63]/20" 
+                                      : "bg-[#FF2E63]/5 border-[#FF2E63]/15"
                                   }`}
                                 >
                                   <span className="text-[12px] mt-0.5 shrink-0">{isAdm ? "📚" : "🔧"}</span>
                                   <div className="leading-tight">
-                                    <div className="text-[#111c2e] dark:text-slate-100 font-extrabold">{p.nomeCompleto.split(" ")[0]}</div>
-                                    <div className={`text-[11px] font-bold mt-0.5 ${isAdm ? "text-[#c21e54]" : "text-[#c21e54]"}`}>
+                                    <div className="text-[#252A34] dark:text-slate-100 font-extrabold">{p.nomeCompleto.split(" ")[0]}</div>
+                                    <div className={`text-[11px] font-bold mt-0.5 ${isAdm ? "text-[#A82047]" : "text-[#A82047]"}`}>
                                       {p.horarioTrabalho || "13h - 17h"}
                                     </div>
                                   </div>
@@ -1441,7 +1441,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               <footer className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 uppercase font-bold shrink-0">
                 <span>BELLINATI PEREZ © 2024 · Gestão de Pessoas · Jovem Aprendiz</span>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-1 w-5 bg-gradient-to-r from-[#ff2a6d] to-[#ff2a6d] rounded-sm"></span>
+                  <span className="h-1 w-5 bg-gradient-to-r from-[#FF2E63] to-[#FF2E63] rounded-sm"></span>
                   Filial Fortaleza · v2.0
                 </span>
               </footer>
@@ -1452,7 +1452,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
             <div className="p-6 max-w-4xl mx-auto space-y-6">
               
               {/* CONTROL HERO */}
-              <div className="bg-[#111c2e] p-5 rounded-xl border border-slate-700 text-white flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="bg-[#252A34] p-5 rounded-xl border border-slate-700 text-white flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-center md:text-left">
                   <span className="text-[11px] bg-pink-150 text-pink-700 font-extrabold uppercase px-2 py-0.5 rounded-md tracking-wider">
                     Ficha Cadastral do Colaborador
@@ -1522,7 +1522,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* 1. IDENTIFICAÇÃO DO COLABORADOR */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
                   <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
-                    <User className="h-4 w-4 text-[#ff2a6d]" />
+                    <User className="h-4 w-4 text-[#FF2E63]" />
                     <span>1. Identificação do Jovem Aprendiz</span>
                   </div>
 
@@ -1642,7 +1642,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                           disabled={isSearchingCep}
                           size="sm"
                           variant="primary"
-                          className="bg-[#ff2a6d] hover:bg-[#ff2a6d]/90 border-[#ff2a6d] min-h-0 min-w-0 h-9 w-9 p-0 flex items-center justify-center shrink-0"
+                          className="bg-[#FF2E63] hover:bg-[#FF2E63]/90 border-[#FF2E63] min-h-0 min-w-0 h-9 w-9 p-0 flex items-center justify-center shrink-0"
                         />
                       </div>
                     </div>
@@ -1720,7 +1720,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* 2. RESPONSÁVEL LEGAL */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
                   <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
-                    <Award className="h-4 w-4 text-[#ff2a6d]" />
+                    <Award className="h-4 w-4 text-[#FF2E63]" />
                     <span>2. Responsável Legal (Se Menor de 18 Anos)</span>
                   </div>
 
@@ -1785,7 +1785,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* 3. DADOS ESCOLARES */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
                   <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
-                    <GraduationCap className="h-4 w-4 text-[#ff2a6d]" />
+                    <GraduationCap className="h-4 w-4 text-[#FF2E63]" />
                     <span>3. Informações de Nivelamento Escolar</span>
                   </div>
 
@@ -1842,7 +1842,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* 4. CONTRATO DE APRENDIZAGEM */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
                   <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4 text-[#ff2a6d]" />
+                    <Calendar className="h-4 w-4 text-[#FF2E63]" />
                     <span>4. Informações do Contrato de Trabalho</span>
                   </div>
 
@@ -1971,7 +1971,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* 5. DADOS BANCÁRIOS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
                   <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
-                    <Building2 className="h-4 w-4 text-[#ff2a6d]" />
+                    <Building2 className="h-4 w-4 text-[#FF2E63]" />
                     <span>5. Informações de Pagamento (Bancário)</span>
                   </div>
 

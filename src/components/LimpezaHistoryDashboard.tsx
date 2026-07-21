@@ -65,7 +65,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div className="bg-slate-900 border border-slate-800 p-2.5 rounded-xl shadow-lg text-[11px]">
         <p className="font-extrabold text-white mb-1.5 uppercase tracking-wide text-center bg-slate-800 py-0.5 px-1.5 rounded">{label}</p>
         <div className="space-y-1">
-          <p className="font-extrabold text-[#ff2a6d] flex justify-between gap-6">
+          <p className="font-extrabold text-[#FF2E63] flex justify-between gap-6">
             <span>Compra :</span>
             <span>R$ {payload[0]?.value?.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </p>
@@ -175,10 +175,10 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
           <div className="flex items-center justify-between mb-0.5 pb-0.5 border-b border-slate-100/80">
             <span className="text-[11px] font-extrabold tracking-wider text-slate-500 uppercase flex items-center gap-1">
               <Users className="h-2 w-2 text-[#0284C7]" strokeWidth={3} />
-              <ShoppingCart className="h-2 w-2 text-[#ff2a6d]" strokeWidth={3} />
+              <ShoppingCart className="h-2 w-2 text-[#FF2E63]" strokeWidth={3} />
               Evolução das Compras vs. Colaboradores
             </span>
-            <span className="text-[11px] bg-[#ff2a6d]/10 text-[#ff2a6d] font-black px-1.5 py-0.5 rounded uppercase font-mono">
+            <span className="text-[11px] bg-[#FF2E63]/10 text-[#FF2E63] font-black px-1.5 py-0.5 rounded uppercase font-mono">
               Compra vs Colab
             </span>
           </div>
@@ -199,7 +199,7 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
                   orientation="left"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fontSize: 6, fontWeight: 700, fill: "#ff2a6d" }}
+                  tick={{ fontSize: 6, fontWeight: 700, fill: "#FF2E63" }}
                   tickFormatter={(v) => `R$${Math.round(v)}`}
                 />
                 <YAxis
@@ -215,7 +215,7 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
                   yAxisId="left"
                   type="monotone"
                   dataKey="total"
-                  stroke="#ff2a6d"
+                  stroke="#FF2E63"
                   strokeWidth={1.5}
                   dot={{ r: 2, strokeWidth: 1.2, fill: "#fff" }}
                   activeDot={{ r: 3 }}
@@ -235,8 +235,8 @@ export default function LimpezaHistoryDashboard({ history }: LimpezaHistoryDashb
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-around text-[11px] font-black uppercase mt-0.5 text-slate-500">
-            <span className="flex items-center gap-1 text-[#ff2a6d]">
-              <span className="h-1 w-2 bg-[#ff2a6d] rounded-xs" /> Valor Comprado
+            <span className="flex items-center gap-1 text-[#FF2E63]">
+              <span className="h-1 w-2 bg-[#FF2E63] rounded-xs" /> Valor Comprado
             </span>
             <span className="flex items-center gap-1 text-[#0284C7]">
               <span className="h-1 w-2 bg-[#0284C7] rounded-xs" /> Colaboradores

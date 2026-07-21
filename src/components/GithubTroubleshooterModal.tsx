@@ -131,7 +131,7 @@ export default function GithubTroubleshooterModal({
       <div className="bg-[#FAF9F6] w-full max-w-2xl rounded-[32px] border border-slate-200/80 shadow-md relative overflow-hidden flex flex-col max-h-[90vh]">
         
         {/* Fuchsia Accent bar */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#ff2a6d]" />
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#FF2E63]" />
 
         {/* Modal Header */}
         <div className="p-6 pb-4 border-b border-slate-150 flex items-center justify-between">
@@ -140,7 +140,7 @@ export default function GithubTroubleshooterModal({
               <Github className="h-5 w-5" />
             </div>
             <div>
-              <span className="text-[11px] font-black text-[#ff2a6d] uppercase tracking-wider block leading-none">CONECTIVIDADE</span>
+              <span className="text-[11px] font-black text-[#FF2E63] uppercase tracking-wider block leading-none">CONECTIVIDADE</span>
               <h3 className="text-md font-bold text-slate-900 mt-1">Diagnóstico de Conexão com o GitHub</h3>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function GithubTroubleshooterModal({
           {/* Diagnosis Block */}
           <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3.5">
             <h4 className="text-xs font-black text-slate-900 uppercase tracking-wide flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#ff2a6d]" />
+              <span className="w-2 h-2 rounded-full bg-[#FF2E63]" />
               Executar Teste de Autenticação
             </h4>
             <p className="text-[11px] text-slate-500 font-medium">
@@ -209,25 +209,25 @@ export default function GithubTroubleshooterModal({
           {/* Platform Guide */}
           <div className="space-y-3">
             <h4 className="text-xs font-black text-slate-900 uppercase tracking-wide flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#ff2a6d]" />
+              <span className="w-2 h-2 rounded-full bg-[#FF2E63]" />
               Como resolver em 3 passos simples
             </h4>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">1</span>
+                <span className="h-5 w-5 rounded-full bg-[#FF2E63]/10 text-[#FF2E63] font-black text-[11px] flex items-center justify-center border border-[#FF2E63]/25">1</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Liberar Cookies</p>
                 <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Permita cookies de terceiros para o domínio do Google AI Studio no seu navegador.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">2</span>
+                <span className="h-5 w-5 rounded-full bg-[#FF2E63]/10 text-[#FF2E63] font-black text-[11px] flex items-center justify-center border border-[#FF2E63]/25">2</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Reconectar no AI Studio</p>
                 <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Abra o menu superior do AI Studio (ícone de engrenagem), remova a conta do GitHub e vincule novamente.</p>
               </div>
 
               <div className="bg-slate-50 border border-slate-150 p-3.5 rounded-xl space-y-1.5">
-                <span className="h-5 w-5 rounded-full bg-[#ff2a6d]/10 text-[#ff2a6d] font-black text-[11px] flex items-center justify-center border border-[#ff2a6d]/25">3</span>
+                <span className="h-5 w-5 rounded-full bg-[#FF2E63]/10 text-[#FF2E63] font-black text-[11px] flex items-center justify-center border border-[#FF2E63]/25">3</span>
                 <p className="font-extrabold text-slate-900 text-[11px]">Baixar ZIP Manual</p>
                 <p className="text-[11px] text-slate-450 leading-relaxed font-semibold">Se o erro persistir, exporte o projeto como ZIP no menu do AI Studio e envie manualmente ao GitHub.</p>
               </div>
@@ -239,7 +239,7 @@ export default function GithubTroubleshooterModal({
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-wide flex items-center gap-1.5">
-                  <Database className="h-4 w-4 text-[#ff2a6d]" />
+                  <Database className="h-4 w-4 text-[#FF2E63]" />
                   Backup Offline de Segurança (Banco de Dados)
                 </h4>
                 <p className="text-[11px] text-slate-450 font-bold mt-1 leading-snug">
@@ -250,7 +250,7 @@ export default function GithubTroubleshooterModal({
               <button
                 type="button"
                 onClick={handleExportBackup}
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#ff2a6d] hover:bg-[#ff2a6d]/90 text-white font-black px-4 py-2 shadow-sm transition-all text-[11px] uppercase cursor-pointer shrink-0"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#FF2E63] hover:bg-[#FF2E63]/90 text-white font-black px-4 py-2 shadow-sm transition-all text-[11px] uppercase cursor-pointer shrink-0"
               >
                 <Download className="h-3.5 w-3.5" />
                 Baixar Backup (.JSON)

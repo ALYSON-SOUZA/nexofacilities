@@ -121,7 +121,7 @@ export default function MeiContractModal({ isOpen, onClose, visualTheme = "light
   // Dynamic color configuration based on the active visual theme, matching the physical form spec
   const colors = {
     navy: visualTheme === "ultradark" ? "#1E293B" : "#1a3a5a",
-    orange: visualTheme === "ultradark" ? "#ff2a6d" : "#f39c12",
+    orange: visualTheme === "ultradark" ? "#FF2E63" : "#f39c12",
     lightBlue: visualTheme === "ultradark" ? "#334155" : "#e8f1f8",
     empty: visualTheme === "ultradark" ? "#1E222B" : "#ececec",
     border: visualTheme === "ultradark" ? "#475569" : "#bdc3c7",
@@ -1281,7 +1281,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
         <div className="w-full flex items-center justify-between px-5 py-3.5 bg-slate-50 dark:bg-[#15171d] border-b border-slate-200 dark:border-slate-800 shrink-0">
           <div className="flex items-center gap-2">
             <span className="text-base">📋</span>
-            <span className="text-xs font-black tracking-wider uppercase text-[#111c2e] dark:text-[#5fa8c9]">
+            <span className="text-xs font-black tracking-wider uppercase text-[#252A34] dark:text-[#5fa8c9]">
               Ficha de Contratação de Autônomo & MEI
             </span>
           </div>
@@ -1301,8 +1301,8 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
           
           {/* Section 1: Fornecedores Cadastrados */}
           <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-            <h3 className="text-xs font-black tracking-wider uppercase text-[#111c2e] dark:text-[#5fa8c9] flex items-center gap-1.5 mb-2.5">
-              <Clipboard className="h-4 w-4 text-[#ff2a6d]" />
+            <h3 className="text-xs font-black tracking-wider uppercase text-[#252A34] dark:text-[#5fa8c9] flex items-center gap-1.5 mb-2.5">
+              <Clipboard className="h-4 w-4 text-[#FF2E63]" />
               Fornecedores Cadastrados
             </h3>
 
@@ -1314,7 +1314,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 placeholder="Buscar fornecedor..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-2.5 py-1.5 text-[11px] bg-slate-50 dark:bg-[#111c2e] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#ff2a6d] text-slate-700 dark:text-slate-200 font-semibold"
+                className="w-full pl-8 pr-2.5 py-1.5 text-[11px] bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] text-slate-700 dark:text-slate-200 font-semibold"
               />
             </div>
 
@@ -1339,7 +1339,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                       onClick={() => handleSelectSupplier(sup)}
                     >
                       <td className="px-2 py-1.5 font-semibold text-slate-700 dark:text-slate-300">
-                        <div className="truncate font-black text-[11px] text-[#111c2e] dark:text-[#5fa8c9] max-w-[170px]" title={sup.nomeCompleto}>
+                        <div className="truncate font-black text-[11px] text-[#252A34] dark:text-[#5fa8c9] max-w-[170px]" title={sup.nomeCompleto}>
                           {sup.nomeCompleto}
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-500 font-mono mt-0.5">
@@ -1389,8 +1389,8 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
 
           {/* Section 2: Preenchimento Inteligente */}
           <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs flex flex-col min-h-[220px]">
-            <h3 className="text-xs font-black tracking-wider uppercase text-[#111c2e] dark:text-[#5fa8c9] flex items-center gap-1.5 mb-2">
-              <Sparkles className="h-4 w-4 text-[#ff2a6d]" />
+            <h3 className="text-xs font-black tracking-wider uppercase text-[#252A34] dark:text-[#5fa8c9] flex items-center gap-1.5 mb-2">
+              <Sparkles className="h-4 w-4 text-[#FF2E63]" />
               Preenchimento Inteligente
             </h3>
 
@@ -1402,13 +1402,13 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               value={pasteText}
               onChange={(e) => setPasteText(e.target.value)}
               placeholder="Cole aqui as informações do profissional..."
-              className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#111c2e] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#ff2a6d] resize-none text-slate-700 dark:text-slate-200 font-medium"
+              className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
             />
 
             <div className="mt-3 flex gap-2">
               {isExtracting ? (
                 <div className="flex-1 h-12 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl">
-                  <RefreshCw className="h-4 w-4 animate-spin text-[#ff2a6d]" />
+                  <RefreshCw className="h-4 w-4 animate-spin text-[#FF2E63]" />
                 </div>
               ) : (
                 <EmojiButton
@@ -1439,7 +1439,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
         <div className="flex-1 p-5 flex flex-col overflow-y-auto max-h-[70vh] md:max-h-none">
           <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
             <h2 className="text-sm font-black text-slate-800 dark:text-white uppercase tracking-tight flex items-center gap-2">
-              <FileText className="h-4 w-4 text-[#ff2a6d]" />
+              <FileText className="h-4 w-4 text-[#FF2E63]" />
               Ficha do Autônomo / MEI (Visualização em Tempo Real)
             </h2>
             
@@ -1617,7 +1617,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                   />
                   {isSearchingCep && (
                     <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                      <RefreshCw className="h-3 w-3 text-[#ff2a6d] animate-spin" />
+                      <RefreshCw className="h-3 w-3 text-[#FF2E63] animate-spin" />
                     </div>
                   )}
                 </div>

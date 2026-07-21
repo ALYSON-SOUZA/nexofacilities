@@ -93,8 +93,8 @@ export default function Header({
       {/* 1. MOBILE TOP BAR */}
       <div className="flex items-center justify-between pb-3 print:hidden md:hidden">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-display font-extrabold tracking-tighter text-[#111c2e] select-none">
-            FACILITIES <span className="text-[#ff2a6d] font-black">BP-COMPRAS</span>
+          <span className="text-sm font-display font-extrabold tracking-tighter text-[#252A34] select-none">
+            FACILITIES <span className="text-[#FF2E63] font-black">BP-COMPRAS</span>
           </span>
           <span className="badge-premium badge-premium-pink">
             {activeQuoteId}
@@ -147,12 +147,12 @@ export default function Header({
         <div className="hidden print:flex flex-col border-b border-slate-350 pb-2 mb-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="text-xl font-display font-extrabold tracking-tighter text-[#111c2e]">
-                FACILITIES <span className="text-[#ff2a6d] font-black">BP-COMPRAS</span>
+              <span className="text-xl font-display font-extrabold tracking-tighter text-[#252A34]">
+                FACILITIES <span className="text-[#FF2E63] font-black">BP-COMPRAS</span>
               </span>
               <div className="h-5 w-[2px] bg-slate-400" />
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#ff2a6d] block leading-none">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF2E63] block leading-none">
                   COTAÇÃO
                 </span>
                 <h1 className="text-sm font-display font-black tracking-tight text-slate-900 mt-0.5 leading-none">
@@ -162,7 +162,7 @@ export default function Header({
             </div>
             <div className="text-right text-[11px] space-y-0.5 leading-tight">
               <p className="font-bold text-slate-900">
-                ID DA COTAÇÃO: <span className="text-[#ff2a6d] font-black underline">{activeQuoteId}</span>
+                ID DA COTAÇÃO: <span className="text-[#FF2E63] font-black underline">{activeQuoteId}</span>
               </p>
               <p className="font-bold text-slate-800"><span>{userName}</span> ({displayCpf})</p>
               <p className="text-slate-500 font-semibold">Mês de Referência: {quoteDate} • Emitido em: 15/06/2026</p>
@@ -182,13 +182,13 @@ export default function Header({
         </div>
       )}
 
-      {/* 4. GLASS HEADER (Ramp-style clean) */}
+      {/* 4. GLASS HEADER (Showcase editorial style) */}
       <div className="print:hidden">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3">
           {/* Left: Title + Category */}
           <div className="flex items-center gap-2 md:gap-3 min-w-0 shrink-0">
-            <div className="border-l-[2px] border-[#ff2a6d] pl-3 py-0.5 min-w-0">
-              <h2 className="text-xs sm:text-sm font-display font-extrabold text-[#111c2e] uppercase tracking-wide leading-none flex items-center gap-1.5 sm:gap-2 flex-wrap">
+            <div className="border-l-[2px] border-[#FF2E63] pl-3 py-0.5 min-w-0">
+              <h2 className="text-xs sm:text-sm font-display font-extrabold text-[#252A34] uppercase tracking-wide leading-none flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 {activeView === "cotacao" ? "COTAÇÃO" : activeView === "estoque" ? "ESTOQUE" : activeView === "normativa" ? "NORMATIVA" : activeView === "docs" ? "DOCUMENTOS" : "RONDA"}
                 {onCategoryClick && activeView === "cotacao" && (
                   <div className="inline-flex items-center gap-1.5 sm:gap-2">

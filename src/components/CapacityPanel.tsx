@@ -200,10 +200,10 @@ export default function CapacityPanel({
   const avgJulyPerColab = julyCapacity > 0 ? mixedTotal / julyCapacity : 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 print:hidden text-xs">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 print:hidden text-xs">
       
-      {/* 1. CAPACITY & GENERAL PLANNING PANEL */}
-      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
+      {/* 1. CAPACITY & GENERAL PLANNING PANEL - Dominant bento module (5 cols) */}
+      <div className="lg:col-span-5 rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none bp-card">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5 animate-pulse">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-100 text-orange-700 print:hidden">
@@ -368,8 +368,8 @@ export default function CapacityPanel({
         )}
       </div>
 
-      {/* 2. QUANTITATIVE & PRICING COMPARATIVE PANEL */}
-      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
+      {/* 2. QUANTITATIVE & PRICING COMPARATIVE PANEL - Secondary bento module (4 cols) */}
+      <div className="lg:col-span-4 rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none bp-card">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-1.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 print:hidden">
@@ -506,8 +506,8 @@ export default function CapacityPanel({
         )}
       </div>
 
-      {/* 3. HISTÓRICO DE COTAÇÕES SALVAS COM ID ÚNICO */}
-      <div className="rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none ramp-surface">
+      {/* 3. HISTÓRICO DE COTAÇÕES SALVAS COM ID ÚNICO - Tertiary bento module (3 cols) */}
+      <div className="lg:col-span-3 rounded-2xl bg-slate-50/30 p-3.5 print:border-slate-300 print:shadow-none bp-card">
         <div className="flex items-center justify-between mb-2 pb-1 border-b border-slate-100">
           <div className="flex items-center gap-1.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-pink-100 text-[#ff2a6d]">

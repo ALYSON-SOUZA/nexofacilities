@@ -1178,7 +1178,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
     <div className="bg-slate-50 min-h-screen text-slate-800 animate-fade-in leading-normal">
       
       {/* Upper Navigation & Compact Brand Bar */}
-      <div className="ramp-surface p-3 sm:p-4 px-4 sm:px-6 flex flex-wrap sm:flex-nowrap justify-between items-start sm:items-center gap-3 print:hidden mb-4 sm:mb-6">
+      <div className="showcase-card p-3 sm:p-4 px-4 sm:px-6 flex flex-wrap sm:flex-nowrap justify-between items-start sm:items-center gap-3 print:hidden mb-4 sm:mb-6">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button 
             onClick={onBack}
@@ -1239,11 +1239,11 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
       </div>
 
-      {/* Main Bento Dashboard Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6 print:hidden">
+      {/* Main Bento Dashboard Grid - asymmetric modules */}
+      <div className="grid grid-cols-2 lg:grid-cols-12 gap-4 mb-6 print:hidden">
         
-        {/* Card 1: Last Measurement info -> Pink (#ff2a6d) */}
-        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        {/* Card 1: Last Measurement - Dominant module (6 cols) */}
+        <div className="col-span-2 lg:col-span-6 relative bp-card p-4 sm:p-5 transition-all flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-pink-50 text-[#ff2a6d] shrink-0 border border-pink-100">
@@ -1266,7 +1266,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 2: Consumer Capacity -> Petroleum Blue (#111c2e) */}
-        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="col-span-1 lg:col-span-2 relative bp-card p-4 transition-all flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#111c2e]/5 text-[#111c2e] shrink-0 border border-[#111c2e]/15">
@@ -1292,7 +1292,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 3: Stock Volume */}
-        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="col-span-1 lg:col-span-2 relative bp-card p-4 transition-all flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#ff2a6d]/10 text-[#ff2a6d] shrink-0 border border-[#ff2a6d]/20">
@@ -1315,7 +1315,7 @@ export default function StockControl({ onBack, capacityRows, categories, setCate
         </div>
 
         {/* Card 4: Consumption per Capita -> Magenta (#c21e54) */}
-        <div className="relative ramp-surface p-4 transition-all hover:shadow-md flex flex-col justify-between overflow-hidden">
+        <div className="col-span-1 lg:col-span-2 relative bp-card p-4 transition-all flex flex-col justify-between overflow-hidden">
           <div className="flex items-start justify-between gap-1">
             <div className="space-y-1">
               <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#c21e54]/10 text-[#c21e54] shrink-0 border border-[#c21e54]/20">

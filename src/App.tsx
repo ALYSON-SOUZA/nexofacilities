@@ -2329,33 +2329,36 @@ export default function App() {
               />
             </div>
 
-            {/* Capacity Planning, Quantitative Comparisons & History Log (Side-by-side in a single row below the quotation) */}
-            <div className="w-full mb-4 print:hidden">
-              <CapacityPanel
-                capacityRows={capacityRows}
-                mixedTotal={summary.mixedTotal}
-                savedComparison={savedComparison}
-                currentItems={items}
-                archivedQuotes={archivedQuotes}
-                selectedCompareQuoteId={selectedCompareQuoteId}
-                onUpdateCapacity={handleUpdateCapacity}
-                onUpdateValue={handleUpdateValue}
-                onSaveComparison={handleSaveComparison}
-                onClearComparison={handleClearComparison}
-                onDeleteQuote={handleDeleteQuote}
-                onLoadQuoteForEdit={handleLoadQuoteForEdit}
-                onSelectCompareQuote={setSelectedCompareQuoteId}
-                nextQuoteId={`COT-${String(archivedQuotes.length + 1).padStart(3, "0")}`}
-                activeCategoryName={activeCategoryObj.name}
-                activeCategoryId={activeCategoryId}
-                onPrint={handlePrint}
-                quoteDate={quoteDate}
-              />
-            </div>
+            {/* Bento bottom row: Capacity + Summary side by side */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 mb-4 print:mb-3">
+              {/* Capacity Planning - Dominant module (8 cols) */}
+              <div className="lg:col-span-8 print:hidden">
+                <CapacityPanel
+                  capacityRows={capacityRows}
+                  mixedTotal={summary.mixedTotal}
+                  savedComparison={savedComparison}
+                  currentItems={items}
+                  archivedQuotes={archivedQuotes}
+                  selectedCompareQuoteId={selectedCompareQuoteId}
+                  onUpdateCapacity={handleUpdateCapacity}
+                  onUpdateValue={handleUpdateValue}
+                  onSaveComparison={handleSaveComparison}
+                  onClearComparison={handleClearComparison}
+                  onDeleteQuote={handleDeleteQuote}
+                  onLoadQuoteForEdit={handleLoadQuoteForEdit}
+                  onSelectCompareQuote={setSelectedCompareQuoteId}
+                  nextQuoteId={`COT-${String(archivedQuotes.length + 1).padStart(3, "0")}`}
+                  activeCategoryName={activeCategoryObj.name}
+                  activeCategoryId={activeCategoryId}
+                  onPrint={handlePrint}
+                  quoteDate={quoteDate}
+                />
+              </div>
 
-            {/* Summary Decision Panels */}
-            <div className="print:break-inside-avoid">
-              <SummaryPanel suppliers={suppliers} items={items} summary={summary} />
+              {/* Summary Decision Panels - Secondary module (4 cols) */}
+              <div className="lg:col-span-4 print:break-inside-avoid">
+                <SummaryPanel suppliers={suppliers} items={items} summary={summary} />
+              </div>
             </div>
           </div>
         ) : activeView === "normativa" ? (

@@ -80,18 +80,18 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
   }
 
   return (
-    <div className="grid gap-3 sm:gap-4 md:grid-cols-2 mt-2 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-[10px] sm:text-xs">
+    <div className="grid gap-4 sm:gap-5 md:grid-cols-12 mt-4 print:mt-4 print:grid-cols-2 print:gap-4 print:break-inside-avoid text-[10px] sm:text-xs">
       
-      {/* Composição Compra Mista Detail */}
-      <div className="ramp-surface p-5 sm:p-6 print:bg-white print:border-slate-300 print:shadow-none">
-          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-4 uppercase tracking-wide">
-            <div className="p-1.5 rounded-lg bg-slate-100">
-              <Briefcase className="h-3.5 w-3.5 text-slate-700 print:text-black" />
+      {/* Composição Compra Mista Detail - Dominant bento module (7 cols) */}
+      <div className="md:col-span-7 bp-card p-5 sm:p-6 print:bg-white print:border-slate-300 print:shadow-none">
+          <h3 className="showcase-title-sm flex items-center gap-2 mb-4">
+            <div className="showcase-icon showcase-icon-navy" style={{ width: 32, height: 32 }}>
+              <Briefcase className="h-4 w-4" />
             </div>
             Composição da Compra Mista
           </h3>
           
-          <p className="text-[11px] text-slate-500 font-medium mb-4 -mt-1">
+          <p className="showcase-subtitle mb-4">
             Cenário de Melhor Preço por Item
           </p>
           
@@ -101,13 +101,13 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               const percentage = mixedTotal > 0 ? (sum / mixedTotal) * 100 : 0;
 
               return (
-                <div key={s.id} className="flex items-center justify-between text-[11px] leading-tight group/item hover:bg-slate-50/50 rounded-lg px-2 py-1.5 transition-colors duration-200">
+                <div key={s.id} className="flex items-center justify-between text-[11px] leading-tight group/item hover:bg-slate-50/50 rounded-xl px-3 py-2 transition-colors duration-200">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-[#ff2a6d] shrink-0 group-hover/item:scale-125 transition-transform duration-200" />
                     <span className="font-black text-slate-900 uppercase text-[12.5px] md:text-[13.5px]">{s.name || `FORNECEDOR ${idx + 1}`}</span>
                   </div>
                   <div className="text-right">
-                    <span className="font-extrabold text-slate-900 text-[12.5px] md:text-[13.5px] font-mono">{formatCurrency(sum)}</span>
+                    <span className="showcase-mono font-extrabold text-slate-900 text-[12.5px] md:text-[13.5px]">{formatCurrency(sum)}</span>
                     <span className="text-[11px] text-slate-500 font-semibold block">
                       {percentage.toFixed(1)}% do total ótimo
                     </span>
@@ -116,20 +116,20 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               );
             })}
 
-            <div className="border-t border-slate-200 my-2" />
+            <div className="showcase-divider my-2" />
 
             <div className="flex items-center justify-between bg-[#ff2a6d]/5 p-3 rounded-xl border border-[#ff2a6d]/20 text-slate-900 transition-all duration-300">
               <span className="text-[11px] font-black uppercase tracking-wide">TOTAL MISTO COMBINADO:</span>
-              <span className="text-sm font-black font-mono text-slate-900">{formatCurrency(mixedTotal)}</span>
+              <span className="showcase-mono text-sm font-black text-slate-900">{formatCurrency(mixedTotal)}</span>
             </div>
           </div>
       </div>
 
-      {/* Relatório de Decisão Executiva */}
-      <div className="ramp-surface p-5 sm:p-6 print:border-slate-300 print:shadow-none">
-          <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5 mb-4 uppercase tracking-wide">
-            <div className="p-1.5 rounded-lg bg-[#ff2a6d]/8">
-              <PiggyBank className="h-3.5 w-3.5 text-[#ff2a6d] print:text-black" />
+      {/* Relatório de Decisão Executiva - Secondary bento module (5 cols) */}
+      <div className="md:col-span-5 bp-card p-5 sm:p-6 print:border-slate-300 print:shadow-none">
+          <h3 className="showcase-title-sm flex items-center gap-2 mb-4">
+            <div className="showcase-icon showcase-icon-pink" style={{ width: 32, height: 32 }}>
+              <PiggyBank className="h-4 w-4" />
             </div>
             Relatório de Economia & Gestão
           </h3>
@@ -146,7 +146,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                   {cheapestSupplierName}
                 </strong>{" "}
                 com o valor total de{" "}
-                <strong className="text-slate-900 text-[13px] font-black font-mono">{formatCurrency(cheapestSupplierTotal)}</strong>.
+                <strong className="showcase-mono text-slate-900 text-[13px] font-black">{formatCurrency(cheapestSupplierTotal)}</strong>.
               </p>
 
               {cheapestSupplierTotal > 0 && (
@@ -194,7 +194,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
                       
                       window.open(url, "_blank");
                     }}
-                    className="bp-btn-primary"
+                    className="showcase-btn-primary"
                     title="Enviar pedido consolidado inteiro para este fornecedor via WhatsApp"
                   >
                     <span className="text-xs">💬</span> Enviar Pedido Fechado
@@ -206,22 +206,22 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
             <div className="space-y-2 bg-slate-50/30 p-3 rounded-xl border border-slate-200 print:bg-white print:border-slate-250">
               <div className="flex items-center justify-between text-[11px] text-slate-600 font-bold leading-tight">
                 <span>Cenário Fechado Mais Caro ({mostExpensiveSupplierName}):</span>
-                <span className="font-extrabold text-slate-800 font-mono text-[12px]">{formatCurrency(mostExpensiveSupplierTotal)}</span>
+                <span className="showcase-mono font-extrabold text-slate-800 text-[12px]">{formatCurrency(mostExpensiveSupplierTotal)}</span>
               </div>
               <div className="flex items-center justify-between text-[11px] text-slate-600 font-bold leading-tight">
                 <span>Cenário Compra Mista (Itens mais baratos):</span>
-                <span className="font-extrabold text-emerald-800 font-mono text-[12px]">{formatCurrency(mixedTotal)}</span>
+                <span className="showcase-mono font-extrabold text-emerald-800 text-[12px]">{formatCurrency(mixedTotal)}</span>
               </div>
               
-              <div className="border-t border-slate-200 my-1.5" />
+              <div className="showcase-divider my-1.5" />
               
               <div className="flex items-center justify-between text-slate-950 font-black leading-tight text-[11.5px]">
                 <span className="uppercase tracking-tight">Economia Absoluta (Mista vs Mais Cara):</span>
-                <span className="font-mono text-[#ff2a6d] font-black text-[13.5px]">{formatCurrency(maxSavings)}</span>
+                <span className="showcase-mono text-[#ff2a6d] font-black text-[13.5px]">{formatCurrency(maxSavings)}</span>
               </div>
               <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[11px]">
                 <span className="uppercase tracking-tight text-slate-500">Economia Incremental (Mista vs Única Cheaper):</span>
-                <span className="font-mono text-emerald-800 font-black text-[12.5px]">{formatCurrency(smartSavings)}</span>
+                <span className="showcase-mono text-emerald-800 font-black text-[12.5px]">{formatCurrency(smartSavings)}</span>
               </div>
             </div>
           </div>

@@ -773,24 +773,24 @@ export default function FileImporter({
                   onDragLeave={handleDrag}
                   onDrop={handleDrop}
                   onClick={fileFileInputClick}
-                  className={`ramp-dropzone p-8 text-center flex flex-col items-center justify-center space-y-4 cursor-pointer select-none transition-all h-[240px] ${
+                  className={`showcase-hero p-8 sm:p-10 text-center flex flex-col items-center justify-center space-y-4 cursor-pointer select-none transition-all h-[280px] sm:h-[300px] ${
                     dragActive 
-                      ? "ramp-dropzone-active" 
+                      ? "showcase-hero-active" 
                       : ""
                   }`}
                 >
-                  <div className="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-[#ff2a6d]">
-                    <Upload className="h-6 w-6" />
+                  <div className="showcase-icon showcase-icon-pink" style={{ width: 56, height: 56 }}>
+                    <Upload className="h-7 w-7" />
                   </div>
                   <div className="space-y-1.5">
-                    <p className="text-sm font-bold text-slate-900">Arraste ou clique para enviar</p>
-                    <p className="text-[11px] text-slate-450 leading-tight px-2">
+                    <p className="showcase-title-sm">Arraste ou clique para enviar</p>
+                    <p className="showcase-subtitle px-2">
                       Imagens, PDF, Excel, Word, CSV ou TXT
                     </p>
                   </div>
                   <button
                     type="button"
-                    className="ramp-cta rounded-full px-4 py-2 text-[11px] font-bold tracking-wider uppercase"
+                    className="showcase-btn-primary rounded-full px-5 py-2.5 text-[11px] font-bold tracking-wider uppercase"
                   >
                     Procurar no Computador
                   </button>
@@ -804,10 +804,10 @@ export default function FileImporter({
                 </div>
               ) : (
                 <div className="flex flex-col space-y-2 flex-1">
-                  <label className="text-[11px] font-black text-slate-500 uppercase tracking-widest block leading-none">
+                  <label className="showcase-label block leading-none">
                     Área de Colagem (Imagem ou Texto)
                   </label>
-                  <p className="text-[11px] text-slate-500 leading-normal">
+                  <p className="showcase-subtitle leading-normal">
                     Selecione a tabela da proposta comercial e dê <strong>Ctrl+C</strong>, depois clique no campo abaixo e dê <strong>Ctrl+V</strong> para a IA processar!
                   </p>
                   <textarea
@@ -827,7 +827,7 @@ Item 2: Pano de Chão Alvejado, 4 un, R$ 8,20`}
                     disabled={!pasteText.trim()}
                     className={`w-full py-2.5 rounded-xl font-black text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-2xs transition-all ${
                       pasteText.trim()
-                        ? "bg-[#1E222B] text-white hover:bg-[#ff2a6d] hover:text-white cursor-pointer"
+                        ? "showcase-btn-primary cursor-pointer"
                         : "bg-slate-200 text-slate-450 cursor-not-allowed"
                     }`}
                   >

@@ -2158,7 +2158,7 @@ export default function App() {
         />
 
         {/* Brand Header */}
-        <div id="bp-compras-header" className="mb-5 sm:mb-6 py-3 px-1 print:hidden flex flex-row items-center justify-between gap-3 sm:gap-4 relative">
+        <div id="bp-compras-header" className="mb-3 sm:mb-4 py-2 px-1 print:hidden flex flex-row items-center justify-between gap-2 sm:gap-3 relative">
           {/* Left Side: Brand Logo */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
@@ -2173,8 +2173,8 @@ export default function App() {
 
           {/* Right Side: Title & Chamado Inputs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto flex-1 justify-end min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#FF2E63] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
-              <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
+            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#FF2E63] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+              <span className="text-[7px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
                 value={quoteTitle}
@@ -2184,8 +2184,8 @@ export default function App() {
               />
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-slate-200 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 focus-within:border-[#FF2E63] focus-within:ring-2 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[200px] shrink-0">
-              <span className="text-[8px] sm:text-[10px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
+            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#FF2E63] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[160px] shrink-0">
+              <span className="text-[7px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
               <input
                 type="text"
                 value={chamadoNumber}
@@ -2204,19 +2204,19 @@ export default function App() {
         {activeView === "cotacao" ? (
           <div key="view-cotacao" className="view-content-enter">
             {editingQuoteId && (
-              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3 px-3 sm:px-4 bg-sky-50 border border-sky-200 rounded-xl text-[10px] sm:text-[11px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-2 print:hidden animate-fade-in">
+              <div className="mb-2 p-2 bg-sky-50 border border-sky-200 rounded-xl text-[9px] font-bold text-sky-900 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 print:hidden animate-fade-in">
                 <div className="flex items-center gap-2">
                   <span className="flex h-2 sm:h-2.5 w-2 sm:w-2.5 rounded-full bg-sky-500 shrink-0 animate-pulse" />
                   <div>
-                    <span className="uppercase text-[7px] sm:text-[8px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
-                    <span className="font-extrabold uppercase text-[10px] sm:text-[11.5px] text-sky-950 font-sans">
+                    <span className="uppercase text-[6px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
+                    <span className="font-extrabold uppercase text-[9px] text-sky-950 font-sans">
                       Você está alterando a Cotação <span className="font-black font-mono text-[#FF2E63]">#{editingQuoteId}</span>
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
-                  <span className="text-[8px] sm:text-[9.5px] text-sky-600 font-medium leading-tight hidden sm:inline">
-                    * Inclusões, exclusões e preços editados são salvos automaticamente no histórico.
+                  <span className="text-[7px] text-sky-600 font-medium leading-tight hidden sm:inline">
+                    * Alterações salvas automaticamente.
                   </span>
                   <button
                     onClick={() => {
@@ -2224,7 +2224,7 @@ export default function App() {
                       setSuccessMessage("Modo de edição finalizado. A cotação continua salva no histórica, e agora você pode criar novas.");
                       setTimeout(() => setSuccessMessage(""), 5000);
                     }}
-                    className="px-2.5 sm:px-3 py-1 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[9px] sm:text-[10px] font-black cursor-pointer transition-all duration-200 uppercase tracking-tight"
+                    className="px-2 py-0.5 bg-white border border-sky-200 rounded-lg hover:bg-sky-100 text-sky-850 hover:text-sky-950 text-[8px] font-black cursor-pointer transition-all duration-200 uppercase tracking-tight"
                   >
                     Sair da Edição
                   </button>
@@ -2234,44 +2234,44 @@ export default function App() {
 
             {/* METADATA DE ÚLTIMA ALTERAÇÃO (APENAS ONLINE - TELA) */}
             {lastChangeLog && (
-              <div className="mb-3 sm:mb-3.5 p-2.5 sm:p-3.5 bg-white border border-slate-200 rounded-xl text-[10px] sm:text-[10.5px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1.5 print:hidden animate-fade-in text-slate-700">
+              <div className="mb-2 p-2 bg-white border border-slate-200 rounded-xl text-[9px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1 print:hidden animate-fade-in text-slate-700">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#FF2E63] animate-pulse shrink-0" />
-                  <span className="uppercase text-[7px] sm:text-[9px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
-                  <span className="text-slate-900 font-black uppercase text-[9px] sm:text-[10.5px] truncate">{lastChangeLog.action}</span>
+                  <span className="uppercase text-[7px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
+                  <span className="text-slate-900 font-black uppercase text-[8px] truncate">{lastChangeLog.action}</span>
                 </div>
-                <div className="text-[8px] sm:text-[9.5px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
+                <div className="text-[7px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
                   por <span className="font-extrabold text-[#FF2E63]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
                 </div>
               </div>
             )}
 
             {/* Action Buttons Toolbar */}
-            <div className="mb-4 sm:mb-5 flex flex-wrap items-center justify-end gap-2 print:hidden">
+            <div className="mb-2 flex flex-wrap items-center justify-end gap-1.5 print:hidden">
               <button
                 onClick={handleSaveComparison}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-sky-400 text-slate-700 hover:text-sky-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-white border border-slate-200 hover:border-sky-400 text-slate-700 hover:text-sky-600 text-[9px] font-bold transition-all duration-200 cursor-pointer"
                 title="Salvar Cotação Atual"
               >
-                <Save className="h-3.5 w-3.5 shrink-0" />
+                <Save className="h-3 w-3 shrink-0" />
                 <span className="hidden sm:inline">Salvar</span>
               </button>
 
               <button
                 onClick={handleExportQuoteExcel}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-emerald-400 text-slate-700 hover:text-emerald-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-white border border-slate-200 hover:border-emerald-400 text-slate-700 hover:text-emerald-600 text-[9px] font-bold transition-all duration-200 cursor-pointer"
                 title="Exportar para Excel"
               >
-                <FileSpreadsheet className="h-3.5 w-3.5 shrink-0" />
+                <FileSpreadsheet className="h-3 w-3 shrink-0" />
                 <span className="hidden sm:inline">Excel</span>
               </button>
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-violet-400 text-slate-700 hover:text-violet-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-white border border-slate-200 hover:border-violet-400 text-slate-700 hover:text-violet-600 text-[9px] font-bold transition-all duration-200 cursor-pointer"
                 title="Imprimir Relatório"
               >
-                <Printer className="h-3.5 w-3.5 shrink-0" />
+                <Printer className="h-3 w-3 shrink-0" />
                 <span className="hidden sm:inline">Imprimir</span>
               </button>
 
@@ -2283,10 +2283,10 @@ export default function App() {
                   variant: "danger",
                   onConfirm: handleResetToDefaults,
                 })}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-amber-400 text-slate-700 hover:text-amber-600 text-[11px] font-bold transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-white border border-slate-200 hover:border-amber-400 text-slate-700 hover:text-amber-600 text-[9px] font-bold transition-all duration-200 cursor-pointer"
                 title="Reiniciar Cotação"
               >
-                <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                <RotateCcw className="h-3 w-3 shrink-0" />
                 <span className="hidden sm:inline">Reiniciar</span>
               </button>
             </div>
@@ -2300,7 +2300,7 @@ export default function App() {
             )}
 
             {/* Primary Interactive Spreadsheet taking advantage of the entire screen width */}
-            <div className="w-full relative print:w-full mb-4">
+            <div className="w-full relative print:w-full mb-2">
               <Table
                 suppliers={suppliers}
                 items={items}
@@ -2330,7 +2330,7 @@ export default function App() {
             </div>
 
             {/* Bento bottom row: Capacity + Summary stacked */}
-            <div className="space-y-4 sm:space-y-5 mb-4 print:mb-3">
+            <div className="space-y-2 sm:space-y-3 mb-2 print:mb-3">
               {/* Capacity Planning - Full width equal 3-col */}
               <div className="print:hidden">
                 <CapacityPanel
@@ -2397,7 +2397,7 @@ export default function App() {
         )}
 
         {/* Corporate Footer */}
-        <footer className="mt-8 border-t border-slate-100 pt-4 text-center text-[11px] text-slate-400 print:hidden">
+        <footer className="mt-4 border-t border-slate-100 pt-2 text-center text-[9px] text-slate-400 print:hidden">
           <p className="flex items-center justify-center gap-1.5 font-medium">
             <span className="material-symbols-outlined text-[14px]">shopping_cart</span>
             FACILITIES BP-COMPRAS • Planilha Comparativa de Cotações para Facilities • Dados persistidos com segurança local.

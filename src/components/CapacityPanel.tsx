@@ -200,36 +200,36 @@ export default function CapacityPanel({
   const avgJulyPerColab = julyCapacity > 0 ? mixedTotal / julyCapacity : 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 print:hidden text-xs">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 print:hidden text-[10px]">
       
       {/* 1. CAPACITY & GENERAL PLANNING PANEL - Equal column */}
-      <div className="glass-card p-5 sm:p-6 rounded-xl print:border-slate-300 print:shadow-none">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-1.5 animate-pulse">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-100 text-orange-700 print:hidden">
-              <Users className="h-4 w-4" />
+      <div className="glass-card p-3 sm:p-3.5 rounded-xl print:border-slate-300 print:shadow-none">
+        <div className="flex items-center justify-between mb-1.5">
+          <div className="flex items-center gap-1">
+            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-orange-100 text-orange-700 print:hidden">
+              <Users className="h-3 w-3" />
             </div>
             <div>
-              <h3 className="text-xs font-black text-slate-900 leading-tight">Capacity & Planejamento</h3>
-              <p className="text-[11px] text-slate-500 print:hidden">Análise de custo por funcionário</p>
+              <h3 className="text-[10px] font-black text-slate-900 leading-tight">Capacity & Planejamento</h3>
+              <p className="text-[9px] text-slate-500 print:hidden">Análise de custo por funcionário</p>
             </div>
           </div>
-          <span className="inline-flex items-center rounded-full bg-orange-50 px-2 py-0.5 text-[11px] font-black text-orange-800 border border-orange-200/40 print:hidden">
+          <span className="inline-flex items-center rounded-full bg-orange-50 px-1.5 py-0.5 text-[9px] font-black text-orange-800 border border-orange-200/40 print:hidden">
             Média vs Projeção
           </span>
         </div>
 
         {/* Capacity spreadsheet grid */}
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-left text-[10px] sm:text-[11px]">
+          <table className="w-full border-collapse text-left text-[9px]">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50/60 text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-tight">
-                <th className="py-1.5 px-1.5 sm:px-2">Mês/Ano</th>
-                <th className="py-1.5 px-1 text-center w-[60px] sm:w-[75px]">Capacity</th>
+              <tr className="border-b border-slate-200 bg-slate-50/60 text-[8px] font-bold text-slate-500 uppercase tracking-tight">
+                <th className="py-1 px-1">Mês/Ano</th>
+                <th className="py-1 px-1 text-center w-[50px]">Capacity</th>
                 {isLimpeza && (
                   <>
-                    <th className="py-1.5 px-1 text-right w-[70px] sm:w-[95px]">Total Pago</th>
-                    <th className="py-1.5 px-1 sm:px-2 text-right bg-slate-100/20 w-[65px] sm:w-[80px]">Gasto/Colab.</th>
+                    <th className="py-1 px-1 text-right w-[60px]">Total Pago</th>
+                    <th className="py-1 px-1 text-right bg-slate-100/20 w-[55px]">Gasto/Colab.</th>
                   </>
                 )}
               </tr>
@@ -246,17 +246,17 @@ export default function CapacityPanel({
                     }`}
                   >
                     {/* Month Label */}
-                    <td className="py-1.5 px-2 font-bold text-slate-800 uppercase tracking-tight">
+                    <td className="py-0.5 px-1 font-bold text-slate-800 uppercase tracking-tight">
                       {row.month}
                       {isJuly && (
-                        <span className="block text-[11px] font-extrabold text-[#252A34] uppercase leading-none mt-0.5">
+                        <span className="block text-[9px] font-extrabold text-[#252A34] uppercase leading-none mt-0.5">
                           Ativo (Cotação)
                         </span>
                       )}
                     </td>
 
                     {/* Capacity input */}
-                    <td className="py-0.5 px-1">
+                    <td className="py-0 px-1">
                       <input
                         type="text"
                         inputMode="numeric"
@@ -265,7 +265,7 @@ export default function CapacityPanel({
                           const val = e.target.value.replace(/[^0-9]/g, "");
                           onUpdateCapacity(row.month, val === "" ? 0 : parseInt(val, 10));
                         }}
-                        className={`w-full text-center bg-transparent py-0.5 font-bold text-slate-850 border rounded-md border-transparent hover:border-slate-250 focus:bg-white focus:border-slate-400 transition-all focus:ring-0 focus:outline-hidden text-[11px] ${
+                        className={`w-full text-center bg-transparent py-0.5 font-bold text-slate-850 border rounded-md border-transparent hover:border-slate-250 focus:bg-white focus:border-slate-400 transition-all focus:ring-0 focus:outline-hidden text-[9px] ${
                           isJuly ? "bg-[#FF2E63]/10 border-[#FF2E63]/30" : ""
                         }`}
                         placeholder="0"
@@ -275,10 +275,10 @@ export default function CapacityPanel({
                     {isLimpeza && (
                       <>
                         {/* Value paid input */}
-                        <td className="py-0.5 px-1 text-right">
+                        <td className="py-0 px-1 text-right">
                           {isJuly ? (
                             <div className="flex flex-col items-end pr-1 justify-center h-full">
-                              <span className="font-extrabold text-[#FF2E63] font-mono leading-none">
+                              <span className="font-extrabold text-[#FF2E63] font-mono leading-none text-[9px]">
                                 {formatCurrency(row.value)}
                               </span>
                             </div>
@@ -293,7 +293,7 @@ export default function CapacityPanel({
                         </td>
 
                         {/* Calculated Average Spent per Collaborator */}
-                        <td className="py-1.5 px-2 text-right font-mono font-bold text-slate-800 bg-slate-50/10">
+                        <td className="py-0.5 px-1 text-right font-mono font-bold text-slate-800 bg-slate-50/10 text-[9px]">
                           {row.average > 0 ? (
                             <span className={isJuly ? "text-[#252A34] font-extrabold" : "text-slate-700"}>
                               {formatCurrency(row.average)}
@@ -313,27 +313,27 @@ export default function CapacityPanel({
 
         {/* METRICA DO GASTO POR COLABORADOR CARD */}
         {isLimpeza && (
-          <div className="mt-2.5 p-2 rounded-xl border border-orange-100 bg-orange-50/25 space-y-1.5 print:border-slate-300">
-            <div className="flex justify-between items-center text-[11px]/none font-bold">
-              <span className="text-slate-700 flex items-center gap-1">
-                <Sparkles className="h-3.5 w-3.5 text-orange-500 shrink-0" />
+          <div className="mt-1.5 p-2 rounded-lg border border-orange-100 bg-orange-50/25 space-y-1 print:border-slate-300">
+            <div className="flex justify-between items-center text-[9px]/none font-bold">
+              <span className="text-slate-700 flex items-center gap-0.5">
+                <Sparkles className="h-2.5 w-2.5 text-orange-500 shrink-0" />
                 Eficiência (R$/colab):
               </span>
-              <span className="inline-flex items-center rounded-sm bg-orange-100 px-1.5 py-0.5 text-[11px] text-orange-850 uppercase tracking-wider">
+              <span className="inline-flex items-center rounded-sm bg-orange-100 px-1 py-0.5 text-[9px] text-orange-850 uppercase tracking-wider">
                 Auditoria Ativa
               </span>
             </div>
             
-            <div className="grid grid-cols-2 gap-2 text-[11px]">
-              <div className="bg-white/90 p-1.5 rounded-lg border border-slate-150 shadow-3xs leading-tight">
-                <span className="text-[11px] text-slate-450 uppercase block font-bold">Média Histórica (6m)</span>
+            <div className="grid grid-cols-2 gap-1.5 text-[9px]">
+              <div className="bg-white/90 p-1.5 rounded-md border border-slate-150 shadow-3xs leading-tight">
+                <span className="text-[9px] text-slate-450 uppercase block font-bold">Média Histórica (6m)</span>
                 <span className="font-bold text-slate-700 font-mono mt-0.5 block">
                   {avgHistPerColab > 0 ? formatCurrency(avgHistPerColab) : "R$ 0,00"}
                 </span>
               </div>
               
-              <div className={`p-1.5 rounded-lg border border-transparent shadow-3xs leading-tight ${julyCapacity > 0 ? "bg-[#FF2E63]/10 border-[#FF2E63]/20" : "bg-white/90 border-slate-150"}`}>
-                <span className="text-[11px] text-[#252A34] uppercase block font-bold">Projeção Cotação (Jul)</span>
+              <div className={`p-1.5 rounded-md border border-transparent shadow-3xs leading-tight ${julyCapacity > 0 ? "bg-[#FF2E63]/10 border-[#FF2E63]/20" : "bg-white/90 border-slate-150"}`}>
+                <span className="text-[9px] text-[#252A34] uppercase block font-bold">Projeção Cotação (Jul)</span>
                 <span className="font-extrabold text-[#252A34] font-mono mt-0.5 block">
                   {avgJulyPerColab > 0 ? formatCurrency(avgJulyPerColab) : "R$ 0,00"}
                 </span>
@@ -342,7 +342,7 @@ export default function CapacityPanel({
 
             {/* Detailed comparative trend report of cost per employee */}
             {avgHistPerColab > 0 && avgJulyPerColab > 0 ? (
-              <div className="rounded-md bg-white p-1.5 border border-slate-150 text-[11px] leading-snug font-semibold">
+              <div className="rounded-md bg-white p-1.5 border border-slate-150 text-[9px] leading-snug font-semibold">
                 {avgJulyPerColab < avgHistPerColab ? (
                   <div className="text-emerald-850 flex items-start gap-1">
                     <TrendingDown className="h-3.5 w-3.5 mt-0.5 text-emerald-600 shrink-0" />
@@ -360,7 +360,7 @@ export default function CapacityPanel({
                 )}
               </div>
             ) : (
-              <div className="text-[11px] text-slate-500 font-medium">
+              <div className="text-[9px] text-slate-500 font-medium">
                 * Insira o número de funcionários do mês de <strong>{activePosteriorMonth}</strong> acima para auditar.
               </div>
             )}
@@ -369,27 +369,27 @@ export default function CapacityPanel({
       </div>
 
       {/* 2. QUANTITATIVE & PRICING COMPARATIVE PANEL - Equal column */}
-      <div className="glass-card p-5 sm:p-6 rounded-xl print:border-slate-300 print:shadow-none">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-1.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 print:hidden">
-              <BarChart3 className="h-4 w-4" />
+      <div className="glass-card p-3 sm:p-3.5 rounded-xl print:border-slate-300 print:shadow-none">
+        <div className="flex items-center justify-between mb-1.5">
+          <div className="flex items-center gap-1">
+            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-emerald-100 text-emerald-700 print:hidden">
+              <BarChart3 className="h-3 w-3" />
             </div>
             <div>
-              <h3 className="text-xs font-black text-slate-905 leading-tight">COMPARATIVO</h3>
-              <p className="text-[11px] text-slate-500 print:hidden">Auditória comparativa de preços</p>
+              <h3 className="text-[10px] font-black text-slate-905 leading-tight">COMPARATIVO</h3>
+              <p className="text-[9px] text-slate-500 print:hidden">Auditória comparativa de preços</p>
             </div>
           </div>
         </div>
 
         {/* Dynamic drop-down to select which past quote to compare with */}
         {archivedQuotes.length > 0 && (
-          <div className="mb-2.5 pb-2.5 border-b border-slate-100 flex items-center justify-between gap-1.5 print:hidden">
-            <span className="text-[11px] font-extrabold uppercase text-slate-405 leading-none shrink-0">Comparar com:</span>
+          <div className="mb-2 pb-2 border-b border-slate-100 flex items-center justify-between gap-1 print:hidden">
+            <span className="text-[9px] font-extrabold uppercase text-slate-405 leading-none shrink-0">Comparar com:</span>
             <select
               value={selectedCompareQuoteId}
               onChange={(e) => onSelectCompareQuote(e.target.value)}
-              className="w-full text-[11px] font-bold border border-slate-200 text-slate-800 rounded-lg py-1 px-1.5 bg-slate-50 focus:outline-hidden cursor-pointer"
+              className="w-full text-[9px] font-bold border border-slate-200 text-slate-800 rounded-md py-0.5 px-1 bg-slate-50 focus:outline-hidden cursor-pointer"
             >
               <option value="">(Última Salva como Padrão)</option>
               {archivedQuotes.map((q) => (
@@ -403,33 +403,33 @@ export default function CapacityPanel({
 
         {/* COMPARATIVE RESULTS */}
         {savedComparison.isValid ? (
-          <div className="space-y-3">
+          <div className="space-y-2">
             {/* Quick summary stats */}
-            <div className="grid grid-cols-2 gap-2 bg-slate-50 p-2 rounded-xl border border-slate-150 print:bg-white print:border-slate-350">
-              <div className="space-y-0.5">
-                <span className="text-[11px] text-slate-450 block font-bold uppercase tracking-wider">
+            <div className="grid grid-cols-2 gap-1.5 bg-slate-50 p-1.5 rounded-lg border border-slate-150 print:bg-white print:border-slate-350">
+              <div className="space-y-0">
+                <span className="text-[9px] text-slate-450 block font-bold uppercase tracking-wider">
                   Preço Misto
                 </span>
                 <div className="flex items-baseline gap-1 flex-wrap">
-                  <span className="text-[11px] font-black text-slate-800 font-mono">
+                  <span className="text-[9px] font-black text-slate-800 font-mono">
                     {formatCurrency(mixedTotal)}
                   </span>
-                  <span className="text-[11px] text-slate-500 font-semibold">
+                  <span className="text-[9px] text-slate-500 font-semibold">
                     vs {formatCurrency(savedComparison.totals.mixedTotal)}
                   </span>
                 </div>
                 {renderTotalTrend(mixedTotal, savedComparison.totals.mixedTotal)}
               </div>
 
-              <div className="space-y-0.5">
-                <span className="text-[11px] text-slate-450 block font-bold uppercase tracking-wider">
+              <div className="space-y-0">
+                <span className="text-[9px] text-slate-450 block font-bold uppercase tracking-wider">
                   Volume Geral
                 </span>
                 <div className="flex items-baseline gap-1 flex-wrap">
-                  <span className="text-[11px] font-black text-slate-800 font-mono">
+                  <span className="text-[9px] font-black text-slate-800 font-mono">
                     {totalQtyCurrent} un
                   </span>
-                  <span className="text-[11px] text-slate-500 font-semibold">
+                  <span className="text-[9px] text-slate-500 font-semibold">
                     vs {savedComparison.totals.totalQuantity} un
                   </span>
                 </div>
@@ -439,17 +439,17 @@ export default function CapacityPanel({
 
             {/* Item-by-item price hike/drop and volume difference tracker */}
             <div>
-              <h4 className="text-[11px] font-black text-slate-500 uppercase tracking-wide mb-1.5 flex items-center justify-between">
+              <h4 className="text-[9px] font-black text-slate-500 uppercase tracking-wide mb-1 flex items-center justify-between">
                 <span>Variações por Item (vs {selectedCompareQuoteId || "Padrão"}):</span>
                 <button
                   onClick={onClearComparison}
-                  className="text-[11px] text-rose-600 hover:underline font-bold cursor-pointer print:hidden"
+                  className="text-[9px] text-rose-600 hover:underline font-bold cursor-pointer print:hidden"
                 >
                   Limpar Tudo
                 </button>
               </h4>
 
-              <div className="max-h-40 overflow-y-auto space-y-2 pr-0.5 divide-y divide-slate-100">
+              <div className="max-h-32 overflow-y-auto space-y-1.5 pr-0.5 divide-y divide-slate-100">
                 {currentItems.map((item) => {
                   // Find corresponding item in saved detailed comparison
                   const saved = savedComparison.itemsDetailed[item.id] || 
@@ -463,26 +463,26 @@ export default function CapacityPanel({
                   const prevBestPrice = saved ? getBestUnitPrice(saved) : 0;
 
                   return (
-                    <div key={item.id} className="pt-2 first:pt-0 space-y-0.5 leading-none">
-                      <div className="flex items-center justify-between text-[11px]">
+                    <div key={item.id} className="pt-1 first:pt-0 space-y-0 leading-none">
+                      <div className="flex items-center justify-between text-[9px]">
                         {/* Name */}
-                        <span className="font-bold text-slate-800 truncate max-w-[130px]" title={item.name}>
+                        <span className="font-bold text-slate-800 truncate max-w-[110px]" title={item.name}>
                           {item.name || "Sem Nome"}
                         </span>
 
                         {/* Quantity Comparative Pill */}
-                        <div className="flex items-center gap-1 font-mono text-[11px]">
+                        <div className="flex items-center gap-0.5 font-mono text-[9px]">
                           <span className="text-slate-600">
-                            {item.quantity} un <span className="text-[11px] text-slate-350">({prevQty} ant)</span>
+                            {item.quantity} un <span className="text-[9px] text-slate-350">({prevQty} ant)</span>
                           </span>
                           {renderBadgeDiff(qtyDiff)}
                         </div>
                       </div>
 
-                      {/* Display Unit Price Fluctuation (Aumentou ou Diminuiu) */}
-                      <div className="flex items-center justify-between text-[11px] text-slate-450 pl-0.5">
-                        <span className="text-[11px]">Preço unitário min:</span>
-                        <div className="flex items-center gap-1 font-mono">
+                      {/* Display Unit Price Fluctuation */}
+                      <div className="flex items-center justify-between text-[9px] text-slate-450 pl-0.5">
+                        <span className="text-[9px]">Preço unitário min:</span>
+                        <div className="flex items-center gap-0.5 font-mono">
                           <span className="font-bold text-slate-600">
                             {currentBestPrice > 0 ? formatCurrency(currentBestPrice) : "R$ 0,00"}
                           </span>
@@ -496,10 +496,10 @@ export default function CapacityPanel({
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-slate-200 rounded-xl">
-            <BookOpen className="h-6 w-6 text-slate-300 mb-1" />
-            <h4 className="text-[11px] font-bold text-slate-700 leading-none">Sem Dados para Comparativo</h4>
-            <p className="text-[11px] text-slate-500 mt-1 max-w-[180px] leading-tight">
+          <div className="flex flex-col items-center justify-center p-3 text-center border-2 border-dashed border-slate-200 rounded-xl">
+            <BookOpen className="h-5 w-5 text-slate-300 mb-0.5" />
+            <h4 className="text-[9px] font-bold text-slate-700 leading-none">Sem Dados para Comparativo</h4>
+            <p className="text-[9px] text-slate-500 mt-0.5 max-w-[160px] leading-tight">
               Gere ou selecione uma cotação arquivada para acompanhar no rastreador de flutuações de custos!
             </p>
           </div>
@@ -507,21 +507,21 @@ export default function CapacityPanel({
       </div>
 
       {/* 3. HISTÓRICO DE COTAÇÕES SALVAS COM ID ÚNICO - Equal column */}
-      <div className="glass-card p-5 sm:p-6 rounded-xl print:border-slate-300 print:shadow-none">
-        <div className="flex items-center justify-between mb-2 pb-1 border-b border-slate-100">
-          <div className="flex items-center gap-1.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-pink-100 text-[#FF2E63]">
-              <FolderOpen className="h-4 w-4" />
+      <div className="glass-card p-3 sm:p-3.5 rounded-xl print:border-slate-300 print:shadow-none">
+        <div className="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+          <div className="flex items-center gap-1">
+            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-pink-100 text-[#FF2E63]">
+              <FolderOpen className="h-3 w-3" />
             </div>
             <div>
-              <h3 className="text-xs font-black text-slate-900 leading-none uppercase">Histórico Registrado</h3>
-              <p className="text-[11px] text-slate-500">Banco de cotações com ID único</p>
+              <h3 className="text-[10px] font-black text-slate-900 leading-none uppercase">Histórico Registrado</h3>
+              <p className="text-[9px] text-slate-500">Banco de cotações com ID único</p>
             </div>
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center gap-1 px-2 py-0.5 text-[11px] font-black uppercase rounded-md border transition-all cursor-pointer ${
+              className={`flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] font-black uppercase rounded-md border transition-all cursor-pointer ${
                 showFilters || filterStartDate || filterEndDate || filterCategory !== "all" || filterSearch.trim()
                   ? "bg-[#FF2E63] text-white border-[#FF2E63]"
                   : "bg-white border-slate-200 text-slate-600 hover:border-[#FF2E63]"
@@ -534,7 +534,7 @@ export default function CapacityPanel({
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               )}
             </button>
-            <span className="inline-flex items-center rounded-sm bg-pink-50 border border-pink-100/50 px-1.5 py-0.5 text-[11px] font-black text-[#FF2E63]">
+            <span className="inline-flex items-center rounded-sm bg-pink-50 border border-pink-100/50 px-1 py-0.5 text-[9px] font-black text-[#FF2E63]">
               {filteredQuotes.length} / {archivedQuotes.length}
             </span>
           </div>
@@ -542,56 +542,56 @@ export default function CapacityPanel({
 
         {/* Expandable Filter Box */}
         {showFilters && (
-          <div className="mb-3 p-2 rounded-xl border border-slate-150 bg-slate-50/50 text-[11px] space-y-1.5 animate-fade-in">
+          <div className="mb-2 p-1.5 rounded-lg border border-slate-150 bg-slate-50/50 text-[9px] space-y-1 animate-fade-in">
             <div>
-              <label className="block text-[11px] font-black uppercase text-slate-450 mb-0.5">
+              <label className="block text-[9px] font-black uppercase text-slate-450 mb-0.5">
                 Buscar por ID, título, responsável ou chamado
               </label>
               <div className="relative">
-                <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 h-3 w-3 text-slate-500" />
+                <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 h-2.5 w-2.5 text-slate-500" />
                 <input
                   type="text"
-                  placeholder="Ex: COT-003, Recepção, João..."
+                  placeholder="Ex: COT-003, Recepção..."
                   value={filterSearch}
                   onChange={(e) => setFilterSearch(e.target.value)}
-                  className="w-full text-[11px] pl-5 pr-1.5 py-0.5 bg-white border border-slate-200 rounded-md font-bold text-slate-700 focus:outline-hidden"
+                  className="w-full text-[9px] pl-4 pr-1 py-0.5 bg-white border border-slate-200 rounded-md font-bold text-slate-700 focus:outline-hidden"
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-1.5">
               <div>
-                <label className="block text-[11px] font-black uppercase text-slate-450 mb-0.5 flex items-center gap-0.5">
-                  <Calendar className="h-2.5 w-2.5 text-slate-500" /> Data Inicial
+                <label className="block text-[9px] font-black uppercase text-slate-450 mb-0.5 flex items-center gap-0.5">
+                  <Calendar className="h-2 w-2 text-slate-500" /> Data Inicial
                 </label>
                 <input
                   type="date"
                   value={filterStartDate}
                   onChange={(e) => setFilterStartDate(e.target.value)}
-                  className="w-full text-[11px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold font-mono text-slate-700 focus:outline-hidden"
+                  className="w-full text-[9px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold font-mono text-slate-700 focus:outline-hidden"
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-black uppercase text-slate-450 mb-0.5 flex items-center gap-0.5">
-                  <Calendar className="h-2.5 w-2.5 text-slate-500" /> Data Final
+                <label className="block text-[9px] font-black uppercase text-slate-450 mb-0.5 flex items-center gap-0.5">
+                  <Calendar className="h-2 w-2 text-slate-500" /> Data Final
                 </label>
                 <input
                   type="date"
                   value={filterEndDate}
                   onChange={(e) => setFilterEndDate(e.target.value)}
-                  className="w-full text-[11px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold font-mono text-slate-700 focus:outline-hidden"
+                  className="w-full text-[9px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold font-mono text-slate-700 focus:outline-hidden"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-1.5 items-end">
+            <div className="grid grid-cols-12 gap-1 items-end">
               <div className="col-span-8">
-                <label className="block text-[11px] font-black uppercase text-slate-450 mb-0.5">
+                <label className="block text-[9px] font-black uppercase text-slate-450 mb-0.5">
                   Categoria
                 </label>
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="w-full text-[11px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold uppercase text-slate-700 focus:outline-hidden"
+                  className="w-full text-[9px] p-0.5 px-1 bg-white border border-slate-200 rounded-md font-bold uppercase text-slate-700 focus:outline-hidden"
                 >
                   <option value="all">TODAS CATEGORIAS</option>
                   {availableCategories.map((cat) => (
@@ -610,7 +610,7 @@ export default function CapacityPanel({
                     setFilterCategory("all");
                     setFilterSearch("");
                   }}
-                  className="w-full py-1 text-center bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-rose-50 text-slate-550 hover:text-[#FF2E63] font-black tracking-wide uppercase rounded-md transition-all cursor-pointer text-[11px]"
+                  className="w-full py-0.5 text-center bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-rose-50 text-slate-550 hover:text-[#FF2E63] font-black tracking-wide uppercase rounded-md transition-all cursor-pointer text-[9px]"
                   title="Limpar todos os filtros ativos"
                 >
                   LIMPAR
@@ -621,7 +621,7 @@ export default function CapacityPanel({
         )}
 
         {filteredQuotes.length > 0 ? (
-          <div className="space-y-1.5 max-h-48 overflow-y-auto pr-0.5">
+          <div className="space-y-1 max-h-36 overflow-y-auto pr-0.5">
             {filteredQuotes.map((quote) => {
               const isComparing = quote.id === selectedCompareQuoteId;
 
@@ -631,81 +631,76 @@ export default function CapacityPanel({
                   onClick={() => {
                     onLoadQuoteForEdit(quote);
                   }}
-                  className={`p-2 rounded-xl transition-all border text-[11px]/tight cursor-pointer ${
+                  className={`p-1.5 rounded-lg transition-all border text-[9px]/tight cursor-pointer ${
                     isComparing 
                       ? "bg-[#FF2E63]/5 border-[#FF2E63]/30 hover:border-[#FF2E63]/50" 
                       : "bg-slate-50/50 border-slate-150 hover:bg-slate-100 uppercase"
                   }`}
                   title="Clique para carregar e editar esta cotação na planilha"
                 >
-                  <div className="flex items-center justify-between gap-1 mb-1 flex-wrap">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="font-extrabold text-[#FF2E63] text-[11px]">
+                  <div className="flex items-center justify-between gap-1 mb-0.5 flex-wrap">
+                    <div className="flex items-center gap-1 flex-wrap">
+                      <span className="font-extrabold text-[#FF2E63] text-[9px]">
                         #{quote.id}
                       </span>
-                      <span className="inline-block text-[11px] bg-[#FF2E63]/10 text-[#FF2E63] border border-[#FF2E63]/25 px-1.5 py-0.5 rounded font-black uppercase">
+                      <span className="inline-block text-[8px] bg-[#FF2E63]/10 text-[#FF2E63] border border-[#FF2E63]/25 px-1 py-0 rounded font-black uppercase">
                         {quote.categoryName || "Geral"}
                       </span>
                     </div>
-                    <span className="text-[11px] text-slate-500 font-semibold font-mono">
+                    <span className="text-[8px] text-slate-500 font-semibold font-mono">
                       {quote.savedAt}
                     </span>
                   </div>
 
-                  <p className="text-slate-500 font-bold uppercase text-[11px] truncate">
-                    Modificado por: <strong className="text-slate-800 font-black">{quote.userName.toUpperCase()}</strong> ({quote.userCpf})
+                  <p className="text-slate-500 font-bold uppercase text-[8px] truncate">
+                    por <strong className="text-slate-800 font-black">{quote.userName.split(" ")[0]}</strong>
                   </p>
 
                   {quote.title && (
-                    <p className="text-[#FF2E63] font-black uppercase text-[11px] tracking-tight truncate mt-0.5">
-                      Título: <span className="text-slate-850 dark:text-slate-300 font-black">{quote.title.toUpperCase()}</span>
+                    <p className="text-[#FF2E63] font-black uppercase text-[8px] tracking-tight truncate mt-0.5">
+                      {quote.title.toUpperCase()}
                     </p>
                   )}
 
-                  <div className="flex items-center justify-between mt-1 pt-1.5 border-t border-dotted border-slate-200">
-                    <span className="font-extrabold font-mono text-[11px] text-slate-900">
-                      Misto: {formatCurrency(quote.summary.mixedTotal)}
+                  <div className="flex items-center justify-between mt-0.5 pt-1 border-t border-dotted border-slate-200">
+                    <span className="font-extrabold font-mono text-[9px] text-slate-900">
+                      {formatCurrency(quote.summary.mixedTotal)}
                     </span>
                     
-                    <div className="flex items-center gap-1">
-                      {/* Compare action button */}
+                    <div className="flex items-center gap-0.5">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           onSelectCompareQuote(quote.id);
                         }}
-                        className={`p-1 rounded-sm cursor-pointer transition-colors ${
+                        className={`p-0.5 rounded-sm cursor-pointer transition-colors ${
                           isComparing 
                             ? "bg-[#FF2E63] text-white" 
                             : "bg-white border border-slate-200 hover:border-[#FF2E63] text-slate-500 hover:text-[#FF2E63]"
                         }`}
                         title="Usar esta cotação como referência para comparação"
                       >
-                        <Check className="h-3 w-3" />
+                        <Check className="h-2.5 w-2.5" />
                       </button>
-
-                      {/* Load to active sheet to view/re-print */}
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           onLoadQuoteForEdit(quote);
                         }}
-                        className="p-1 rounded-sm bg-white border border-slate-200 hover:border-[#FF2E63] text-slate-405 hover:text-[#FF2E63] cursor-pointer transition-colors"
+                        className="p-0.5 rounded-sm bg-white border border-slate-200 hover:border-[#FF2E63] text-slate-405 hover:text-[#FF2E63] cursor-pointer transition-colors"
                         title="Carregar de volta na planilha para editar"
                       >
-                        <FolderOpen className="h-3 w-3" />
+                        <FolderOpen className="h-2.5 w-2.5" />
                       </button>
-
-                      {/* Exclude permanently */}
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           onDeleteQuote(quote.id);
                         }}
-                        className="p-1 rounded-sm bg-white border border-slate-200 hover:border-rose-600 hover:bg-rose-50 text-slate-405 hover:text-rose-605 cursor-pointer transition-colors"
+                        className="p-0.5 rounded-sm bg-white border border-slate-200 hover:border-rose-600 hover:bg-rose-50 text-slate-405 hover:text-rose-605 cursor-pointer transition-colors"
                         title="Excluir permanentemente do histórico"
                       >
-                        <Trash2 className="h-3 w-3" />
+                        <Trash2 className="h-2.5 w-2.5" />
                       </button>
                     </div>
                   </div>
@@ -714,19 +709,19 @@ export default function CapacityPanel({
             })}
           </div>
         ) : archivedQuotes.length > 0 ? (
-          <div className="py-5 text-center bg-slate-50 rounded-xl border-2 border-dashed border-slate-150 text-slate-500">
-            <Filter className="h-5 w-5 mx-auto text-slate-305 mb-1 text-slate-500" />
-            <p className="text-[11px] font-bold">Nenhum resultado filtrado.</p>
-            <p className="text-[11px] max-w-[190px] mx-auto text-slate-450 mt-0.5">
+          <div className="py-3 text-center bg-slate-50 rounded-lg border-2 border-dashed border-slate-150 text-slate-500">
+            <Filter className="h-4 w-4 mx-auto text-slate-305 mb-0.5 text-slate-500" />
+            <p className="text-[9px] font-bold">Nenhum resultado filtrado.</p>
+            <p className="text-[9px] max-w-[190px] mx-auto text-slate-450 mt-0.5">
               Ajuste as datas/categoria ou clique em <strong>"Limpar"</strong> para ver tudo.
             </p>
           </div>
         ) : (
-          <div className="py-5 text-center bg-slate-50 rounded-xl border-2 border-dashed border-slate-150 text-slate-500">
-            <FolderOpen className="h-5 w-5 mx-auto text-slate-300 mb-1" />
-            <p className="text-[11px] font-bold">Nenhuma cotação arquivada.</p>
-            <p className="text-[11px] max-w-[190px] mx-auto text-slate-450 mt-0.5">
-              Insira os preços e clique em <strong>"Nova Cotação"</strong> no topo para arquivar o rascunho.
+          <div className="py-3 text-center bg-slate-50 rounded-lg border-2 border-dashed border-slate-150 text-slate-500">
+            <FolderOpen className="h-4 w-4 mx-auto text-slate-300 mb-0.5" />
+            <p className="text-[9px] font-bold">Nenhuma cotação arquivada.</p>
+            <p className="text-[8px] max-w-[190px] mx-auto text-slate-450 mt-0.5">
+              Insira preços e clique em <strong>"Nova Cotação"</strong> para arquivar.
             </p>
           </div>
         )}
@@ -735,8 +730,6 @@ export default function CapacityPanel({
     </div>
   );
 }
-
-// Spark helper components for Capacity Panel inline pricing
 
 interface PriceInputCapacityProps {
   value: number;
@@ -782,7 +775,7 @@ function PriceInputCapacity({ value, onChange }: PriceInputCapacityProps) {
 
   return (
     <div className="flex items-center justify-end">
-      <span className="text-[11px] text-slate-300 mr-0.5 font-bold font-mono">R$</span>
+      <span className="text-[8px] text-slate-300 mr-0.5 font-bold font-mono">R$</span>
       <input
         ref={ref}
         type="text"
@@ -790,7 +783,7 @@ function PriceInputCapacity({ value, onChange }: PriceInputCapacityProps) {
         value={localVal}
         onChange={handleChange}
         onBlur={handleBlur}
-        className="text-right w-14 bg-transparent p-0 border-0 font-bold text-slate-700 focus:ring-0 outline-hidden focus:outline-hidden text-[11px]"
+        className="text-right w-12 bg-transparent p-0 border-0 font-bold text-slate-700 focus:ring-0 outline-hidden focus:outline-hidden text-[9px]"
         placeholder="0,00"
       />
     </div>
@@ -805,53 +798,53 @@ function renderTotalTrend(curr: number, prev: number) {
 
   if (diff < 0) {
     return (
-      <span className="inline-flex items-center gap-0.5 text-[11px] font-black text-emerald-700 bg-emerald-50 px-1 rounded-sm leading-none mt-0.5">
+      <span className="inline-flex items-center gap-0.5 text-[9px] font-black text-emerald-700 bg-emerald-50 px-1 rounded-sm leading-none mt-0.5">
         <TrendingDown className="h-2.5 w-2.5" />
         -{Math.abs(pct).toFixed(1)}% economizado
       </span>
     );
   } else if (diff > 0) {
     return (
-      <span className="inline-flex items-center gap-0.5 text-[11px] font-black text-amber-700 bg-amber-50 px-1 rounded-sm leading-none mt-0.5">
+      <span className="inline-flex items-center gap-0.5 text-[9px] font-black text-amber-700 bg-amber-50 px-1 rounded-sm leading-none mt-0.5">
         <TrendingUp className="h-2.5 w-2.5" />
         +{pct.toFixed(1)}% custo
       </span>
     );
   }
-  return <span className="text-[11px] text-slate-500 font-bold mt-0.5 block">Sem alteração</span>;
+  return <span className="text-[9px] text-slate-500 font-bold mt-0.5 block">Sem alteração</span>;
 }
 
 function renderQtyTrend(curr: number, prev: number) {
   const diff = curr - prev;
   if (diff < 0) {
     return (
-      <span className="text-[11px] text-emerald-600 font-black">
+      <span className="text-[9px] text-emerald-600 font-black">
         Redução ({diff} un)
       </span>
     );
   } else if (diff > 0) {
     return (
-      <span className="text-[11px] text-orange-600 font-black">
+      <span className="text-[9px] text-orange-600 font-black">
         Aumento (+{diff} un)
       </span>
     );
   }
-  return <span className="text-[11px] text-slate-500 font-bold">Inalterado</span>;
+  return <span className="text-[9px] text-slate-500 font-bold">Inalterado</span>;
 }
 
 function renderBadgeDiff(diff: number) {
   if (diff === 0) {
-    return <span className="px-1 py-0.5 rounded-md bg-slate-50 text-[11px] font-bold text-slate-500 border border-slate-200/50">0</span>;
+    return <span className="px-1 py-0.5 rounded-md bg-slate-50 text-[9px] font-bold text-slate-500 border border-slate-200/50">0</span>;
   }
   if (diff > 0) {
     return (
-      <span className="px-1 py-0.5 rounded-md bg-amber-50 text-[11px] font-extrabold text-[#F59E0B] border border-amber-200/50">
+      <span className="px-1 py-0.5 rounded-md bg-amber-50 text-[9px] font-extrabold text-[#F59E0B] border border-amber-200/50">
         +{diff}
       </span>
     );
   }
   return (
-    <span className="px-1 py-0.5 rounded-md bg-emerald-50 text-[11px] font-extrabold text-emerald-705 border border-emerald-250/30">
+    <span className="px-1 py-0.5 rounded-md bg-emerald-50 text-[9px] font-extrabold text-emerald-705 border border-emerald-250/30">
       {diff}
     </span>
   );
@@ -861,14 +854,14 @@ function renderBadgeDiff(diff: number) {
 function renderPriceTrendMarkup(current: number, previous: number, isNewItem: boolean) {
   if (isNewItem) {
     return (
-      <span className="px-1 py-0.5 rounded-sm bg-blue-50 text-[11px] font-black text-blue-800 border border-blue-200/50">
+      <span className="px-1 py-0.5 rounded-sm bg-blue-50 text-[9px] font-black text-blue-800 border border-blue-200/50">
         Novo Produto
       </span>
     );
   }
   if (previous === 0 || current === 0) {
     return (
-      <span className="text-slate-300 text-[11px] flex items-center gap-0.5">
+      <span className="text-slate-300 text-[9px] flex items-center gap-0.5">
         <Minus className="h-2.5 w-2.5" />
         s/ inf.
       </span>
@@ -880,14 +873,14 @@ function renderPriceTrendMarkup(current: number, previous: number, isNewItem: bo
 
   if (diff > 0.005) {
     return (
-      <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-rose-600" title="Preço aumentou">
+      <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-rose-600" title="Preço aumentou">
         <ArrowUpRight className="h-2.5 w-2.5 shrink-0 text-rose-500" />
         +{pct.toFixed(1)}%
       </span>
     );
   } else if (diff < -0.005) {
     return (
-      <span className="inline-flex items-center gap-0.5 text-[11px] font-bold text-emerald-600" title="Preço caiu">
+      <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-emerald-600" title="Preço caiu">
         <ArrowDownRight className="h-2.5 w-2.5 shrink-0 text-emerald-500" />
         {pct.toFixed(1)}%
       </span>
@@ -895,7 +888,7 @@ function renderPriceTrendMarkup(current: number, previous: number, isNewItem: bo
   }
 
   return (
-    <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-350" title="Preço mantido">
+    <span className="inline-flex items-center gap-0.5 text-[9px] font-semibold text-slate-350" title="Preço mantido">
       <Minus className="h-2.5 w-2.5 shrink-0 text-slate-300" />
       Mantido
     </span>

@@ -581,11 +581,10 @@ html {
     color: #252A34 !important;
   }
 
-  /* Dark sidebar override */
-  .theme-ultradark .bp-sidebar {
-    background-color: #0a1019 !important;
-    border-color: #2a2a2a !important;
-  }
+/* Dark sidebar override */
+.theme-ultradark .bp-sidebar {
+  background-color: #1a1a1a !important;
+}
 
   .theme-ultradark .bp-sidebar-nav-item {
     color: #8a8a8a !important;
@@ -623,8 +622,7 @@ html {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #ffffff;
-  border-right: 1px solid #e0e0e0;
+  background-color: #252A34;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -632,6 +630,7 @@ html {
   overflow-y: auto;
   z-index: 50;
   transition: width 0.2s ease;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 768px) {
@@ -660,22 +659,24 @@ html {
 .bp-sidebar-brand-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #FF2E63 0%, #A82047 100%);
+  background: transparent;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   margin-bottom: 6px;
-  box-shadow: 0 2px 8px rgba(255, 46, 99, 0.25);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .bp-sidebar-brand-label {
   font-size: 9px;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: #FF2E63;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .bp-sidebar-nav {
@@ -691,13 +692,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2px;
-  width: 100%;
-  padding: 8px 0;
-  color: #505050;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  border-right: 3px solid transparent;
-  transition: all 0.15s ease;
+  border-right: 4px solid transparent;
+  border-radius: 12px;
+  transition: all 0.2s ease;
   cursor: pointer;
   background: transparent;
   border-top: none;
@@ -707,14 +711,14 @@ html {
 }
 
 .bp-sidebar-nav-item:hover {
-  background-color: #f7fafc;
-  color: #252A34;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
 }
 
 .bp-sidebar-nav-item-active {
   color: #FF2E63;
   border-right-color: #FF2E63;
-  background-color: rgba(255, 46, 99, 0.04);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .bp-sidebar-nav-item .material-symbols-outlined {
@@ -759,13 +763,15 @@ html {
   top: 0;
   right: 0;
   left: 80px;
-  height: 64px;
-  background: #ffffff;
+  height: 80px;
+  background: rgba(250, 250, 250, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 32px;
   z-index: 40;
   transition: left 0.2s ease;
 }
@@ -792,37 +798,31 @@ html {
 
 .bp-card {
   background: white;
-  border-radius: 16px;
-  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  border: none;
+  border-left: 4px solid #e0e0e0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
 
 .bp-card:hover {
-  border-color: #c8c8c8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .bp-card-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  border-radius: 0;
+  display: none;
 }
 
-.bp-card-accent-pink { background-color: #FF2E63; }
-.bp-card-accent-navy { background-color: #252A34; }
-.bp-card-accent-emerald { background-color: #10B981; }
-.bp-card-accent-amber { background-color: #f59e0b; }
-.bp-card-accent-sky { background-color: #0ea5e9; }
+.bp-card-accent-pink { border-left-color: #FF2E63; }
+.bp-card-accent-navy { border-left-color: #252A34; }
+.bp-card-accent-emerald { border-left-color: #10B981; }
+.bp-card-accent-amber { border-left-color: #f59e0b; }
+.bp-card-accent-sky { border-left-color: #0ea5e9; }
 
 .bp-card-icon {
-  padding: 10px;
+  padding: 8px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -953,49 +953,51 @@ html {
    ========================================== */
 
 .bp-btn-primary {
-  background: linear-gradient(135deg, #FF2E63 0%, #A82047 100%);
+  background: #FF2E63;
   color: white;
   padding: 10px 24px;
-  border-radius: 10px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 14px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255, 46, 99, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 46, 99, 0.25);
   transition: all 0.2s ease;
 }
 
 .bp-btn-primary:hover {
-  box-shadow: 0 4px 16px rgba(255, 46, 99, 0.35);
-  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(255, 46, 99, 0.35);
 }
 
 .bp-btn-primary:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.95);
 }
 
 .bp-btn-outline {
   background: white;
-  border: 1.5px solid #FF2E63;
-  color: #FF2E63;
+  border: 1px solid #e0e0e0;
+  color: #6a6a6a;
   padding: 8px 16px;
   border-radius: 8px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .bp-btn-outline:hover {
-  background-color: #FF2E63;
-  color: white;
+  background-color: #f0f0f0;
+  border-color: #c8c8c8;
 }
 
 /* ==========================================
@@ -1004,7 +1006,7 @@ html {
 
 .bp-input {
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #e0e0e0;
   background-color: white;
   font-size: 14px;
@@ -1015,9 +1017,9 @@ html {
 
 .bp-input:focus {
   outline: none;
-  border-color: #FF2E63;
+  border-color: #08D9D6;
   background-color: white;
-  box-shadow: 0 0 0 3px rgba(255, 46, 99, 0.08);
+  box-shadow: 0 0 0 3px rgba(8, 217, 214, 0.15);
 }
 
 /* ==========================================
@@ -1060,7 +1062,7 @@ html {
    ========================================== */
 
 :focus-visible {
-  outline: 2px solid rgba(255, 46, 99, 0.5);
+  outline: 2px solid rgba(8, 217, 214, 0.5);
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -1136,11 +1138,10 @@ html {
 
 .btn-magnetic:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
 }
 
 .btn-magnetic:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.98);
 }
 
 .hover-lift {
@@ -1149,7 +1150,6 @@ html {
 
 .hover-lift:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
 }
 
 .table-row-transition {
@@ -1265,8 +1265,8 @@ input, select, textarea {
 }
 
 .input-premium:focus {
-  border-color: rgba(255, 46, 99, 0.4);
-  box-shadow: 0 0 0 3px rgba(255, 46, 99, 0.06);
+  border-color: rgba(8, 217, 214, 0.4);
+  box-shadow: 0 0 0 3px rgba(8, 217, 214, 0.06);
   outline: none;
 }
 
@@ -1317,7 +1317,7 @@ input, select, textarea {
 
 .bp-main {
   margin-left: 80px;
-  padding-top: 64px;
+  padding-top: 80px;
   min-height: 100vh;
 }
 
@@ -1335,32 +1335,31 @@ input, select, textarea {
 /* Showcase card - the core building block */
 .showcase-card {
   background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  border: none;
+  border-left: 4px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .showcase-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  border-color: #c8c8c8;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Elevated card - for featured/hero content */
 .showcase-card-elevated {
   background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  border: none;
+  border-left: 4px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .showcase-card-elevated:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  border-color: #c8c8c8;
-  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Flat card - for secondary content */
@@ -1377,22 +1376,22 @@ input, select, textarea {
 
 /* Hero card - for primary actions/dropzone */
 .showcase-hero {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  background: #ffffff;
   border: 2px dashed #e0e0e0;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
 }
 
 .showcase-hero:hover {
-  border-color: #FF2E63;
-  box-shadow: 0 4px 16px rgba(255, 46, 99, 0.1);
+  border-color: #08D9D6;
+  box-shadow: 0 4px 16px rgba(8, 217, 214, 0.1);
 }
 
 .showcase-hero-active {
-  border-color: #FF2E63;
-  background: linear-gradient(135deg, rgba(255, 46, 99, 0.03) 0%, rgba(255, 46, 99, 0.01) 100%);
-  box-shadow: 0 0 0 4px rgba(255, 46, 99, 0.1), 0 4px 16px rgba(255, 46, 99, 0.08);
+  border-color: #08D9D6;
+  background: rgba(8, 217, 214, 0.03);
+  box-shadow: 0 0 0 4px rgba(8, 217, 214, 0.1), 0 4px 16px rgba(8, 217, 214, 0.08);
 }
 
 /* Typography hierarchy - showcase editorial */
@@ -1458,7 +1457,7 @@ input, select, textarea {
 
 /* Accent bar - left border accent */
 .showcase-accent-bar {
-  border-left: 3px solid #FF2E63;
+  border-left: 4px solid #FF2E63;
   padding-left: 12px;
 }
 
@@ -1499,7 +1498,7 @@ input, select, textarea {
 .showcase-input {
   border: 1px solid #e0e0e0;
   background: #ffffff;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px 14px;
   font-size: 14px;
   color: #252A34;
@@ -1508,8 +1507,8 @@ input, select, textarea {
 
 .showcase-input:focus {
   outline: none;
-  border-color: #FF2E63;
-  box-shadow: 0 0 0 3px rgba(255, 46, 99, 0.08);
+  border-color: #08D9D6;
+  box-shadow: 0 0 0 3px rgba(8, 217, 214, 0.15);
 }
 
 .showcase-input::placeholder {
@@ -1518,41 +1517,45 @@ input, select, textarea {
 
 /* Button system - showcase style */
 .showcase-btn-primary {
-  background: linear-gradient(135deg, #FF2E63 0%, #A82047 100%);
+  background: #FF2E63;
   color: white;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255, 46, 99, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 46, 99, 0.25);
   transition: all 0.2s ease;
 }
 
 .showcase-btn-primary:hover {
-  box-shadow: 0 4px 16px rgba(255, 46, 99, 0.35);
-  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(255, 46, 99, 0.35);
 }
 
 .showcase-btn-primary:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.95);
 }
 
 .showcase-btn-ghost {
   background: transparent;
-  color: #252A34;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 10px 20px;
-  border-radius: 10px;
+  color: #6a6a6a;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
   border: 1px solid #e0e0e0;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .showcase-btn-ghost:hover {
-  background: #f8f8f8;
+  background: #f0f0f0;
   border-color: #c8c8c8;
 }
 
@@ -1684,9 +1687,9 @@ input, select, textarea {
 }
 
 .showcase-field-ai {
-  border-color: #FF2E63;
-  background: rgba(255, 46, 99, 0.02);
-  box-shadow: 0 0 0 2px rgba(255, 46, 99, 0.06);
+  border-color: #08D9D6;
+  background: rgba(8, 217, 214, 0.02);
+  box-shadow: 0 0 0 2px rgba(8, 217, 214, 0.06);
 }
 
 .showcase-field-error {

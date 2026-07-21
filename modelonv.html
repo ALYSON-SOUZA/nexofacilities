@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PCentral - Cotação COT-001</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;700&amp;family=Raleway:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1b1c",
+                        "on-secondary-container": "#fffbff",
+                        "secondary": "#b9003f",
+                        "on-tertiary-fixed-variant": "#00504e",
+                        "primary": "#11161f",
+                        "on-primary-container": "#8c919d",
+                        "on-surface-variant": "#45474b",
+                        "surface-bright": "#fcf8f9",
+                        "surface": "#fcf8f9",
+                        "inverse-primary": "#c2c6d3",
+                        "primary-container": "#252a34",
+                        "inverse-on-surface": "#f3f0f0",
+                        "tertiary-fixed-dim": "#18ddd9",
+                        "outline": "#76777c",
+                        "on-primary-fixed-variant": "#424752",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe7e8",
+                        "outline-variant": "#c6c6cc",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1b1c",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf8f9",
+                        "tertiary-fixed": "#50f9f6",
+                        "on-secondary-fixed-variant": "#910030",
+                        "tertiary-container": "#00302f",
+                        "inverse-surface": "#313031",
+                        "surface-dim": "#dcd9da",
+                        "surface-tint": "#595e6a",
+                        "surface-container-highest": "#e5e2e2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3f3",
+                        "primary-fixed-dim": "#c2c6d3",
+                        "primary-fixed": "#dee2f0",
+                        "on-tertiary-container": "#00a2a0",
+                        "tertiary": "#001919",
+                        "secondary-fixed": "#ffd9dc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2e2",
+                        "on-tertiary-fixed": "#00201f",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb2ba",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#400010",
+                        "on-primary-fixed": "#171c25",
+                        "secondary-container": "#e51152"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "inline-xs": "0.5rem",
+                        "container-padding": "2rem",
+                        "stack-gap": "1.5rem",
+                        "inline-md": "1rem",
+                        "grid-gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "data-lg": ["DM Mono"],
+                        "headline-md": ["Raleway"],
+                        "title-sm": ["Raleway"],
+                        "display-lg": ["Raleway"],
+                        "body-sm": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "label-bold": ["DM Sans"],
+                        "data-sm": ["DM Mono"]
+                    },
+                    "fontSize": {
+                        "data-lg": ["28px", {"lineHeight": "1.1", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "title-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-bold": ["12px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "data-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<nav class="fixed left-0 top-0 bottom-0 z-50 flex flex-col h-screen w-20 py-4 bg-primary shadow-xl">
+<div class="mb-8 flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-on-primary font-bold">P</span>
+<span class="text-[10px] text-white/40 uppercase tracking-widest">Central</span>
+</div>
+<div class="flex flex-col gap-4 items-center w-full">
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 border-r-4 border-secondary text-secondary bg-white/10" href="#" title="Dashboard">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Inventory">
+<span class="material-symbols-outlined">inventory_2</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Analytics">
+<span class="material-symbols-outlined">leaderboard</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Orders">
+<span class="material-symbols-outlined">shopping_cart</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Finance">
+<span class="material-symbols-outlined">payments</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Reports">
+<span class="material-symbols-outlined">description</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-4 items-center w-full">
+<a class="w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 text-white/60 hover:text-white hover:bg-white/5" href="#" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-20 z-40 h-20 px-8 flex items-center justify-between border-b border-outline-variant bg-surface/80 backdrop-blur-md">
+<div class="flex items-center gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary font-bold">COTAÇÃO</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant -mt-1">Otimização de orçamentos</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-tighter">SINCRONIZADO</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant font-data-sm text-data-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                15/06/2023
+            </div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-4 border-r border-outline-variant pr-6 mr-2">
+<div class="text-right">
+<p class="font-label-bold text-label-bold text-on-surface">CHAMADO: 00000000</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">ID: 567.890.456-78</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">dark_mode</span></button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">lock</span></button>
+</div>
+<div class="flex items-center gap-3 ml-4 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-label-bold text-label-bold">KJ HJKHKJH</p>
+<p class="text-[10px] text-on-surface-variant">Facilities BP</p>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate procurement executive in a bright, modern office setting. The lighting is clean and professional, matching a high-end business UI style. The background is slightly blurred with soft white and petrol blue accents. High-quality corporate portrait photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk_rivncbCjzQAIVtmazNNIy7JrG7ZHkfW-ccZnuhA9pUFP53VIHAaD65Qh2yTb-xMTiqcUxU1o0EnGsKGc0ki27p2ANlFwYb2aAm0ZemHWlleoOtuuAutczGT6bbVvmFLrYsHh82VYzN7S5OWYzKl-hK2TMRqPWg23snSP0B2ctBDu_kBEg0UI1nu3nDnogt0L0CWqCzxpu7l6UyK4LF6KiYDBBybAd_km7tKPvArb64puGY1C3MmS78usifY60tcLX7UvJYfeJk"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-20 pt-20 pb-10">
+<div class="px-container-padding py-8 space-y-grid-gutter">
+<!-- Secondary Header Actions -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant bg-white focus:ring-2 focus:ring-tertiary-fixed-dim focus:border-tertiary-fixed-dim outline-none transition-all font-body-md" placeholder="Busque material..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">save</span> SALVAR
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">description</span> EXCEL
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">print</span> IMPRIMIR
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant text-secondary font-label-bold text-label-bold hover:bg-secondary/5 transition-all">
+<span class="material-symbols-outlined text-[18px]">refresh</span> REINICIAR
+                    </button>
+</div>
+</div>
+<!-- Bento Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Melhor Compra Mista -->
+<div class="relative bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-l-4 border-secondary overflow-hidden group hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-secondary/5 text-secondary">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-bold text-[10px] tracking-wider uppercase">RECOMENDADO</span>
+</div>
+<p class="font-title-sm text-title-sm text-on-surface-variant uppercase">MELHOR COMPRA MISTA</p>
+<h2 class="font-data-lg text-data-lg mt-2 text-primary">R$ 0,00</h2>
+<div class="absolute bottom-0 right-0 w-16 h-16 bg-secondary/5 -mr-4 -mb-4 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+</div>
+<!-- Card 2: Melhor Loja Única -->
+<div class="relative bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-l-4 border-primary overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-primary/5 text-primary">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+</div>
+<p class="font-title-sm text-title-sm text-on-surface-variant uppercase">MELHOR LOJA ÚNICA</p>
+<h2 class="font-data-lg text-data-lg mt-2 text-primary">R$ 0,00</h2>
+<p class="mt-4 font-body-sm text-body-sm text-on-surface-variant">FORNECEDOR: <span class="text-primary font-bold">-</span></p>
+</div>
+<!-- Card 3: Economia Auditada -->
+<div class="relative bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-l-4 border-tertiary-fixed-dim overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-tertiary-fixed-dim/10 text-on-tertiary-container">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-title-sm text-title-sm text-on-surface-variant uppercase">ECONOMIA AUDITADA</p>
+<h2 class="font-data-lg text-data-lg mt-2 text-on-tertiary-container">R$ 0,00</h2>
+<p class="mt-4 font-body-sm text-body-sm text-on-surface-variant uppercase text-[10px] font-bold tracking-tight">POUPADO VS MAIS CARO</p>
+</div>
+<!-- Card 4: Otimização Real -->
+<div class="relative bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-l-4 border-secondary overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-secondary/5 text-secondary">
+<span class="material-symbols-outlined">percent</span>
+</div>
+</div>
+<p class="font-title-sm text-title-sm text-on-surface-variant uppercase">OTIMIZAÇÃO REAL</p>
+<h2 class="font-data-lg text-data-lg mt-2 text-secondary">0.0%</h2>
+<p class="mt-4 font-body-sm text-body-sm text-on-surface-variant uppercase text-[10px] font-bold tracking-tight">EFICIÊNCIA MISTA ALCANÇADA</p>
+</div>
+</div>
+<!-- Table Actions Row -->
+<div class="flex flex-col lg:flex-row items-center justify-between gap-6 bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4 w-full lg:w-auto">
+<div class="flex items-center gap-2">
+<label class="font-label-bold text-label-bold text-on-surface">QTD:</label>
+<input class="w-20 px-3 py-2 rounded-lg border border-outline-variant bg-white text-center font-data-sm" type="number" value="1"/>
+</div>
+<button class="flex-1 lg:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-secondary text-on-secondary font-label-bold text-label-bold hover:brightness-110 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined">add</span> + INSERIR NA PLANILHA
+                    </button>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span> Guia de Uso
+                    </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span> WHATSAPP / MSG
+                    </a>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-label-bold text-label-bold hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-[20px]">bolt</span> IMPORT IA
+                    </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto scrollbar-hide">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary text-white">
+<th class="p-4 font-label-bold text-label-bold border-r border-white/10 w-1/4">ITENS A COTAR</th>
+<th class="p-4 font-label-bold text-label-bold border-r border-white/10 text-center w-16">PAGO?</th>
+<th class="p-4 font-label-bold text-label-bold border-r border-white/10 text-center w-16">QTD</th>
+<!-- Supplier Header Groups -->
+<th class="p-0 border-r border-white/10">
+<div class="flex flex-col">
+<div class="bg-secondary px-4 py-2 flex items-center justify-between">
+<span class="font-label-bold">FORNECEDOR 1</span>
+<button class="text-white/60 hover:text-white"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<div class="bg-secondary/10 text-secondary p-2 text-[10px] text-center font-bold">CLIQUE PARA CADASTRAR</div>
+<div class="grid grid-cols-2 text-[10px] font-bold text-center border-t border-secondary/20">
+<div class="py-1 border-r border-secondary/20">UNIT (R$)</div>
+<div class="py-1">TOTAL (R$)</div>
+</div>
+</div>
+</th>
+<th class="p-0 border-r border-white/10">
+<div class="flex flex-col">
+<div class="bg-primary-container px-4 py-2 flex items-center justify-between">
+<span class="font-label-bold text-on-primary-container">FORNECEDOR 2</span>
+<button class="text-white/40 hover:text-white"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<div class="bg-surface-container text-on-surface-variant p-2 text-[10px] text-center font-bold">CLIQUE PARA CADASTRAR</div>
+<div class="grid grid-cols-2 text-[10px] font-bold text-center border-t border-outline-variant">
+<div class="py-1 border-r border-outline-variant">UNIT (R$)</div>
+<div class="py-1">TOTAL (R$)</div>
+</div>
+</div>
+</th>
+<th class="p-0 border-r border-white/10">
+<div class="flex flex-col">
+<div class="bg-tertiary-fixed-dim px-4 py-2 flex items-center justify-between">
+<span class="font-label-bold text-on-tertiary-container">FORNECEDOR 3</span>
+<button class="text-on-tertiary-container/60 hover:text-on-tertiary-container"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<div class="bg-tertiary-fixed-dim/10 text-on-tertiary-container p-2 text-[10px] text-center font-bold">CLIQUE PARA CADASTRAR</div>
+<div class="grid grid-cols-2 text-[10px] font-bold text-center border-t border-tertiary-fixed-dim/20">
+<div class="py-1 border-r border-tertiary-fixed-dim/20 text-on-tertiary-container">UNIT (R$)</div>
+<div class="py-1 text-on-tertiary-container">TOTAL (R$)</div>
+</div>
+</div>
+</th>
+<th class="p-4 font-label-bold text-label-bold text-center w-12">Excl.</th>
+</tr>
+</thead>
+<tbody>
+<!-- Empty State -->
+<tr>
+<td class="py-20 text-center" colspan="7">
+<div class="flex flex-col items-center justify-center opacity-40">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-outline">inventory_2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Nenhum item adicionado à cotação</p>
+<p class="text-[12px] mt-1 italic">Utilize o campo de busca acima para inserir novos produtos.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per requirement for sub-screens, but showing micro-interaction potential) -->
+<button class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform opacity-0 pointer-events-none z-50" id="scrollToTop">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<script>
+        // Micro-interactions and scroll effects
+        const scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Search Input focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+</body></html>

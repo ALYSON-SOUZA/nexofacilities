@@ -52,18 +52,18 @@ body {
   }
 
   /* ── DASHBOARD KPI CARDS (stacked) ── */
-  #root .md\:grid-cols-12 {
+  #root .lg\:grid-cols-4 {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
   }
 
   /* KPI value text scaled down */
-  #root .md\:grid-cols-12 h3 {
+  #root .lg\:grid-cols-4 h2 {
     font-size: 1.1rem !important;
   }
 
-  #root .md\:grid-cols-12 .p-5 {
-    padding: 0.875rem !important;
+  #root .lg\:grid-cols-4 .p-6 {
+    padding: 1rem !important;
   }
 
   /* ── TABLE (internal horizontal scroll) ── */
@@ -227,7 +227,7 @@ body {
   }
 
   /* Dashboard: 2 columns */
-  #root .md\:grid-cols-12 {
+  #root .lg\:grid-cols-4 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1rem !important;
   }

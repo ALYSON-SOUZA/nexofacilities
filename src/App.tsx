@@ -1506,7 +1506,7 @@ export default function App() {
         cell.value = h;
         cell.font = { name: "Arial", size: 10, bold: true, color: { argb: "FFFFFFFF" } };
         cell.alignment = { horizontal: "center", vertical: "middle" };
-        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF252A34" } };
+        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF0f172a" } };
       });
 
       // Write table rows
@@ -1708,7 +1708,7 @@ export default function App() {
   const displayCpf = userCpf ? userCpf : "000.000.000-00";
 
   return (
-    <div className={`min-h-screen text-slate-900 selection:bg-blue-100 font-sans leading-none theme-${visualTheme}`}>
+    <div className={`text-slate-900 selection:bg-blue-100 font-sans leading-none theme-${visualTheme}`}>
       
       {/* MOBILE HEADER (only visible on mobile) */}
       <div className="md:hidden flex items-center justify-between bg-white text-slate-900 px-4 py-3 print:hidden shrink-0 border-b border-slate-200">
@@ -1913,7 +1913,7 @@ export default function App() {
                       {activeCategoryObj?.name || "Nenhuma categoria"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#FF2E63] font-extrabold text-[9px] shrink-0">
+                  <div className="flex items-center gap-1.5 text-[#3b82f6] font-extrabold text-[9px] shrink-0">
                     <span>CLIQUE PARA ESCOLHER</span>
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isCategorySelectOpen ? "rotate-180" : ""}`} />
                   </div>
@@ -1941,7 +1941,7 @@ export default function App() {
                           >
                             <div className="space-y-0.5 max-w-[70%]">
                               <span className={`text-[10px] uppercase tracking-tight block truncate ${
-                                isSelected ? "font-black text-[#FF2E63]" : "font-extrabold text-slate-800"
+                                isSelected ? "font-black text-[#3b82f6]" : "font-extrabold text-slate-800"
                               }`}>
                                 {cat.name}
                               </span>
@@ -1950,7 +1950,7 @@ export default function App() {
                               </span>
                             </div>
                             <div className={`px-2 py-0.5 rounded-full text-[8px] font-black tracking-tight shrink-0 ${
-                              isSelected ? "bg-[#FF2E63] text-white" : "bg-slate-100 text-slate-600"
+                              isSelected ? "bg-[#3b82f6] text-white" : "bg-slate-100 text-slate-600"
                             }`}>
                               {cat.items ? cat.items.length : 0} ITENS
                             </div>
@@ -1971,7 +1971,7 @@ export default function App() {
                     placeholder="Ex. Copa e Cozinha, Ferramentas..."
                     value={newCategoryName}
                     onChange={(e) => setNewCategoryName(e.target.value)}
-                    className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#FF2E63]"
+                    className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#3b82f6]"
                   />
                   <button
                     onClick={() => {
@@ -2014,7 +2014,7 @@ export default function App() {
                         }
                       }
                     }}
-                    className="w-full text-xs font-bold border-2 border-slate-200 text-slate-800 rounded-xl py-2 px-2.5 bg-slate-50 focus:outline-none focus:border-[#FF2E63] cursor-pointer"
+                    className="w-full text-xs font-bold border-2 border-slate-200 text-slate-800 rounded-xl py-2 px-2.5 bg-slate-50 focus:outline-none focus:border-[#3b82f6] cursor-pointer"
                   >
                     <option value="">-- Começar do Zero (Cotação Limpa) --</option>
                     {archivedQuotes.map((q) => (
@@ -2042,7 +2042,7 @@ export default function App() {
                         placeholder="Ex: Refeitório, Recepção"
                         value={modalQuoteTitle}
                         onChange={(e) => setModalQuoteTitle(e.target.value)}
-                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900 focus:border-[#FF2E63] focus:outline-none focus:ring-0"
+                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900 focus:border-[#3b82f6] focus:outline-none focus:ring-0"
                       />
                     </div>
                   </div>
@@ -2058,7 +2058,7 @@ export default function App() {
                         maxLength={8}
                         value={modalChamadoNumber}
                         onChange={(e) => setModalChamadoNumber(e.target.value.replace(/\D/g, "").slice(0, 8))}
-                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-black text-slate-900 tracking-widest text-center focus:border-[#FF2E63] focus:outline-none focus:ring-0 uppercase"
+                        className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-3 py-2 text-sm font-black text-slate-900 tracking-widest text-center focus:border-[#3b82f6] focus:outline-none focus:ring-0 uppercase"
                       />
                     </div>
                   </div>
@@ -2160,10 +2160,10 @@ export default function App() {
           {/* Left Side: Brand Logo */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <div className="flex flex-col justify-center text-left leading-none">
-              <span className="text-[6px] sm:text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#FF2E63] uppercase leading-none">FACILITIES</span>
+              <span className="text-[6px] sm:text-[7.5px] font-sans font-bold tracking-[0.3em] text-[#3b82f6] uppercase leading-none">FACILITIES</span>
               <div className="text-base sm:text-lg font-display font-extrabold tracking-tight leading-none uppercase my-0.5 flex items-center gap-0.5">
                 <span className="text-slate-900">B</span>
-                <span className="text-[#FF2E63]">P</span>
+                <span className="text-[#3b82f6]">P</span>
               </div>
               <span className="text-[7px] sm:text-[8.5px] font-sans font-medium tracking-[0.35em] text-slate-400 uppercase leading-none">COMPRAS</span>
             </div>
@@ -2171,7 +2171,7 @@ export default function App() {
 
           {/* Right Side: Title & Chamado Inputs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto flex-1 justify-end min-w-0">
-            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#FF2E63] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
+            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 flex-1 min-w-0 sm:max-w-[600px] md:max-w-[750px] lg:max-w-[900px] xl:max-w-[1100px]">
               <span className="text-[7px] font-bold uppercase text-slate-400 tracking-wider font-sans whitespace-nowrap">Título:</span>
               <input
                 type="text"
@@ -2182,7 +2182,7 @@ export default function App() {
               />
             </div>
 
-            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#FF2E63] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[160px] shrink-0">
+            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2 py-1.5 focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-pink-50 transition-all duration-200 w-full sm:w-auto sm:max-w-[160px] shrink-0">
               <span className="text-[7px] font-bold uppercase text-slate-400 tracking-wider font-mono whitespace-nowrap">Chamado:</span>
               <input
                 type="text"
@@ -2208,7 +2208,7 @@ export default function App() {
                   <div>
                     <span className="uppercase text-[6px] tracking-wider text-sky-500 font-extrabold block leading-none">MODO DE EDIÇÃO ATIVO</span>
                     <span className="font-extrabold uppercase text-[9px] text-sky-950 font-sans">
-                      Você está alterando a Cotação <span className="font-black font-mono text-[#FF2E63]">#{editingQuoteId}</span>
+                      Você está alterando a Cotação <span className="font-black font-mono text-[#3b82f6]">#{editingQuoteId}</span>
                     </span>
                   </div>
                 </div>
@@ -2234,12 +2234,12 @@ export default function App() {
             {lastChangeLog && (
               <div className="mb-2 p-2 bg-white border border-slate-200 rounded-xl text-[9px] font-bold text-slate-650 flex flex-col md:flex-row md:items-center md:justify-between gap-1 print:hidden animate-fade-in text-slate-700">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#FF2E63] animate-pulse shrink-0" />
+                  <span className="flex h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#3b82f6] animate-pulse shrink-0" />
                   <span className="uppercase text-[7px] tracking-wider text-slate-450 font-extrabold whitespace-nowrap">Última:</span>
                   <span className="text-slate-900 font-black uppercase text-[8px] truncate">{lastChangeLog.action}</span>
                 </div>
                 <div className="text-[7px] text-slate-500 font-semibold font-mono self-start md:self-auto uppercase tracking-tight">
-                  por <span className="font-extrabold text-[#FF2E63]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
+                  por <span className="font-extrabold text-[#3b82f6]">{lastChangeLog.user.toUpperCase()}</span> <span className="hidden sm:inline">em</span> <span className="sm:hidden">-</span> {lastChangeLog.timestamp}
                 </div>
               </div>
             )}
@@ -2415,7 +2415,7 @@ export default function App() {
                     Simulação de Categoria Recomendada
                   </h3>
                   <p className="text-xs text-slate-550 font-bold leading-relaxed">
-                    Você está na categoria <strong className="text-[#FF2E63]">MATERIAL DE LIMPEZA</strong>, mas possui <strong className="font-extrabold text-slate-800">{items.filter(it => it.quantity > 0).length} itens</strong> para compra.
+                    Você está na categoria <strong className="text-[#3b82f6]">MATERIAL DE LIMPEZA</strong>, mas possui <strong className="font-extrabold text-slate-800">{items.filter(it => it.quantity > 0).length} itens</strong> para compra.
                   </p>
                   <p className="text-xs text-slate-550 font-bold leading-relaxed mt-1">
                     Como há <strong className="text-slate-800">menos de 8 itens</strong> ativos, recomendamos mudar para a nova categoria <strong className="text-slate-800">MATERIAL DE LIMPEZA EXTRA</strong>, que não exige o planejamento de Capacity.
@@ -2485,7 +2485,7 @@ export default function App() {
                 <p>
                   Por estar em uma janela integrada para testes (iframe do AI Studio), o navegador bloqueia a abertura direta da janela de impressão.
                 </p>
-                <p className="p-2.5 rounded-xl border border-rose-100 bg-rose-50/40 text-[#FF2E63] font-bold">
+                <p className="p-2.5 rounded-xl border border-rose-100 bg-rose-50/40 text-[#3b82f6] font-bold">
                   Para gerar o PDF completo com todas as páginas perfeitamente, por favor utilize uma das seguintes alternativas:
                 </p>
                 
@@ -2511,7 +2511,7 @@ export default function App() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#252A34] hover:bg-slate-800 text-white py-3 text-xs font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#0f172a] hover:bg-slate-800 text-white py-3 text-xs font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

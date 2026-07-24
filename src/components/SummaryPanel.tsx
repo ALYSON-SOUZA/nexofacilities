@@ -103,7 +103,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               return (
                 <div key={s.id} className="flex items-center justify-between text-[9px] leading-tight group/item hover:bg-slate-50/50 rounded-lg px-2 py-1 transition-colors duration-200">
                   <div className="flex items-center gap-1.5">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#FF2E63] shrink-0 group-hover/item:scale-125 transition-transform duration-200" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#3b82f6] shrink-0 group-hover/item:scale-125 transition-transform duration-200" />
                     <span className="font-black text-slate-900 uppercase text-[9px]">{s.name || `FORNECEDOR ${idx + 1}`}</span>
                   </div>
                   <div className="text-right">
@@ -118,7 +118,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
 
             <div className="showcase-divider my-1" />
 
-            <div className="flex items-center justify-between bg-[#FF2E63]/5 p-2 rounded-lg border border-[#FF2E63]/20 text-slate-900 transition-all duration-300">
+            <div className="flex items-center justify-between bg-[#3b82f6]/5 p-2 rounded-lg border border-[#3b82f6]/20 text-slate-900 transition-all duration-300">
               <span className="text-[8px] font-black uppercase tracking-wide">TOTAL MISTO:</span>
               <span className="showcase-mono text-[10px] font-black text-slate-900">{formatCurrency(mixedTotal)}</span>
             </div>
@@ -142,7 +142,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               </p>
               <p className="text-slate-700 leading-normal text-[8px] font-semibold">
                 Melhor opção:{" "}
-                <strong className="text-slate-900 text-[10px] font-black uppercase decoration-[#FF2E63] decoration-2 underline-offset-2">
+                <strong className="text-slate-900 text-[10px] font-black uppercase decoration-[#3b82f6] decoration-2 underline-offset-2">
                   {cheapestSupplierName}
                 </strong>{" "}
                 —{" "}
@@ -217,7 +217,7 @@ export default function SummaryPanel({ suppliers, items, summary }: SummaryPanel
               
               <div className="flex items-center justify-between text-slate-950 font-black leading-tight text-[9px]">
                 <span className="uppercase tracking-tight">Economia Absoluta:</span>
-                <span className="showcase-mono text-[#FF2E63] font-black text-[10px]">{formatCurrency(maxSavings)}</span>
+                <span className="showcase-mono text-[#3b82f6] font-black text-[10px]">{formatCurrency(maxSavings)}</span>
               </div>
               <div className="flex items-center justify-between font-black text-slate-700 leading-tight text-[8px]">
                 <span className="uppercase tracking-tight text-slate-500">Economia Incremental:</span>

@@ -725,7 +725,7 @@ Assinatura da Administração: _________________________________________________
         <div className="w-full flex items-center justify-between px-5 py-3.5 bg-slate-50 dark:bg-[#15171d] border-b border-slate-200 dark:border-slate-800 shrink-0">
           <div className="flex items-center gap-2">
             <span className="text-base">📋</span>
-            <span className="text-xs font-black tracking-wider uppercase text-[#252A34] dark:text-[#5fa8c9]">
+            <span className="text-xs font-black tracking-wider uppercase text-[#0f172a] dark:text-[#5fa8c9]">
               Emissão de Termos de Responsabilidade & Comodato
             </span>
           </div>
@@ -761,7 +761,7 @@ Assinatura da Administração: _________________________________________________
                         onClick={() => setActiveTerm(term.id)}
                         className={`w-full flex items-center justify-between p-2.5 rounded-lg border text-left cursor-pointer transition-all ${
                           isSelected 
-                            ? "border-[#FF2E63] bg-slate-100/60 dark:bg-slate-800/30" 
+                            ? "border-[#3b82f6] bg-slate-100/60 dark:bg-slate-800/30" 
                             : "border-slate-200 dark:border-slate-800 bg-transparent hover:bg-slate-50 dark:hover:bg-slate-900/60"
                         } ${isCustom ? "pr-10" : "pr-8"}`}
                       >
@@ -775,7 +775,7 @@ Assinatura da Administração: _________________________________________________
                         </div>
                         <div className="shrink-0 flex items-center gap-1">
                           {isSelected ? (
-                            <CheckSquare className="h-4 w-4 text-[#FF2E63]" />
+                            <CheckSquare className="h-4 w-4 text-[#3b82f6]" />
                           ) : (
                             <Square className="h-4 w-4 text-slate-300 dark:text-slate-700" />
                           )}
@@ -801,7 +801,7 @@ Assinatura da Administração: _________________________________________________
                 onClick={() => setIsNewTermModalOpen(true)}
                 size="md"
                 variant="primary"
-                className="w-full mt-3 bg-slate-50 dark:bg-[#13151b] border border-dashed border-[#FF2E63]/35 hover:border-[#FF2E63] hover:bg-[#FF2E63]/5 text-[#FF2E63]"
+                className="w-full mt-3 bg-slate-50 dark:bg-[#13151b] border border-dashed border-[#3b82f6]/35 hover:border-[#3b82f6] hover:bg-[#3b82f6]/5 text-[#3b82f6]"
               />
             </div>
 
@@ -851,7 +851,7 @@ Assinatura da Administração: _________________________________________________
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 placeholder="Cole dados brutos do colaborador e do objeto (ex: 'João da Silva CPF 123 recebeu a chave da sala de TI ontem')"
-                className="w-full min-h-[90px] p-2 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
+                className="w-full min-h-[90px] p-2 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#3b82f6] resize-none text-slate-700 dark:text-slate-200 font-medium"
               />
 
               <div className="mt-3 flex gap-1.5">
@@ -861,7 +861,7 @@ Assinatura da Administração: _________________________________________________
                   disabled={isExtracting}
                   size="md"
                   variant="primary"
-                  className="flex-1 bg-[#FF2E63] hover:bg-teal-500 border-[#FF2E63]"
+                  className="flex-1 bg-[#3b82f6] hover:bg-teal-500 border-[#3b82f6]"
                 />
 
                 <EmojiButton
@@ -887,7 +887,7 @@ Assinatura da Administração: _________________________________________________
             {/* Action Bar */}
             <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
               <h2 className="text-sm font-black text-slate-800 dark:text-white uppercase tracking-tight flex items-center gap-2">
-                <FileText className="h-4 w-4 text-[#FF2E63]" />
+                <FileText className="h-4 w-4 text-[#3b82f6]" />
                 Visualização do Termo em Tempo Real
               </h2>
               
@@ -897,7 +897,7 @@ Assinatura da Administração: _________________________________________________
                   onClick={handleExportPDF}
                   size="sm"
                   variant="custom"
-                  className="bg-[#FF2E63] hover:bg-pink-600 text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#FF2E63]"
+                  className="bg-[#3b82f6] hover:bg-pink-600 text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#3b82f6]"
                 />
 
                 <EmojiButton
@@ -913,7 +913,7 @@ Assinatura da Administração: _________________________________________________
                   onClick={handleExportTXT}
                   size="sm"
                   variant="custom"
-                  className="bg-[#252A34] hover:bg-[#0d1520] text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#252A34]"
+                  className="bg-[#0f172a] hover:bg-[#0d1520] text-white rounded-full shadow-md min-h-0 py-1.5 px-3 border-[#0f172a]"
                 />
               </div>
             </div>
@@ -924,7 +924,7 @@ Assinatura da Administração: _________________________________________________
                 
                 {/* Header Strip */}
                 <div className="bg-[#1A3A5A] text-white flex flex-col items-center justify-center py-4 px-4 text-center">
-                  <div className="font-black text-xs uppercase tracking-widest text-[#FF2E63] mb-1">
+                  <div className="font-black text-xs uppercase tracking-widest text-[#3b82f6] mb-1">
                     ADV BELLINATI PEREZ
                   </div>
                   <div className="text-xs font-bold text-slate-300 tracking-wider mb-1">
@@ -1098,12 +1098,12 @@ Assinatura da Administração: _________________________________________________
       </div>
       {/* Dynamic Term Creation Sub-Modal */}
       {isNewTermModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-[#1a1d24] border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-md animate-in fade-in-50 zoom-in-95 duration-150">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-[#1a1d24] border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-md animate-in fade-in-50 zoom-in-95 duration-150">
             {/* Header */}
             <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#13151b]">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-4.5 w-4.5 text-[#FF2E63]" />
+                <Sparkles className="h-4.5 w-4.5 text-[#3b82f6]" />
                 <h4 className="text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100">
                   Criar Novo Modelo de Termo
                 </h4>
@@ -1127,20 +1127,20 @@ Assinatura da Administração: _________________________________________________
                   placeholder="EX: Termo de Chaves, Entrega de Notebook, etc."
                   value={newTermName}
                   onChange={(e) => setNewTermName(e.target.value)}
-                  className="w-full p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] text-slate-700 dark:text-slate-200 font-bold placeholder-slate-400"
+                  className="w-full p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#3b82f6] text-slate-700 dark:text-slate-200 font-bold placeholder-slate-400"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
                   <span>Dados ou Texto de Referência</span>
-                  <span className="text-xs text-[#FF2E63] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
+                  <span className="text-xs text-[#3b82f6] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
                 </label>
                 <textarea
                   placeholder="Exemplo de conteúdo que você quer que exista nesse termo. A IA do Gemini analisará este texto para identificar automaticamente quais campos (marca, modelo, chaves, placa, etc.) e cláusulas de responsabilidade o seu termo precisa, gerando uma ficha limpa e elegante estruturada!"
                   value={newTermRawText}
                   onChange={(e) => setNewTermRawText(e.target.value)}
-                  className="w-full min-h-[140px] p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] text-slate-700 dark:text-slate-200 font-medium placeholder-slate-400 resize-none leading-relaxed"
+                  className="w-full min-h-[140px] p-2.5 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#3b82f6] text-slate-700 dark:text-slate-200 font-medium placeholder-slate-400 resize-none leading-relaxed"
                 />
               </div>
             </div>
@@ -1159,7 +1159,7 @@ Assinatura da Administração: _________________________________________________
                 type="button"
                 onClick={handleCreateCustomTerm}
                 disabled={isGeneratingStructure || !newTermName.trim()}
-                className="px-4 py-2 bg-[#FF2E63] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-xs font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
+                className="px-4 py-2 bg-[#3b82f6] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-xs font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
                 {isGeneratingStructure ? (
                   <>

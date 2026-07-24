@@ -425,7 +425,7 @@ export default function FileArchiveModal({
       <span>
         {parts.map((part, i) => 
           regex.test(part) ? (
-            <mark key={i} className="bg-[#FF2E63]/35 text-[#A82047] dark:bg-[#FF2E63]/20 dark:text-[#FF2E63] font-bold rounded-xs px-0.5">
+            <mark key={i} className="bg-[#3b82f6]/35 text-[#2563eb] dark:bg-[#3b82f6]/20 dark:text-[#3b82f6] font-bold rounded-xs px-0.5">
               {part}
             </mark>
           ) : (
@@ -528,12 +528,12 @@ export default function FileArchiveModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs">
-      <div className="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl shadow-md border border-slate-150 dark:border-slate-800 overflow-hidden flex flex-col h-[85vh] max-h-[750px]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
+      <div className="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl shadow-md border border-slate-150 dark:border-slate-800 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-150 dark:border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <span className="p-2 bg-[#FF2E63]/10 text-[#FF2E63] rounded-xl">
+            <span className="p-2 bg-[#3b82f6]/10 text-[#3b82f6] rounded-xl">
               <FileArchive className="h-5 w-5" />
             </span>
             <div>
@@ -644,7 +644,7 @@ export default function FileArchiveModal({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Buscar por nome ou descrição do documento..."
-                    className="w-full pl-9.5 pr-4 py-2 bg-white dark:bg-slate-900 text-xs text-slate-800 dark:text-white placeholder-slate-400 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#FF2E63] dark:focus:ring-[#FF2E63] transition-all font-medium"
+                    className="w-full pl-9.5 pr-4 py-2 bg-white dark:bg-slate-900 text-xs text-slate-800 dark:text-white placeholder-slate-400 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#3b82f6] dark:focus:ring-[#3b82f6] transition-all font-medium"
                   />
                   {searchQuery && (
                     <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -701,7 +701,7 @@ export default function FileArchiveModal({
                       className="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 cursor-pointer"
                     >
                       {filteredFiles.every(f => selectedFileIds.has(f.id)) ? (
-                        <CheckSquare className="h-4.5 w-4.5 text-[#FF2E63]" />
+                        <CheckSquare className="h-4.5 w-4.5 text-[#3b82f6]" />
                       ) : (
                         <Square className="h-4.5 w-4.5" />
                       )}
@@ -736,7 +736,7 @@ export default function FileArchiveModal({
               {/* Files list or empty state */}
               {loading ? (
                 <div className="flex-1 flex flex-col items-center justify-center p-12">
-                  <div className="w-10 h-10 border-4 border-slate-200 border-t-[#252A34] rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-slate-200 border-t-[#0f172a] rounded-full animate-spin"></div>
                   <p className="text-xs font-black text-slate-450 uppercase tracking-widest mt-4 animate-pulse">Sincronizando com Supabase Cloud...</p>
                 </div>
               ) : filteredFiles.length === 0 ? (
@@ -783,7 +783,7 @@ export default function FileArchiveModal({
                           className="absolute top-4 left-4 z-10 p-0.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                         >
                           {isSelected ? (
-                            <CheckSquare className="h-4.5 w-4.5 text-[#FF2E63]" />
+                            <CheckSquare className="h-4.5 w-4.5 text-[#3b82f6]" />
                           ) : (
                             <Square className="h-4.5 w-4.5 text-slate-300 dark:text-slate-600 hover:text-slate-400" />
                           )}
@@ -801,7 +801,7 @@ export default function FileArchiveModal({
                               file.category === "Contratos" 
                                 ? "bg-rose-50 dark:bg-rose-950/30 text-rose-600 border-rose-100 dark:border-rose-900/30"
                                 : file.category === "Cotações"
-                                ? "bg-[#FF2E63]/5 text-[#FF2E63] border-[#FF2E63]/10"
+                                ? "bg-[#3b82f6]/5 text-[#3b82f6] border-[#3b82f6]/10"
                                 : file.category === "Recibos"
                                 ? "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 border-indigo-100 dark:border-indigo-900/30"
                                 : file.category === "Notas Fiscais"
@@ -831,7 +831,7 @@ export default function FileArchiveModal({
                             </span>
                           </div>
 
-                          <h4 className="text-[11.5px] font-black text-slate-800 dark:text-white uppercase truncate tracking-tight pr-12 group-hover:text-[#FF2E63] transition-colors" title={file.name}>
+                          <h4 className="text-[11.5px] font-black text-slate-800 dark:text-white uppercase truncate tracking-tight pr-12 group-hover:text-[#3b82f6] transition-colors" title={file.name}>
                             {highlightText(file.name, searchQuery)}
                           </h4>
 
@@ -894,7 +894,7 @@ export default function FileArchiveModal({
                         ? "bg-rose-500" 
                         : quotaPercentage > 60 
                         ? "bg-amber-500" 
-                        : "bg-[#FF2E63]"
+                        : "bg-[#3b82f6]"
                     }`}
                     style={{ width: `${quotaPercentage}%` }}
                   />
@@ -917,12 +917,12 @@ export default function FileArchiveModal({
               <div 
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
-                className="border-2 border-dashed border-slate-200 dark:border-slate-800/85 hover:border-[#FF2E63] dark:hover:border-[#FF2E63] rounded-xl p-6 text-center bg-slate-50/50 dark:bg-slate-950/10 transition-all cursor-pointer"
+                className="border-2 border-dashed border-slate-200 dark:border-slate-800/85 hover:border-[#3b82f6] dark:hover:border-[#3b82f6] rounded-xl p-6 text-center bg-slate-50/50 dark:bg-slate-950/10 transition-all cursor-pointer"
                 onClick={() => fileInputRef.current?.click()}
               >
                 {!uploadedFile ? (
                   <div className="space-y-2 flex flex-col items-center">
-                    <span className="p-3 bg-white dark:bg-slate-800 text-[#FF2E63] rounded-xl shadow-xs border border-slate-100 dark:border-slate-750">
+                    <span className="p-3 bg-white dark:bg-slate-800 text-[#3b82f6] rounded-xl shadow-xs border border-slate-100 dark:border-slate-750">
                       <Upload className="h-5 w-5 animate-pulse" />
                     </span>
                     <p className="text-xs font-black text-slate-700 dark:text-slate-250 uppercase tracking-tight">
@@ -975,7 +975,7 @@ export default function FileArchiveModal({
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="Ex: Ficha Jovem Aprendiz João Silva"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF2E63] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#3b82f6] transition-all"
                   />
                 </div>
 
@@ -986,7 +986,7 @@ export default function FileArchiveModal({
                   <select
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF2E63] transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#3b82f6] transition-all"
                   >
                     {categories.map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -1004,7 +1004,7 @@ export default function FileArchiveModal({
                   onChange={(e) => setFormDescription(e.target.value)}
                   placeholder="Informações adicionais para facilitar buscas futuras, como datas importantes, CPF, valor ou números de chamados..."
                   rows={2}
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF2E63] transition-all resize-none"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-850 dark:text-white border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#3b82f6] transition-all resize-none"
                 />
               </div>
 
@@ -1131,8 +1131,8 @@ export default function FileArchiveModal({
 
       {/* Confirmation Modal Overlay for file deletion */}
       {confirmDeleteId && (
-        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
+        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-red-50 dark:bg-red-950/40 flex items-center justify-center text-red-650 border border-red-100 dark:border-red-900/30 shrink-0">
                 <Trash2 className="h-6 w-6" />
@@ -1175,8 +1175,8 @@ export default function FileArchiveModal({
 
       {/* Confirmation Modal Overlay for batch deletion */}
       {confirmBulkDelete && (
-        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4">
+        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center z-[130] p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-md border border-slate-150 dark:border-slate-800 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-red-50 dark:bg-red-950/40 flex items-center justify-center text-red-650 border border-red-100 dark:border-red-900/30 shrink-0">
                 <Trash2 className="h-6 w-6" />

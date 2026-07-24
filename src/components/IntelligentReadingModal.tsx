@@ -110,12 +110,12 @@ export default function IntelligentReadingModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md border border-slate-150 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="px-5 py-4 bg-slate-50 border-b border-slate-150 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 bg-[#FF2E63]/10 text-[#FF2E63] rounded-lg">
+            <span className="p-1.5 bg-[#3b82f6]/10 text-[#3b82f6] rounded-lg">
               <Sparkles className="h-4.5 w-4.5" />
             </span>
             <div>
@@ -139,7 +139,7 @@ export default function IntelligentReadingModal({
         {/* Content Body */}
         <div className="p-5 overflow-y-auto flex-1 space-y-4 scrollbar-thin scrollbar-thumb-slate-200">
           <p className="text-xs text-slate-600 font-bold leading-relaxed">
-            Instruções: Forneça abaixo uma imagem da nota fiscal/comprovante ou cole o texto do pedido (print de conversa, lista, etc.). A inteligência artificial identificará os produtos e os marcará automaticamente como <span className="text-[#FF2E63]">comprados/pagos</span> na cotação ativa.
+            Instruções: Forneça abaixo uma imagem da nota fiscal/comprovante ou cole o texto do pedido (print de conversa, lista, etc.). A inteligência artificial identificará os produtos e os marcará automaticamente como <span className="text-[#3b82f6]">comprados/pagos</span> na cotação ativa.
           </p>
 
           {/* Error message */}
@@ -163,7 +163,7 @@ export default function IntelligentReadingModal({
               </div>
 
               {!imageBase64 ? (
-                <div className="w-full h-24 border-2 border-dashed border-slate-300 hover:border-[#FF2E63] rounded-xl flex items-center justify-center bg-white">
+                <div className="w-full h-24 border-2 border-dashed border-slate-300 hover:border-[#3b82f6] rounded-xl flex items-center justify-center bg-white">
                   <EmojiButton
                     iconKey="docs"
                     onClick={() => fileInputRef.current?.click()}
@@ -208,7 +208,7 @@ export default function IntelligentReadingModal({
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 placeholder="Cole aqui a lista de compras, descrição de conversa ou texto extraído da Nota Fiscal..."
-                className="w-full flex-1 min-h-[120px] p-3 text-xs font-bold text-slate-800 border border-slate-200 rounded-xl focus:border-[#FF2E63] focus:ring-1 focus:ring-[#FF2E63]/10 outline-none resize-none placeholder:text-slate-300"
+                className="w-full flex-1 min-h-[120px] p-3 text-xs font-bold text-slate-800 border border-slate-200 rounded-xl focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/10 outline-none resize-none placeholder:text-slate-300"
               />
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function IntelligentReadingModal({
           <div className="flex justify-end pt-2">
             {isAnalyzing ? (
               <div className="h-12 w-12 flex items-center justify-center bg-slate-100 rounded-xl">
-                <Loader2 className="h-5 w-5 animate-spin text-[#FF2E63]" />
+                <Loader2 className="h-5 w-5 animate-spin text-[#3b82f6]" />
               </div>
             ) : (
               <EmojiButton
@@ -231,8 +231,8 @@ export default function IntelligentReadingModal({
 
           {/* Results Analysis Panel */}
           {analysisSummary && (
-            <div className="mt-4 p-4 bg-[#252A34]/5 border border-[#252A34]/15 rounded-xl space-y-2 animate-fade-in">
-              <div className="flex items-center gap-1.5 text-[#252A34] font-black text-[11.5px] uppercase">
+            <div className="mt-4 p-4 bg-[#0f172a]/5 border border-[#0f172a]/15 rounded-xl space-y-2 animate-fade-in">
+              <div className="flex items-center gap-1.5 text-[#0f172a] font-black text-[11.5px] uppercase">
                 <CheckCircle className="h-4 w-4" />
                 Resultado da Análise IA
               </div>
@@ -240,7 +240,7 @@ export default function IntelligentReadingModal({
                 {analysisSummary}
               </p>
               {matchedCount !== null && (
-                <div className="text-xs font-black uppercase text-[#FF2E63] pt-1">
+                <div className="text-xs font-black uppercase text-[#3b82f6] pt-1">
                   🎯 {matchedCount} {matchedCount === 1 ? 'item foi' : 'itens foram'} identificados e marcados como comprado na planilha!
                 </div>
               )}

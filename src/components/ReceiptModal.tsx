@@ -534,14 +534,14 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
     <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50 p-3 overflow-y-auto">
       <div className="bg-[#F4F6FA] dark:bg-slate-950 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
         
-        {/* TOPBAR (Petroleum Blue #252A34) */}
-        <header className="bg-[#252A34] px-6 py-4 flex items-center justify-between shrink-0 border-b border-slate-800">
+        {/* TOPBAR (Petroleum Blue #0f172a) */}
+        <header className="bg-[#0f172a] px-6 py-4 flex items-center justify-between shrink-0 border-b border-slate-800">
           <div>
             <div className="font-bold text-lg tracking-tight text-white flex items-center gap-2">
-              <Receipt className="h-5 w-5 text-[#FF2E63]" />
+              <Receipt className="h-5 w-5 text-[#3b82f6]" />
               <span>Gerador de Recibo de Pagamento ({receiptModel})</span>
             </div>
-            <div className="text-xs tracking-widest text-[#FF2E63] uppercase font-black mt-0.5">
+            <div className="text-xs tracking-widest text-[#3b82f6] uppercase font-black mt-0.5">
               Documentos · Bellinati Perez
             </div>
           </div>
@@ -552,7 +552,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               onClick={() => setReceiptModel("Simplificado")}
               className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 receiptModel === "Simplificado"
-                  ? "bg-[#FF2E63] text-slate-950 shadow-md"
+                  ? "bg-[#3b82f6] text-slate-950 shadow-md"
                   : "text-slate-500 hover:text-white"
               }`}
             >
@@ -562,7 +562,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               onClick={() => setReceiptModel("Completo")}
               className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 receiptModel === "Completo"
-                  ? "bg-[#FF2E63] text-white shadow-md"
+                  ? "bg-[#3b82f6] text-white shadow-md"
                   : "text-slate-500 hover:text-white"
               }`}
             >
@@ -630,7 +630,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               {receiptModel === "Completo" && (
                 <div className="bg-slate-50 dark:bg-slate-950 p-3 rounded-lg border border-slate-200 dark:border-slate-800 space-y-3">
                   <div className="text-xs font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
-                    <Building2 className="h-3.5 w-3.5 text-[#FF2E63]" />
+                    <Building2 className="h-3.5 w-3.5 text-[#3b82f6]" />
                     <span>Dados da Fonte Pagadora</span>
                   </div>
                   <div className="flex flex-col gap-1">
@@ -680,7 +680,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
 
               {/* Nome & CPF de quem assina */}
               <div className="bg-pink-50/15 dark:bg-slate-950 p-3 rounded-lg border border-pink-100/40 dark:border-slate-800 space-y-3">
-                <div className="text-xs font-black uppercase text-[#FF2E63] tracking-wider flex items-center gap-1">
+                <div className="text-xs font-black uppercase text-[#3b82f6] tracking-wider flex items-center gap-1">
                   <User className="h-3.5 w-3.5" />
                   <span>Emissor (Quem recebe / assina)</span>
                 </div>
@@ -737,7 +737,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               {receiptModel === "Completo" && (
                 <div className="bg-slate-50 dark:bg-slate-950 p-3 rounded-lg border border-slate-200 dark:border-slate-800 space-y-3">
                   <div className="text-xs font-black uppercase text-slate-450 tracking-wider flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5 text-[#FF2E63]" />
+                    <MapPin className="h-3.5 w-3.5 text-[#3b82f6]" />
                     <span>Endereço do Emissor</span>
                   </div>
 
@@ -841,10 +841,10 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
           </div>
 
           {/* PREVIEW PANEL - 7 COLS */}
-          <div className="lg:col-span-7 bg-[#252A34] p-5 rounded-2xl flex flex-col justify-between shadow-lg">
+          <div className="lg:col-span-7 bg-[#0f172a] p-5 rounded-2xl flex flex-col justify-between shadow-lg">
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xs font-black text-[#FF2E63] tracking-widest uppercase">
-                <span className="h-2 w-2 bg-[#FF2E63] rounded-full animate-pulse"></span>
+              <div className="flex items-center gap-2 text-xs font-black text-[#3b82f6] tracking-widest uppercase">
+                <span className="h-2 w-2 bg-[#3b82f6] rounded-full animate-pulse"></span>
                 <span>Pré-Visualização do Recibo ({receiptModel})</span>
               </div>
 
@@ -852,17 +852,17 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
               <div className="bg-white text-slate-900 rounded-xl overflow-hidden shadow-md flex flex-col justify-between min-h-[380px] border border-white">
                 
                 {/* Header Strip */}
-                <div className="bg-[#252A34] px-5 py-4 flex items-center justify-between text-white border-b border-slate-800 shrink-0">
+                <div className="bg-[#0f172a] px-5 py-4 flex items-center justify-between text-white border-b border-slate-800 shrink-0">
                   <div>
                     <div className="font-extrabold text-xs tracking-wide uppercase">
                       {receiptModel === "Completo" ? "RECIBO DE PAGAMENTO COMPLETO" : "RECIBO DE PAGAMENTO"}
                     </div>
-                    <div className="text-xs font-bold text-[#FF2E63] uppercase tracking-wider mt-0.5">
+                    <div className="text-xs font-bold text-[#3b82f6] uppercase tracking-wider mt-0.5">
                       {receiptModel === "Completo" ? "Comprovante de Quitação com Dados do Emissor" : "DOCUMENTO SIMPLIFICADO DE QUITAÇÃO"}
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs font-mono font-black text-[#FF2E63]">Nº {reciboNum}</div>
+                    <div className="text-xs font-mono font-black text-[#3b82f6]">Nº {reciboNum}</div>
                     <div className="text-xs text-slate-500 mt-0.5">{data || "—"}</div>
                   </div>
                 </div>
@@ -910,7 +910,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                       </div>
 
                       {/* Statement Paragraph */}
-                      <div className="border-l-4 border-[#FF2E63] pl-3 py-1 bg-pink-50/10 text-slate-800 leading-relaxed text-justify text-xs font-semibold">
+                      <div className="border-l-4 border-[#3b82f6] pl-3 py-1 bg-pink-50/10 text-slate-800 leading-relaxed text-justify text-xs font-semibold">
                         Recebemos de <span className="text-slate-950 font-bold">{fontePagadoraNome || "—"}</span>, CNPJ sob o nº <span className="font-mono">{fontePagadoraCNPJ || "—"}</span>, a importância de <span className="text-red-700 font-extrabold">R$ {valor || "0,00"}</span> (<span className="italic text-slate-600 font-medium">{valorExtenso}</span>), referente a <span className="uppercase text-slate-950 font-bold">{descricao || "—"}</span>.
                       </div>
 

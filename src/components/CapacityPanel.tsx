@@ -242,14 +242,14 @@ export default function CapacityPanel({
                   <tr
                     key={row.month}
                     className={`transition-colors hover:bg-slate-55/35 ${
-                      isJuly ? "bg-[#FF2E63]/5 border-l-2 border-[#FF2E63] font-bold" : ""
+                      isJuly ? "bg-[#3b82f6]/5 border-l-2 border-[#3b82f6] font-bold" : ""
                     }`}
                   >
                     {/* Month Label */}
                     <td className="py-0.5 px-1 font-bold text-slate-800 uppercase tracking-tight">
                       {row.month}
                       {isJuly && (
-                        <span className="block text-[9px] font-extrabold text-[#252A34] uppercase leading-none mt-0.5">
+                        <span className="block text-[9px] font-extrabold text-[#0f172a] uppercase leading-none mt-0.5">
                           Ativo (Cotação)
                         </span>
                       )}
@@ -266,7 +266,7 @@ export default function CapacityPanel({
                           onUpdateCapacity(row.month, val === "" ? 0 : parseInt(val, 10));
                         }}
                         className={`w-full text-center bg-transparent py-0.5 font-bold text-slate-850 border rounded-md border-transparent hover:border-slate-250 focus:bg-white focus:border-slate-400 transition-all focus:ring-0 focus:outline-hidden text-[9px] ${
-                          isJuly ? "bg-[#FF2E63]/10 border-[#FF2E63]/30" : ""
+                          isJuly ? "bg-[#3b82f6]/10 border-[#3b82f6]/30" : ""
                         }`}
                         placeholder="0"
                       />
@@ -278,7 +278,7 @@ export default function CapacityPanel({
                         <td className="py-0 px-1 text-right">
                           {isJuly ? (
                             <div className="flex flex-col items-end pr-1 justify-center h-full">
-                              <span className="font-extrabold text-[#FF2E63] font-mono leading-none text-[9px]">
+                              <span className="font-extrabold text-[#3b82f6] font-mono leading-none text-[9px]">
                                 {formatCurrency(row.value)}
                               </span>
                             </div>
@@ -295,7 +295,7 @@ export default function CapacityPanel({
                         {/* Calculated Average Spent per Collaborator */}
                         <td className="py-0.5 px-1 text-right font-mono font-bold text-slate-800 bg-slate-50/10 text-[9px]">
                           {row.average > 0 ? (
-                            <span className={isJuly ? "text-[#252A34] font-extrabold" : "text-slate-700"}>
+                            <span className={isJuly ? "text-[#0f172a] font-extrabold" : "text-slate-700"}>
                               {formatCurrency(row.average)}
                             </span>
                           ) : (
@@ -332,9 +332,9 @@ export default function CapacityPanel({
                 </span>
               </div>
               
-              <div className={`p-1.5 rounded-md border border-transparent shadow-3xs leading-tight ${julyCapacity > 0 ? "bg-[#FF2E63]/10 border-[#FF2E63]/20" : "bg-white/90 border-slate-150"}`}>
-                <span className="text-[9px] text-[#252A34] uppercase block font-bold">Projeção Cotação (Jul)</span>
-                <span className="font-extrabold text-[#252A34] font-mono mt-0.5 block">
+              <div className={`p-1.5 rounded-md border border-transparent shadow-3xs leading-tight ${julyCapacity > 0 ? "bg-[#3b82f6]/10 border-[#3b82f6]/20" : "bg-white/90 border-slate-150"}`}>
+                <span className="text-[9px] text-[#0f172a] uppercase block font-bold">Projeção Cotação (Jul)</span>
+                <span className="font-extrabold text-[#0f172a] font-mono mt-0.5 block">
                   {avgJulyPerColab > 0 ? formatCurrency(avgJulyPerColab) : "R$ 0,00"}
                 </span>
               </div>
@@ -510,7 +510,7 @@ export default function CapacityPanel({
       <div className="glass-card p-3 sm:p-3.5 rounded-xl print:border-slate-300 print:shadow-none">
         <div className="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
           <div className="flex items-center gap-1">
-            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-pink-100 text-[#FF2E63]">
+            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-pink-100 text-[#3b82f6]">
               <FolderOpen className="h-3 w-3" />
             </div>
             <div>
@@ -523,8 +523,8 @@ export default function CapacityPanel({
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] font-black uppercase rounded-md border transition-all cursor-pointer ${
                 showFilters || filterStartDate || filterEndDate || filterCategory !== "all" || filterSearch.trim()
-                  ? "bg-[#FF2E63] text-white border-[#FF2E63]"
-                  : "bg-white border-slate-200 text-slate-600 hover:border-[#FF2E63]"
+                  ? "bg-[#3b82f6] text-white border-[#3b82f6]"
+                  : "bg-white border-slate-200 text-slate-600 hover:border-[#3b82f6]"
               }`}
               title="Filtrar cotações por período e categoria"
             >
@@ -534,7 +534,7 @@ export default function CapacityPanel({
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               )}
             </button>
-            <span className="inline-flex items-center rounded-sm bg-pink-50 border border-pink-100/50 px-1 py-0.5 text-[9px] font-black text-[#FF2E63]">
+            <span className="inline-flex items-center rounded-sm bg-pink-50 border border-pink-100/50 px-1 py-0.5 text-[9px] font-black text-[#3b82f6]">
               {filteredQuotes.length} / {archivedQuotes.length}
             </span>
           </div>
@@ -610,7 +610,7 @@ export default function CapacityPanel({
                     setFilterCategory("all");
                     setFilterSearch("");
                   }}
-                  className="w-full py-0.5 text-center bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-rose-50 text-slate-550 hover:text-[#FF2E63] font-black tracking-wide uppercase rounded-md transition-all cursor-pointer text-[9px]"
+                  className="w-full py-0.5 text-center bg-white border border-slate-200 hover:border-[#3b82f6] hover:bg-rose-50 text-slate-550 hover:text-[#3b82f6] font-black tracking-wide uppercase rounded-md transition-all cursor-pointer text-[9px]"
                   title="Limpar todos os filtros ativos"
                 >
                   LIMPAR
@@ -633,17 +633,17 @@ export default function CapacityPanel({
                   }}
                   className={`p-1.5 rounded-lg transition-all border text-[9px]/tight cursor-pointer ${
                     isComparing 
-                      ? "bg-[#FF2E63]/5 border-[#FF2E63]/30 hover:border-[#FF2E63]/50" 
+                      ? "bg-[#3b82f6]/5 border-[#3b82f6]/30 hover:border-[#3b82f6]/50" 
                       : "bg-slate-50/50 border-slate-150 hover:bg-slate-100 uppercase"
                   }`}
                   title="Clique para carregar e editar esta cotação na planilha"
                 >
                   <div className="flex items-center justify-between gap-1 mb-0.5 flex-wrap">
                     <div className="flex items-center gap-1 flex-wrap">
-                      <span className="font-extrabold text-[#FF2E63] text-[9px]">
+                      <span className="font-extrabold text-[#3b82f6] text-[9px]">
                         #{quote.id}
                       </span>
-                      <span className="inline-block text-[8px] bg-[#FF2E63]/10 text-[#FF2E63] border border-[#FF2E63]/25 px-1 py-0 rounded font-black uppercase">
+                      <span className="inline-block text-[8px] bg-[#3b82f6]/10 text-[#3b82f6] border border-[#3b82f6]/25 px-1 py-0 rounded font-black uppercase">
                         {quote.categoryName || "Geral"}
                       </span>
                     </div>
@@ -657,7 +657,7 @@ export default function CapacityPanel({
                   </p>
 
                   {quote.title && (
-                    <p className="text-[#FF2E63] font-black uppercase text-[8px] tracking-tight truncate mt-0.5">
+                    <p className="text-[#3b82f6] font-black uppercase text-[8px] tracking-tight truncate mt-0.5">
                       {quote.title.toUpperCase()}
                     </p>
                   )}
@@ -675,8 +675,8 @@ export default function CapacityPanel({
                         }}
                         className={`p-0.5 rounded-sm cursor-pointer transition-colors ${
                           isComparing 
-                            ? "bg-[#FF2E63] text-white" 
-                            : "bg-white border border-slate-200 hover:border-[#FF2E63] text-slate-500 hover:text-[#FF2E63]"
+                            ? "bg-[#3b82f6] text-white" 
+                            : "bg-white border border-slate-200 hover:border-[#3b82f6] text-slate-500 hover:text-[#3b82f6]"
                         }`}
                         title="Usar esta cotação como referência para comparação"
                       >
@@ -687,7 +687,7 @@ export default function CapacityPanel({
                           e.stopPropagation();
                           onLoadQuoteForEdit(quote);
                         }}
-                        className="p-0.5 rounded-sm bg-white border border-slate-200 hover:border-[#FF2E63] text-slate-405 hover:text-[#FF2E63] cursor-pointer transition-colors"
+                        className="p-0.5 rounded-sm bg-white border border-slate-200 hover:border-[#3b82f6] text-slate-405 hover:text-[#3b82f6] cursor-pointer transition-colors"
                         title="Carregar de volta na planilha para editar"
                       >
                         <FolderOpen className="h-2.5 w-2.5" />

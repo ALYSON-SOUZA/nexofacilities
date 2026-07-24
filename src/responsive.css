@@ -1,9 +1,9 @@
 /* ============================================================
-   RESPONSIVE.CSS — BP Facilities 100% Responsivo
-   Breakpoints aligned with Tailwind: Mobile <768px | Tablet 768-1023px | Desktop 1024-1919px | TV 1920px+
+   RESPONSIVE.CSS — BP Facilities Responsive System
+   Breakpoints: Mobile <768px | Tablet 768-1023px | Desktop 1024-1919px | TV 1920px+
    ============================================================ */
 
-/* ─── BASE SAFETY ─── */
+/* --- BASE SAFETY --- */
 html {
   scroll-behavior: smooth;
 }
@@ -17,16 +17,16 @@ body {
   box-sizing: border-box;
 }
 
-/* ─── FLUID TYPOGRAPHY (clamp) ─── */
+/* --- FLUID TYPOGRAPHY --- */
 body {
-  font-size: clamp(14px, 1.35vw, 16px);
+  font-size: clamp(13px, 1.2vw, 15px);
 }
 
-/* ─── TV / LARGE SCREEN CAP ─── */
+/* --- TV / LARGE SCREEN CAP --- */
 @media (min-width: 1920px) {
   .bp-main {
-    max-width: calc(1800px + 80px);
-    margin-left: 80px !important;
+    max-width: calc(1800px + 72px);
+    margin-left: 72px !important;
     margin-right: auto;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -34,39 +34,34 @@ body {
 }
 
 /* ============================================================
-   MOBILE (<768px) — Tailwind md: breakpoint
+   MOBILE (<768px)
    ============================================================ */
 @media (max-width: 767px) {
-  /* ── MAIN CONTENT ── */
   .bp-main {
     margin-left: 0 !important;
-    padding: 0.5rem !important;
+    padding: 0.75rem !important;
     padding-top: 0 !important;
   }
 
-  /* ── SIDEBAR (off-canvas 260px) ── */
   .bp-sidebar {
-    width: 260px !important;
+    width: 240px !important;
     max-width: 80vw !important;
     z-index: 50;
   }
 
-  /* ── DASHBOARD KPI CARDS (stacked) ── */
   #root .lg\:grid-cols-4 {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
   }
 
-  /* KPI value text scaled down */
   #root .lg\:grid-cols-4 h2 {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
   }
 
   #root .lg\:grid-cols-4 .p-6 {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
   }
 
-  /* ── TABLE (internal horizontal scroll) ── */
   .overflow-x-auto {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
@@ -76,7 +71,6 @@ body {
     min-width: 700px;
   }
 
-  /* ── BRAND HEADER (title/chamado → stacked) ── */
   #bp-compras-header {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -93,7 +87,6 @@ body {
     width: 100% !important;
   }
 
-  /* ── HEADER TITLE/CHAMADO INPUTS ── */
   #bp-compras-header > div:last-child {
     flex-direction: column !important;
     width: 100% !important;
@@ -105,7 +98,6 @@ body {
     width: 100% !important;
   }
 
-  /* ── ACTION BUTTONS TOOLBAR ── */
   #root .mb-4.flex.flex-wrap.items-center.justify-end {
     gap: 0.25rem !important;
     flex-wrap: wrap;
@@ -116,24 +108,20 @@ body {
     padding: 0.25rem 0.375rem !important;
   }
 
-  /* ── QUICK GUIDE GRID ── */
   .grid.gap-3.sm\:grid-cols-2.md\:grid-cols-4 {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── SUMMARY PANELS ── */
   #root .grid.md\:grid-cols-2 {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
   }
 
-  /* ── CAPACITY PANEL 3-COL GRID ── */
   #root .lg\:grid-cols-3 {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
   }
 
-  /* ── STOCK CONTROL KPI CARDS ── */
   #root .grid.sm\:grid-cols-2 {
     grid-template-columns: 1fr !important;
   }
@@ -141,22 +129,18 @@ body {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── RONDA VIEW ── */
   #root .grid.sm\:grid-cols-2.md\:grid-cols-3 {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── DOCS VIEW ── */
   #root .grid.lg\:grid-cols-2 {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── LIMPEZA HISTORY DASHBOARD ── */
   #root .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
     grid-template-columns: 1fr !important;
   }
 
-  /* ── NORMATIVA SPLIT PANEL ── */
   #root .flex.lg\:flex-row {
     flex-direction: column !important;
   }
@@ -166,20 +150,17 @@ body {
     overflow-y: auto;
   }
 
-  /* ── AI CONSULTANT DRAWER (full width) ── */
   .fixed.inset-y-0.right-0 {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* ── SUCCESS TOAST ── */
   .fixed.top-4.right-4.z-50 {
     left: 0.5rem !important;
     right: 0.5rem !important;
     max-width: none !important;
   }
 
-  /* ── MODALS (fit mobile) ── */
   .fixed.inset-0 .bg-white.rounded-\[24px\],
   .fixed.inset-0 .bg-white.rounded-2xl {
     max-width: 95vw !important;
@@ -188,12 +169,10 @@ body {
     overflow-y: auto;
   }
 
-  /* ── PRINT BUTTONS (hide text labels, keep icons) ── */
   .hidden.sm\:inline {
     display: none !important;
   }
 
-  /* ── EDIT MODE / CHANGE LOG BANNERS ── */
   #root .bg-sky-50.border.border-sky-100.rounded-2xl,
   #root .bg-white.border.border-slate-200.rounded-2xl {
     flex-direction: column !important;
@@ -201,23 +180,20 @@ body {
     padding: 0.75rem !important;
   }
 
-  /* ── FOOTER ── */
   footer.mt-8 {
     padding: 0.5rem 0 !important;
     font-size: 10px !important;
   }
 
-  /* ── SYNC BADGE (compact) ── */
   .sync-dot-syncing + span:last-child {
     display: none !important;
   }
 }
 
 /* ============================================================
-   TABLET (768px – 1023px) — Tailwind md: to lg:
+   TABLET (768px – 1023px)
    ============================================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* Sidebar collapsed (off-canvas) */
   .bp-sidebar {
     transform: translateX(-100%) !important;
     z-index: 40;
@@ -226,19 +202,16 @@ body {
     transform: translateX(0) !important;
   }
 
-  /* Main full width */
   .bp-main {
     margin-left: 0 !important;
     padding: 1rem 1.5rem !important;
   }
 
-  /* Dashboard: 2 columns */
   #root .lg\:grid-cols-4 {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    gap: 0.75rem !important;
   }
 
-  /* Table internal scroll */
   .overflow-x-auto {
     -webkit-overflow-scrolling: touch;
   }
@@ -246,32 +219,26 @@ body {
     min-width: 900px;
   }
 
-  /* Summary panels: 2 cols */
   #root .grid.md\:grid-cols-2 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Capacity panel: 2 cols on tablet */
   #root .lg\:grid-cols-3 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Quick guide: 2 cols */
   .grid.gap-3.sm\:grid-cols-2.md\:grid-cols-4 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Limpeza history: 2 cols */
   #root .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Ronda stat tiles: 2 cols */
   #root .grid.sm\:grid-cols-2.md\:grid-cols-3 {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Normativa split */
   #root .flex.lg\:flex-row {
     flex-direction: row !important;
   }
@@ -281,7 +248,6 @@ body {
     flex-shrink: 0;
   }
 
-  /* AI Drawer */
   .fixed.inset-y-0.right-0 {
     width: 85vw !important;
     max-width: 480px !important;
@@ -292,15 +258,13 @@ body {
    DESKTOP (1024px – 1919px)
    ============================================================ */
 @media (min-width: 1024px) and (max-width: 1919px) {
-  /* Full sidebar */
   .bp-sidebar {
     transform: translateX(0) !important;
   }
   .bp-main {
-    margin-left: 80px !important;
+    margin-left: 72px !important;
   }
 
-  /* Quick guide: 4 cols */
   .grid.gap-3.sm\:grid-cols-2.md\:grid-cols-4 {
     grid-template-columns: repeat(4, 1fr) !important;
   }
@@ -310,22 +274,22 @@ body {
    SCROLLBAR (cross-browser thin)
    ============================================================ */
 .scrollbar-thin::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
+  height: 5px;
+  width: 5px;
 }
 .scrollbar-thin::-webkit-scrollbar-track {
   background: transparent;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #c8c8c8;
+  background: #cbd5e1;
   border-radius: 999px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: #8a8a8a;
+  background: #94a3b8;
 }
 
 /* ============================================================
-   TOUCH TARGETS (44×44px minimum for coarse pointers)
+   TOUCH TARGETS (44×44px minimum)
    ============================================================ */
 @media (pointer: coarse) {
   button,
@@ -343,7 +307,7 @@ body {
 }
 
 /* ============================================================
-   PRINT (keep existing print behavior)
+   PRINT
    ============================================================ */
 @media print {
   .bp-sidebar,

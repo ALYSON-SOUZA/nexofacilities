@@ -1708,21 +1708,21 @@ export default function App() {
   const displayCpf = userCpf ? userCpf : "000.000.000-00";
 
   return (
-    <div className={`min-h-screen text-slate-900 selection:bg-slate-200 font-sans leading-none theme-${visualTheme}`}>
+    <div className={`min-h-screen text-slate-900 selection:bg-blue-100 font-sans leading-none theme-${visualTheme}`}>
       
       {/* MOBILE HEADER (only visible on mobile) */}
       <div className="md:hidden flex items-center justify-between bg-white text-slate-900 px-4 py-3 print:hidden shrink-0 border-b border-slate-200">
         <div className="flex items-center gap-2.5">
-          <div className="h-7 w-7 rounded-lg bg-[#FF2E63] flex items-center justify-center text-white">
+          <div className="h-7 w-7 rounded-md bg-slate-900 flex items-center justify-center text-white">
             <span className="material-symbols-outlined text-[16px] text-white" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
-          <span className="text-xs font-display font-extrabold tracking-wider uppercase text-slate-900">
-            FACILITIES <span className="text-[#FF2E63]">BP-COMPRAS</span>
+          <span className="text-xs font-semibold tracking-tight uppercase text-slate-900">
+            FACILITIES <span className="text-blue-600">BP</span>
           </span>
         </div>
         <button
           onClick={() => setIsMobileSidebarOpen(true)}
-          className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors duration-200 cursor-pointer"
+          className="p-1.5 rounded-md bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors duration-150 cursor-pointer"
           title="Abrir Menu"
         >
           <Menu className="h-4 w-4" />
@@ -1733,18 +1733,18 @@ export default function App() {
       {isMobileSidebarOpen && (
         <div 
           onClick={() => setIsMobileSidebarOpen(false)}
-          className="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] z-30 md:hidden print:hidden transition-opacity duration-200"
+          className="fixed inset-0 bg-slate-900/30 backdrop-blur-sm z-30 md:hidden print:hidden transition-opacity duration-150"
         />
       )}
 
-      {/* LEFT SIDEBAR (code.html style: 80px white, icon navigation) */}
+      {/* LEFT SIDEBAR — Minimal & Professional */}
       <aside className={`bp-sidebar ${isMobileSidebarOpen ? "bp-sidebar-open" : ""} print:hidden`}>
         {/* Brand Logo */}
         <div className="bp-sidebar-brand">
           <div className="bp-sidebar-brand-icon">
-            <span className="material-symbols-outlined text-white text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
+            <span className="material-symbols-outlined text-white text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>business_center</span>
           </div>
-          <span className="bp-sidebar-brand-label">PCentral</span>
+          <span className="bp-sidebar-brand-label">FACILITIES</span>
         </div>
 
         {/* Navigation */}
@@ -1795,17 +1795,17 @@ export default function App() {
           </button>
 
           {/* Docs sub-items */}
-          <div className="w-full flex flex-col items-center gap-1 pl-0">
+          <div className="w-full flex flex-col items-center gap-0.5 pl-0">
             <button
               onClick={() => setIsDocsMenuOpen(!isDocsMenuOpen)}
               className="bp-sidebar-nav-item"
               title="Mais Documentos"
-              style={{ fontSize: "16px", padding: "4px 0" }}
+              style={{ padding: "4px 0" }}
             >
               <span className="material-symbols-outlined text-[18px]">folder_open</span>
             </button>
             {isDocsMenuOpen && (
-              <div className="flex flex-col gap-1 w-full items-center">
+              <div className="flex flex-col gap-0.5 w-full items-center">
                 <button onClick={() => { setIsMeiModalOpen(true); setIsMobileSidebarOpen(false); }} className="bp-sidebar-nav-item text-[9px]" title="Ficha Autônomo">
                   <span className="material-symbols-outlined text-[16px]">description</span>
                 </button>
@@ -1830,12 +1830,11 @@ export default function App() {
             className="bp-sidebar-nav-item"
             title="Nova Cotação"
           >
-            <span className="material-symbols-outlined" style={{ color: "#FF2E63" }}>add_circle</span>
-            <span className="bp-sidebar-nav-label" style={{ color: "#FF2E63" }}>Nova</span>
+            <span className="material-symbols-outlined" style={{ color: "#3b82f6" }}>add_circle</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#3b82f6" }}>Nova</span>
           </button>
           <button
             onClick={() => {
-              // Save all current state to localStorage
               localStorage.setItem("clean_quotes_chamado_number", chamadoNumber);
               localStorage.setItem("clean_quotes_title", quoteTitle);
               localStorage.setItem("clean_quotes_categories", JSON.stringify(categories));
@@ -1852,23 +1851,22 @@ export default function App() {
               if (editingQuoteId) {
                 localStorage.setItem("clean_quotes_editing_quote_id", editingQuoteId);
               }
-              // Close the application
               window.close();
             }}
             className="bp-sidebar-nav-item"
             title="Salvar e Sair"
             type="button"
           >
-            <span className="material-symbols-outlined" style={{ color: "#FF2E63" }}>logout</span>
-            <span className="bp-sidebar-nav-label" style={{ color: "#FF2E63" }}>Sair</span>
+            <span className="material-symbols-outlined" style={{ color: "#64748b" }}>logout</span>
+            <span className="bp-sidebar-nav-label" style={{ color: "#64748b" }}>Sair</span>
           </button>
         </div>
       </aside>
       
       {/* SUCCESS FLUTUANTE DE FEEDBACK */}
       {successMessage && (
-        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-[#252A34] text-white font-bold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
-          <Check className="h-4 w-4 shrink-0 text-[#FF2E63]" />
+        <div className="fixed top-4 right-4 z-50 animate-bounce duration-500 bg-slate-900 text-white font-semibold text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 print:hidden max-w-sm">
+          <Check className="h-4 w-4 shrink-0 text-green-400" />
           <span>{successMessage}</span>
         </div>
       )}
@@ -1889,13 +1887,13 @@ export default function App() {
             {/* Scrollable Container for Modal Body */}
             <div className="flex-1 overflow-y-auto space-y-4 pr-1.5 scrollbar-thin scrollbar-thumb-slate-200 py-1">
               <div className="text-center space-y-1">
-                <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF2E63] mx-auto mb-1">
+                <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 mx-auto mb-1">
                   <ShoppingCart className="h-5 w-5" />
                 </div>
-                <h3 className="text-sm font-black text-slate-950 uppercase tracking-tight">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-tight">
                   {isModalForNewQuote ? "Nova Cotação" : "Alterar Categoria"}
                 </h3>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
                   {isModalForNewQuote 
                     ? "Selecione a categoria dos materiais de facilities" 
                     : "Modifique a categoria da cotação ativa atual"}

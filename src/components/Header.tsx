@@ -1,5 +1,5 @@
 import React from "react";
-import { Printer, RotateCcw, Calendar, LogOut, Save, FileSpreadsheet, Sparkles, Sun, Moon, Eye, Github, Cloud, CloudOff, Loader2, Check, Search } from "lucide-react";
+import { Calendar, Loader2, Check, CloudOff, Github } from "lucide-react";
 import { EmojiButton } from "./EmojiButton";
 
 interface HeaderProps {
@@ -60,26 +60,26 @@ export default function Header({
       syncing: {
         icon: <Loader2 className="h-3 w-3 animate-spin" />,
         label: "Sincronizando",
-        bg: "bg-sky-50 border-sky-200 text-sky-700",
-        dot: "bg-sky-500 sync-dot-syncing",
+        bg: "bg-blue-50 border-blue-200 text-blue-600",
+        dot: "bg-blue-500 sync-dot-syncing",
       },
       synced: {
         icon: <Check className="h-3 w-3" />,
         label: "Sincronizado",
-        bg: "bg-emerald-50 border-emerald-200 text-emerald-700",
-        dot: "bg-emerald-500",
+        bg: "bg-green-50 border-green-200 text-green-600",
+        dot: "bg-green-500",
       },
       error: {
         icon: <CloudOff className="h-3 w-3" />,
         label: "Erro de sync",
-        bg: "bg-rose-50 border-rose-200 text-rose-600",
-        dot: "bg-rose-500",
+        bg: "bg-red-50 border-red-200 text-red-500",
+        dot: "bg-red-500",
       },
     } as const;
     const c = config[syncStatus as keyof typeof config];
     if (!c) return null;
     return (
-      <div className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider transition-all duration-200 ${c.bg}`}>
+      <div className={`inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-[10px] font-semibold uppercase tracking-wider transition-all duration-150 ${c.bg}`}>
         <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
         {c.icon}
         <span className="hidden sm:inline">{c.label}</span>
@@ -93,8 +93,8 @@ export default function Header({
       {/* 1. MOBILE TOP BAR */}
       <div className="flex items-center justify-between pb-3 print:hidden md:hidden">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-display font-extrabold tracking-tighter text-[#252A34] select-none">
-            FACILITIES <span className="text-[#FF2E63] font-black">BP-COMPRAS</span>
+          <span className="text-sm font-semibold tracking-tight text-slate-900 select-none">
+            FACILITIES <span className="text-blue-600 font-bold">BP</span>
           </span>
           <span className="badge-premium badge-premium-pink">
             {activeQuoteId}
@@ -102,7 +102,7 @@ export default function Header({
         </div>
 
         <div className="flex items-center gap-2 print:hidden">
-          <div className="flex bg-slate-100 rounded-lg p-0.5 gap-0.5 border border-slate-200">
+          <div className="flex bg-slate-100 rounded-md p-0.5 gap-0.5 border border-slate-200">
             <EmojiButton
               iconKey="temaClaro"
               onClick={() => onThemeChange("light")}
@@ -125,7 +125,7 @@ export default function Header({
 
           <div className="flex items-center gap-2 print:hidden select-none">
             <div className="text-right flex flex-col">
-              <span className="text-[11px] font-bold text-slate-800 tracking-tight leading-none uppercase">
+              <span className="text-[11px] font-semibold text-slate-700 tracking-tight leading-none uppercase">
                 {firstName}
               </span>
             </div>
@@ -140,59 +140,59 @@ export default function Header({
       </div>
 
       {/* 2. ACCENT LINE */}
-      <div className="accent-line-premium w-full mb-4 print:hidden md:hidden" />
+      <div className="h-px bg-slate-200 w-full mb-4 print:hidden md:hidden" />
 
       {/* 3. PRINT ONLY REPORT HEADER */}
       {activeView === "cotacao" && (
-        <div className="hidden print:flex flex-col border-b border-slate-350 pb-2 mb-3">
+        <div className="hidden print:flex flex-col border-b border-slate-200 pb-2 mb-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="text-xl font-display font-extrabold tracking-tighter text-[#252A34]">
-                FACILITIES <span className="text-[#FF2E63] font-black">BP-COMPRAS</span>
+              <span className="text-xl font-bold tracking-tight text-slate-900">
+                FACILITIES <span className="text-blue-600">BP</span>
               </span>
-              <div className="h-5 w-[2px] bg-slate-400" />
+              <div className="h-5 w-px bg-slate-300" />
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF2E63] block leading-none">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600 block leading-none">
                   COTAÇÃO
                 </span>
-                <h1 className="text-sm font-display font-black tracking-tight text-slate-900 mt-0.5 leading-none">
+                <h1 className="text-sm font-bold tracking-tight text-slate-900 mt-0.5 leading-none">
                   COMPARATIVO
                 </h1>
               </div>
             </div>
             <div className="text-right text-[11px] space-y-0.5 leading-tight">
-              <p className="font-bold text-slate-900">
-                ID DA COTAÇÃO: <span className="text-[#FF2E63] font-black underline">{activeQuoteId}</span>
+              <p className="font-semibold text-slate-900">
+                ID: <span className="text-blue-600 font-bold underline">{activeQuoteId}</span>
               </p>
-              <p className="font-bold text-slate-800"><span>{userName}</span> ({displayCpf})</p>
-              <p className="text-slate-500 font-semibold">Mês de Referência: {quoteDate} • Emitido em: 15/06/2026</p>
+              <p className="font-semibold text-slate-700"><span>{userName}</span> ({displayCpf})</p>
+              <p className="text-slate-400 font-medium">Mês de Referência: {quoteDate} • Emitido em: 15/06/2026</p>
             </div>
           </div>
 
-          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-[11px] font-bold">
+          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-md px-3 py-1.5 text-[11px] font-semibold">
             <div className="flex items-center gap-1.5">
-              <span className="text-slate-450 uppercase text-[11px] font-bold tracking-wider">Título do Orçamento:</span>
-              <span className="text-slate-900 font-black uppercase">{quoteTitle || "Sem Título"}</span>
+              <span className="text-slate-400 uppercase text-[11px] font-semibold tracking-wider">Título:</span>
+              <span className="text-slate-900 font-bold uppercase">{quoteTitle || "Sem Título"}</span>
             </div>
-            <div className="flex items-center gap-1.5 border-l border-slate-300 pl-4">
-              <span className="text-slate-450 uppercase text-[11px] font-bold tracking-wider">Número do Chamado:</span>
-              <span className="text-slate-900 font-mono font-black">{chamadoNumber || "Sem Chamado"}</span>
+            <div className="flex items-center gap-1.5 border-l border-slate-200 pl-4">
+              <span className="text-slate-400 uppercase text-[11px] font-semibold tracking-wider">Chamado:</span>
+              <span className="text-slate-900 font-mono font-bold">{chamadoNumber || "Sem Chamado"}</span>
             </div>
           </div>
         </div>
       )}
 
-      {/* 4. GLASS HEADER (Showcase editorial style) */}
+      {/* 4. HEADER CONTENT */}
       <div className="print:hidden">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3">
           {/* Left: Title + Category */}
           <div className="flex items-center gap-2 md:gap-3 min-w-0 shrink-0">
-            <div className="border-l-[2px] border-[#FF2E63] pl-3 py-0.5 min-w-0">
-              <h2 className="text-xs sm:text-sm font-display font-extrabold text-[#252A34] uppercase tracking-wide leading-none flex items-center gap-1.5 sm:gap-2 flex-wrap">
+            <div className="border-l-2 border-slate-300 pl-3 py-0.5 min-w-0">
+              <h2 className="text-xs sm:text-sm font-semibold text-slate-900 uppercase tracking-wide leading-none flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 {activeView === "cotacao" ? "COTAÇÃO" : activeView === "estoque" ? "ESTOQUE" : activeView === "normativa" ? "NORMATIVA" : activeView === "docs" ? "DOCUMENTOS" : "RONDA"}
                 {onCategoryClick && activeView === "cotacao" && (
                   <div className="inline-flex items-center gap-1.5 sm:gap-2">
-                    <span className="bp-badge bp-badge-pink hidden sm:inline-flex">
+                    <span className="bp-badge bp-badge-navy hidden sm:inline-flex">
                       {activeCategoryName}
                     </span>
                     <EmojiButton
@@ -203,11 +203,11 @@ export default function Header({
                     />
                   </div>
                 )}
-                <span className="bp-badge bp-badge-navy">
-                  # {activeQuoteId}
+                <span className="bp-badge bp-badge-slate">
+                  #{activeQuoteId}
                 </span>
               </h2>
-              <p className="text-[10px] sm:text-[11px] text-slate-450 mt-1 font-medium leading-none">
+              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 font-medium leading-none">
                 Otimização de orçamentos
               </p>
             </div>
@@ -218,20 +218,20 @@ export default function Header({
             {syncBadge}
 
             {onDateChange && activeView === "cotacao" && (
-              <div className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 cursor-default">
+              <div className="flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 cursor-default">
                 <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-400 shrink-0" />
                 <input
                   type="text"
                   value={quoteDate}
                   onChange={(e) => onDateChange(e.target.value)}
                   placeholder="jul/26"
-                  className="w-10 sm:w-12 border-0 bg-transparent p-0 text-[10px] sm:text-[11px] font-mono font-bold text-slate-800 outline-none focus:ring-0 leading-none uppercase"
+                  className="w-10 sm:w-12 border-0 bg-transparent p-0 text-[10px] sm:text-[11px] font-mono font-semibold text-slate-700 outline-none focus:ring-0 leading-none uppercase"
                   title="Mês de Referência da Cotação"
                 />
               </div>
             )}
 
-            <div className="flex bg-slate-100 rounded-lg p-0.5 sm:p-1 gap-0.5 border border-slate-200 transition-colors">
+            <div className="flex bg-slate-100 rounded-md p-0.5 sm:p-1 gap-0.5 border border-slate-200 transition-colors">
               <EmojiButton
                 iconKey="temaClaro"
                 onClick={() => onThemeChange("light")}
@@ -255,31 +255,28 @@ export default function Header({
             {onGithubClick && (
               <button
                 onClick={onGithubClick}
-                className="hidden sm:flex items-center justify-center p-1.5 h-7 w-7 sm:h-8 sm:w-8 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-600 hover:text-slate-800 transition-all duration-200 cursor-pointer"
-                title="Diagnosticar e Solucionar Conectividade com GitHub"
+                className="hidden sm:flex items-center justify-center p-1.5 h-7 w-7 sm:h-8 sm:w-8 rounded-md border border-slate-200 hover:border-slate-300 bg-white text-slate-500 hover:text-slate-700 transition-all duration-150 cursor-pointer"
+                title="Diagnosticar Conectividade"
               >
                 <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
               </button>
             )}
 
-            <div className="hidden sm:flex items-center gap-2 select-none border-l border-slate-200/60 pl-2 sm:pl-3">
+            <div className="hidden sm:flex items-center gap-2 select-none border-l border-slate-200 pl-2 sm:pl-3">
               <div className="text-right flex flex-col">
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-800 tracking-tight leading-none uppercase">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 tracking-tight leading-none uppercase">
                   {firstName}
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-medium text-slate-400 mt-0.5 leading-none">
                   ID: {displayCpf}
                 </span>
               </div>
-              <div className="h-7 w-7 sm:h-9 sm:w-9 rounded-full border border-slate-200 overflow-hidden shrink-0 bg-slate-100">
+              <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-full border border-slate-200 overflow-hidden shrink-0 bg-slate-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&q=80&w=150" 
+                  src={`https://api.dicebear.com/7.x/initials/svg?seed=${firstName}&backgroundColor=f1f5f9&textColor=475569`}
                   alt="Operador" 
                   referrerPolicy="no-referrer"
                   className="h-full w-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/initials/svg?seed=${firstName}&backgroundColor=111c2e&textColor=ffffff`;
-                  }}
                 />
               </div>
 

@@ -125,7 +125,7 @@ export default function Header({
 
           <div className="flex items-center gap-2 print:hidden select-none">
             <div className="text-right flex flex-col">
-              <span className="text-[11px] font-semibold text-slate-700 tracking-tight leading-none uppercase">
+              <span className="text-xs font-semibold text-slate-700 tracking-tight leading-none uppercase">
                 {firstName}
               </span>
             </div>
@@ -152,7 +152,7 @@ export default function Header({
               </span>
               <div className="h-5 w-px bg-slate-300" />
               <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600 block leading-none">
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 block leading-none">
                   COTAÇÃO
                 </span>
                 <h1 className="text-sm font-bold tracking-tight text-slate-900 mt-0.5 leading-none">
@@ -160,7 +160,7 @@ export default function Header({
                 </h1>
               </div>
             </div>
-            <div className="text-right text-[11px] space-y-0.5 leading-tight">
+            <div className="text-right text-xs space-y-0.5 leading-tight">
               <p className="font-semibold text-slate-900">
                 ID: <span className="text-blue-600 font-bold underline">{activeQuoteId}</span>
               </p>
@@ -169,13 +169,13 @@ export default function Header({
             </div>
           </div>
 
-          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-md px-3 py-1.5 text-[11px] font-semibold">
+          <div className="mt-2 flex items-center justify-between bg-slate-50 border border-slate-200 rounded-md px-3 py-1.5 text-xs font-semibold">
             <div className="flex items-center gap-1.5">
-              <span className="text-slate-400 uppercase text-[11px] font-semibold tracking-wider">Título:</span>
+              <span className="text-slate-400 uppercase text-xs font-semibold tracking-wider">Título:</span>
               <span className="text-slate-900 font-bold uppercase">{quoteTitle || "Sem Título"}</span>
             </div>
             <div className="flex items-center gap-1.5 border-l border-slate-200 pl-4">
-              <span className="text-slate-400 uppercase text-[11px] font-semibold tracking-wider">Chamado:</span>
+              <span className="text-slate-400 uppercase text-xs font-semibold tracking-wider">Chamado:</span>
               <span className="text-slate-900 font-mono font-bold">{chamadoNumber || "Sem Chamado"}</span>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function Header({
                   #{activeQuoteId}
                 </span>
               </h2>
-              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 font-medium leading-none">
+              <p className="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium leading-none">
                 Otimização de orçamentos
               </p>
             </div>
@@ -225,7 +225,7 @@ export default function Header({
                   value={quoteDate}
                   onChange={(e) => onDateChange(e.target.value)}
                   placeholder="jul/26"
-                  className="w-10 sm:w-12 border-0 bg-transparent p-0 text-[10px] sm:text-[11px] font-mono font-semibold text-slate-700 outline-none focus:ring-0 leading-none uppercase"
+                  className="w-10 sm:w-12 border-0 bg-transparent p-0 text-[10px] sm:text-xs font-mono font-semibold text-slate-700 outline-none focus:ring-0 leading-none uppercase"
                   title="Mês de Referência da Cotação"
                 />
               </div>
@@ -264,7 +264,7 @@ export default function Header({
 
             <div className="hidden sm:flex items-center gap-2 select-none border-l border-slate-200 pl-2 sm:pl-3">
               <div className="text-right flex flex-col">
-                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 tracking-tight leading-none uppercase">
+                <span className="text-[10px] sm:text-xs font-semibold text-slate-700 tracking-tight leading-none uppercase">
                   {firstName}
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-medium text-slate-400 mt-0.5 leading-none">

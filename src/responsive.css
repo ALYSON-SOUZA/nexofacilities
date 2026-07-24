@@ -22,6 +22,64 @@ body {
   font-size: clamp(13px, 1.2vw, 15px);
 }
 
+/* --- SINGLE-SCREEN FITTING (Desktop+) --- */
+@media (min-width: 1024px) {
+  /* Force main content to fit viewport */
+  .bp-main {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Compact table rows for single-screen fitting */
+  .bp-main table tbody tr {
+    line-height: 1.2;
+  }
+
+  /* Compact card padding */
+  .bp-main .rounded-2xl.p-6 {
+    padding: 1rem !important;
+  }
+
+  .bp-main .rounded-2xl.p-5 {
+    padding: 0.875rem !important;
+  }
+
+  /* Reduce spacing between sections */
+  .bp-main .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+
+  .bp-main .mb-4 {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .bp-main .mb-3 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .bp-main .mt-6 {
+    margin-top: 1rem !important;
+  }
+
+  .bp-main .mt-4 {
+    margin-top: 0.75rem !important;
+  }
+
+  .bp-main .gap-6 {
+    gap: 1rem !important;
+  }
+
+  .bp-main .gap-4 {
+    gap: 0.75rem !important;
+  }
+
+  .bp-main .gap-3 {
+    gap: 0.5rem !important;
+  }
+}
+
 /* --- TV / LARGE SCREEN CAP --- */
 @media (min-width: 1920px) {
   .bp-main {
@@ -39,7 +97,7 @@ body {
 @media (max-width: 767px) {
   .bp-main {
     margin-left: 0 !important;
-    padding: 0.75rem !important;
+    padding: 0.5rem !important;
     padding-top: 0 !important;
   }
 
@@ -51,7 +109,7 @@ body {
 
   #root .lg\:grid-cols-4 {
     grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
+    gap: 0.375rem !important;
   }
 
   #root .lg\:grid-cols-4 h2 {
@@ -59,7 +117,7 @@ body {
   }
 
   #root .lg\:grid-cols-4 .p-6 {
-    padding: 0.75rem !important;
+    padding: 0.5rem !important;
   }
 
   /* Touch-friendly scroll */
@@ -76,7 +134,7 @@ body {
   #bp-compras-header {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 0.5rem !important;
+    gap: 0.375rem !important;
   }
 
   #bp-compras-header .flex-col.sm\:flex-row {
@@ -87,7 +145,7 @@ body {
   #bp-compras-header > div:last-child {
     flex-direction: column !important;
     width: 100% !important;
-    gap: 0.375rem !important;
+    gap: 0.25rem !important;
   }
 
   #bp-compras-header > div:last-child > div {
@@ -112,12 +170,12 @@ body {
 
   #root .grid.md\:grid-cols-2 {
     grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
+    gap: 0.375rem !important;
   }
 
   #root .lg\:grid-cols-3 {
     grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
+    gap: 0.375rem !important;
   }
 
   #root .grid.sm\:grid-cols-2 {
@@ -162,12 +220,12 @@ body {
     max-width: none !important;
   }
 
-  /* Modal overflow handling */
+  /* Modal overflow handling — force viewport fit */
   .fixed.inset-0 > .rounded-2xl,
   .fixed.inset-0 > [class*="rounded"] {
     max-width: 95vw !important;
-    padding: 0.75rem !important;
-    max-height: 85vh;
+    padding: 0.5rem !important;
+    max-height: 90vh;
     overflow-y: auto;
   }
 
@@ -179,21 +237,21 @@ body {
   #root .bg-sky-50.border.border-sky-100.rounded-2xl,
   #root .bg-white.border.border-slate-200.rounded-2xl {
     flex-direction: column !important;
-    gap: 0.5rem !important;
-    padding: 0.75rem !important;
+    gap: 0.375rem !important;
+    padding: 0.5rem !important;
   }
 
   /* NormativaView: stack panels vertically */
   #root .grid.lg\:grid-cols-12 {
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+    gap: 0.5rem !important;
   }
 
   /* ReceiptModal: make header responsive */
   #root header[class*="bg-"] {
     flex-wrap: wrap !important;
-    gap: 0.75rem !important;
-    padding: 0.75rem !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
   }
 
   /* MeiContractModal: stack panels */
@@ -204,18 +262,45 @@ body {
   /* Capacity panels: stack */
   #root .grid.lg\:grid-cols-3 {
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Compact spacing for mobile */
+  .bp-main .mb-6 { margin-bottom: 0.5rem !important; }
+  .bp-main .mb-4 { margin-bottom: 0.375rem !important; }
+  .bp-main .mt-6 { margin-top: 0.5rem !important; }
+  .bp-main .mt-4 { margin-top: 0.375rem !important; }
+  .bp-main .gap-6 { gap: 0.5rem !important; }
+  .bp-main .gap-4 { gap: 0.375rem !important; }
+
+  /* Compact cards */
+  .bp-main .rounded-2xl.p-6 { padding: 0.5rem !important; }
+  .bp-main .rounded-2xl.p-5 { padding: 0.5rem !important; }
+  .bp-main .rounded-2xl.p-4 { padding: 0.375rem !important; }
+
+  /* Compact tables */
+  .bp-main table td,
+  .bp-main table th {
+    padding: 0.375rem 0.5rem !important;
   }
 
   /* Footer compact */
   footer.mt-8 {
-    padding: 0.5rem 0 !important;
+    padding: 0.375rem 0 !important;
     font-size: 10px !important;
   }
 
   .sync-dot-syncing + span:last-child {
     display: none !important;
   }
+
+  /* Hide desktop-only elements */
+  .lg\:hidden { display: none !important; }
+  .md\:hidden { display: none !important; }
+
+  /* Show mobile-only elements */
+  .lg\:block { display: block !important; }
+  .md\:block { display: block !important; }
 }
 
 /* ============================================================
@@ -233,12 +318,12 @@ body {
 
   .bp-main {
     margin-left: 0 !important;
-    padding: 1rem 1.5rem !important;
+    padding: 0.75rem 1rem !important;
   }
 
   #root .lg\:grid-cols-4 {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
   }
 
   .overflow-x-auto {
@@ -287,8 +372,13 @@ body {
   /* Tablet: NormativaView/Receipt grids - 2 cols */
   #root .grid.lg\:grid-cols-12 {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    gap: 0.75rem !important;
   }
+
+  /* Compact spacing for tablet */
+  .bp-main .rounded-2xl.p-6 { padding: 0.75rem !important; }
+  .bp-main .mb-6 { margin-bottom: 0.75rem !important; }
+  .bp-main .gap-6 { gap: 0.75rem !important; }
 }
 
 /* ============================================================
@@ -349,6 +439,60 @@ body {
 }
 
 /* ============================================================
+   SINGLE-SCREEN ENFORCEMENT (all breakpoints)
+   ============================================================ */
+
+/* Force modals to fit viewport */
+.fixed.inset-0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed.inset-0 > div {
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+/* Compact form fields */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="search"],
+select,
+textarea {
+  font-size: 13px !important;
+}
+
+/* Compact form labels */
+label {
+  font-size: 11px !important;
+  line-height: 1.4;
+}
+
+/* Compact button text */
+button:not(.EmojiButton) span {
+  font-size: inherit;
+}
+
+/* Force tables to be compact */
+table {
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  white-space: nowrap;
+}
+
+/* Prevent horizontal overflow on main */
+.bp-main {
+  overflow-x: hidden;
+}
+
+/* ============================================================
    PRINT
    ============================================================ */
 @media print {
@@ -361,5 +505,6 @@ body {
     margin-left: 0 !important;
     padding: 0 !important;
     overflow: visible !important;
+    height: auto !important;
   }
 }

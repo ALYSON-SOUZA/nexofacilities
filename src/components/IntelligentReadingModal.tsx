@@ -119,10 +119,10 @@ export default function IntelligentReadingModal({
               <Sparkles className="h-4.5 w-4.5" />
             </span>
             <div>
-              <h2 className="text-[14px] font-black uppercase text-slate-850 tracking-wide">
+              <h2 className="text-sm font-black uppercase text-slate-850 tracking-wide">
                 Leitura Inteligente de Compras
               </h2>
-              <p className="text-[11px] text-slate-500 font-bold uppercase tracking-tight">
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-tight">
                 Marcar itens comprados via analysis IA (Imagem ou Texto)
               </p>
             </div>
@@ -138,13 +138,13 @@ export default function IntelligentReadingModal({
 
         {/* Content Body */}
         <div className="p-5 overflow-y-auto flex-1 space-y-4 scrollbar-thin scrollbar-thumb-slate-200">
-          <p className="text-[11px] text-slate-600 font-bold leading-relaxed">
+          <p className="text-xs text-slate-600 font-bold leading-relaxed">
             Instruções: Forneça abaixo uma imagem da nota fiscal/comprovante ou cole o texto do pedido (print de conversa, lista, etc.). A inteligência artificial identificará os produtos e os marcará automaticamente como <span className="text-[#FF2E63]">comprados/pagos</span> na cotação ativa.
           </p>
 
           {/* Error message */}
           {error && (
-            <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-[11px] font-black text-rose-700 uppercase">
+            <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs font-black text-rose-700 uppercase">
               ⚠️ {error}
             </div>
           )}
@@ -157,7 +157,7 @@ export default function IntelligentReadingModal({
                 <span className="text-xs font-black uppercase tracking-wider text-slate-500 block mb-1">
                   Enviar Comprovante/Foto
                 </span>
-                <span className="text-[11px] text-slate-500 font-bold uppercase block">
+                <span className="text-xs text-slate-500 font-bold uppercase block">
                   Formatos aceitos: Imagens (.jpg, .png, etc.)
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function IntelligentReadingModal({
                     <span className="p-1.5 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
                       <Image className="h-4 w-4" />
                     </span>
-                    <span className="text-[11px] font-black text-slate-700 truncate block">
+                    <span className="text-xs font-black text-slate-700 truncate block">
                       {fileName || "imagem_carregada.png"}
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export default function IntelligentReadingModal({
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 placeholder="Cole aqui a lista de compras, descrição de conversa ou texto extraído da Nota Fiscal..."
-                className="w-full flex-1 min-h-[120px] p-3 text-[11px] font-bold text-slate-800 border border-slate-200 rounded-xl focus:border-[#FF2E63] focus:ring-1 focus:ring-[#FF2E63]/10 outline-none resize-none placeholder:text-slate-300"
+                className="w-full flex-1 min-h-[120px] p-3 text-xs font-bold text-slate-800 border border-slate-200 rounded-xl focus:border-[#FF2E63] focus:ring-1 focus:ring-[#FF2E63]/10 outline-none resize-none placeholder:text-slate-300"
               />
             </div>
           </div>
@@ -236,11 +236,11 @@ export default function IntelligentReadingModal({
                 <CheckCircle className="h-4 w-4" />
                 Resultado da Análise IA
               </div>
-              <p className="text-[11px] font-bold text-slate-700 leading-relaxed whitespace-pre-wrap">
+              <p className="text-xs font-bold text-slate-700 leading-relaxed whitespace-pre-wrap">
                 {analysisSummary}
               </p>
               {matchedCount !== null && (
-                <div className="text-[11px] font-black uppercase text-[#FF2E63] pt-1">
+                <div className="text-xs font-black uppercase text-[#FF2E63] pt-1">
                   🎯 {matchedCount} {matchedCount === 1 ? 'item foi' : 'itens foram'} identificados e marcados como comprado na planilha!
                 </div>
               )}

@@ -1314,15 +1314,15 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 placeholder="Buscar fornecedor..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-2.5 py-1.5 text-[11px] bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] text-slate-700 dark:text-slate-200 font-semibold"
+                className="w-full pl-8 pr-2.5 py-1.5 text-xs bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] text-slate-700 dark:text-slate-200 font-semibold"
               />
             </div>
 
             {/* Table of Saved Suppliers */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-[#13151b] max-h-[140px] overflow-y-auto overflow-x-auto custom-scrollbar">
-              <table className="w-full text-left text-[11px] border-collapse">
+              <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-100 dark:bg-[#171a21] text-slate-500 dark:text-slate-400 font-bold uppercase text-[11px] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">
+                  <tr className="bg-slate-100 dark:bg-[#171a21] text-slate-500 dark:text-slate-400 font-bold uppercase text-xs border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">
                     <th className="px-2 py-1">Fornecedor / CPF</th>
                     <th className="px-2 py-1 text-right">Ações</th>
                   </tr>
@@ -1339,10 +1339,10 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                       onClick={() => handleSelectSupplier(sup)}
                     >
                       <td className="px-2 py-1.5 font-semibold text-slate-700 dark:text-slate-300">
-                        <div className="truncate font-black text-[11px] text-[#252A34] dark:text-[#5fa8c9] max-w-[170px]" title={sup.nomeCompleto}>
+                        <div className="truncate font-black text-xs text-[#252A34] dark:text-[#5fa8c9] max-w-[170px]" title={sup.nomeCompleto}>
                           {sup.nomeCompleto}
                         </div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-500 font-mono mt-0.5">
+                        <div className="text-xs text-slate-500 dark:text-slate-500 font-mono mt-0.5">
                           {sup.cpf || "Sem CPF"}
                         </div>
                       </td>
@@ -1366,7 +1366,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                   ))}
                   {filteredSuppliers.length === 0 && (
                     <tr>
-                      <td colSpan={2} className="px-2 py-4 text-center text-slate-500 dark:text-slate-500 text-[11px]">
+                      <td colSpan={2} className="px-2 py-4 text-center text-slate-500 dark:text-slate-500 text-xs">
                         Nenhum fornecedor encontrado.
                       </td>
                     </tr>
@@ -1394,7 +1394,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               Preenchimento Inteligente
             </h3>
 
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-2 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 leading-relaxed">
               Cole e-mail, WhatsApp ou currículo do prestador e clique para extrair e preencher todos os campos da ficha de contratação.
             </p>
 
@@ -1402,7 +1402,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               value={pasteText}
               onChange={(e) => setPasteText(e.target.value)}
               placeholder="Cole aqui as informações do profissional..."
-              className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
+              className="w-full min-h-[90px] p-2 text-xs bg-slate-50 dark:bg-[#252A34] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
             />
 
             <div className="mt-3 flex gap-2">
@@ -1429,7 +1429,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
           </div>
 
           {statusMessage && (
-            <div className="p-2 bg-emerald-50 dark:bg-[#0c3c26] border border-emerald-100 dark:border-emerald-900/60 rounded-lg text-[11px] font-bold text-emerald-800 dark:text-emerald-400 text-center animate-pulse">
+            <div className="p-2 bg-emerald-50 dark:bg-[#0c3c26] border border-emerald-100 dark:border-emerald-900/60 rounded-lg text-xs font-bold text-emerald-800 dark:text-emerald-400 text-center animate-pulse">
               {statusMessage}
             </div>
           )}
@@ -1488,7 +1488,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Identificação */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 IDENTIFICAÇÃO
               </div>
@@ -1500,7 +1500,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               >
                 <div 
                   style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                  className="w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                  className="w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                 >
                   Nome Completo:
                 </div>
@@ -1516,7 +1516,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Endereço */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 ENDEREÇO RESIDENCIAL
               </div>
@@ -1531,7 +1531,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Endereço:
                   </div>
@@ -1548,7 +1548,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Número:
                   </div>
@@ -1563,7 +1563,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 <div className="md:col-span-3 flex">
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Compl.:
                   </div>
@@ -1587,7 +1587,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Bairro:
                   </div>
@@ -1604,7 +1604,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     CEP:
                   </div>
@@ -1626,7 +1626,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-14 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-14 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Cidade:
                   </div>
@@ -1641,7 +1641,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 <div className="md:col-span-2 flex">
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-10 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-10 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     UF:
                   </div>
@@ -1659,7 +1659,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Nascimento e Sexo */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 NASCIMENTO & SEXO
               </div>
@@ -1674,7 +1674,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Nascimento:
                   </div>
@@ -1691,7 +1691,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Naturalidade:
                   </div>
@@ -1708,7 +1708,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-10 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-10 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     UF:
                   </div>
@@ -1727,7 +1727,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ color: colors.textMuted }}
-                    className="font-bold text-[11px] uppercase mr-2"
+                    className="font-bold text-xs uppercase mr-2"
                   >
                     Sexo:
                   </div>
@@ -1759,7 +1759,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Grau de Instrução */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 GRAU DE INSTRUÇÃO
               </div>
@@ -1784,7 +1784,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                       onChange={() => handleInputChange("grauInstrucao", deg as any)}
                       className="text-[#f39c12] focus:ring-[#f39c12] cursor-pointer h-3.5 w-3.5"
                     />
-                    <span style={{ color: colors.textMain }} className="text-[11px]">{deg}</span>
+                    <span style={{ color: colors.textMain }} className="text-xs">{deg}</span>
                   </label>
                 ))}
               </div>
@@ -1792,7 +1792,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Estado Civil */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 ESTADO CIVIL
               </div>
@@ -1807,7 +1807,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Est. Civil:
                   </div>
@@ -1824,7 +1824,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 >
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Casamento:
                   </div>
@@ -1839,7 +1839,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                 <div className="md:col-span-6 flex">
                   <div 
                     style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                    className="w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                   >
                     Cônjuge:
                   </div>
@@ -1856,7 +1856,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Raça/Cor */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 RAÇA / COR
               </div>
@@ -1883,7 +1883,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               {/* Seção: Função / Atividade */}
               <div 
                 style={{ backgroundColor: colors.lightBlue, color: colors.textNavy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
               >
                 FUNÇÃO E/OU ATIVIDADE EXERCIDA
               </div>
@@ -1895,7 +1895,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               >
                 <div 
                   style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                  className="w-32 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0"
+                  className="w-32 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0"
                 >
                   Função / Atividade:
                 </div>
@@ -1915,13 +1915,13 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
               >
                 <div 
                   style={{ borderRightColor: colors.rowBorder, color: colors.textNavy }}
-                  className="px-3 py-1.5 font-bold text-[11px] uppercase border-r flex items-center tracking-wider"
+                  className="px-3 py-1.5 font-bold text-xs uppercase border-r flex items-center tracking-wider"
                 >
                   Documentos
                 </div>
                 <div 
                   style={{ color: colors.textNavy }}
-                  className="px-3 py-1.5 font-bold text-[11px] uppercase flex items-center tracking-wider"
+                  className="px-3 py-1.5 font-bold text-xs uppercase flex items-center tracking-wider"
                 >
                   Dados Bancários
                 </div>
@@ -1936,7 +1936,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                     <div className="flex items-center h-full">
                       <div 
                         style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                        className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                        className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                       >
                         CPF:
                       </div>
@@ -1951,7 +1951,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                     <div className="flex items-center h-full">
                       <div 
                         style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                        className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                        className="w-12 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                       >
                         PIS:
                       </div>
@@ -1968,7 +1968,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                   <div className="flex items-center h-[40px]">
                     <div 
                       style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                      className="w-24 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                      className="w-24 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                     >
                       CNPJ (MEI):
                     </div>
@@ -1990,7 +1990,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                   <div className="flex items-center h-[40px]">
                     <div 
                       style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                      className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                      className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                     >
                       Banco:
                     </div>
@@ -2007,7 +2007,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                     <div className="flex items-center h-full">
                       <div 
                         style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                        className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                        className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                       >
                         Agência:
                       </div>
@@ -2022,7 +2022,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                     <div className="flex items-center h-full">
                       <div 
                         style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                        className="w-14 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                        className="w-14 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                       >
                         Conta:
                       </div>
@@ -2039,7 +2039,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
                   <div className="flex items-center h-[40px]">
                     <div 
                       style={{ borderRightColor: colors.rowBorder, color: colors.textMuted }}
-                      className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-[11px] uppercase border-r shrink-0 h-full"
+                      className="w-16 bg-slate-100/50 dark:bg-[#13151b] px-2.5 py-2 flex items-center font-bold text-xs uppercase border-r shrink-0 h-full"
                     >
                       Pix:
                     </div>
@@ -2057,7 +2057,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
             </div>
           </div>
           
-          <div className="mt-4 pt-3 border-t border-slate-150 dark:border-slate-800 flex justify-end gap-3 text-slate-500 text-[11px] font-black uppercase tracking-wider">
+          <div className="mt-4 pt-3 border-t border-slate-150 dark:border-slate-800 flex justify-end gap-3 text-slate-500 text-xs font-black uppercase tracking-wider">
             <span>Ficha de Contratação BP-COMPRAS — Totalmente editável e auditável</span>
           </div>
         </div>

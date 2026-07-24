@@ -710,7 +710,7 @@ Assinatura da Administração: _________________________________________________
   };
 
   const getFieldClass = (value: string) => {
-    return `flex-1 px-3 py-2 text-[11px] bg-transparent focus:outline-hidden text-slate-900 dark:text-white placeholder-slate-400 font-bold tracking-wide uppercase ${
+    return `flex-1 px-3 py-2 text-xs bg-transparent focus:outline-hidden text-slate-900 dark:text-white placeholder-slate-400 font-bold tracking-wide uppercase ${
       value ? "font-black text-blue-900 dark:text-blue-300" : ""
     }`;
   };
@@ -747,7 +747,7 @@ Assinatura da Administração: _________________________________________________
             
             {/* Checklist of Terms Selection Bar */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2.5">
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-2.5">
                 Barra de Seleção de Termos (Checklist)
               </h3>
               <div className="flex flex-col gap-2 max-h-[220px] overflow-y-auto pr-1">
@@ -769,7 +769,7 @@ Assinatura da Administração: _________________________________________________
                           <div className={`p-1.5 rounded-md shrink-0 ${term.color || "text-purple-500 bg-purple-50 dark:bg-purple-950/20"}`}>
                             <IconComp className="h-4 w-4" />
                           </div>
-                          <span className="text-[11px] font-black uppercase tracking-tight text-slate-700 dark:text-slate-200 truncate">
+                          <span className="text-xs font-black uppercase tracking-tight text-slate-700 dark:text-slate-200 truncate">
                             {term.label}
                           </span>
                         </div>
@@ -807,13 +807,13 @@ Assinatura da Administração: _________________________________________________
 
             {/* Pre-fill Collaborator Panel */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs relative">
-              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2">
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-2">
                 Vincular à Ficha de Colaborador Salvo
               </h3>
               <div className="relative">
                 <button
                   onClick={() => setShowSupplierDropdown(!showSupplierDropdown)}
-                  className="w-full p-2 bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg text-left text-[11px] text-slate-700 dark:text-slate-300 font-bold flex items-center justify-between cursor-pointer"
+                  className="w-full p-2 bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg text-left text-xs text-slate-700 dark:text-slate-300 font-bold flex items-center justify-between cursor-pointer"
                 >
                   <span>Importar Dados do Colaborador...</span>
                   <ChevronDown className="h-4 w-4 text-slate-500" />
@@ -822,7 +822,7 @@ Assinatura da Administração: _________________________________________________
                 {showSupplierDropdown && (
                   <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[160px] overflow-y-auto bg-white dark:bg-[#20242e] border border-slate-200 dark:border-slate-800 rounded-lg shadow-lg">
                     {savedSuppliers.length === 0 ? (
-                      <div className="p-3 text-[11px] text-slate-500 italic text-center">
+                      <div className="p-3 text-xs text-slate-500 italic text-center">
                         Nenhum colaborador salvo encontrado.
                       </div>
                     ) : (
@@ -830,10 +830,10 @@ Assinatura da Administração: _________________________________________________
                         <button
                           key={colab.nomeCompleto}
                           onClick={() => handleSelectCollaborator(colab)}
-                          className="w-full px-3 py-2 text-left text-[11px] hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-200 font-medium border-b border-slate-100 dark:border-slate-800 flex flex-col cursor-pointer"
+                          className="w-full px-3 py-2 text-left text-xs hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-700 dark:text-slate-200 font-medium border-b border-slate-100 dark:border-slate-800 flex flex-col cursor-pointer"
                         >
                           <span className="font-bold uppercase">{colab.nomeCompleto}</span>
-                          <span className="text-[11px] text-slate-500">CPF: {colab.cpf || "Sem CPF"}</span>
+                          <span className="text-xs text-slate-500">CPF: {colab.cpf || "Sem CPF"}</span>
                         </button>
                       ))
                     )}
@@ -844,14 +844,14 @@ Assinatura da Administração: _________________________________________________
 
             {/* AI Text Extractor */}
             <div className="border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 bg-white dark:bg-[#1a1d24] shadow-2xs">
-              <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-500 mb-2">
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 mb-2">
                 Preencher com IA Gemini 🤖
               </h3>
               <textarea
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 placeholder="Cole dados brutos do colaborador e do objeto (ex: 'João da Silva CPF 123 recebeu a chave da sala de TI ontem')"
-                className="w-full min-h-[90px] p-2 text-[11px] bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
+                className="w-full min-h-[90px] p-2 text-xs bg-slate-50 dark:bg-[#13151b] border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-[#FF2E63] resize-none text-slate-700 dark:text-slate-200 font-medium"
               />
 
               <div className="mt-3 flex gap-1.5">
@@ -875,7 +875,7 @@ Assinatura da Administração: _________________________________________________
             </div>
             
             {statusMessage && (
-              <div className="p-2.5 bg-slate-800 text-teal-400 text-[11px] font-bold uppercase text-center rounded-lg animate-pulse">
+              <div className="p-2.5 bg-slate-800 text-teal-400 text-xs font-bold uppercase text-center rounded-lg animate-pulse">
                 {statusMessage}
               </div>
             )}
@@ -920,17 +920,17 @@ Assinatura da Administração: _________________________________________________
 
             {/* Live Interactive Form Spreadsheet layout */}
             <div className="bg-slate-50 dark:bg-[#1a1c23] border border-slate-200 dark:border-slate-800 rounded-xl p-3 md:p-6 overflow-x-auto">
-              <div className="w-full min-w-[320px] max-w-4xl mx-auto border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1E222B] text-slate-800 dark:text-white text-[11px] select-text shadow-md">
+              <div className="w-full min-w-[320px] max-w-4xl mx-auto border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#1E222B] text-slate-800 dark:text-white text-xs select-text shadow-md">
                 
                 {/* Header Strip */}
                 <div className="bg-[#1A3A5A] text-white flex flex-col items-center justify-center py-4 px-4 text-center">
                   <div className="font-black text-xs uppercase tracking-widest text-[#FF2E63] mb-1">
                     ADV BELLINATI PEREZ
                   </div>
-                  <div className="text-[11px] font-bold text-slate-300 tracking-wider mb-1">
+                  <div className="text-xs font-bold text-slate-300 tracking-wider mb-1">
                     CNPJ: 03.404.018/0051-06
                   </div>
-                  <div className="text-[11px] text-slate-500 font-medium max-w-xl leading-relaxed">
+                  <div className="text-xs text-slate-500 font-medium max-w-xl leading-relaxed">
                     Av. Santos Dumont, 5335 — Salas 101 a 120 e 201 a 220 — CEP 60175-047 — Papicu — Fortaleza/CE
                   </div>
                 </div>
@@ -941,14 +941,14 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 1: Identificação */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
                 >
                   1. IDENTIFICAÇÃO DO COLABORADOR / RESPONSÁVEL
                 </div>
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Nome Completo:
                     </div>
                     <input
@@ -963,7 +963,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       CPF:
                     </div>
                     <input
@@ -975,7 +975,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       RG:
                     </div>
                     <input
@@ -990,7 +990,7 @@ Assinatura da Administração: _________________________________________________
 
                 <div className="border-b border-slate-200 dark:border-slate-800 grid grid-cols-12 min-h-[40px]">
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Cargo:
                     </div>
                     <input
@@ -1002,7 +1002,7 @@ Assinatura da Administração: _________________________________________________
                     />
                   </div>
                   <div className="col-span-12 md:col-span-6 flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
+                    <div className="w-full sm:w-20 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500">
                       Setor:
                     </div>
                     <input
@@ -1018,7 +1018,7 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 2: Especificações */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
                 >
                   2. ESPECIFICAÇÕES DO OBJETO ENTREGUE
                 </div>
@@ -1036,7 +1036,7 @@ Assinatura da Administração: _________________________________________________
                         const borderClass = (fIdx === 0 && !isLastSingle) ? "border-b md:border-b-0 border-r-0 md:border-r border-slate-200 dark:border-slate-800" : "";
                         return (
                           <div key={field.key} className={`flex flex-col sm:flex-row ${colSpanClass} ${borderClass}`}>
-                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-[11px] uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500 shrink-0">
+                            <div className="w-full sm:w-28 bg-slate-100/50 dark:bg-[#13151b] px-3 py-2 flex items-center font-bold text-xs uppercase border-b sm:border-b-0 sm:border-r border-slate-200 dark:border-slate-850 text-slate-500 shrink-0">
                               {field.label}:
                             </div>
                             <input
@@ -1059,14 +1059,14 @@ Assinatura da Administração: _________________________________________________
                 {/* Section 3: Cláusulas */}
                 <div 
                   style={{ backgroundColor: colors.lightBlue, color: colors.navy, borderBottomColor: colors.navy, borderBottomWidth: "2px" }}
-                  className="px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider"
+                  className="px-3 py-1.5 font-bold text-xs uppercase tracking-wider"
                 >
                   3. COMPROMISSOS E CLÁUSULAS LEGAIS
                 </div>
                 
                 <div className="p-4 bg-slate-50/50 dark:bg-[#121419] border-b border-slate-200 dark:border-slate-800 space-y-2">
                   {activeTermObj.clauses.map((clause, idx) => (
-                    <p key={idx} className="text-[11px] text-slate-500 italic leading-relaxed text-justify">
+                    <p key={idx} className="text-xs text-slate-500 italic leading-relaxed text-justify">
                       {idx + 1}. {clause}
                     </p>
                   ))}
@@ -1076,13 +1076,13 @@ Assinatura da Administração: _________________________________________________
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-50/50 dark:bg-[#121419] min-h-[100px]">
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500 text-center">
                       ASSINATURA DO COLABORADOR
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-end pt-8">
                     <div className="w-full border-t border-slate-400 dark:border-slate-600 my-1" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500 text-center">
                       ADMINISTRAÇÃO / RECURSOS HUMANOS
                     </span>
                   </div>
@@ -1119,7 +1119,7 @@ Assinatura da Administração: _________________________________________________
             {/* Content */}
             <div className="p-5 space-y-4">
               <div>
-                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1.5">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-1.5">
                   Nome do Termo / Objeto
                 </label>
                 <input
@@ -1132,9 +1132,9 @@ Assinatura da Administração: _________________________________________________
               </div>
 
               <div>
-                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
+                <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
                   <span>Dados ou Texto de Referência</span>
-                  <span className="text-[11px] text-[#FF2E63] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
+                  <span className="text-xs text-[#FF2E63] font-medium lowercase italic">Gemini criará a estrutura ideal</span>
                 </label>
                 <textarea
                   placeholder="Exemplo de conteúdo que você quer que exista nesse termo. A IA do Gemini analisará este texto para identificar automaticamente quais campos (marca, modelo, chaves, placa, etc.) e cláusulas de responsabilidade o seu termo precisa, gerando uma ficha limpa e elegante estruturada!"
@@ -1150,7 +1150,7 @@ Assinatura da Administração: _________________________________________________
               <button
                 type="button"
                 onClick={() => setIsNewTermModalOpen(false)}
-                className="px-4 py-2 text-[11px] font-bold uppercase text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer"
+                className="px-4 py-2 text-xs font-bold uppercase text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer"
               >
                 Cancelar
               </button>
@@ -1159,7 +1159,7 @@ Assinatura da Administração: _________________________________________________
                 type="button"
                 onClick={handleCreateCustomTerm}
                 disabled={isGeneratingStructure || !newTermName.trim()}
-                className="px-4 py-2 bg-[#FF2E63] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-[11px] font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
+                className="px-4 py-2 bg-[#FF2E63] hover:bg-teal-500 disabled:opacity-50 text-slate-900 text-xs font-black uppercase tracking-wider rounded-lg transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
                 {isGeneratingStructure ? (
                   <>

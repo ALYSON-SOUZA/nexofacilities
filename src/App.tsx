@@ -2414,10 +2414,10 @@ export default function App() {
                   <h3 className="text-xs font-black text-slate-900 uppercase tracking-tight">
                     Simulação de Categoria Recomendada
                   </h3>
-                  <p className="text-[11px] text-slate-550 font-bold leading-relaxed">
+                  <p className="text-xs text-slate-550 font-bold leading-relaxed">
                     Você está na categoria <strong className="text-[#FF2E63]">MATERIAL DE LIMPEZA</strong>, mas possui <strong className="font-extrabold text-slate-800">{items.filter(it => it.quantity > 0).length} itens</strong> para compra.
                   </p>
-                  <p className="text-[11px] text-slate-550 font-bold leading-relaxed mt-1">
+                  <p className="text-xs text-slate-550 font-bold leading-relaxed mt-1">
                     Como há <strong className="text-slate-800">menos de 8 itens</strong> ativos, recomendamos mudar para a nova categoria <strong className="text-slate-800">MATERIAL DE LIMPEZA EXTRA</strong>, que não exige o planejamento de Capacity.
                   </p>
                 </div>
@@ -2481,7 +2481,7 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="space-y-3 text-[11px] text-slate-600 leading-relaxed font-semibold">
+              <div className="space-y-3 text-xs text-slate-600 leading-relaxed font-semibold">
                 <p>
                   Por estar em uma janela integrada para testes (iframe do AI Studio), o navegador bloqueia a abertura direta da janela de impressão.
                 </p>
@@ -2511,7 +2511,7 @@ export default function App() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setShowPrintModal(false)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#252A34] hover:bg-slate-800 text-white py-3 text-[11px] font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#252A34] hover:bg-slate-800 text-white py-3 text-xs font-black tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Abrir App em Nova Aba para Imprimir

@@ -243,7 +243,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
   const formatTutorMarkdown = (text: string) => {
     const lines = text.split("\n");
     return (
-      <div className="space-y-2 text-[12px] leading-relaxed">
+      <div className="space-y-2 text-xs leading-relaxed">
         {lines.map((line, idx) => {
           let renderedLine = line.trim();
           
@@ -285,7 +285,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
             const cleanContent = renderedLine.replace(/^\d+\./, "").trim();
             return (
               <div key={idx} className="flex gap-2.5 my-1 items-start pl-1">
-                <span className="font-black text-[#FF2E63] shrink-0 font-mono text-[11px]">{numberMatch ? numberMatch[0] : ""}</span>
+                <span className="font-black text-[#FF2E63] shrink-0 font-mono text-xs">{numberMatch ? numberMatch[0] : ""}</span>
                 <p className="text-slate-700 flex-1">{parseBoldText(cleanContent)}</p>
               </div>
             );
@@ -333,15 +333,15 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               <BookOpen className="h-5 w-5 text-[#FF2E63]" />
               Manual & Normativa <span className="text-[#FF2E63]">Facilities 2026</span>
             </h1>
-            <p className="text-[11px] text-slate-450 mt-1 font-semibold leading-none">
+            <p className="text-xs text-slate-450 mt-1 font-semibold leading-none">
               Governança, Sistemas, Operações e Auditorias Integradas
             </p>
           </div>
         </div>
         
         <div className="text-right hidden md:block">
-          <span className="text-[11px] font-black uppercase text-[#FF2E63] block leading-none">DOCUMENTO UNIFICADO</span>
-          <span className="text-[11px] text-slate-500 font-mono font-bold mt-1 block">Versão 2.0 • Julho de 2026</span>
+          <span className="text-xs font-black uppercase text-[#FF2E63] block leading-none">DOCUMENTO UNIFICADO</span>
+          <span className="text-xs text-slate-500 font-mono font-bold mt-1 block">Versão 2.0 • Julho de 2026</span>
         </div>
       </div>
 
@@ -402,10 +402,10 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
             {/* Table of Contents Index (Visible on md and larger) */}
             <div className="w-64 border-r border-slate-150 bg-slate-50/50 shrink-0 hidden md:flex flex-col select-none overflow-y-auto">
               <div className="p-3 border-b border-slate-150 flex items-center justify-between shrink-0 bg-slate-100/40">
-                <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-500">
                   Índice de Capítulos
                 </span>
-                <span className="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-500 font-mono">
+                <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-500 font-mono">
                   {NORMATIVA_SECTIONS.length} itens
                 </span>
               </div>
@@ -423,13 +423,13 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                           target.scrollIntoView({ behavior: "smooth", block: "start" });
                         }
                       }}
-                      className={`w-full text-left px-2.5 py-2.5 rounded-xl text-[11px] leading-tight transition-all cursor-pointer flex gap-2.5 items-start group ${
+                      className={`w-full text-left px-2.5 py-2.5 rounded-xl text-xs leading-tight transition-all cursor-pointer flex gap-2.5 items-start group ${
                         isSelected
                           ? "bg-[#FF2E63]/10 text-[#FF2E63] font-black border-l-2 border-[#FF2E63] pl-2 bg-gradient-to-r from-[#FF2E63]/5 to-transparent"
                           : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                       }`}
                     >
-                      <span className={`font-mono text-[11px] font-black px-1.5 py-0.5 rounded shrink-0 transition-all ${
+                      <span className={`font-mono text-xs font-black px-1.5 py-0.5 rounded shrink-0 transition-all ${
                         isSelected 
                           ? "bg-[#FF2E63] text-white scale-105 shadow-3xs" 
                           : "bg-slate-200 text-slate-500 group-hover:bg-slate-300"
@@ -449,7 +449,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                 <div className="text-center py-12 flex flex-col items-center justify-center">
                   <AlertCircle className="h-10 w-10 text-amber-500 mb-2.5" />
                   <h3 className="text-xs font-black uppercase text-slate-800">Nenhum resultado encontrado</h3>
-                  <p className="text-[11px] text-slate-500 max-w-sm mt-1">
+                  <p className="text-xs text-slate-500 max-w-sm mt-1">
                     Não encontramos correspondência para sua busca de palavra-chave. Tente buscar por termos mais genéricos como "Uber", "Correios", "Zeladora" ou "GLPI".
                   </p>
                   <EmojiButton
@@ -501,7 +501,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                                 <button
                                   key={sIdx}
                                   onClick={() => setActiveSubTab(sIdx)}
-                                  className={`px-2.5 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-tight transition-all cursor-pointer ${
+                                  className={`px-2.5 py-1.5 rounded-lg text-xs font-black uppercase tracking-tight transition-all cursor-pointer ${
                                     activeSubTab === sIdx
                                       ? "bg-white text-[#FF2E63] shadow-3xs"
                                       : "text-slate-500 hover:text-slate-800"
@@ -523,7 +523,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                           section.subsections.map((sub, sIdx) => (
                             <div key={sIdx} className="bg-slate-50/50 border border-slate-100 rounded-xl p-3.5 mt-2">
                               <h3 className="text-xs font-black text-slate-900 uppercase tracking-tight flex items-center gap-1.5 mb-2 border-b border-slate-150 pb-1.5">
-                                {sub.number && <span className="font-mono font-bold text-[#FF2E63] text-[11px]">{sub.number}</span>}
+                                {sub.number && <span className="font-mono font-bold text-[#FF2E63] text-xs">{sub.number}</span>}
                                 {sub.title}
                               </h3>
                               {renderSubsectionContent(sub)}
@@ -549,8 +549,8 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                 <HelpCircle className="h-4 w-4" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-black uppercase tracking-wide text-slate-900">TUTOR INTELIGENTE DE NORMATIVAS</span>
-                <span className="text-[11px] text-[#FF2E63] font-bold leading-none mt-0.5">Suporte operacional por voz e IA</span>
+                <span className="text-xs font-black uppercase tracking-wide text-slate-900">TUTOR INTELIGENTE DE NORMATIVAS</span>
+                <span className="text-xs text-[#FF2E63] font-bold leading-none mt-0.5">Suporte operacional por voz e IA</span>
               </div>
             </div>
             
@@ -567,12 +567,12 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
           {/* Interactive Suggested Actions Bar (scrollable horizontally) */}
           <div className="p-2 border-b border-slate-200 bg-slate-50 overflow-x-auto shrink-0 flex items-center gap-1.5 scrollbar-none">
-            <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1 select-none">Dicas Rápidas:</span>
+            <span className="text-xs font-black uppercase text-slate-500 tracking-wider shrink-0 mr-1 select-none">Dicas Rápidas:</span>
             {SUGGESTED_QUESTIONS.map((q, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSendMessage(q.query)}
-                className="px-2.5 py-1.5 bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-slate-100 rounded-full text-[11px] font-extrabold text-slate-650 hover:text-slate-900 shrink-0 cursor-pointer shadow-3xs transition-all active:scale-95 leading-none"
+                className="px-2.5 py-1.5 bg-white border border-slate-200 hover:border-[#FF2E63] hover:bg-slate-100 rounded-full text-xs font-extrabold text-slate-650 hover:text-slate-900 shrink-0 cursor-pointer shadow-3xs transition-all active:scale-95 leading-none"
               >
                 {q.text}
               </button>
@@ -587,10 +587,10 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                   <Compass className="h-6 w-6" />
                 </div>
                 <h3 className="text-xs font-black uppercase text-slate-800">Tire suas dúvidas operacionais</h3>
-                <p className="text-[11px]/relaxed text-slate-500 font-bold mt-1 text-center">
+                <p className="text-xs/relaxed text-slate-500 font-bold mt-1 text-center">
                   Digite sua dúvida acima ou clique no botão de microfone para <strong>falar sua dúvida</strong>. Nosso tutor explicará o procedimento correto segundo a normativa oficial de 2026.
                 </p>
-                <div className="mt-4 p-2.5 bg-slate-50 border border-slate-150 rounded-xl text-[11px]/snug text-slate-600 font-bold italic w-full text-center">
+                <div className="mt-4 p-2.5 bg-slate-50 border border-slate-150 rounded-xl text-xs/snug text-slate-600 font-bold italic w-full text-center">
                   💡 Experimente perguntar: <br/>
                   <span className="text-[#FF2E63] font-black not-italic block mt-1 hover:underline cursor-pointer" onClick={() => handleSendMessage("Zeladoras: como funciona o bônus de R$ 90?")}>
                     "Como funciona o bônus das zeladoras?"
@@ -610,7 +610,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
                   }`}>
                     
                     {/* Header bubble with avatar and name */}
-                    <div className="flex items-center gap-1.5 border-b border-white/10 pb-1 mb-1.5 select-none text-[11px] font-black uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 border-b border-white/10 pb-1 mb-1.5 select-none text-xs font-black uppercase tracking-wider">
                       {msg.role === "user" ? (
                         <>
                           <span className="text-white/80">VOCÊ</span>
@@ -627,7 +627,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
                     {/* Chat Bubble Text */}
                     {msg.role === "user" ? (
-                      <p className="text-[12px] font-bold whitespace-pre-wrap leading-relaxed">{msg.text}</p>
+                      <p className="text-xs font-bold whitespace-pre-wrap leading-relaxed">{msg.text}</p>
                     ) : (
                       formatTutorMarkdown(msg.text)
                     )}
@@ -640,7 +640,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               <div className="flex items-start gap-2.5">
                 <div className="bg-slate-100 border border-slate-200 rounded-2xl p-3.5 flex items-center gap-2 max-w-sm animate-pulse">
                   <RefreshCw className="h-3.5 w-3.5 text-[#FF2E63] animate-spin" />
-                  <span className="text-[11px] font-black text-slate-600 uppercase tracking-wide">
+                  <span className="text-xs font-black text-slate-600 uppercase tracking-wide">
                     O Tutor de IA está lendo a Normativa e redigindo resposta...
                   </span>
                 </div>
@@ -652,7 +652,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
 
           {/* Voice status notification banner if speaking */}
           {isRecording && (
-            <div className="px-3.5 py-1.5 bg-[#FF2E63] text-white text-[11px] font-black uppercase flex items-center justify-between animate-pulse shrink-0 tracking-wider">
+            <div className="px-3.5 py-1.5 bg-[#FF2E63] text-white text-xs font-black uppercase flex items-center justify-between animate-pulse shrink-0 tracking-wider">
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-white animate-ping" />
                 🎙️ Ouvindo sua voz... Fale sua dúvida sobre a normativa de facilities
@@ -668,7 +668,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
           )}
 
           {speechError && (
-            <div className="px-3.5 py-1.5 bg-rose-600 text-white text-[11px] font-bold uppercase flex items-center gap-1 shrink-0">
+            <div className="px-3.5 py-1.5 bg-rose-600 text-white text-xs font-bold uppercase flex items-center gap-1 shrink-0">
               <AlertCircle className="h-3.5 w-3.5" />
               <span>{speechError}</span>
             </div>
@@ -712,7 +712,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               />
             </div>
 
-            <div className="text-[11px] text-slate-500 font-bold text-center select-none">
+            <div className="text-xs text-slate-500 font-bold text-center select-none">
               O Tutor utiliza inteligência artificial. Valide as informações fiscais com os manuais oficiais.
             </div>
           </div>
@@ -743,7 +743,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
               const textPart = parts.length > 1 ? parts.slice(1).join(":") : step;
               return (
                 <div key={idx} className="flex gap-2.5 items-start pl-1 animate-fade-in">
-                  <span className="flex items-center justify-center h-5 w-5 rounded-full bg-[#FF2E63] text-slate-900 font-mono font-black text-[11px] shrink-0">
+                  <span className="flex items-center justify-center h-5 w-5 rounded-full bg-[#FF2E63] text-slate-900 font-mono font-black text-xs shrink-0">
                     {idx + 1}
                   </span>
                   <p className="flex-1">
@@ -759,7 +759,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
         {/* Tables inside subsections */}
         {sub.table && (
           <div className="overflow-x-auto rounded-xl border border-slate-150 mt-3 shadow-3xs">
-            <table className="w-full text-left text-[11px] leading-relaxed border-collapse bg-white">
+            <table className="w-full text-left text-xs leading-relaxed border-collapse bg-white">
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200 font-extrabold text-slate-850">
                   {sub.table.headers.map((h, hIdx) => (
@@ -798,7 +798,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
             <span className="text-base leading-none shrink-0 select-none">
               {sub.alert.icon || (sub.alert.type === "warning" ? "⚠️" : "📌")}
             </span>
-            <p className="text-[11px] font-bold">
+            <p className="text-xs font-bold">
               {sub.alert.text}
             </p>
           </div>

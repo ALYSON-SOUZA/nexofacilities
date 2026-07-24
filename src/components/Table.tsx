@@ -410,7 +410,7 @@ export default function Table({
   }, [suppliers, items, itemBestSuppliers]);
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden mb-3 print:border-slate-350 print:shadow-none text-[11px] relative">
+    <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden mb-3 print:border-slate-350 print:shadow-none text-xs relative">
       
       {/* File Importer overlay overlay */}
       {isImportOpen && (
@@ -451,25 +451,25 @@ export default function Table({
               onChange={setQuickName}
               placeholder="🔍 Busque material..."
               suggestions={suggestionItems}
-              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#FF2E63] text-[11px]"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-bold text-slate-900 placeholder:text-slate-400 focus:outline-[#FF2E63] text-xs"
             />
           </div>
           
           <div className="flex items-center gap-1 shrink-0">
-            <span className="text-[11px] font-black text-slate-500 uppercase tracking-tighter">Qtd:</span>
+            <span className="text-xs font-black text-slate-500 uppercase tracking-tighter">Qtd:</span>
             <input
               type="number"
               min={1}
               value={quickQty}
               onChange={(e) => setQuickQty(Math.max(1, parseInt(e.target.value, 10)))}
-              className="w-10 text-center rounded-lg border border-slate-200 bg-white py-1.5 font-extrabold text-[#FF2E63] text-[11px] focus:outline-[#FF2E63]"
+              className="w-10 text-center rounded-lg border border-slate-200 bg-white py-1.5 font-extrabold text-[#FF2E63] text-xs focus:outline-[#FF2E63]"
             />
           </div>
 
           <button
             type="submit"
             disabled={!quickName.trim()}
-            className={`inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 font-black text-[11px] uppercase shadow-sm transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 font-black text-xs uppercase shadow-sm transition-all cursor-pointer ${
               quickName.trim()
                 ? "bg-[#252A34] hover:bg-slate-800 text-white"
                 : "bg-slate-200 text-slate-500 cursor-not-allowed"
@@ -518,7 +518,7 @@ export default function Table({
             setWhatsAppTargetSupplierId(suppliers[0]?.id || "");
             setIsWhatsAppModalOpen(true);
           }}
-          className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-pink-50 hover:bg-[#FF2E63] hover:text-white text-[#FF2E63] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-[11px] uppercase shrink-0"
+          className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-pink-50 hover:bg-[#FF2E63] hover:text-white text-[#FF2E63] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-xs uppercase shrink-0"
           title="💬 Gerar solicitação ou pedido de compra para WhatsApp"
         >
           <MessageSquare className="h-3.5 w-3.5" />
@@ -527,7 +527,7 @@ export default function Table({
 
         <button
           onClick={() => setIsImportOpen(true)}
-          className="inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 text-white hover:bg-[#FF2E63] hover:border-[#FF2E63] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-[11px] uppercase group"
+          className="inline-flex items-center gap-1.5 rounded-full border border-slate-900 bg-slate-900 text-white hover:bg-[#FF2E63] hover:border-[#FF2E63] px-3.5 py-1.5 font-black shadow-sm transition-all cursor-pointer text-xs uppercase group"
         >
           <Sparkles className="h-3.5 w-3.5 text-[#FF2E63] group-hover:text-white transition-all shrink-0 animate-pulse" />
           Import IA
@@ -536,35 +536,35 @@ export default function Table({
 
       {/* Toggleable Expanded Quick Guide */}
       {showQuickGuide && (
-        <div className="p-3 sm:p-4 border-b border-slate-200 bg-amber-50/20 text-slate-700 leading-relaxed text-[11px] space-y-2 sm:space-y-3 animate-fade-in print:hidden">
+        <div className="p-3 sm:p-4 border-b border-slate-200 bg-amber-50/20 text-slate-700 leading-relaxed text-xs space-y-2 sm:space-y-3 animate-fade-in print:hidden">
           <div className="flex items-start gap-2">
             <HelpCircle className="h-4 w-4 text-[#FF2E63] shrink-0 mt-0.5" />
             <div>
-              <p className="font-black text-slate-900 uppercase text-[11px] sm:text-[12px] tracking-wide">💡 Guia Rápido de Uso</p>
+              <p className="font-black text-slate-900 uppercase text-xs sm:text-xs tracking-wide">💡 Guia Rápido de Uso</p>
               <p className="text-slate-500 font-medium">Melhore sua produtividade diária de compras:</p>
             </div>
           </div>
-          <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-1 text-[10px] sm:text-[11px]">
+          <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-1 text-[10px] sm:text-xs">
             <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#FF2E63]/30 transition-all">
-              <span className="block font-black text-[#FF2E63] uppercase text-[11px] tracking-wider mb-1">📋 Preenchimento em Lote</span>
+              <span className="block font-black text-[#FF2E63] uppercase text-xs tracking-wider mb-1">📋 Preenchimento em Lote</span>
               <p className="text-slate-500 leading-normal font-semibold">
-                Copie uma coluna de preços do Excel, clique na primeira célula de preço de um fornecedor e cole (<kbd className="font-mono text-[11px] bg-slate-100 border px-1 rounded-xs">Ctrl+V</kbd>). Todo o lote será preenchido automaticamente!
+                Copie uma coluna de preços do Excel, clique na primeira célula de preço de um fornecedor e cole (<kbd className="font-mono text-xs bg-slate-100 border px-1 rounded-xs">Ctrl+V</kbd>). Todo o lote será preenchido automaticamente!
               </p>
             </div>
             <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#FF2E63]/30 transition-all">
-              <span className="block font-black text-[#FF2E63] uppercase text-[11px] tracking-wider mb-1">📂 Importar com Excel</span>
+              <span className="block font-black text-[#FF2E63] uppercase text-xs tracking-wider mb-1">📂 Importar com Excel</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Basta clicar em <strong>Import IA</strong> ou arrastar sua planilha (.xlsx) de cotação para qualquer lugar desta tela para importar produtos, quantidades e preços de uma só vez!
               </p>
             </div>
             <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#FF2E63]/30 transition-all">
-              <span className="block font-black text-[#FF2E63] uppercase text-[11px] tracking-wider mb-1">🔍 Cadastro & Autocomplete</span>
+              <span className="block font-black text-[#FF2E63] uppercase text-xs tracking-wider mb-1">🔍 Cadastro & Autocomplete</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Ao adicionar ou renomear produtos e fornecedores, use as recomendações inteligentes do nosso banco integrado para garantir a padronização das descrições.
               </p>
             </div>
             <div className="p-3 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-[#FF2E63]/30 transition-all">
-              <span className="block font-black text-[#FF2E63] uppercase text-[11px] tracking-wider mb-1">💬 Integração WhatsApp</span>
+              <span className="block font-black text-[#FF2E63] uppercase text-xs tracking-wider mb-1">💬 Integração WhatsApp</span>
               <p className="text-slate-500 leading-normal font-semibold">
                 Clique no botão <strong>WhatsApp / Msg</strong> para formatar automaticamente solicitações de cotação ou ordens de pedido prontas para enviar aos vendedores!
               </p>
@@ -575,30 +575,30 @@ export default function Table({
 
       {/* Table Container for horizontal scrolling */}
       <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200 -mx-1 px-1">
-        <table className="w-full border-collapse text-left text-[11px] sm:text-[13px] text-slate-700 print:text-[11px]/tight min-w-[600px]">
+        <table className="w-full border-collapse text-left text-xs sm:text-sm text-slate-700 print:text-xs/tight min-w-[600px]">
           <thead>
             {/* Primary Headers Group */}
             <tr className="border-b border-slate-200 bg-slate-50 print:bg-slate-100 print:border-b-2">
-              <th className="px-3 py-1 font-extrabold text-slate-700 min-w-[200px] uppercase tracking-wider text-[13px] md:text-[14px] print:text-[11px]/tight" rowSpan={2}>
+              <th className="px-3 py-1 font-extrabold text-slate-700 min-w-[200px] uppercase tracking-wider text-sm md:text-sm print:text-xs/tight" rowSpan={2}>
                 Itens a Cotar
               </th>
               {showStockPlanning && isLimpeza && (
                 <>
-                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[80px] min-w-[80px] max-w-[80px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[80px] min-w-[80px] max-w-[80px] uppercase tracking-tight text-xs print:text-xs/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
                     Estoque Atual
                   </th>
-                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[85px] min-w-[85px] max-w-[85px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-black text-emerald-950 text-center w-[85px] min-w-[85px] max-w-[85px] uppercase tracking-tight text-xs print:text-xs/tight bg-emerald-50/65 border-l border-slate-200" rowSpan={2}>
                     Mínimo Canal
                   </th>
-                   <th className="px-2 py-1 font-extrabold text-emerald-950 text-center w-[95px] min-w-[95px] max-w-[95px] uppercase tracking-tight text-[11px] print:text-[11px]/tight bg-emerald-100/40 border-l border-slate-200" rowSpan={2}>
+                   <th className="px-2 py-1 font-extrabold text-emerald-950 text-center w-[95px] min-w-[95px] max-w-[95px] uppercase tracking-tight text-xs print:text-xs/tight bg-emerald-100/40 border-l border-slate-200" rowSpan={2}>
                     Diferença Ideal
                   </th>
                 </>
               )}
-              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-14 uppercase tracking-tight text-[10px] sm:text-[11px] print:text-[11px]" rowSpan={2}>
+              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-14 uppercase tracking-tight text-[10px] sm:text-xs print:text-xs" rowSpan={2}>
                 Pago?
               </th>
-              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-12 uppercase tracking-tight text-[11px] sm:text-[13px] md:text-[14px] print:text-[11px]/tight" rowSpan={2}>
+              <th className="px-1 py-1 font-extrabold text-slate-700 text-center w-10 sm:w-12 uppercase tracking-tight text-xs sm:text-sm md:text-sm print:text-xs/tight" rowSpan={2}>
                 QTD
               </th>
               {suppliers.map((s, idx) => {
@@ -614,7 +614,7 @@ export default function Table({
                         <button
                           type="button"
                           onClick={() => setSelectedSupplierToEdit(s)}
-                          className="flex-1 text-center font-black text-slate-900 hover:text-[#FF2E63] hover:border-[#FF2E63]/40 border-b border-dashed border-slate-400 focus:outline-[#FF2E63]/40 transition-all uppercase py-0.5 whitespace-normal break-words cursor-pointer text-[14px] md:text-[14.5px] print:text-[12px] leading-tight"
+                          className="flex-1 text-center font-black text-slate-900 hover:text-[#FF2E63] hover:border-[#FF2E63]/40 border-b border-dashed border-slate-400 focus:outline-[#FF2E63]/40 transition-all uppercase py-0.5 whitespace-normal break-words cursor-pointer text-sm md:text-[14.5px] print:text-xs leading-tight"
                           title="Clique para detalhar ou preencher este fornecedor"
                         >
                           {s.name || `FORNECEDOR ${idx + 1}`}
@@ -633,7 +633,7 @@ export default function Table({
                       </div>
 
                       {/* Informações de contato do fornecedor - Sem bordas, com fontes aumentadas e na mesma linha! */}
-                      <div className="mt-1.5 text-[11px] md:text-[11.5px] print:text-[11px] font-black uppercase text-slate-600 flex flex-wrap gap-x-1.5 gap-y-0.5 items-center justify-center leading-none">
+                      <div className="mt-1.5 text-xs md:text-[11.5px] print:text-xs font-black uppercase text-slate-600 flex flex-wrap gap-x-1.5 gap-y-0.5 items-center justify-center leading-none">
                         {s.phone && (
                           <span className="text-slate-700 flex items-center gap-0.5 shrink-0" title={`Telefone: ${s.phone}`}>
                             📞 {s.phone}
@@ -650,7 +650,7 @@ export default function Table({
                         {!s.phone && !s.vendedor && (
                           <span 
                             onClick={() => setSelectedSupplierToEdit(s)}
-                            className="text-slate-500 text-[11px] md:text-[11px] font-bold lowercase tracking-wider block leading-none select-none hover:text-[#FF2E63] cursor-pointer"
+                            className="text-slate-500 text-xs md:text-xs font-bold lowercase tracking-wider block leading-none select-none hover:text-[#FF2E63] cursor-pointer"
                           >
                             (clique para cadastrar fone/vendedor)
                           </span>
@@ -660,7 +660,7 @@ export default function Table({
                   </th>
                 );
               })}
-              <th className="px-1 py-1 text-center w-6 sm:w-8 print:hidden text-[10px] sm:text-[11px]" rowSpan={2}>
+              <th className="px-1 py-1 text-center w-6 sm:w-8 print:hidden text-[10px] sm:text-xs" rowSpan={2}>
                 Excl.
               </th>
             </tr>
@@ -669,10 +669,10 @@ export default function Table({
             <tr className="border-b border-slate-200 bg-slate-50/30 print:bg-slate-50">
               {suppliers.map((s, idx) => (
                 <React.Fragment key={s.id}>
-                  <th className="px-1 sm:px-2 py-1 text-right font-semibold text-slate-500 border-l border-slate-100 w-[60px] sm:w-[80px] min-w-[60px] sm:min-w-[80px] max-w-[60px] sm:max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[10px] sm:text-[11px] print:text-[11px]">
+                  <th className="px-1 sm:px-2 py-1 text-right font-semibold text-slate-500 border-l border-slate-100 w-[60px] sm:w-[80px] min-w-[60px] sm:min-w-[80px] max-w-[60px] sm:max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] leading-none text-[10px] sm:text-xs print:text-xs">
                     Unit (R$)
                   </th>
-                  <th className="px-1 sm:px-2 py-1 text-right font-bold text-slate-600 w-[65px] sm:w-[80px] min-w-[65px] sm:min-w-[80px] max-w-[65px] sm:max-w-[80px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[10px] sm:text-[11px] print:text-[11px]">
+                  <th className="px-1 sm:px-2 py-1 text-right font-bold text-slate-600 w-[65px] sm:w-[80px] min-w-[65px] sm:min-w-[80px] max-w-[65px] sm:max-w-[80px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] leading-none text-[10px] sm:text-xs print:text-xs">
                     Total (R$)
                   </th>
                 </React.Fragment>
@@ -703,7 +703,7 @@ export default function Table({
                           placeholder="Ex. Álcool Gel"
                           suggestions={suggestionItems}
                           triggerOnBlurOnly={true}
-                          className="w-full border-0 bg-transparent p-0.5 text-slate-900 font-bold focus:ring-0 outline-hidden placeholder:text-slate-300 leading-none print:p-0 text-[11px] print:text-[11px] max-w-[140px] sm:max-w-none"
+                          className="w-full border-0 bg-transparent p-0.5 text-slate-900 font-bold focus:ring-0 outline-hidden placeholder:text-slate-300 leading-none print:p-0 text-xs print:text-xs max-w-[140px] sm:max-w-none"
                         />
                       </div>
                       {item.observation && item.observation.trim() !== "" && (
@@ -713,8 +713,8 @@ export default function Table({
                           className="flex items-center gap-0.5 px-1 py-0.5 text-[#FF2E63] hover:text-rose-700 hover:bg-rose-50 rounded-sm cursor-pointer select-none transition-all print:bg-transparent print:border-none print:px-0"
                           title={`Possui observação (obs${itemObservationsOrder[item.id]}): ${item.observation}`}
                         >
-                          <span className="text-xs print:text-[11px]">📝</span>
-                          <span className="text-[11px] font-black uppercase tracking-tighter bg-rose-50 text-rose-600 border border-rose-200 px-0.5 rounded-xs leading-none print:text-[11px]">
+                          <span className="text-xs print:text-xs">📝</span>
+                          <span className="text-xs font-black uppercase tracking-tighter bg-rose-50 text-rose-600 border border-rose-200 px-0.5 rounded-xs leading-none print:text-xs">
                             obs{itemObservationsOrder[item.id]}
                           </span>
                         </button>
@@ -780,7 +780,7 @@ export default function Table({
                                 <button
                                   type="button"
                                   onClick={() => onUpdateItemQty(item.id, sugestao)}
-                                  className="px-1.5 py-1 bg-emerald-600 hover:bg-emerald-700 hover:shadow-sm active:scale-95 text-white rounded-md text-[11px] font-black uppercase tracking-tight flex items-center justify-center leading-none cursor-pointer transition-all shrink-0"
+                                  className="px-1.5 py-1 bg-emerald-600 hover:bg-emerald-700 hover:shadow-sm active:scale-95 text-white rounded-md text-xs font-black uppercase tracking-tight flex items-center justify-center leading-none cursor-pointer transition-all shrink-0"
                                   title="Aplicar sugestão como Quantidade de Compra"
                                 >
                                   ⚡ Usar
@@ -800,7 +800,7 @@ export default function Table({
                       onChange={(val) => onUpdateItemQty(item.id, val)}
                       onPasteBulk={(text) => onUpdateMultipleQtys?.(index, text)}
                       rowIndex={index}
-                      className="w-full text-center border-0 bg-transparent p-0.5 font-extrabold text-slate-800 focus:ring-0 outline-hidden focus:bg-white rounded-md leading-none print:p-0 text-[11px] print:text-[11px]"
+                      className="w-full text-center border-0 bg-transparent p-0.5 font-extrabold text-slate-800 focus:ring-0 outline-hidden focus:bg-white rounded-md leading-none print:p-0 text-xs print:text-xs"
                     />
                   </td>
 
@@ -824,14 +824,14 @@ export default function Table({
                           <div
                             className={`flex items-center justify-end rounded-md px-1 py-0.5 transition-all focus-within:bg-white focus-within:ring-2 focus-within:shadow-sm focus-within:border-slate-350 border border-transparent ${palette.inputBorder}`}
                           >
-                            <span className="text-[11px] text-slate-300 mr-0.5 font-bold print:hidden">R$</span>
+                            <span className="text-xs text-slate-300 mr-0.5 font-bold print:hidden">R$</span>
                             <PriceInput
                               value={price}
                               onChange={(newPrice) => onUpdateItemPrice(item.id, s.id, newPrice)}
                               onPasteBulk={(text) => onUpdateMultiplePrices?.(s.id, index, text)}
                               supplierId={s.id}
                               rowIndex={index}
-                              className="w-full text-right bg-transparent p-0 text-slate-800 font-extrabold focus:outline-hidden focus:ring-0 leading-none text-[11px] print:text-[11px]"
+                              className="w-full text-right bg-transparent p-0 text-slate-800 font-extrabold focus:outline-hidden focus:ring-0 leading-none text-xs print:text-xs"
                             />
                           </div>
                         </td>
@@ -848,7 +848,7 @@ export default function Table({
                                 : "text-[#A82047]"
                           }`}
                         >
-                          <div className="flex items-center justify-end gap-1 font-mono text-[11px] print:text-[11px]">
+                          <div className="flex items-center justify-end gap-1 font-mono text-xs print:text-xs">
                             {val > 0 && (
                               <button
                                 type="button"
@@ -864,7 +864,7 @@ export default function Table({
                               </button>
                             )}
                             {isCheapest && (
-                              <span className={`text-[11px] font-black tracking-tighter text-white px-1 rounded-sm text-[11px] print:text-[11px] print:border ${
+                              <span className={`text-xs font-black tracking-tighter text-white px-1 rounded-sm text-xs print:text-xs print:border ${
                                 isPreferred
                                   ? "bg-amber-500 border-amber-500 print:border-amber-500 text-slate-900 font-extrabold"
                                   : "bg-[#A82047] border-[#A82047] print:border-[#A82047]"
@@ -886,7 +886,7 @@ export default function Table({
                         <button
                           type="button"
                           onClick={() => setObservationModalItem(item)}
-                          className="px-1.5 py-0.5 font-mono text-[11px] font-black text-rose-600 bg-rose-50 border border-rose-200 rounded-sm hover:bg-rose-100 active:scale-95 transition-all cursor-pointer whitespace-nowrap shrink-0"
+                          className="px-1.5 py-0.5 font-mono text-xs font-black text-rose-600 bg-rose-50 border border-rose-200 rounded-sm hover:bg-rose-100 active:scale-95 transition-all cursor-pointer whitespace-nowrap shrink-0"
                           title="Clique para visualizar, alterar ou excluir a observação"
                         >
                           obs{itemObservationsOrder[item.id]}
@@ -941,7 +941,7 @@ export default function Table({
                         <p className="showcase-subtitle mt-2 leading-relaxed">
                           Cole (Ctrl+V) uma lista de materiais com quantidades aqui mesmo!
                         </p>
-                        <p className="text-slate-400 text-[11px] font-medium mt-1 leading-relaxed">
+                        <p className="text-slate-400 text-xs font-medium mt-1 leading-relaxed">
                           Ou <span className="text-[#FF2E63] font-bold">arraste e solte</span> sua planilha Excel, CSV ou TXT.
                         </p>
                       </div>
@@ -969,11 +969,11 @@ export default function Table({
                   {/* Item name */}
                   <td className="p-1 px-3">
                     <div className="flex items-center gap-1 w-full justify-between">
-                      <span className="text-slate-900 font-bold leading-tight text-[11px]">
+                      <span className="text-slate-900 font-bold leading-tight text-xs">
                         {item.name}
                       </span>
                       {item.observation && item.observation.trim() !== "" && (
-                        <span className="text-[11px] font-black uppercase tracking-tighter bg-rose-50 text-rose-600 border border-rose-200 px-1 rounded-xs leading-none">
+                        <span className="text-xs font-black uppercase tracking-tighter bg-rose-50 text-rose-600 border border-rose-200 px-1 rounded-xs leading-none">
                           obs{itemObservationsOrder[item.id]}
                         </span>
                       )}
@@ -981,7 +981,7 @@ export default function Table({
                   </td>
 
                   {/* Print-only Pago column */}
-                  <td className="p-1 text-center w-14 font-bold text-[11px] border-l border-slate-100">
+                  <td className="p-1 text-center w-14 font-bold text-xs border-l border-slate-100">
                     {item.comprado ? "[ X ]" : "[   ]"}
                   </td>
 
@@ -989,17 +989,17 @@ export default function Table({
                   {showStockPlanning && isLimpeza && (
                     <>
                       <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[80px] min-w-[80px] max-w-[80px]">
-                        <span className="font-bold text-slate-800 text-[11px]">
+                        <span className="font-bold text-slate-800 text-xs">
                           {item.currentStock || 0}
                         </span>
                       </td>
                       <td className="p-1 px-1.5 bg-emerald-50/5 border-l border-slate-200 text-center w-[85px] min-w-[85px] max-w-[85px]">
-                        <span className="font-bold text-slate-800 text-[11px]">
+                        <span className="font-bold text-slate-800 text-xs">
                           {item.minStock || 0}
                         </span>
                       </td>
                       <td className="p-1 px-1.5 bg-emerald-100/5 border-l border-slate-200 text-center w-[95px] min-w-[95px] max-w-[95px]">
-                        <span className="font-mono text-[11px] font-black text-slate-600">
+                        <span className="font-mono text-xs font-black text-slate-600">
                           {Math.max(0, (item.minStock || 0) - (item.currentStock || 0))} und
                         </span>
                       </td>
@@ -1007,7 +1007,7 @@ export default function Table({
                   )}
 
                   {/* Quantity */}
-                  <td className="p-1 text-center w-12 font-extrabold text-slate-800 text-[11px]">
+                  <td className="p-1 text-center w-12 font-extrabold text-slate-800 text-xs">
                     {item.quantity}
                   </td>
 
@@ -1027,7 +1027,7 @@ export default function Table({
                         <td
                           className={`p-1 px-1 border-l border-slate-100 text-right w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px] ${palette.cellBg}`}
                         >
-                          <span className="text-[11px] text-slate-800 font-extrabold font-mono">
+                          <span className="text-xs text-slate-800 font-extrabold font-mono">
                             {price !== null && price > 0 ? formatCurrency(price) : "-"}
                           </span>
                         </td>
@@ -1044,9 +1044,9 @@ export default function Table({
                                 : "text-[#A82047]"
                           }`}
                         >
-                          <div className="flex items-center justify-end gap-1 font-mono text-[11px]">
+                          <div className="flex items-center justify-end gap-1 font-mono text-xs">
                             {isCheapest && (
-                              <span className={`text-[11px] font-black tracking-tighter text-white px-1 rounded-sm ${
+                              <span className={`text-xs font-black tracking-tighter text-white px-1 rounded-sm ${
                                 isPreferred ? "bg-amber-500 text-slate-900" : "bg-[#A82047]"
                               }`}>
                                 {isPreferred ? "PREF ★" : "MIN ★"}
@@ -1078,7 +1078,7 @@ export default function Table({
                 return (
                   <React.Fragment key={s.id}>
                     <td className="border-l border-slate-200 w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
-                    <td className="px-2 py-1.5 text-right font-black text-slate-950 font-mono text-[11px] print:text-[11px]/none w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px]">
+                    <td className="px-2 py-1.5 text-right font-black text-slate-950 font-mono text-xs print:text-xs/none w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px]">
                       {formatCurrency(total)}
                     </td>
                   </React.Fragment>
@@ -1089,7 +1089,7 @@ export default function Table({
 
             {/* COMPOSITION COMPONENT CONTRIBUTION ROW */}
             <tr className="border-y border-slate-200 bg-slate-50/40 font-bold text-slate-900 print:bg-white print:border-y-2">
-              <td className="px-3 py-2 text-[#252A34] font-semibold text-[11px]">
+              <td className="px-3 py-2 text-[#252A34] font-semibold text-xs">
                 Sua Contribuição em Compra Mista
               </td>
               <td className="px-1 py-2" colSpan={showStockPlanning && isLimpeza ? 4 : 1}></td>
@@ -1103,11 +1103,11 @@ export default function Table({
                     <td className="border-l border-slate-200 w-[80px] min-w-[80px] max-w-[80px] print:w-[75px] print:min-w-[75px] print:max-w-[75px]"></td>
                     <td className="px-2 py-2 text-right font-mono w-[90px] min-w-[90px] max-w-[90px] print:w-[85px] print:min-w-[85px] print:max-w-[85px] bg-[#252A34]/5">
                       <div className="flex flex-col items-end leading-none">
-                        <span className="text-[13.5px] print:text-[11px] font-black text-[#252A34]">
+                        <span className="text-[13.5px] print:text-xs font-black text-[#252A34]">
                           {formatCurrency(amount)}
                         </span>
                         {amount > 0 && (
-                          <span className="text-[11px] font-bold text-[#252A34] bg-[#252A34]/10 px-1 py-0.5 rounded uppercase tracking-tighter mt-1">
+                          <span className="text-xs font-bold text-[#252A34] bg-[#252A34]/10 px-1 py-0.5 rounded uppercase tracking-tighter mt-1">
                             {sharePercent}% itens
                           </span>
                         )}
@@ -1126,7 +1126,7 @@ export default function Table({
       <div className="border-t border-slate-100 bg-slate-50/30 p-2 sm:p-2.5 flex flex-wrap gap-1.5 sm:gap-2 items-center justify-between print:hidden">
         <button
           onClick={onAddItem}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 sm:px-4 py-1.5 font-black text-[#FF2E63] hover:bg-[#FF2E63]/5 hover:border-[#FF2E63] shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-[11px]"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 sm:px-4 py-1.5 font-black text-[#FF2E63] hover:bg-[#FF2E63]/5 hover:border-[#FF2E63] shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-xs"
         >
           <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           ITEM
@@ -1134,7 +1134,7 @@ export default function Table({
 
         <button
           onClick={onAddSupplier}
-          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-[#252A34] hover:bg-slate-800 px-3 sm:px-4 py-1.5 font-bold text-white shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-[11px]"
+          className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-[#252A34] hover:bg-slate-800 px-3 sm:px-4 py-1.5 font-bold text-white shadow-sm transition-all cursor-pointer leading-none text-[10px] sm:text-xs"
         >
           <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           <span className="hidden sm:inline">ADICIONAR FORNECEDOR</span>
@@ -1143,8 +1143,8 @@ export default function Table({
       </div>
 
       {/* Dynamic Purchase Control Info Bar - Visible on screen and nicely styled for print */}
-      <div className="border-t border-slate-100 bg-slate-100/60 p-2 sm:p-3 px-3 sm:px-4 flex items-center gap-1.5 sm:gap-2 font-black text-[10px] sm:text-[11px] text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-[11px] print:rounded-none">
-        <span className="text-sm sm:text-base print:text-[11px]">🛍️</span>
+      <div className="border-t border-slate-100 bg-slate-100/60 p-2 sm:p-3 px-3 sm:px-4 flex items-center gap-1.5 sm:gap-2 font-black text-[10px] sm:text-xs text-slate-750 rounded-b-2xl print:bg-white print:border-t print:p-2 print:text-xs print:rounded-none">
+        <span className="text-sm sm:text-base print:text-xs">🛍️</span>
         {totalToBuy > 0 ? (
           <span className="leading-tight">
             CONTROLE: <span className="text-[#FF2E63] font-black">{totalRemaining} {totalRemaining === 1 ? 'restante' : 'restantes'}</span>
@@ -1158,7 +1158,7 @@ export default function Table({
       {/* Dynamic Observations Bottom Section - Prints at the end of report */}
       {observationsList.length > 0 && (
         <div className="border-t border-slate-200 bg-white p-3 sm:p-5 rounded-b-2xl">
-          <h3 className="text-[11px] sm:text-[12.5px] font-black uppercase text-[#FF2E63] tracking-wide mb-2 sm:mb-3 flex items-center gap-1.5 border-b border-pink-100 pb-2">
+          <h3 className="text-xs sm:text-[12.5px] font-black uppercase text-[#FF2E63] tracking-wide mb-2 sm:mb-3 flex items-center gap-1.5 border-b border-pink-100 pb-2">
             📝 Observações da Cotação
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 print:grid-cols-1">
@@ -1170,19 +1170,19 @@ export default function Table({
                 <div>
                   <div className="flex flex-col gap-1.5 mb-2.5 border-b border-slate-100 pb-2">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-[11px]/tight font-black uppercase bg-slate-200 text-slate-800 px-2 py-0.5 rounded-sm print:bg-slate-100 print:border shrink-0">
+                      <span className="font-mono text-xs/tight font-black uppercase bg-slate-200 text-slate-800 px-2 py-0.5 rounded-sm print:bg-slate-100 print:border shrink-0">
                         {obs.id}
                       </span>
-                      <span className="text-[11px] font-black text-[#A82047] uppercase truncate max-w-[190px] print:max-w-none" title={obs.supplierName}>
+                      <span className="text-xs font-black text-[#A82047] uppercase truncate max-w-[190px] print:max-w-none" title={obs.supplierName}>
                         🏢 {obs.supplierName}
                       </span>
                     </div>
-                    <div className="text-[11px] font-bold text-slate-600 flex items-center gap-1 mt-0.5">
+                    <div className="text-xs font-bold text-slate-600 flex items-center gap-1 mt-0.5">
                       <span>📦 Item:</span>
                       <span className="text-slate-800 font-extrabold truncate print:whitespace-normal">{obs.itemName}</span>
                     </div>
                   </div>
-                  <p className="text-[11px] text-slate-800 font-medium leading-relaxed whitespace-pre-wrap">
+                  <p className="text-xs text-slate-800 font-medium leading-relaxed whitespace-pre-wrap">
                     {renderTextWithLinks(obs.text)}
                   </p>
                 </div>
@@ -1303,7 +1303,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
         </div>
 
         <div className="mb-4">
-          <span className="text-[11px] font-black uppercase text-[#FF2E63] block mb-1">
+          <span className="text-xs font-black uppercase text-[#FF2E63] block mb-1">
             Referência do Item:
           </span>
           <div className="bg-slate-50 border border-slate-100 rounded-lg p-2.5 text-[11.5px] font-bold text-slate-800">
@@ -1313,7 +1313,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
 
         {/* Text Area */}
         <div className="mb-5">
-          <label className="text-[11px] font-black uppercase text-slate-500 block mb-1">
+          <label className="text-xs font-black uppercase text-slate-500 block mb-1">
             Texto da Observação:
           </label>
           <textarea
@@ -1331,7 +1331,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
             <button
               type="button"
               onClick={handleDelete}
-              className="inline-flex items-center gap-1 bg-rose-50 hover:bg-rose-100 text-rose-600 px-4 py-2 text-[11px] font-black uppercase rounded-full border border-rose-200 cursor-pointer transition-all active:scale-95"
+              className="inline-flex items-center gap-1 bg-rose-50 hover:bg-rose-100 text-rose-600 px-4 py-2 text-xs font-black uppercase rounded-full border border-rose-200 cursor-pointer transition-all active:scale-95"
             >
               Excluir
             </button>
@@ -1343,7 +1343,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
             <button
               type="button"
               onClick={onClose}
-              className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-4 py-2 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95"
+              className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-4 py-2 text-xs font-black uppercase rounded-full cursor-pointer transition-all active:scale-95"
             >
               Cancelar
             </button>
@@ -1351,7 +1351,7 @@ function ObservationModal({ item, obsNumber, onClose, onSave }: ObservationModal
               type="button"
               onClick={handleSave}
               disabled={!text.trim() && !item.observation}
-              className={`px-5 py-2 text-[11px] font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 text-white ${
+              className={`px-5 py-2 text-xs font-black uppercase rounded-full cursor-pointer transition-all active:scale-95 text-white ${
                 text.trim() || item.observation
                   ? "bg-[#252A34] hover:bg-slate-800"
                   : "bg-slate-200 text-slate-500 cursor-not-allowed"
@@ -1475,7 +1475,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
         <div className="bg-[#252A34] text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="text-lg">💬</span>
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-100">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-100">
               Gerador de Mensagem Integrada WhatsApp / E-mail
             </h3>
           </div>
@@ -1496,7 +1496,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
             <button
               type="button"
               onClick={() => setMsgType("request")}
-              className={`flex-1 text-center py-2 text-[11px] font-black uppercase rounded-lg transition-all cursor-pointer ${
+              className={`flex-1 text-center py-2 text-xs font-black uppercase rounded-lg transition-all cursor-pointer ${
                 msgType === "request"
                   ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
@@ -1507,7 +1507,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
             <button
               type="button"
               onClick={() => setMsgType("order")}
-              className={`flex-1 text-center py-2 text-[11px] font-black uppercase rounded-lg transition-all cursor-pointer ${
+              className={`flex-1 text-center py-2 text-xs font-black uppercase rounded-lg transition-all cursor-pointer ${
                 msgType === "order"
                   ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-500 hover:text-slate-800"
@@ -1520,13 +1520,13 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           {/* Supplier Selector for Purchase Orders */}
           {msgType === "order" && (
             <div className="flex flex-col space-y-1">
-              <label className="text-[11px] font-black uppercase tracking-widest text-[#FF2E63] leading-none">
+              <label className="text-xs font-black uppercase tracking-widest text-[#FF2E63] leading-none">
                 Selecionar Fornecedor Ganhador
               </label>
               <select
                 value={selectedSupplierId}
                 onChange={(e) => setSelectedSupplierId(e.target.value)}
-                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 p-2 font-bold text-slate-800 focus:outline-[#FF2E63] text-[11px]"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 p-2 font-bold text-slate-800 focus:outline-[#FF2E63] text-xs"
               >
                 {suppliers.map((s, idx) => (
                   <option key={s.id} value={s.id}>
@@ -1538,9 +1538,9 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           )}
 
           {/* Contact Details Display */}
-          <div className="bg-slate-50 p-3 rounded-xl text-[11px] font-semibold text-slate-600 flex flex-wrap gap-4 items-center border border-slate-100">
+          <div className="bg-slate-50 p-3 rounded-xl text-xs font-semibold text-slate-600 flex flex-wrap gap-4 items-center border border-slate-100">
             <div>
-              <span className="font-bold text-slate-500 block uppercase text-[11px] tracking-tight leading-none mb-1">Destinatário:</span>
+              <span className="font-bold text-slate-500 block uppercase text-xs tracking-tight leading-none mb-1">Destinatário:</span>
               <span className="font-extrabold text-slate-805 uppercase">
                 {msgType === "request" 
                   ? "Todos os fornecedores selecionados" 
@@ -1549,13 +1549,13 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
             </div>
             {msgType === "order" && activeSupplier?.phone && (
               <div>
-                <span className="font-bold text-slate-500 block uppercase text-[11px] tracking-tight leading-none mb-1">Telefone:</span>
+                <span className="font-bold text-slate-500 block uppercase text-xs tracking-tight leading-none mb-1">Telefone:</span>
                 <span className="font-mono text-slate-850 font-bold">📞 {activeSupplier.phone}</span>
               </div>
             )}
             {msgType === "order" && activeSupplier?.vendedor && (
               <div>
-                <span className="font-bold text-slate-500 block uppercase text-[11px] tracking-tight leading-none mb-1">Vendedor AC:</span>
+                <span className="font-bold text-slate-500 block uppercase text-xs tracking-tight leading-none mb-1">Vendedor AC:</span>
                 <span className="text-slate-850 uppercase font-bold">👤 {activeSupplier.vendedor}</span>
               </div>
             )}
@@ -1563,14 +1563,14 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
 
           {/* Textarea Preview */}
           <div className="flex flex-col space-y-1">
-            <label className="text-[11px] font-black uppercase tracking-widest text-[#FF2E63] leading-none">
+            <label className="text-xs font-black uppercase tracking-widest text-[#FF2E63] leading-none">
               Pré-visualização do Texto Gerado
             </label>
             <textarea
               readOnly
               value={generatedText}
               rows={8}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-mono text-[11px] leading-relaxed text-slate-800 focus:outline-hidden resize-none scrollbar-thin"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 font-mono text-xs leading-relaxed text-slate-800 focus:outline-hidden resize-none scrollbar-thin"
             />
           </div>
 
@@ -1581,7 +1581,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-100 py-2.5 text-[11px] font-black text-slate-600 transition-colors uppercase cursor-pointer"
+            className="flex-1 rounded-full border border-slate-200 hover:bg-slate-100 py-2.5 text-xs font-black text-slate-600 transition-colors uppercase cursor-pointer"
           >
             Fechar
           </button>
@@ -1590,7 +1590,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           <button
             type="button"
             onClick={handleCopy}
-            className="flex-1 rounded-full border border-slate-350 bg-white hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-800 transition-colors uppercase cursor-pointer flex items-center justify-center gap-1 shadow-sm"
+            className="flex-1 rounded-full border border-slate-350 bg-white hover:bg-slate-50 py-2.5 text-xs font-black text-slate-800 transition-colors uppercase cursor-pointer flex items-center justify-center gap-1 shadow-sm"
           >
             {copied ? (
               <>
@@ -1609,7 +1609,7 @@ function WhatsAppModal({ suppliers, items, activeCategoryName, summary, onClose 
           <button
             type="button"
             onClick={handleSendWhatsApp}
-            className="flex-1 rounded-full bg-[#25D366] hover:bg-[#20ba56] text-white py-2.5 text-[11px] font-black uppercase tracking-wide transition-all shadow-md flex items-center justify-center gap-1 cursor-pointer"
+            className="flex-1 rounded-full bg-[#25D366] hover:bg-[#20ba56] text-white py-2.5 text-xs font-black uppercase tracking-wide transition-all shadow-md flex items-center justify-center gap-1 cursor-pointer"
           >
             <Send className="h-3.5 w-3.5 fill-white" />
             Enviar WhatsApp
@@ -1723,7 +1723,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
         <div className="bg-[#252A34] text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-[#FF2E63] animate-pulse shrink-0" />
-            <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-100">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-100">
               Cadastrar / Sincronizar Fornecedor
             </h3>
           </div>
@@ -1741,7 +1741,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
           
           {/* Autocomplete Input */}
           <div className="flex flex-col space-y-1 relative" ref={dropdownRef}>
-            <label className="text-[11px] font-black uppercase tracking-widest text-[#FF2E63] block leading-none">
+            <label className="text-xs font-black uppercase tracking-widest text-[#FF2E63] block leading-none">
               Pesquisar Fornecedores Cadastrados (Digite para Filtrar)
             </label>
             <div className="relative">
@@ -1754,12 +1754,12 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 }}
                 onFocus={() => setIsAutocompleteOpen(true)}
                 placeholder="🔍 Comece a digitar o nome do fornecedor..."
-                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white px-3 py-1.5 font-bold text-slate-800 placeholder:text-slate-400 focus:outline-[#FF2E63] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white px-3 py-1.5 font-bold text-slate-800 placeholder:text-slate-400 focus:outline-[#FF2E63] text-xs transition-all"
               />
 
               {isAutocompleteOpen && (
                 <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-lg shadow-md z-50 overflow-hidden divide-y divide-slate-100 max-h-40 overflow-y-auto">
-                  <div className="p-1 text-[11px] font-black tracking-wider text-slate-500 bg-slate-50 uppercase">
+                  <div className="p-1 text-xs font-black tracking-wider text-slate-500 bg-slate-50 uppercase">
                     Fornecedores Pré-Cadastrados
                   </div>
                   {filteredSuggestions.length > 0 ? (
@@ -1770,9 +1770,9 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                         onClick={() => selectSuggested(ks)}
                         className="w-full text-left p-2 hover:bg-pink-50/40 text-slate-800 hover:text-[#FF2E63] transition-colors flex flex-col cursor-pointer"
                       >
-                        <span className="font-extrabold text-[11px] uppercase text-slate-850">{ks.name}</span>
+                        <span className="font-extrabold text-xs uppercase text-slate-850">{ks.name}</span>
                         {(ks.phone || ks.vendedor) && (
-                          <div className="text-[11px] text-slate-500 mt-0.5 font-medium flex items-center gap-1.5">
+                          <div className="text-xs text-slate-500 mt-0.5 font-medium flex items-center gap-1.5">
                             {ks.phone && <span>📞 {ks.phone}</span>}
                             {ks.vendedor && <span>👤 {ks.vendedor}</span>}
                           </div>
@@ -1780,7 +1780,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                       </button>
                     ))
                   ) : (
-                    <div className="p-2 text-center text-slate-500 italic text-[11px]">
+                    <div className="p-2 text-center text-slate-500 italic text-xs">
                       Nenhum correspondente. Registre um novo abaixo!
                     </div>
                   )}
@@ -1793,13 +1793,13 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
 
           {/* New / Clear Button */}
           <div className="flex items-center justify-between leading-none">
-            <span className="text-[11px] font-black uppercase tracking-wider text-[#FF2E63]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#FF2E63]">
               🏢 Dados Requeridos do Fornecedor
             </span>
             <button
               type="button"
               onClick={clearForm}
-              className="text-[11px] font-black text-rose-600 hover:text-rose-800 uppercase hover:underline cursor-pointer flex items-center gap-1 shrink-0"
+              className="text-xs font-black text-rose-600 hover:text-rose-800 uppercase hover:underline cursor-pointer flex items-center gap-1 shrink-0"
             >
               Novo / Limpar Tudo
             </button>
@@ -1809,7 +1809,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
           <div className="space-y-3">
             {/* NAME */}
             <div className="flex flex-col space-y-1">
-              <label className="text-[11px] font-black uppercase text-slate-500 leading-none">
+              <label className="text-xs font-black uppercase text-slate-500 leading-none">
                 Nome do Fornecedor <span className="text-[#FF2E63] font-bold">*</span>
               </label>
               <input
@@ -1818,13 +1818,13 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ex. CANTINHO DA LIMPEZA E FACILITIES"
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-black text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] uppercase text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-black text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] uppercase text-xs transition-all"
               />
             </div>
 
             {/* PHONE */}
             <div className="flex flex-col space-y-1">
-              <label className="text-[11px] font-black uppercase text-slate-500 leading-none">
+              <label className="text-xs font-black uppercase text-slate-500 leading-none">
                 Telefone de Contato
               </label>
               <input
@@ -1832,13 +1832,13 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Ex. (11) 98765-4321 ou (11) 3222-1000"
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-extrabold text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-extrabold text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] text-xs transition-all"
               />
             </div>
 
             {/* SELLER */}
             <div className="flex flex-col space-y-1">
-              <label className="text-[11px] font-black uppercase text-slate-500 leading-none">
+              <label className="text-xs font-black uppercase text-slate-500 leading-none">
                 Representante / Vendedor
               </label>
               <input
@@ -1846,7 +1846,7 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
                 value={vendedor}
                 onChange={(e) => setVendedor(e.target.value)}
                 placeholder="Ex. Roberto comercial"
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-bold text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] text-[11px] transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-bold text-slate-900 placeholder:text-slate-300 focus:outline-[#FF2E63] text-xs transition-all"
               />
             </div>
           </div>
@@ -1856,14 +1856,14 @@ function SupplierModal({ supplier, knownSuppliers, onClose, onSave }: SupplierMo
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 py-2.5 text-[11px] font-black text-slate-600 transition-colors uppercase cursor-pointer"
+              className="flex-1 rounded-full border border-slate-200 hover:bg-slate-50 py-2.5 text-xs font-black text-slate-600 transition-colors uppercase cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={!name.trim()}
-              className={`flex-1 rounded-full py-2.5 text-[11px] font-black text-white uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-1 ${
+              className={`flex-1 rounded-full py-2.5 text-xs font-black text-white uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-1 ${
                 name.trim()
                   ? "bg-[#FF2E63] hover:bg-[#A82047] cursor-pointer"
                   : "bg-slate-300 text-slate-500 cursor-not-allowed"
@@ -1997,7 +1997,7 @@ function AutocompleteItemInput({
       {isOpen && (
         <div 
           ref={dropdownRef}
-          className="absolute left-0 right-0 top-full mt-1 max-h-48 overflow-y-auto rounded-lg border border-slate-200 bg-white py-1 shadow-lg z-50 text-[11px]/snug text-slate-700 print:hidden"
+          className="absolute left-0 right-0 top-full mt-1 max-h-48 overflow-y-auto rounded-lg border border-slate-200 bg-white py-1 shadow-lg z-50 text-xs/snug text-slate-700 print:hidden"
         >
           {filteredSuggestions.length > 0 ? (
             filteredSuggestions.map((suggestion, index) => (

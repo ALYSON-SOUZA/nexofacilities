@@ -986,14 +986,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
             <div className="font-bold text-2xl tracking-tight text-white">
               Bellinati<span className="text-[#FF2E63]">Perez</span>
             </div>
-            <div className="text-[11px] tracking-widest text-slate-500 uppercase font-semibold">
+            <div className="text-xs tracking-widest text-slate-500 uppercase font-semibold">
               Seriedade · Competência · Inovação
             </div>
           </div>
 
           {/* Quick Stats badges and Controls */}
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="flex items-center gap-2 bg-[#FF2E63]/10 border border-[#FF2E63]/30 px-3.5 py-1.5 rounded-full text-[11px] text-[#FF2E63] tracking-wider uppercase font-black">
+            <div className="flex items-center gap-2 bg-[#FF2E63]/10 border border-[#FF2E63]/30 px-3.5 py-1.5 rounded-full text-xs text-[#FF2E63] tracking-wider uppercase font-black">
               <span className="h-1.5 w-1.5 bg-[#FF2E63] rounded-full animate-ping"></span>
               <span>Filial Fortaleza</span>
             </div>
@@ -1071,7 +1071,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               
               {/* HERO BANNER SECTION (Petroleum Blue dark banner) */}
               <section className="bg-[#252A34] px-6 py-8 border-b border-slate-700 text-white relative overflow-hidden">
-                <div className="text-[11px] tracking-widest text-slate-500 uppercase font-black mb-1.5">
+                <div className="text-xs tracking-widest text-slate-500 uppercase font-black mb-1.5">
                   Gestão de Pessoas · Filial Fortaleza · 2024–2028
                 </div>
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
@@ -1087,35 +1087,35 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 {/* Stat 1 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
                   <div className="absolute top-0 left-0 w-1 h-full bg-[#FF2E63]"></div>
-                  <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Total de Aprendizes</div>
+                  <div className="text-xs font-black uppercase text-slate-500 tracking-widest">Total de Aprendizes</div>
                   <div className="text-3xl font-extrabold text-[#252A34] dark:text-white mt-1.5">{totalCount.toString().padStart(2, "0")}</div>
-                  <div className="text-[11px] text-slate-500 font-semibold mt-1">Filial Fortaleza</div>
+                  <div className="text-xs text-slate-500 font-semibold mt-1">Filial Fortaleza</div>
                 </div>
 
                 {/* Stat 2 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
                   <div className="absolute top-0 left-0 w-1 h-full bg-[#FF2E63]"></div>
-                  <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Área Administrativa</div>
+                  <div className="text-xs font-black uppercase text-slate-500 tracking-widest">Área Administrativa</div>
                   <div className="text-3xl font-extrabold text-[#FF2E63] mt-1.5">{adminCount.toString().padStart(2, "0")}</div>
-                  <div className="text-[11px] text-slate-500 font-semibold mt-1">JAC Arco Adm</div>
+                  <div className="text-xs text-slate-500 font-semibold mt-1">JAC Arco Adm</div>
                 </div>
 
                 {/* Stat 3 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
                   <div className="absolute top-0 left-0 w-1 h-full bg-[#A82047]"></div>
                   <div className="text-3xl font-extrabold text-[#A82047] mt-1.5" style={{ color: "var(--magenta)" }}>{servCount.toString().padStart(2, "0")}</div>
-                  <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Múltiplas Ocupações</div>
-                  <div className="text-[11px] text-slate-500 font-semibold mt-1">JAC Qualificação de Serviço</div>
+                  <div className="text-xs font-black uppercase text-slate-500 tracking-widest">Múltiplas Ocupações</div>
+                  <div className="text-xs text-slate-500 font-semibold mt-1">JAC Qualificação de Serviço</div>
                 </div>
 
                 {/* Stat 4 */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl p-5 relative overflow-hidden shadow-xs hover:-translate-y-0.5 transition-all">
                   <div className="absolute top-0 left-0 w-1 h-full bg-[#252A34]"></div>
-                  <div className="text-[11px] font-black uppercase text-slate-500 tracking-widest">Próximo Término</div>
+                  <div className="text-xs font-black uppercase text-slate-500 tracking-widest">Próximo Término</div>
                   <div className="text-lg font-black text-[#252A34] dark:text-white mt-1.5 truncate">
                     {nearestRecord ? formatMonthYear(nearestRecord.dataTermino) : "—"}
                   </div>
-                  <div className="text-[11px] text-slate-500 font-semibold mt-1 truncate">
+                  <div className="text-xs text-slate-500 font-semibold mt-1 truncate">
                     {nearestRecord ? `${nearestRecord.nomeCompleto.split(" ")[0]} · ${nearestRecord.dataTermino}` : "Sem data"}
                   </div>
                 </div>
@@ -1134,7 +1134,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     <div className="flex items-center gap-1.5 shrink-0">
                       <button
                         onClick={() => setCurrentStatusFilter("Ativo")}
-                        className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                           currentStatusFilter === "Ativo"
                             ? "bg-[#252A34] text-[#FF2E63] dark:bg-[#FF2E63] dark:text-slate-950 shadow-xs"
                             : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
@@ -1144,7 +1144,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                       </button>
                       <button
                         onClick={() => setCurrentStatusFilter("Inativo")}
-                        className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                           currentStatusFilter === "Inativo"
                             ? "bg-[#252A34] text-pink-500 dark:bg-[#FF2E63] dark:text-white shadow-xs"
                             : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
@@ -1169,13 +1169,13 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                   <div className="text-xs font-black uppercase text-slate-500 tracking-widest border-b border-slate-200 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <span>Equipe de Aprendizes ({currentStatusFilter === "Ativo" ? "Ativos" : "Desligados"})</span>
-                    <span className="text-[11px] font-semibold text-[#FF2E63]">Resultados ({displayedRecords.length})</span>
+                    <span className="text-xs font-semibold text-[#FF2E63]">Resultados ({displayedRecords.length})</span>
                   </div>
 
                   {displayedRecords.length === 0 ? (
                     <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-8 text-center text-slate-500">
                       <p className="text-xs font-bold uppercase tracking-wider">Nenhum jovem aprendiz encontrado.</p>
-                      <p className="text-[11px] text-slate-500 mt-1 uppercase">Tente usar outros termos na busca ou confira o filtro de status.</p>
+                      <p className="text-xs text-slate-500 mt-1 uppercase">Tente usar outros termos na busca ou confira o filtro de status.</p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1205,7 +1205,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                   ? "bg-gradient-to-br from-[#e0fafa] to-[#b2f5f4] dark:from-slate-800 dark:to-teal-950" 
                                   : "bg-gradient-to-br from-[#ffe0e8] to-[#ffb3c6] dark:from-slate-850 dark:to-pink-950"
                             }`}>
-                              <span className={`absolute top-2.5 right-2.5 text-[11px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border ${
+                              <span className={`absolute top-2.5 right-2.5 text-xs font-black uppercase tracking-widest px-2 py-0.5 rounded-full border ${
                                 isInactive
                                   ? "bg-red-500 text-white border-red-650"
                                   : isAdm 
@@ -1217,7 +1217,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                               {/* ID Tag */}
                               {r.id && (
-                                <span className="absolute bottom-2.5 right-2.5 text-[11px] font-mono font-black text-slate-500 bg-white/60 dark:bg-slate-900/60 px-1.5 py-0.5 rounded-sm">
+                                <span className="absolute bottom-2.5 right-2.5 text-xs font-mono font-black text-slate-500 bg-white/60 dark:bg-slate-900/60 px-1.5 py-0.5 rounded-sm">
                                   {r.id}
                                 </span>
                               )}
@@ -1246,22 +1246,22 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                 } transition-colors line-clamp-1`}>
                                   {r.nomeCompleto}
                                 </div>
-                                <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wide mt-0.5 line-clamp-1">
+                                <div className="text-xs text-slate-500 font-bold uppercase tracking-wide mt-0.5 line-clamp-1">
                                   {r.cursoAprendizagem}
                                 </div>
 
                                 <div className="mt-3.5 space-y-1">
-                                  <div className="text-[11px] text-slate-500 font-semibold flex items-center gap-1">
+                                  <div className="text-xs text-slate-500 font-semibold flex items-center gap-1">
                                     <span>📅 Início:</span>
                                     <strong className="text-slate-700 dark:text-slate-350">{r.dataAdmissao || "—"}</strong>
                                   </div>
-                                  <div className="text-[11px] text-slate-500 font-semibold flex items-center gap-1">
+                                  <div className="text-xs text-slate-500 font-semibold flex items-center gap-1">
                                     <span>🎓 Término:</span>
                                     <strong className="text-slate-700 dark:text-slate-350">{r.dataTermino || "—"}</strong>
                                   </div>
 
                                   {isInactive && r.dataDesligamento && (
-                                    <div className="mt-2 text-[11px] text-red-600 dark:text-red-400 font-extrabold flex items-center gap-1.5 uppercase bg-red-50 dark:bg-red-950/40 p-1.5 rounded-lg border border-red-200/50 dark:border-red-900/40">
+                                    <div className="mt-2 text-xs text-red-600 dark:text-red-400 font-extrabold flex items-center gap-1.5 uppercase bg-red-50 dark:bg-red-950/40 p-1.5 rounded-lg border border-red-200/50 dark:border-red-900/40">
                                       <span>❌ Desligado em:</span>
                                       <strong>{r.dataDesligamento}</strong>
                                     </div>
@@ -1275,7 +1275,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                                   <span className={`text-xs font-extrabold ${isInactive ? "text-red-650" : isAdm ? "text-[#A82047]" : "text-[#FF2E63]"}`}>
                                     {r.horarioTrabalho || "08:00 às 12:00"}
                                   </span>
-                                  <span className="text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold px-1.5 py-0.5 rounded-md mt-0.5 max-w-max">
+                                  <span className="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold px-1.5 py-0.5 rounded-md mt-0.5 max-w-max">
                                     {r.diaTeorica || "Sem teórica"}
                                   </span>
                                 </div>
@@ -1340,7 +1340,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                               <span className="text-xs font-extrabold text-[#252A34] dark:text-white block leading-tight">
                                 {r.nomeCompleto.split(" ")[0]} {r.nomeCompleto.split(" ").slice(-1)[0]}
                               </span>
-                              <span className="text-[11px] text-slate-500 font-medium">
+                              <span className="text-xs text-slate-500 font-medium">
                                 {r.dataAdmissao} <span className="text-slate-300">→</span> {r.dataTermino}
                               </span>
                             </div>
@@ -1403,16 +1403,16 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                               return (
                                 <div 
                                   key={pIdx} 
-                                  className={`p-2 rounded-lg border text-left text-[11px] font-semibold flex items-start gap-1.5 ${
+                                  className={`p-2 rounded-lg border text-left text-xs font-semibold flex items-start gap-1.5 ${
                                     isAdm 
                                       ? "bg-[#FF2E63]/5 border-[#FF2E63]/20" 
                                       : "bg-[#FF2E63]/5 border-[#FF2E63]/15"
                                   }`}
                                 >
-                                  <span className="text-[12px] mt-0.5 shrink-0">{isAdm ? "📚" : "🔧"}</span>
+                                  <span className="text-xs mt-0.5 shrink-0">{isAdm ? "📚" : "🔧"}</span>
                                   <div className="leading-tight">
                                     <div className="text-[#252A34] dark:text-slate-100 font-extrabold">{p.nomeCompleto.split(" ")[0]}</div>
-                                    <div className={`text-[11px] font-bold mt-0.5 ${isAdm ? "text-[#A82047]" : "text-[#A82047]"}`}>
+                                    <div className={`text-xs font-bold mt-0.5 ${isAdm ? "text-[#A82047]" : "text-[#A82047]"}`}>
                                       {p.horarioTrabalho || "13h - 17h"}
                                     </div>
                                   </div>
@@ -1421,14 +1421,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                             })}
 
                             {pills.length === 0 && (
-                              <div className="text-[11px] text-slate-500 font-medium italic mt-4">
+                              <div className="text-xs text-slate-500 font-medium italic mt-4">
                                 Sem aprendizagem teórica
                               </div>
                             )}
                           </div>
                         </div>
 
-                        <div className="text-[11px] text-slate-450 uppercase font-black tracking-widest mt-4">
+                        <div className="text-xs text-slate-450 uppercase font-black tracking-widest mt-4">
                           BP FORTALEZA
                         </div>
                       </div>
@@ -1438,7 +1438,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               </section>
 
               {/* FOOTER */}
-              <footer className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 uppercase font-bold shrink-0">
+              <footer className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 uppercase font-bold shrink-0">
                 <span>BELLINATI PEREZ © 2024 · Gestão de Pessoas · Jovem Aprendiz</span>
                 <span className="flex items-center gap-1.5">
                   <span className="h-1 w-5 bg-gradient-to-r from-[#FF2E63] to-[#FF2E63] rounded-sm"></span>
@@ -1454,13 +1454,13 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
               {/* CONTROL HERO */}
               <div className="bg-[#252A34] p-5 rounded-xl border border-slate-700 text-white flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-center md:text-left">
-                  <span className="text-[11px] bg-pink-150 text-pink-700 font-extrabold uppercase px-2 py-0.5 rounded-md tracking-wider">
+                  <span className="text-xs bg-pink-150 text-pink-700 font-extrabold uppercase px-2 py-0.5 rounded-md tracking-wider">
                     Ficha Cadastral do Colaborador
                   </span>
                   <h3 className="text-lg font-black uppercase tracking-wider mt-1.5 text-white">
                     {formData.nomeCompleto ? `Ficha: ${formData.nomeCompleto}` : "Nova Ficha de Admissão"}
                   </h3>
-                  <p className="text-[11px] text-slate-500 mt-1 uppercase font-semibold">
+                  <p className="text-xs text-slate-500 mt-1 uppercase font-semibold">
                     Preenchimento automático via CEP ou Inteligência Artificial Gemini
                   </p>
                 </div>
@@ -1490,11 +1490,11 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     <Sparkles className="h-4 w-4 text-amber-500 animate-pulse" />
                     <span>Lançador de Contrato via Gemini AI (Leitura Inteligente)</span>
                   </div>
-                  <span className="text-[11px] bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded-sm uppercase tracking-widest">
+                  <span className="text-xs bg-amber-100 text-amber-800 font-extrabold px-2 py-0.5 rounded-sm uppercase tracking-widest">
                     Gemini 2.5 Flash
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 font-medium leading-relaxed uppercase">
+                <p className="text-xs text-slate-500 font-medium leading-relaxed uppercase">
                   Cole abaixo dados brutos do e-mail de admissão, currículo do candidato ou ficha informal e clique para lançar nos campos:
                 </p>
                 <div className="flex flex-col gap-2">
@@ -1521,14 +1521,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                 
                 {/* 1. IDENTIFICAÇÃO DO COLABORADOR */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
-                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
+                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-xs font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
                     <User className="h-4 w-4 text-[#FF2E63]" />
                     <span>1. Identificação do Jovem Aprendiz</span>
                   </div>
 
                   <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Nome Completo do Aprendiz *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Nome Completo do Aprendiz *</label>
                       <input
                         type="text"
                         value={formData.nomeCompleto}
@@ -1539,7 +1539,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Data de Nascimento *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Data de Nascimento *</label>
                       <input
                         type="text"
                         value={formData.dataNascimento}
@@ -1550,7 +1550,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Idade (Cálculo Automático) *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Idade (Cálculo Automático) *</label>
                       <input
                         type="text"
                         value={formData.idade}
@@ -1561,7 +1561,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">CPF do Aprendiz *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">CPF do Aprendiz *</label>
                       <input
                         type="text"
                         value={formData.cpf}
@@ -1572,7 +1572,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">RG do Aprendiz</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">RG do Aprendiz</label>
                       <input
                         type="text"
                         value={formData.rg}
@@ -1583,7 +1583,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Telefone do Aprendiz</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Telefone do Aprendiz</label>
                       <input
                         type="text"
                         value={formData.telefone}
@@ -1594,7 +1594,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">E-mail de Contato</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">E-mail de Contato</label>
                       <input
                         type="text"
                         value={formData.email}
@@ -1605,7 +1605,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Nome da Mãe</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Nome da Mãe</label>
                       <input
                         type="text"
                         value={formData.nomeMae}
@@ -1616,7 +1616,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Nome do Pai</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Nome do Pai</label>
                       <input
                         type="text"
                         value={formData.nomePai}
@@ -1627,7 +1627,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">CEP *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">CEP *</label>
                       <div className="flex gap-1.5">
                         <input
                           type="text"
@@ -1648,7 +1648,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Endereço Residencial</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Endereço Residencial</label>
                       <input
                         type="text"
                         value={formData.endereco}
@@ -1659,7 +1659,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Número</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Número</label>
                       <input
                         type="text"
                         value={formData.numero}
@@ -1670,7 +1670,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Complemento</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Complemento</label>
                       <input
                         type="text"
                         value={formData.complemento}
@@ -1681,7 +1681,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Bairro</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Bairro</label>
                       <input
                         type="text"
                         value={formData.bairro}
@@ -1692,7 +1692,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Cidade</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Cidade</label>
                       <input
                         type="text"
                         value={formData.cidade}
@@ -1703,7 +1703,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Estado (UF)</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Estado (UF)</label>
                       <input
                         type="text"
                         value={formData.uf}
@@ -1719,14 +1719,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                 {/* 2. RESPONSÁVEL LEGAL */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
-                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
+                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-xs font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
                     <Award className="h-4 w-4 text-[#FF2E63]" />
                     <span>2. Responsável Legal (Se Menor de 18 Anos)</span>
                   </div>
 
                   <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Nome do Responsável Legal</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Nome do Responsável Legal</label>
                       <input
                         type="text"
                         value={formData.nomeResponsavel}
@@ -1737,7 +1737,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Parentesco</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Parentesco</label>
                       <input
                         type="text"
                         value={formData.parentescoResponsavel}
@@ -1748,7 +1748,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">CPF do Responsável</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">CPF do Responsável</label>
                       <input
                         type="text"
                         value={formData.cpfResponsavel}
@@ -1759,7 +1759,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">RG do Responsável</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">RG do Responsável</label>
                       <input
                         type="text"
                         value={formData.rgResponsavel}
@@ -1770,7 +1770,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Telefone do Responsável</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Telefone do Responsável</label>
                       <input
                         type="text"
                         value={formData.telefoneResponsavel}
@@ -1784,14 +1784,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                 {/* 3. DADOS ESCOLARES */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
-                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
+                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-xs font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
                     <GraduationCap className="h-4 w-4 text-[#FF2E63]" />
                     <span>3. Informações de Nivelamento Escolar</span>
                   </div>
 
                   <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Instituição de Ensino / Escola</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Instituição de Ensino / Escola</label>
                       <input
                         type="text"
                         value={formData.instituicaoEnsino}
@@ -1802,7 +1802,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Curso / Grau</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Curso / Grau</label>
                       <input
                         type="text"
                         value={formData.cursoGrau}
@@ -1813,7 +1813,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Turno Escolar</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Turno Escolar</label>
                       <select
                         value={formData.turnoEscolar}
                         onChange={(e) => setFormData(prev => ({ ...prev, turnoEscolar: e.target.value as any }))}
@@ -1827,7 +1827,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Série / Ano</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Série / Ano</label>
                       <input
                         type="text"
                         value={formData.serieAno}
@@ -1841,14 +1841,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                 {/* 4. CONTRATO DE APRENDIZAGEM */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
-                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
+                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-xs font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
                     <Calendar className="h-4 w-4 text-[#FF2E63]" />
                     <span>4. Informações do Contrato de Trabalho</span>
                   </div>
 
                   <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Data de Admissão *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Data de Admissão *</label>
                       <input
                         type="text"
                         value={formData.dataAdmissao}
@@ -1859,7 +1859,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Data de Término *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Data de Término *</label>
                       <input
                         type="text"
                         value={formData.dataTermino}
@@ -1870,7 +1870,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Entidade Qualificadora (e.g. CIEE, SENAC)</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Entidade Qualificadora (e.g. CIEE, SENAC)</label>
                       <input
                         type="text"
                         value={formData.entidadeQualificadora}
@@ -1881,7 +1881,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Curso de Aprendizagem</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Curso de Aprendizagem</label>
                       <input
                         type="text"
                         value={formData.cursoAprendizagem}
@@ -1892,7 +1892,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Status do Aprendiz *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Status do Aprendiz *</label>
                       <select
                         value={formData.status || "Ativo"}
                         onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
@@ -1904,7 +1904,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Tipo de Ocupação *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Tipo de Ocupação *</label>
                       <select
                         value={formData.tipoAprendiz}
                         onChange={(e) => setFormData(prev => ({ ...prev, tipoAprendiz: e.target.value as any }))}
@@ -1917,7 +1917,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Dia Teórica *</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Dia Teórica *</label>
                       <select
                         value={formData.diaTeorica}
                         onChange={(e) => setFormData(prev => ({ ...prev, diaTeorica: e.target.value as any }))}
@@ -1933,7 +1933,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Tutor / Supervisor</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Tutor / Supervisor</label>
                       <input
                         type="text"
                         value={formData.tutorSupervisor}
@@ -1944,7 +1944,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Setor de Alocação</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Setor de Alocação</label>
                       <input
                         type="text"
                         value={formData.setorAlocacao}
@@ -1955,7 +1955,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="md:col-span-2 flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Horário de Trabalho (Máx 6h)</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Horário de Trabalho (Máx 6h)</label>
                       <input
                         type="text"
                         value={formData.horarioTrabalho}
@@ -1970,14 +1970,14 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
 
                 {/* 5. DADOS BANCÁRIOS */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
-                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-[11px] font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
+                  <div className="bg-slate-100 dark:bg-slate-850 px-4 py-2 text-xs font-black uppercase text-slate-700 dark:text-slate-200 tracking-wider border-b border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5">
                     <Building2 className="h-4 w-4 text-[#FF2E63]" />
                     <span>5. Informações de Pagamento (Bancário)</span>
                   </div>
 
                   <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Banco</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Banco</label>
                       <input
                         type="text"
                         value={formData.banco}
@@ -1988,7 +1988,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Agência</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Agência</label>
                       <input
                         type="text"
                         value={formData.agencia}
@@ -1999,7 +1999,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Conta Corrente</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Conta Corrente</label>
                       <input
                         type="text"
                         value={formData.conta}
@@ -2010,7 +2010,7 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <label className="text-[11px] font-black uppercase text-slate-450 tracking-wider">Chave PIX</label>
+                      <label className="text-xs font-black uppercase text-slate-450 tracking-wider">Chave PIX</label>
                       <input
                         type="text"
                         value={formData.pix}
@@ -2087,13 +2087,13 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                       <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">
                         Confirmar Desligamento
                       </h3>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
                         Você está prestes a desligar o jovem aprendiz:
                       </p>
                       <p className="text-xs font-black text-red-650 dark:text-red-400 uppercase">
                         {getApprenticeName(confirmTerminateId)}
                       </p>
-                      <p className="text-[11px] text-slate-450 dark:text-slate-500 font-medium leading-relaxed mt-2">
+                      <p className="text-xs text-slate-450 dark:text-slate-500 font-medium leading-relaxed mt-2">
                         O contrato será marcado como <span className="font-bold">Inativo</span> e a data de desligamento será registrada como hoje. Esta ação pode ser revertida editando a ficha do aprendiz.
                       </p>
                     </div>
@@ -2131,13 +2131,13 @@ export default function AprendizContractModal({ isOpen, onClose, visualTheme = "
                       <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">
                         Excluir Cadastro Permanentemente
                       </h3>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
                         Você está prestes a deletar a ficha do jovem aprendiz:
                       </p>
                       <p className="text-xs font-black text-red-650 dark:text-red-400 uppercase">
                         {getApprenticeName(confirmDeleteId)}
                       </p>
-                      <p className="text-[11px] text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
+                      <p className="text-xs text-red-600 font-bold bg-red-50 dark:bg-red-950/30 p-2.5 rounded-lg border border-red-100 dark:border-red-900/20 leading-tight mt-2 uppercase">
                         ⚠️ ATENÇÃO: Esta ação é irreversível e apagará permanentemente todos os dados deste aprendiz!
                       </p>
                     </div>

@@ -1,102 +1,122 @@
 import React, { useState, useRef, useEffect } from "react";
+import {
+  ShoppingCart, Package, ScrollText, FolderOpen, Footprints,
+  LayoutDashboard, PlusCircle, Play, Shirt, Shield, GraduationCap,
+  Receipt, ShoppingBag, Save, XCircle, X, ArrowLeft, Pencil,
+  Trash2, Printer, RotateCcw, Plus, Search, HelpCircle, Link,
+  Settings, MessageSquare, Mail, ClipboardList, FileText,
+  FileSpreadsheet, FileDown, UserMinus, MapPin, Puzzle, CheckCircle,
+  Sparkles, FilterX, Paperclip, Camera, Image, Mic, Eye,
+  CircleAlert, DoorOpen, AlertTriangle, Paintbrush, Wrench,
+  FastForward, Flag, CheckCircle2, Sun, BookOpen, Moon,
+  LogOut, Send, Zap, Mic2, BarChart3, Clock, XOctagon,
+  type LucideIcon,
+} from "lucide-react";
 
-// --- GLOBAL EMOJI ICON DICTIONARY ---
-// Each key corresponds to a unique action. No duplicate emojis allowed!
-export const ICON_MAP = {
+// --- GLOBAL ICON DICTIONARY ---
+// Each key maps to a lucide-react icon + label. No emojis.
+export const ICON_MAP: Record<string, { icon: LucideIcon; label: string }> = {
   // Navigation / Views
-  cotacao: { emoji: "🛒", label: "Cotações / Compras" },
-  estoque: { emoji: "📦", label: "Estoque" },
-  normativa: { emoji: "📜", label: "Normativas" },
-  docs: { emoji: "📂", label: "Documentos" },
-  ronda: { emoji: "🚶", label: "Ronda" },
-  dashboard: { emoji: "📊", label: "Dashboard" },
-  novaRonda: { emoji: "🆕", label: "Nova Ronda" },
-  iniciarComparador: { emoji: "🚀", label: "Iniciar Comparador / Entrar" },
-  fichaAutonomo: { emoji: "👔", label: "Ficha Autônomo" },
-  termosResponsabilidade: { emoji: "🛡️", label: "Termos de Responsabilidade" },
-  aprendizes: { emoji: "🎓", label: "Gestão de Aprendizes" },
-  recibo: { emoji: "🧾", label: "Recibo Simplificado" },
-  novaCotacao: { emoji: "🛍️", label: "Nova Cotação" },
+  cotacao: { icon: ShoppingCart, label: "Cotações / Compras" },
+  estoque: { icon: Package, label: "Estoque" },
+  normativa: { icon: ScrollText, label: "Normativas" },
+  docs: { icon: FolderOpen, label: "Documentos" },
+  ronda: { icon: Footprints, label: "Ronda" },
+  dashboard: { icon: LayoutDashboard, label: "Dashboard" },
+  novaRonda: { icon: PlusCircle, label: "Nova Ronda" },
+  iniciarComparador: { icon: Play, label: "Iniciar Comparador / Entrar" },
+  fichaAutonomo: { icon: Shirt, label: "Ficha Autônomo" },
+  termosResponsabilidade: { icon: Shield, label: "Termos de Responsabilidade" },
+  aprendizes: { icon: GraduationCap, label: "Gestão de Aprendizes" },
+  recibo: { icon: Receipt, label: "Recibo Simplificado" },
+  novaCotacao: { icon: ShoppingBag, label: "Nova Cotação" },
 
   // General Actions
-  salvar: { emoji: "💾", label: "Salvar" },
-  cancelar: { emoji: "❌", label: "Cancelar / Fechar" },
-  fechar: { emoji: "❌", label: "Fechar / Cancelar" },
-  voltar: { emoji: "⬅️", label: "Voltar" },
-  editar: { emoji: "✏️", label: "Editar" },
-  excluir: { emoji: "🗑️", label: "Excluir" },
-  imprimir: { emoji: "🖨️", label: "Exportar PDF / Imprimir" },
-  limpar: { emoji: "🔄", label: "Limpar / Resetar" },
-  adicionar: { emoji: "➕", label: "Adicionar / Novo" },
-  pesquisar: { emoji: "🔍", label: "Buscar / Pesquisar" },
-  ajuda: { emoji: "❓", label: "Ajuda / FAQ" },
-  compartilhar: { emoji: "🔗", label: "Compartilhar Link" },
-  configuracoes: { emoji: "⚙️", label: "Configurações" },
+  salvar: { icon: Save, label: "Salvar" },
+  cancelar: { icon: XCircle, label: "Cancelar / Fechar" },
+  fechar: { icon: X, label: "Fechar / Cancelar" },
+  voltar: { icon: ArrowLeft, label: "Voltar" },
+  editar: { icon: Pencil, label: "Editar" },
+  excluir: { icon: Trash2, label: "Excluir" },
+  imprimir: { icon: Printer, label: "Exportar PDF / Imprimir" },
+  limpar: { icon: RotateCcw, label: "Limpar / Resetar" },
+  adicionar: { icon: Plus, label: "Adicionar / Novo" },
+  pesquisar: { icon: Search, label: "Buscar / Pesquisar" },
+  ajuda: { icon: HelpCircle, label: "Ajuda / FAQ" },
+  compartilhar: { icon: Link, label: "Compartilhar Link" },
+  configuracoes: { icon: Settings, label: "Configurações" },
 
   // Export / Messaging
-  exportarWhatsApp: { emoji: "💬", label: "Exportar via WhatsApp" },
-  exportarEmail: { emoji: "✉️", label: "Exportar via E-mail" },
-  copiar: { emoji: "📋", label: "Copiar Dados" },
-  gerarRelatorio: { emoji: "📄", label: "Gerar Relatório (PDF/DOCX)" },
-  exportarExcel: { emoji: "📗", label: "Exportar Planilha (Excel)" },
-  salvarTXT: { emoji: "📝", label: "Salvar como Arquivo de Texto (TXT)" },
-  desligarAprendiz: { emoji: "🛑", label: "Desligar Aprendiz" },
-  consultarCep: { emoji: "🗺️", label: "Consultar CEP" },
-  exemploModelo: { emoji: "🧩", label: "Preencher com Exemplo Modelo" },
-  confirmar: { emoji: "✅", label: "Confirmar / Concluir" },
+  exportarWhatsApp: { icon: MessageSquare, label: "Exportar via WhatsApp" },
+  exportarEmail: { icon: Mail, label: "Exportar via E-mail" },
+  copiar: { icon: ClipboardList, label: "Copiar Dados" },
+  gerarRelatorio: { icon: FileText, label: "Gerar Relatório (PDF/DOCX)" },
+  exportarExcel: { icon: FileSpreadsheet, label: "Exportar Planilha (Excel)" },
+  salvarTXT: { icon: FileDown, label: "Salvar como Arquivo de Texto (TXT)" },
+  desligarAprendiz: { icon: UserMinus, label: "Desligar Aprendiz" },
+  consultarCep: { icon: MapPin, label: "Consultar CEP" },
+  exemploModelo: { icon: Puzzle, label: "Preencher com Exemplo Modelo" },
+  confirmar: { icon: CheckCircle, label: "Confirmar / Concluir" },
 
   // Specific Features
-  geradorIA: { emoji: "✨", label: "Gerador IA / Sugestões" },
-  limparFiltros: { emoji: "🧹", label: "Limpar Filtros" },
-  importarDados: { emoji: "📥", label: "Importar Arquivo" },
-  anexarArquivo: { emoji: "📎", label: "Anexar Arquivo" },
-  tirarFoto: { emoji: "📷", label: "Tirar Foto (Câmera)" },
-  colarImagem: { emoji: "📋", label: "Colar Imagem" },
-  colarImagemEmoji: { emoji: "🖼️", label: "Colar Imagem" },
-  ditarVoz: { emoji: "🎤", label: "Ditar por Voz" },
-  visualizar: { emoji: "👁️", label: "Visualizar / Ver Detalhes" },
-  verDetalhes: { emoji: "👁️", label: "Ver Detalhes" },
-  buscarVistoria: { emoji: "🔎", label: "Buscar Vistoria" },
-  verDetalhesEmoji: { emoji: "👁️", label: "Ver Detalhes" },
+  geradorIA: { icon: Sparkles, label: "Gerador IA / Sugestões" },
+  limparFiltros: { icon: FilterX, label: "Limpar Filtros" },
+  importarDados: { icon: Plus, label: "Importar Arquivo" },
+  anexarArquivo: { icon: Paperclip, label: "Anexar Arquivo" },
+  tirarFoto: { icon: Camera, label: "Tirar Foto (Câmera)" },
+  colarImagem: { icon: ClipboardList, label: "Colar Imagem" },
+  colarImagemEmoji: { icon: Image, label: "Colar Imagem" },
+  ditarVoz: { icon: Mic, label: "Ditar por Voz" },
+  visualizar: { icon: Eye, label: "Visualizar / Ver Detalhes" },
+  verDetalhes: { icon: Eye, label: "Ver Detalhes" },
+  buscarVistoria: { icon: Search, label: "Buscar Vistoria" },
+  verDetalhesEmoji: { icon: Eye, label: "Ver Detalhes" },
 
   // Ronda specific
-  adicionarSala: { emoji: "🚪", label: "Adicionar Sala" },
-  registrarOcorrencia: { emoji: "📝", label: "Registrar Ocorrência" },
-  tipoAutuacao: { emoji: "🚨", label: "Tipo: Autuação" },
-  tipoLimpeza: { emoji: "🧽", label: "Tipo: Limpeza / Organização" },
-  tipoManutencao: { emoji: "🔧", label: "Tipo: Manutenção" },
-  finalizarOcorrencia: { emoji: "✅", label: "Finalizar Ocorrência" },
-  continuarVistoria: { emoji: "⏩", label: "Continuar Vistoria" },
-  finalizarVistoria: { emoji: "🏁", label: "Finalizar Vistoria / Concluir Ronda" },
-  criarChamado: { emoji: "📌", label: "Criar Chamado" },
+  adicionarSala: { icon: DoorOpen, label: "Adicionar Sala" },
+  registrarOcorrencia: { icon: CircleAlert, label: "Registrar Ocorrência" },
+  tipoAutuacao: { icon: AlertTriangle, label: "Tipo: Autuação" },
+  tipoLimpeza: { icon: Paintbrush, label: "Tipo: Limpeza / Organização" },
+  tipoManutencao: { icon: Wrench, label: "Tipo: Manutenção" },
+  finalizarOcorrencia: { icon: CheckCircle2, label: "Finalizar Ocorrência" },
+  continuarVistoria: { icon: FastForward, label: "Continuar Vistoria" },
+  finalizarVistoria: { icon: Flag, label: "Finalizar Vistoria / Concluir Ronda" },
+  criarChamado: { icon: PlusCircle, label: "Criar Chamado" },
 
   // Stock / Control Specific
-  saidaEstoque: { emoji: "📤", label: "Saída de Estoque" },
-  historicoConsumo: { emoji: "⏳", label: "Histórico de Consumo" },
-  alertasEstoque: { emoji: "⚠️", label: "Alertas de Estoque Baixo" },
-  adicionarEstoque: { emoji: "📥", label: "Adicionar ao Estoque" },
-  limparEstoque: { emoji: "🧼", label: "Registro de Limpeza" },
+  saidaEstoque: { icon: Package, label: "Saída de Estoque" },
+  historicoConsumo: { icon: Clock, label: "Histórico de Consumo" },
+  alertasEstoque: { icon: AlertTriangle, label: "Alertas de Estoque Baixo" },
+  adicionarEstoque: { icon: Plus, label: "Adicionar ao Estoque" },
+  limparEstoque: { icon: Paintbrush, label: "Registro de Limpeza" },
 
   // Theme Switches
-  temaClaro: { emoji: "☀️", label: "Modo Claro" },
-  temaSepia: { emoji: "👁️‍🗨️", label: "Modo Leitura (Sepia)" },
-  temaEscuro: { emoji: "🌙", label: "Modo Escuro (Dark)" },
+  temaClaro: { icon: Sun, label: "Modo Claro" },
+  temaSepia: { icon: BookOpen, label: "Modo Leitura (Sepia)" },
+  temaEscuro: { icon: Moon, label: "Modo Escuro (Dark)" },
 
   // User Actions
-  logout: { emoji: "🚪", label: "Sair / Trocar Operador" },
-  sair: { emoji: "🔒", label: "Sair / Trocar Operador" },
-  menuRonda: { emoji: "🚶", label: "Ronda" },
+  logout: { icon: LogOut, label: "Sair / Trocar Operador" },
+  sair: { icon: LogOut, label: "Sair / Trocar Operador" },
+  menuRonda: { icon: Footprints, label: "Ronda" },
 
   // Document Views
-  visualizarDoc: { emoji: "📄", label: "Visualizar Documento" },
-  criarDoc: { emoji: "➕", label: "Criar Documento" },
+  visualizarDoc: { icon: FileText, label: "Visualizar Documento" },
+  criarDoc: { icon: Plus, label: "Criar Documento" },
 
   // Other specific buttons
-  enviarChat: { emoji: "⚡", label: "Enviar Mensagem" },
-  gravarVozStock: { emoji: "🎙️", label: "Gravar Voz" },
-  gerarPDFStock: { emoji: "📊", label: "Gerar Relatório Gráfico" },
-  historicoLimpeza: { emoji: "🕒", label: "Histórico Completo" },
-  fecharModal: { emoji: "❌", label: "Fechar Modal" }
+  enviarChat: { icon: Send, label: "Enviar Mensagem" },
+  gravarVozStock: { icon: Mic2, label: "Gravar Voz" },
+  gerarPDFStock: { icon: BarChart3, label: "Gerar Relatório Gráfico" },
+  historicoLimpeza: { icon: Clock, label: "Histórico Completo" },
+  fecharModal: { icon: XOctagon, label: "Fechar Modal" },
+};
+
+const ICON_SIZES: Record<string, number> = {
+  sm: 18,
+  md: 20,
+  lg: 24,
+  xl: 28,
 };
 
 interface EmojiButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "title"> {
@@ -115,7 +135,10 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const touchTimeout = useRef<NodeJS.Timeout | null>(null);
-  const item = ICON_MAP[iconKey] || { emoji: "❓", label: "Ação" };
+  const fallback = { icon: HelpCircle, label: "Ação" };
+  const item = ICON_MAP[iconKey] || fallback;
+  const IconComponent = item.icon;
+  const iconSize = ICON_SIZES[size] || 20;
 
   const handleTouchStart = () => {
     touchTimeout.current = setTimeout(() => {
@@ -141,10 +164,10 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
   }, []);
 
   const sizeClasses = {
-    sm: "min-h-[44px] min-w-[44px] h-11 w-11 text-lg",
-    md: "min-h-[44px] min-w-[44px] h-12 w-12 text-xl",
-    lg: "min-h-[48px] min-w-[48px] h-14 w-14 text-2xl",
-    xl: "min-h-[52px] min-w-[52px] h-16 w-16 text-3xl",
+    sm: "min-h-[44px] min-w-[44px] h-11 w-11",
+    md: "min-h-[44px] min-w-[44px] h-12 w-12",
+    lg: "min-h-[48px] min-w-[48px] h-14 w-14",
+    xl: "min-h-[52px] min-w-[52px] h-16 w-16",
   }[size];
 
   const variantClasses = {
@@ -170,10 +193,9 @@ export const EmojiButton: React.FC<EmojiButtonProps> = ({
         onTouchEnd={handleTouchEnd}
         {...props}
       >
-        <span>{item.emoji}</span>
+        <IconComponent size={iconSize} strokeWidth={1.75} className="pointer-events-none" />
       </button>
 
-      {/* Premium Tooltip */}
       {showTooltip && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-[#252A34] text-white text-[11px] font-black uppercase tracking-wider rounded-lg shadow-premium whitespace-nowrap z-[999] animate-premium-scale-in border border-[#252A34] pointer-events-none">
           {item.label}

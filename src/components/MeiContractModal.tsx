@@ -1319,7 +1319,7 @@ Ficha de Contratação BP-COMPRAS — Emitida eletronicamente em ${new Date().to
             </div>
 
             {/* Table of Saved Suppliers */}
-            <div className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden bg-white dark:bg-[#13151b] max-h-[140px] overflow-y-auto custom-scrollbar">
+            <div className="border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-[#13151b] max-h-[140px] overflow-y-auto overflow-x-auto custom-scrollbar">
               <table className="w-full text-left text-[11px] border-collapse">
                 <thead>
                   <tr className="bg-slate-100 dark:bg-[#171a21] text-slate-500 dark:text-slate-400 font-bold uppercase text-[11px] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">

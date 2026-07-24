@@ -349,7 +349,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1">
         
         {/* Left Side: Normativa Manual Browser (cols 7) */}
-        <div className="lg:col-span-7 flex flex-col bp-card overflow-hidden min-h-[500px] lg:min-h-[calc(100vh-130px)]">
+        <div className="lg:col-span-7 flex flex-col bp-card overflow-hidden min-h-[350px] md:min-h-[500px] lg:min-h-[calc(100vh-130px)]">
           
           {/* Internal Browser Controls */}
           <div className="p-3 border-b border-slate-150 bg-slate-50/50 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -540,7 +540,7 @@ export default function NormativaView({ onBack, visualTheme }: NormativaViewProp
         </div>
 
         {/* Right Side: Interactive AI Tutor and Voice Recognition Widget (cols 5) */}
-        <div className="lg:col-span-5 flex flex-col bg-slate-100 border border-slate-200 rounded-2xl shadow-sm overflow-hidden lg:h-[calc(100vh-130px)]">
+        <div className="lg:col-span-5 flex flex-col bg-slate-100 border border-slate-200 rounded-2xl shadow-sm overflow-hidden lg:h-[calc(100vh-130px)] min-h-[300px]">
           
           {/* Chat Header */}
           <div className="p-3.5 bg-white border-b border-slate-200 flex items-center justify-between shrink-0">

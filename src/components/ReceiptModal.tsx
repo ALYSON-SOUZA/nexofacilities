@@ -761,7 +761,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div className="col-span-3 flex flex-col gap-1">
                       <label className="text-[11px] font-bold uppercase text-slate-500">Logradouro / Rua</label>
                       <input
@@ -784,7 +784,7 @@ export default function ReceiptModal({ isOpen, onClose, visualTheme = "light" }:
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="flex flex-col gap-1">
                       <label className="text-[11px] font-bold uppercase text-slate-500">Bairro</label>
                       <input

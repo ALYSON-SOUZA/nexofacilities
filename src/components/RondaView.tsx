@@ -2068,8 +2068,8 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                 2. Salas e Andares Inspecionados
               </h3>
               
-              <div className="overflow-hidden border border-slate-300 rounded-xl">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="overflow-x-auto border border-slate-300 rounded-xl">
+                <table className="w-full text-left text-xs border-collapse min-w-[500px]">
                   <thead>
                     <tr className="bg-[#4D4D4D] text-white font-black text-[11px] uppercase">
                       <th className="p-2.5 border-r border-slate-300">Sala / Ambiente Visitado</th>
@@ -2169,8 +2169,8 @@ export default function RondaView({ onBack, userName = "Alyson de Moura Souza", 
                   4. Ações Corretivas e Chamados Gerados
                 </h3>
                 
-                <div className="overflow-hidden border border-slate-300 rounded-xl">
-                  <table className="w-full text-left text-xs border-collapse">
+                <div className="overflow-x-auto border border-slate-300 rounded-xl">
+                  <table className="w-full text-left text-xs border-collapse min-w-[550px]">
                     <thead>
                       <tr className="bg-[#4D4D4D] text-white font-black text-[11px] uppercase">
                         <th className="p-2 border-r border-slate-300">Nº Chamado</th>
